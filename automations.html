@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en" class="dark"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aasani Systems - 7 Core Automations</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<!-- Animation Styles -->
+<style>
+/* Sequence animation intro */
+@keyframes animationIn {
+0% { opacity: 0; transform: translateY(30px); filter: blur(8px); }
+100% { opacity: 1; transform: translateY(0); filter: blur(0px); }
+}
+/* Default: paused */
+.animate-on-scroll { animation-play-state: paused !important; }
+/* Activated by JS */
+.animate-on-scroll.animate { animation-play-state: running !important; }
+/* Custom Fonts */
+:root {
+--font-display: 'Space Grotesk', system-ui, sans-serif;
+--font-body: 'Inter', system-ui, sans-serif;
+--font-mono: 'Space Mono', monospace;
+--accent-color: #10b981; /* Emerald-500 */
+}
+body { font-family: var(--font-body); }
+h1, h2, h3, .font-display { font-family: var(--font-display); }
+code, .font-mono { font-family: var(--font-mono); }
+/* Utilities */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+/* Animations */
+@keyframes marquee {
+0% { transform: translateX(0); }
+100% { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 20s linear infinite; }
+@keyframes beam {
+0% { left: -100%; }
+100% { left: 100%; }
+}
+.animate-beam { animation: beam 2s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+@keyframes clip-reveal {
+0% { clip-path: inset(100% 0 0 0); }
+100% { clip-path: inset(0 0 0 0); }
+}
+.animate-clip { animation: clip-reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite alternate; }
+/* Background Pattern */
+.bg-grid-pattern {
+background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+background-size: 24px 24px;
+}
+.bg-wave-pattern {
+background-image: repeating-linear-gradient(45deg, rgba(20, 184, 166, 0.03) 0px, rgba(20, 184, 166, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(135deg, rgba(20, 184, 166, 0.03) 0px, rgba(20, 184, 166, 0.03) 1px, transparent 1px, transparent 12px);
+background-size: 20px 20px;
+}
+.bg-time-pattern {
+background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+background-size: 40px 40px;
+}
+.bg-star-pattern {
+background-image: radial-gradient(rgba(20, 184, 166, 0.15) 1.5px, transparent 0);
+background-size: 32px 32px;
+}
+/* Slide Sizing & Responsive Mask */
+.slide-container {
+min-width: 0;
+}
+@media (min-width: 768px) {
+.slide-container {
+aspect-ratio: 3/4;
+}
+.mask-on-md {
+mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+-webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+}
+}
+</style>
+<!-- Font Imports -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+@keyframes spin-slow {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spin-slow 3s linear infinite; }
+</style><link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">.font-manrope { font-family: 'Manrope', sans-serif !important; }</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style><link id="all-fonts-link-font-newsreader" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&amp;display=swap"><style id="all-fonts-style-font-newsreader">.font-newsreader { font-family: 'Newsreader', serif !important; }</style><link id="all-fonts-link-font-google-sans-flex" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-google-sans-flex">.font-google-sans-flex { font-family: 'Google Sans Flex', sans-serif !important; }</style><link id="all-fonts-link-font-oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-oswald">.font-oswald { font-family: 'Oswald', sans-serif !important; }</style><link id="all-fonts-link-font-dm-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-dm-sans">.font-dm-sans { font-family: 'DM Sans', sans-serif !important; }</style><link id="all-fonts-link-font-cormorant" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-cormorant">.font-cormorant { font-family: 'Cormorant Garamond', serif !important; }</style></head>
+  <body class="min-h-screen flex flex-col items-center justify-center antialiased selection:bg-emerald-500/30 selection:text-emerald-200 text-white bg-[#050505]">
+    <!-- Fixed Navigation -->
+    <nav class="fixed flex md:px-6 bg-black/80 h-16 z-50 border-white/5 border-b pt-4 pr-4 pb-4 pl-4 top-0 right-0 left-0 backdrop-blur-md items-center justify-between">
+      <!-- Left: Title -->
+      <div class="flex items-center gap-2 w-auto md:w-1/3">
+        <h1 class="md:text-sm uppercase md:px-4 cursor-pointer hover:bg-black/60 transition-colors text-xs font-semibold text-white tracking-tight bg-black/40 opacity-90 rounded-full pt-2 pr-3 pb-2 pl-3 backdrop-blur-md" onclick="window.location.href='index.html'" role="button">
+          Aasani.ai
+        </h1>
+      </div>
+
+      <!-- Center: Pagination Dots -->
+      <div id="pagination-dots" class="hidden sm:flex w-1/3 gap-x-2 gap-y-2 items-center justify-center">
+        <div class="w-1.5 h-1.5 rounded-full hover:bg-white hover:scale-125 transition-all duration-300 cursor-pointer bg-white/20" data-index="0"></div>
+        <div class="w-1.5 h-1.5 rounded-full hover:bg-white hover:scale-125 transition-all duration-300 cursor-pointer bg-white scale-125" data-index="1"></div>
+        <div class="w-1.5 h-1.5 rounded-full hover:bg-white hover:scale-125 transition-all duration-300 cursor-pointer bg-white/20" data-index="2"></div>
+        <div class="w-1.5 h-1.5 rounded-full hover:bg-white hover:scale-125 transition-all duration-300 cursor-pointer bg-white/20" data-index="3"></div>
+        <div class="w-1.5 h-1.5 rounded-full hover:bg-white hover:scale-125 transition-all duration-300 cursor-pointer bg-white/20" data-index="4"></div>
+        <div class="w-1.5 h-1.5 rounded-full hover:bg-white hover:scale-125 transition-all duration-300 cursor-pointer bg-white/20" data-index="5"></div>
+        <div class="w-1.5 h-1.5 rounded-full hover:bg-white hover:scale-125 transition-all duration-300 cursor-pointer bg-white/20" data-index="6"></div>
+        <div class="w-1.5 h-1.5 rounded-full hover:bg-white hover:scale-125 transition-all duration-300 cursor-pointer bg-white/20" data-index="7"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-white hover:scale-125 transition-all duration-300 cursor-pointer" data-index="8"></div>
+      </div>
+
+      <!-- Right: Arrows -->
+      <div class="hidden md:flex w-1/3 items-center justify-end">
+        <div class="flex items-center gap-2 backdrop-blur-md p-2 rounded-full bg-black/80 border border-white/5">
+          <button id="prevBtn" class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-all text-neutral-400 hover:text-white disabled:opacity-30" style="opacity: 1;">
+            <iconify-icon icon="solar:arrow-left-linear" width="20"></iconify-icon>
+          </button>
+          <div class="w-[1px] h-4 md:h-5 bg-white/10"></div>
+          <button id="nextBtn" class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-all text-neutral-400 hover:text-white" style="opacity: 1;">
+            <iconify-icon icon="solar:arrow-right-linear" width="20"></iconify-icon>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Swipe Indicator -->
+      <div class="md:hidden flex text-[10px] text-neutral-500 w-auto items-center justify-end" style="display: none;">
+        <span class="font-mono tracking-widest">SWIPE</span>
+        <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+      </div>
+    </nav>
+
+    <!-- Horizontal Scroll Wrapper -->
+    <main class="flex flex-row overflow-x-auto snap-x snap-mandatory hide-scrollbar md:pt-32 md:pb-12 md:px-10 md:gap-x-12 scroll-smooth select-none active:cursor-grabbing mask-on-md w-full pt-16 pr-0 pb-0 pl-0 gap-x-0 gap-y-x-0" style="scroll-snap-type: x mandatory; scroll-behavior: smooth;" id="slider">
+      <!-- SLIDE 1: 7 CORE AUTOMATIONS (HERO) -->
+      <section class="slide-container flex-shrink-0 flex flex-col overflow-hidden snap-center group bg-[#0A0A0A] w-full md:w-[500px] h-[calc(100vh-4rem)] md:h-auto border-white/10 border-y md:border border-x-0 md:border-x relative shadow-2xl justify-between" id="slide-0">
+        <!-- Content -->
+        <div class="flex flex-col bg-center z-10 md:p-10 h-full bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/54c3bd9a-9ae0-4e13-8284-629ee960cbc8_1600w.webp)] bg-cover pt-6 pr-6 pb-6 pl-6 relative">
+          <div class="bg-black/40 absolute top-0 right-0 bottom-0 left-0"></div>
+
+          <div class="relative z-10 flex [animation:animationIn_0.8s_ease-out_0s_both] animate-on-scroll animate mix-blend-color-dodge mb-4 md:mb-8 items-start justify-between">
+            <span class="text-[10px] md:text-xs uppercase text-neutral-400 tracking-widest font-mono">
+              [01/09] // AUTOMATIONS
+            </span>
+          </div>
+
+          <div class="relative z-10 mt-auto mb-8 md:mb-12">
+            <h1 class="leading-[0.9] [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll animate md:mb-6 md:text-7xl text-5xl font-medium text-white tracking-tighter font-display mb-4">
+              The 7 Core
+              <span class="block text-neutral-400 tracking-tighter">
+                Automations
+              </span>
+            </h1>
+            <div class="[animation:animationIn_0.8s_ease-out_0.4s_both] animate-on-scroll animate space-y-3">
+              <p class="md:text-base text-sm font-medium text-emerald-400 tracking-wide font-display backdrop-blur-sm">
+                How top agents save 20+ hours per week
+              </p>
+              <p class="uppercase leading-relaxed text-[10px] md:text-xs text-neutral-300 tracking-wide font-mono max-w-[90%] border-emerald-500 border-l-2 pl-4 backdrop-blur-sm">
+                Real estate agents are drowning in admin work. Here's how to
+                automate it systematically.
+              </p>
+            </div>
+          </div>
+
+          <div class="relative z-10 pt-4 md:pt-6 border-t border-white/10 flex justify-between items-end [animation:animationIn_0.8s_ease-out_0.6s_both] animate-on-scroll animate">
+            <div class="flex flex-col">
+              <span class="font-mono text-[10px] text-neutral-500 uppercase mb-1">
+                Scope
+              </span>
+              <div class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
+                <span class="font-display text-sm md:text-base tracking-wide text-neutral-200">
+                  7 Core Automations
+                </span>
+              </div>
+            </div>
+            <div onclick="document.getElementById('slide-1').scrollIntoView({behavior: 'smooth', inline: 'center'})" class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition-transform cursor-pointer">
+              <iconify-icon icon="solar:arrow-right-linear" width="20"></iconify-icon>
+            </div>
+          </div>
+        </div>
+
+        <!-- Abstract BG -->
+        <div class="absolute inset-0 z-0 bg-grid-pattern opacity-30"></div>
+      </section>
+
+      <!-- SLIDE 2: AUTOMATION #1 - INSTANT LEAD RESPONSE SYSTEM -->
+      <section class="slide-container flex-shrink-0 w-full md:w-[500px] h-[calc(100vh-4rem)] md:h-auto bg-[#0A0A0A] relative flex flex-col overflow-hidden border-white/10 border-y md:border border-x-0 md:border-x shadow-2xl snap-center" id="slide-1">
+        <div class="absolute inset-0 bg-wave-pattern opacity-20 pointer-events-none z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/80 to-[#0A0A0A] z-0"></div>
+        <div class="flex flex-col md:p-10 bg-center z-10 h-full bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/5833cd3e-4d17-4ecb-bfa4-cb530767ba0f_1600w.webp)] bg-cover pt-6 pr-6 pb-6 pl-6 relative justify-between">
+          <div class="flex flex-col">
+            <header class="flex [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll mix-blend-color-dodge mb-6 items-center justify-between animate">
+              <span class="font-mono text-xs text-neutral-400">[02/09]</span>
+              <div class="flex items-center gap-2">
+                <iconify-icon icon="solar:chat-square-call-linear" class="text-teal-400 text-lg"></iconify-icon>
+                <span class="font-display text-[10px] md:text-xs font-semibold uppercase tracking-widest text-teal-400">
+                  Automation #1
+                </span>
+              </div>
+            </header>
+            <div class="[animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll animate">
+              <h2 class="text-3xl md:text-4xl text-white font-display tracking-tighter leading-none mb-3">
+                Instant Lead Response
+              </h2>
+              <p class="uppercase text-xs text-teal-400 tracking-wide font-mono">
+                Respond in 60 seconds, capture leads instantly
+              </p>
+            </div>
+          </div>
+          <div class="relative [animation:animationIn_0.8s_ease-out_0.5s_both] animate-on-scroll animate">
+            <div class="group overflow-hidden bg-black/60 hover:bg-black/70 rounded-lg p-6 md:p-8 relative shadow-2xl backdrop-blur-xl border border-white/10 hover:border-teal-400/50 transition-all duration-500 cursor-pointer hover:scale-[1.02] hover:shadow-teal-500/20">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex flex-col">
+                  <span class="text-4xl md:text-5xl font-bold text-white group-hover:text-teal-400 transition-colors duration-500 tracking-tighter">
+                    8x
+                  </span>
+                  <span class="text-xs text-teal-400 group-hover:text-teal-300 transition-colors duration-500 font-mono mt-1 tracking-wider">
+                    HIGHER CONVERSION
+                  </span>
+                </div>
+                <iconify-icon icon="solar:graph-up-linear" class="text-teal-400 group-hover:text-teal-300 group-hover:scale-110 transition-all duration-300 text-2xl"></iconify-icon>
+              </div>
+              <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden mb-3 group-hover:bg-white/20 transition-colors duration-500">
+                <div class="h-full bg-teal-400 group-hover:bg-teal-300 transition-all duration-500 w-[80%] rounded-full"></div>
+              </div>
+              <p class="text-xs text-neutral-300 font-light leading-snug">
+                When responding within 5 minutes vs 30 minutes. Speed is the
+                only currency.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4 [animation:animationIn_0.8s_ease-out_0.7s_both] animate-on-scroll animate">
+            <p class="leading-relaxed text-[11px] md:text-xs text-neutral-300 font-mono border-white/20 border-l-2 pl-4 backdrop-blur-sm">
+              Automatically send SMS confirmation, personalized email, task
+              reminder, CRM logging, and Slack alert for hot leads.
+            </p>
+            <div class="border-white/10 border-t pt-4">
+              <p class="text-[9px] uppercase text-neutral-300 tracking-widest font-mono backdrop-blur-sm">
+                Tools: Twilio, Follow Up Boss, kvCORE, LionDesk, CRM + Zapier
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3: AUTOMATION #2 - LEAD QUALIFICATION & SCORING -->
+      <section class="slide-container flex-shrink-0 w-full md:w-[500px] h-[calc(100vh-4rem)] md:h-auto bg-[#0A0A0A] relative flex flex-col overflow-hidden border-white/10 border-y md:border border-x-0 md:border-x shadow-2xl snap-center" id="slide-2">
+        <div class="absolute inset-0 bg-wave-pattern opacity-20 pointer-events-none z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/90 to-[#0A0A0A] z-0"></div>
+        <div class="flex flex-col md:p-10 bg-center z-10 h-full bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/28c300b5-bd2f-449c-a915-f968ced09242_1600w.webp)] bg-cover pt-6 pr-6 pb-6 pl-6 relative justify-between">
+          <div class="flex flex-col">
+            <header class="flex [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll animate mix-blend-color-dodge mb-6 items-center justify-between">
+              <span class="text-xs text-neutral-400 font-mono">[03/09]</span>
+              <div class="flex items-center gap-2">
+                <iconify-icon icon="solar:target-linear" class="text-teal-400 text-lg"></iconify-icon>
+                <span class="font-display text-[10px] md:text-xs font-semibold uppercase tracking-widest text-teal-400">
+                  Automation #2
+                </span>
+              </div>
+            </header>
+            <div class="[animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll animate backdrop-blur-sm">
+              <h2 class="md:text-4xl leading-none text-3xl text-white tracking-tighter font-display mb-3">
+                Lead Qualification &amp; Scoring
+              </h2>
+              <p class="uppercase text-xs text-teal-400 tracking-wide font-mono">
+                Focus on leads most likely to convert
+              </p>
+            </div>
+          </div>
+          <div class="relative [animation:animationIn_0.8s_ease-out_0.5s_both] animate-on-scroll animate">
+            <div class="group overflow-hidden md:p-8 bg-black/60 hover:bg-black/70 border-white/10 hover:border-teal-400/50 border rounded-lg pt-6 pr-6 pb-6 pl-6 relative shadow-2xl backdrop-blur-xl transition-all duration-500 cursor-pointer hover:scale-[1.02] hover:shadow-teal-500/20">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex flex-col">
+                  <span class="text-4xl md:text-5xl font-bold text-white group-hover:text-teal-400 transition-colors duration-500 tracking-tighter">
+                    67%
+                  </span>
+                  <span class="text-xs text-teal-400 group-hover:text-teal-300 transition-colors duration-500 font-mono mt-1 tracking-wider">
+                    INCREASE IN CONVERSION
+                  </span>
+                </div>
+                <iconify-icon icon="solar:filter-linear" class="text-teal-400 group-hover:text-teal-300 group-hover:scale-110 transition-all duration-300 text-2xl"></iconify-icon>
+              </div>
+              <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden mb-3 group-hover:bg-white/20 transition-colors duration-500">
+                <div class="h-full bg-teal-400 group-hover:bg-teal-300 transition-all duration-500 w-[67%] rounded-full"></div>
+              </div>
+              <p class="text-xs text-neutral-300 font-light leading-snug">
+                By focusing on qualified leads only. Stop chasing ghosts.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4 [animation:animationIn_0.8s_ease-out_0.7s_both] animate-on-scroll animate">
+            <p class="leading-relaxed text-[11px] md:text-xs text-neutral-300 font-mono border-white/20 border-l-2 pl-4 backdrop-blur-sm">
+              Automatically score leads based on behavior (opens, clicks,
+              calculator use). Route hot (50+ points) to you, warm to sequences,
+              cold to newsletter.
+            </p>
+            <div class="pt-4 border-t border-white/10">
+              <p class="text-[9px] uppercase text-neutral-300 tracking-widest font-mono backdrop-blur-sm">
+                Tools: Real Geeks, BoldTrail, Lofty, custom CRM scoring
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4: AUTOMATION #3 - SMART CRM FOLLOW-UP SEQUENCES -->
+      <section class="slide-container flex-shrink-0 w-full md:w-[500px] h-[calc(100vh-4rem)] md:h-auto bg-[#0A0A0A] relative flex flex-col overflow-hidden border-white/10 border-y md:border border-x-0 md:border-x shadow-2xl snap-center" id="slide-3">
+        <div class="absolute inset-0 bg-wave-pattern opacity-20 pointer-events-none z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/90 to-[#0A0A0A] z-0"></div>
+        <div class="flex flex-col md:p-10 bg-center z-10 h-full bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e5a1f416-a865-4aed-8dc3-01f47f1411d8_1600w.webp)] bg-cover pt-6 pr-6 pb-6 pl-6 relative justify-between">
+          <div class="flex flex-col">
+            <header class="flex [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll mix-blend-color-dodge mb-6 items-center justify-between animate">
+              <span class="font-mono text-xs text-neutral-400">[04/09]</span>
+              <div class="flex items-center gap-2">
+                <iconify-icon icon="solar:sort-from-top-to-bottom-linear" class="text-teal-400 text-lg"></iconify-icon>
+                <span class="font-display text-[10px] md:text-xs font-semibold uppercase tracking-widest text-teal-400">
+                  Automation #3
+                </span>
+              </div>
+            </header>
+            <div class="[animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll animate">
+              <h2 class="md:text-4xl leading-none text-3xl text-white tracking-tighter font-display mb-3 backdrop-blur-sm">
+                Smart CRM Follow-Up Sequences
+              </h2>
+              <p class="uppercase text-xs text-teal-400 tracking-wide font-mono backdrop-blur-sm">
+                80% of conversions happen after the 5th follow-up
+              </p>
+            </div>
+          </div>
+          <div class="relative [animation:animationIn_0.8s_ease-out_0.5s_both] animate-on-scroll animate">
+            <div class="group overflow-hidden bg-black/60 hover:bg-black/70 rounded-lg p-6 md:p-8 relative shadow-2xl backdrop-blur-xl border border-white/10 hover:border-teal-400/50 transition-all duration-500 cursor-pointer hover:scale-[1.02] hover:shadow-teal-500/20">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex flex-col">
+                  <span class="text-4xl md:text-5xl font-bold text-white group-hover:text-teal-400 transition-colors duration-500 tracking-tighter">
+                    80%
+                  </span>
+                  <span class="text-xs text-teal-400 group-hover:text-teal-300 transition-colors duration-500 font-mono mt-1 tracking-wider">
+                    OF CONVERSIONS
+                  </span>
+                </div>
+                <iconify-icon icon="solar:chart-square-linear" class="text-teal-400 group-hover:text-teal-300 group-hover:scale-110 transition-all duration-300 text-2xl"></iconify-icon>
+              </div>
+              <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden mb-3 group-hover:bg-white/20 transition-colors duration-500">
+                <div class="h-full bg-teal-400 group-hover:bg-teal-300 transition-all duration-500 w-[80%] rounded-full"></div>
+              </div>
+              <p class="text-xs text-neutral-300 font-light leading-snug">
+                Require 5+ follow-ups to close. Most agents stop after 2.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4 [animation:animationIn_0.8s_ease-out_0.7s_both] animate-on-scroll animate">
+            <p class="leading-relaxed text-[11px] md:text-xs text-neutral-300 font-mono border-white/20 border-l-2 pl-4 backdrop-blur-sm">
+              Automate multiple sequences: new leads (14-day), property viewers
+              (escalating engagement), past clients (anniversaries), behavior
+              triggers (opens, price drops, dormancy).
+            </p>
+            <div class="pt-4 border-t border-white/10">
+              <p class="text-[9px] uppercase text-neutral-300 tracking-widest font-mono backdrop-blur-sm">
+                Tools: Wise Agent, Follow Up Boss, CINC, Market Leader, HubSpot
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: AUTOMATION #4 - APPOINTMENT SCHEDULING & REMINDERS -->
+      <section class="slide-container flex-shrink-0 w-full md:w-[500px] h-[calc(100vh-4rem)] md:h-auto bg-[#0A0A0A] relative flex flex-col overflow-hidden border-white/10 border-y md:border border-x-0 md:border-x shadow-2xl snap-center" id="slide-4">
+        <div class="absolute inset-0 bg-time-pattern opacity-20 pointer-events-none z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/90 to-[#0A0A0A] z-0"></div>
+        <div class="flex flex-col md:p-10 z-10 bg-center h-full bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e447375c-3ed0-4923-a1dd-34dc0c311246_1600w.webp)] bg-cover pt-6 pr-6 pb-6 pl-6 relative justify-between">
+          <div class="flex flex-col">
+            <header class="flex [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll animate mix-blend-color-dodge mb-6 items-center justify-between">
+              <span class="font-mono text-xs text-neutral-400">[05/09]</span>
+              <div class="flex items-center gap-2">
+                <iconify-icon icon="solar:calendar-linear" class="text-teal-400 text-lg"></iconify-icon>
+                <span class="font-display text-[10px] md:text-xs font-semibold uppercase tracking-widest text-teal-400">
+                  Automation #4
+                </span>
+              </div>
+            </header>
+            <div class="[animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll animate">
+              <h2 class="md:text-4xl leading-none text-3xl text-white tracking-tighter font-display mb-3 backdrop-blur-sm">
+                Appointment Scheduling &amp; Reminders
+              </h2>
+              <p class="uppercase text-xs text-teal-400 tracking-wide font-mono backdrop-blur-sm">
+                Eliminate phone tag and no-shows
+              </p>
+            </div>
+          </div>
+          <div class="relative [animation:animationIn_0.8s_ease-out_0.5s_both] animate-on-scroll animate">
+            <div class="group overflow-hidden bg-black/60 hover:bg-black/70 rounded-lg p-6 md:p-8 relative shadow-2xl backdrop-blur-xl border border-white/10 hover:border-teal-400/50 transition-all duration-500 cursor-pointer hover:scale-[1.02] hover:shadow-teal-500/20">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex flex-col">
+                  <span class="text-4xl md:text-5xl font-bold text-white group-hover:text-teal-400 transition-colors duration-500 tracking-tighter">
+                    5-7
+                  </span>
+                  <span class="text-xs text-teal-400 group-hover:text-teal-300 transition-colors duration-500 font-mono mt-1 tracking-wider">
+                    HOURS SAVED PER WEEK
+                  </span>
+                </div>
+                <iconify-icon icon="solar:clock-circle-linear" class="text-teal-400 group-hover:text-teal-300 group-hover:scale-110 transition-all duration-300 text-2xl"></iconify-icon>
+              </div>
+              <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden mb-3 group-hover:bg-white/20 transition-colors duration-500">
+                <div class="h-full bg-teal-400 group-hover:bg-teal-300 transition-all duration-500 w-[60%] rounded-full"></div>
+              </div>
+              <p class="text-xs text-neutral-300 font-light leading-snug">
+                On scheduling and follow-up coordination.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4 [animation:animationIn_0.8s_ease-out_0.7s_both] animate-on-scroll animate">
+            <p class="leading-relaxed text-[11px] md:text-xs text-neutral-300 font-mono border-white/20 border-l-2 pl-4 backdrop-blur-sm">
+              Self-service booking link (no phone calls). Automated reminders at
+              24 hours (email + directions), 2 hours (SMS), 15 minutes
+              (auto-text). Post-showing follow-up automated.
+            </p>
+            <div class="pt-4 border-t border-white/10">
+              <p class="text-[9px] uppercase text-neutral-300 tracking-widest font-mono backdrop-blur-sm">
+                Tools: Calendly, Acuity Scheduling, ShowingTime, Zillow Showing
+                Manager
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: AUTOMATION #5 - TRANSACTION COORDINATION -->
+      <section class="slide-container flex-shrink-0 w-full md:w-[500px] h-[calc(100vh-4rem)] md:h-auto bg-[#0A0A0A] relative flex flex-col overflow-hidden border-white/10 border-y md:border border-x-0 md:border-x shadow-2xl snap-center" id="slide-5">
+        <div class="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/90 to-[#0A0A0A] z-0"></div>
+        <div class="flex flex-col md:p-10 bg-center z-10 h-full bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/57db1b72-80c1-4608-bb68-3a0d7b7dc2ad_1600w.webp)] bg-cover pt-6 pr-6 pb-6 pl-6 relative justify-between">
+          <div class="flex flex-col">
+            <header class="flex [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll mb-6 items-center justify-between">
+              <span class="font-mono text-xs text-neutral-400">[06/09]</span>
+              <div class="flex items-center gap-2">
+                <iconify-icon icon="solar:clipboard-check-linear" class="text-teal-400 text-lg"></iconify-icon>
+                <span class="font-display text-[10px] md:text-xs font-semibold uppercase tracking-widest text-teal-400">
+                  Automation #5
+                </span>
+              </div>
+            </header>
+            <div class="[animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll">
+              <h2 class="md:text-4xl leading-none text-3xl text-white tracking-tighter font-display mb-3 backdrop-blur-sm">
+                Transaction Coordination &amp; Doc Mgmt
+              </h2>
+              <p class="uppercase text-xs text-teal-400 tracking-wide font-mono backdrop-blur-sm">
+                95% on-time closings vs 78% industry average
+              </p>
+            </div>
+          </div>
+          <div class="relative [animation:animationIn_0.8s_ease-out_0.5s_both] animate-on-scroll">
+            <div class="group overflow-hidden bg-black/60 hover:bg-black/70 rounded-lg p-6 md:p-8 relative shadow-2xl backdrop-blur-xl border border-white/10 hover:border-teal-400/50 transition-all duration-500 cursor-pointer hover:scale-[1.02] hover:shadow-teal-500/20">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex flex-col">
+                  <span class="text-4xl md:text-5xl font-bold text-white group-hover:text-teal-400 transition-colors duration-500 tracking-tighter">
+                    95%
+                  </span>
+                  <span class="text-xs text-teal-400 group-hover:text-teal-300 transition-colors duration-500 font-mono mt-1 tracking-wider">
+                    ON-TIME CLOSINGS
+                  </span>
+                </div>
+                <iconify-icon icon="solar:shield-check-linear" class="text-teal-400 group-hover:text-teal-300 group-hover:scale-110 transition-all duration-300 text-2xl"></iconify-icon>
+              </div>
+              <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden mb-3 group-hover:bg-white/20 transition-colors duration-500">
+                <div class="h-full bg-teal-400 group-hover:bg-teal-300 transition-all duration-500 w-[95%] rounded-full"></div>
+              </div>
+              <p class="text-xs text-neutral-300 font-light leading-snug">
+                Eliminates deal risk from missed deadlines.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4 [animation:animationIn_0.8s_ease-out_0.7s_both] animate-on-scroll">
+            <p class="leading-relaxed text-[11px] md:text-xs text-neutral-300 font-mono border-white/20 border-l-2 pl-4 backdrop-blur-sm">
+              Auto-generated 30+ task checklist. Deadline reminders (3 days, 1
+              day, day-of). Document automation: inspection requests, appraisal
+              tracking, walk-through scheduling. Milestone alerts.
+            </p>
+            <div class="pt-4 border-t border-white/10">
+              <p class="text-[9px] uppercase text-neutral-300 tracking-widest font-mono backdrop-blur-sm">
+                Tools: Skyslope, Dotloop, Transaction Desk, Brokermint
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 7: AUTOMATION #6 - CLIENT COMMUNICATION & CONTENT MARKETING -->
+      <section class="slide-container flex-shrink-0 w-full md:w-[500px] h-[calc(100vh-4rem)] md:h-auto bg-[#0A0A0A] relative flex flex-col overflow-hidden border-white/10 border-y md:border border-x-0 md:border-x shadow-2xl snap-center" id="slide-6">
+        <div class="absolute inset-0 bg-wave-pattern opacity-20 pointer-events-none z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/90 to-[#0A0A0A] z-0"></div>
+        <div class="flex flex-col md:p-10 bg-center h-full bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/5a6af9b6-b3cd-4249-882f-5f2827b577f9_1600w.jpg)] bg-cover z-10 pt-6 pr-6 pb-6 pl-6 relative justify-between">
+          <div class="flex flex-col">
+            
+            <header class="flex [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll bg-center mix-blend-color-dodge mb-6 items-center justify-between">
+              <span class="text-xs text-neutral-400 font-mono">[07/09]</span>
+              <div class="flex items-center gap-2">
+                <iconify-icon icon="solar:star-circle-linear" class="text-teal-400 text-lg"></iconify-icon>
+                <span class="text-[10px] md:text-xs uppercase font-semibold text-teal-400 tracking-widest font-display">Automation #6</span>
+              </div>
+            </header><div class="[animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll">
+              <h2 class="text-3xl md:text-4xl text-white font-display tracking-tighter leading-none mb-3">
+                Client Communication &amp; Content Marketing
+              </h2>
+              <p class="text-teal-400 text-xs font-mono tracking-wide uppercase">
+                63% of business comes from referrals and repeat clients
+              </p>
+            </div>
+          </div>
+          <div class="relative [animation:animationIn_0.8s_ease-out_0.5s_both] animate-on-scroll">
+            <div class="group overflow-hidden md:p-8 bg-black/60 hover:bg-black/70 border-white/10 hover:border-teal-400/50 border rounded-lg pt-6 pr-6 pb-6 pl-6 relative shadow-2xl backdrop-blur-xl transition-all duration-500 cursor-pointer hover:scale-[1.02] hover:shadow-teal-500/20">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex flex-col">
+                  <span class="text-4xl md:text-5xl font-bold text-white group-hover:text-teal-400 transition-colors duration-500 tracking-tighter">
+                    6x
+                  </span>
+                  <span class="text-xs text-teal-400 group-hover:text-teal-300 transition-colors duration-500 font-mono mt-1 tracking-wider">
+                    HIGHER TRANSACTION RATES
+                  </span>
+                </div>
+                <iconify-icon icon="solar:letter-linear" class="text-teal-400 group-hover:text-teal-300 group-hover:scale-110 transition-all duration-300 text-2xl"></iconify-icon>
+              </div>
+              <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden mb-3 group-hover:bg-white/20 transition-colors duration-500">
+                <div class="h-full bg-teal-400 group-hover:bg-teal-300 transition-all duration-500 w-full rounded-full"></div>
+              </div>
+              <p class="text-xs text-neutral-300 font-light leading-snug">
+                From personalized emails vs generic newsletters.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4 [animation:animationIn_0.8s_ease-out_0.7s_both] animate-on-scroll">
+            <p class="leading-relaxed text-[11px] md:text-xs text-neutral-300 font-mono border-white/20 border-l-2 pl-4 backdrop-blur">
+              Monthly market updates (auto-generated), property alerts (new
+              listings, price drops, open houses), seasonal campaigns
+              (spring/summer/fall/winter), auto-posts to Facebook, Instagram,
+              LinkedIn.
+            </p>
+            <div class="pt-4 border-t border-white/10">
+              <p class="text-[9px] uppercase text-neutral-300 tracking-widest font-mono backdrop-blur">
+                Tools: Mailchimp, Constant Contact, Real Geeks marketing suite,
+                Follow Up Boss
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 8: AUTOMATION #7 - REVIEW & REFERRAL GENERATION -->
+      <section class="slide-container flex-shrink-0 w-full md:w-[500px] h-[calc(100vh-4rem)] md:h-auto bg-[#0A0A0A] relative flex flex-col overflow-hidden border-white/10 border-y md:border border-x-0 md:border-x shadow-2xl snap-center" id="slide-7">
+        <div class="absolute inset-0 bg-star-pattern opacity-20 pointer-events-none z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/90 to-[#0A0A0A] z-0"></div>
+        <div class="flex flex-col md:p-10 bg-center z-10 h-full bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/fb2aee34-64cb-4040-867f-e6ea29394e32_1600w.webp)] bg-cover pt-6 pr-6 pb-6 pl-6 relative justify-between">
+          <div class="flex flex-col">
+            <header class="flex [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll mb-6 backdrop-blur-sm items-center justify-between">
+              <span class="font-mono text-xs text-neutral-400">[08/09]</span>
+              <div class="flex items-center gap-2">
+                <iconify-icon icon="solar:star-circle-linear" class="text-teal-400 text-lg"></iconify-icon>
+                <span class="font-display text-[10px] md:text-xs font-semibold uppercase tracking-widest text-teal-400">
+                  Automation #7
+                </span>
+              </div>
+            </header>
+            <div class="[animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll">
+              <h2 class="text-3xl md:text-4xl text-white font-display tracking-tighter leading-none mb-3">
+                Review &amp; Referral Generation
+              </h2>
+              <p class="text-teal-400 text-xs font-mono tracking-wide uppercase">
+                Turn happy clients into reviews and referrals
+              </p>
+            </div>
+          </div>
+          <div class="relative [animation:animationIn_0.8s_ease-out_0.5s_both] animate-on-scroll">
+            <div class="group overflow-hidden bg-black/60 hover:bg-black/70 rounded-lg p-6 md:p-8 relative shadow-2xl backdrop-blur-xl border border-white/10 hover:border-teal-400/50 transition-all duration-500 cursor-pointer hover:scale-[1.02] hover:shadow-teal-500/20">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex flex-col">
+                  <span class="text-4xl md:text-5xl font-bold text-white group-hover:text-teal-400 transition-colors duration-500 tracking-tighter">
+                    41%
+                  </span>
+                  <span class="text-xs text-teal-400 group-hover:text-teal-300 transition-colors duration-500 font-mono mt-1 tracking-wider">
+                    OF TOP AGENT BUSINESS
+                  </span>
+                </div>
+                <iconify-icon icon="solar:users-group-rounded-linear" class="text-teal-400 group-hover:text-teal-300 group-hover:scale-110 transition-all duration-300 text-2xl"></iconify-icon>
+              </div>
+              <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden mb-3 group-hover:bg-white/20 transition-colors duration-500">
+                <div class="h-full bg-teal-400 group-hover:bg-teal-300 transition-all duration-500 w-[41%] rounded-full"></div>
+              </div>
+              <p class="text-xs text-neutral-300 font-light leading-snug">
+                Comes from referrals.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4 [animation:animationIn_0.8s_ease-out_0.7s_both] animate-on-scroll">
+            <p class="leading-relaxed text-[11px] md:text-xs text-neutral-300 font-mono border-white/20 border-l-2 pl-4 backdrop-blur-sm">
+              Post-closing sequence (Day 7: Google review request, Day 14:
+              Zillow, Day 30: referral ask). Reputation monitoring across
+              Google, Zillow, Realtor.com. Referral tracking with gifts,
+              bonuses, recognition.
+            </p>
+            <div class="pt-4 border-t border-white/10">
+              <p class="text-[9px] uppercase text-neutral-300 tracking-widest font-mono backdrop-blur-sm">
+                Tools: BirdEye, Podium, GatherUp, built-in CRM review features
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 9: CTA / FINAL CONVERSION -->
+      <section class="slide-container flex-shrink-0 w-full md:w-[500px] h-[calc(100vh-4rem)] md:h-auto bg-[#0A0A0A] relative flex flex-col overflow-hidden border-white/10 border-y md:border border-x-0 md:border-x shadow-2xl snap-center" id="slide-8">
+        <div class="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-teal-900/30 via-[#0A0A0A] to-[#0A0A0A] z-0"></div>
+        <div class="flex flex-col z-10 h-full p-6 md:p-10 justify-between relative">
+          <header class="flex justify-between items-center [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll">
+            <span class="font-mono text-xs text-neutral-500">[09/09]</span>
+            <span class="font-display text-[10px] md:text-xs font-semibold uppercase tracking-widest text-teal-400">
+              Next Steps
+            </span>
+          </header>
+          <div class="flex flex-col items-start space-y-6 md:space-y-8 [animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll">
+            <div class="">
+              <h2 class="text-3xl md:text-4xl text-white font-display tracking-tighter mb-4 leading-none">
+                Ready to Implement These Automations?
+              </h2>
+              <p class="text-xs md:text-sm text-neutral-400 font-mono leading-relaxed">
+                These 7 automations work together as a system. Most agents
+                implement 2-3 to start and add more as they grow. You don't need
+                to figure it out alone.
+              </p>
+            </div>
+            <ul class="space-y-3 w-full">
+              <li class="flex items-start gap-3">
+                <iconify-icon icon="solar:check-circle-bold" class="text-teal-400 text-lg flex-shrink-0 mt-0.5"></iconify-icon>
+                <span class="text-xs md:text-sm text-neutral-300 font-light">
+                  Free 30-minute operational assessment
+                </span>
+              </li>
+              <li class="flex items-start gap-3">
+                <iconify-icon icon="solar:check-circle-bold" class="text-teal-400 text-lg flex-shrink-0 mt-0.5"></iconify-icon>
+                <span class="text-xs md:text-sm text-neutral-300 font-light">
+                  Custom roadmap for YOUR business
+                </span>
+              </li>
+              <li class="flex items-start gap-3">
+                <iconify-icon icon="solar:check-circle-bold" class="text-teal-400 text-lg flex-shrink-0 mt-0.5"></iconify-icon>
+                <span class="text-xs md:text-sm text-neutral-300 font-light">
+                  Step-by-step implementation support
+                </span>
+              </li>
+              <li class="flex items-start gap-3">
+                <iconify-icon icon="solar:check-circle-bold" class="text-teal-400 text-lg flex-shrink-0 mt-0.5"></iconify-icon>
+                <span class="text-xs md:text-sm text-neutral-300 font-light">
+                  Structure audited before any intelligence applied
+                </span>
+              </li>
+            </ul>
+            <a href="https://cal.com/ayub-yousaf-c1ijnf/bookatime" target="_blank" class="w-full group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-teal-500 text-black rounded-full font-display font-bold tracking-tight hover:bg-teal-400 transition-all duration-200 shadow-[0_0_20px_rgba(20,184,166,0.2)] hover:shadow-[0_0_30px_rgba(20,184,166,0.4)] hover:scale-105 overflow-hidden font-semibold">
+              <span class="absolute inset-0 rounded-full p-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style="mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude; -webkit-mask-composite: xor;">
+                <span class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] animate-spin-slow"></span>
+              </span>
+              <span class="relative flex items-center gap-2">
+                <span>BOOK YOUR FREE ASSESSMENT</span>
+                <iconify-icon icon="solar:arrow-right-linear" class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+              </span>
+            </a>
+          </div>
+          <footer class="border-t border-white/10 pt-5 [animation:animationIn_0.8s_ease-out_0.5s_both] animate-on-scroll">
+            <div class="flex flex-col gap-2">
+              <span class="text-[10px] text-neutral-500 font-mono uppercase tracking-widest mb-1">
+                Questions? Reach out:
+              </span>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-y-1 gap-x-4 text-xs font-mono text-neutral-400">
+                <a href="mailto:your@email.com" class="flex items-center gap-2 hover:text-white transition-colors">
+                  <iconify-icon icon="lucide:mail" class="text-teal-500"></iconify-icon>
+                  your@email.com
+                </a>
+                <a href="tel:#" class="flex items-center gap-2 hover:text-white transition-colors">
+                  <iconify-icon icon="lucide:phone" class="text-teal-500"></iconify-icon>
+                  +1 (XXX) XXX-XXXX
+                </a>
+                <a href="https://aasani.ai" target="_blank" class="flex items-center gap-2 hover:text-white transition-colors">
+                  <iconify-icon icon="lucide:globe" class="text-teal-500"></iconify-icon>
+                  aasani.ai
+                </a>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <!-- Interactive Scripts -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          const slider = document.getElementById('slider');
+          const prevBtn = document.getElementById('prevBtn');
+          const nextBtn = document.getElementById('nextBtn');
+          const dots = document.querySelectorAll('#pagination-dots div');
+          const slides = document.querySelectorAll('.slide-container');
+
+          // Wheel / Trackpad Scroll Handling (Enhanced for Vertical Input)
+          let wheelTimeout;
+          slider.addEventListener('wheel', (evt) => {
+              evt.preventDefault();
+              slider.style.scrollSnapType = 'none';
+              slider.style.scrollBehavior = 'auto';
+
+              // Map vertical scroll to horizontal navigation
+              // If user scrolls vertically (deltaY), apply to horizontal (scrollLeft)
+              // If user scrolls horizontally (deltaX), also apply to horizontal
+              const scrollAmount = Math.abs(evt.deltaY) > Math.abs(evt.deltaX) ? evt.deltaY : evt.deltaX;
+              slider.scrollLeft += scrollAmount;
+
+              clearTimeout(wheelTimeout);
+              wheelTimeout = setTimeout(() => {
+                  slider.style.scrollSnapType = 'x mandatory';
+                  slider.style.scrollBehavior = 'smooth';
+              }, 150);
+          }, { passive: false });
+
+          // Touch Gesture Support
+          let touchStartY = 0;
+          let touchStartX = 0;
+          let touchStartTime = 0;
+
+          slider.addEventListener('touchstart', (e) => {
+              touchStartY = e.touches[0].clientY;
+              touchStartX = e.touches[0].clientX;
+              touchStartTime = Date.now();
+          }, { passive: true });
+
+          slider.addEventListener('touchmove', (e) => {
+              const touchEndY = e.touches[0].clientY;
+              const touchEndX = e.touches[0].clientX;
+              const deltaY = touchStartY - touchEndY;
+              const deltaX = touchStartX - touchEndX;
+              const timeDelta = Date.now() - touchStartTime;
+
+              // If vertical swipe is more pronounced than horizontal
+              if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 30 && timeDelta < 300) {
+                  // Map vertical swipe to horizontal scroll
+                  // Calculate width dynamically to handle mobile (gap:0) vs desktop (gap:48)
+                  const gap = window.innerWidth >= 768 ? 48 : 0;
+                  const slideWidth = slider.querySelector('.slide-container').offsetWidth + gap;
+
+                  if (deltaY > 50) {
+                      // Swiped up significantly - go to previous slide
+                      slider.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+                      touchStartY = touchEndY; // Reset to prevent multiple triggers
+                  } else if (deltaY < -50) {
+                      // Swiped down significantly - go to next slide
+                      slider.scrollBy({ left: slideWidth, behavior: 'smooth' });
+                      touchStartY = touchEndY; // Reset to prevent multiple triggers
+                  }
+              }
+          }, { passive: true });
+
+          // Mouse Drag Logic
+          let isDown = false;
+          let startX;
+          let scrollLeft;
+
+          slider.addEventListener('mousedown', (e) => {
+              isDown = true;
+              slider.classList.add('cursor-grabbing');
+              slider.classList.remove('cursor-grab');
+              startX = e.pageX - slider.offsetLeft;
+              scrollLeft = slider.scrollLeft;
+              slider.style.scrollSnapType = 'none';
+              slider.style.scrollBehavior = 'auto';
+          });
+
+          const stopDragging = () => {
+              if(!isDown) return;
+              isDown = false;
+              slider.classList.remove('cursor-grabbing');
+              slider.classList.add('cursor-grab');
+              slider.style.scrollSnapType = 'x mandatory';
+              slider.style.scrollBehavior = 'smooth';
+          };
+
+          slider.addEventListener('mouseleave', stopDragging);
+          slider.addEventListener('mouseup', stopDragging);
+
+          slider.addEventListener('mousemove', (e) => {
+              if (!isDown) return;
+              e.preventDefault();
+              const x = e.pageX - slider.offsetLeft;
+              const walk = (x - startX) * 2;
+              slider.scrollLeft = scrollLeft - walk;
+          });
+
+          // Navigation Updates
+          const updateNavigation = () => {
+              const centerPoint = slider.scrollLeft + (slider.clientWidth / 2);
+              let activeIndex = 0;
+
+              slides.forEach((slide, index) => {
+                  if (centerPoint >= slide.offsetLeft && centerPoint <= (slide.offsetLeft + slide.offsetWidth)) {
+                      activeIndex = index;
+                  }
+              });
+
+              dots.forEach((dot, index) => {
+                  if (index === activeIndex) {
+                      dot.classList.remove('bg-white/20');
+                      dot.classList.add('bg-white', 'scale-125');
+                  } else {
+                      dot.classList.add('bg-white/20');
+                      dot.classList.remove('bg-white', 'scale-125');
+                  }
+              });
+
+              if(prevBtn && nextBtn) {
+                  prevBtn.disabled = activeIndex === 0;
+                  prevBtn.style.opacity = activeIndex === 0 ? '0.3' : '1';
+                  nextBtn.disabled = activeIndex === slides.length - 1;
+                  nextBtn.style.opacity = activeIndex === slides.length - 1 ? '0.3' : '1';
+              }
+          };
+
+          slider.addEventListener('scroll', updateNavigation);
+          updateNavigation();
+
+          if(prevBtn) prevBtn.addEventListener('click', () => {
+              const w = slides[0].offsetWidth + 24;
+              slider.scrollBy({ left: -w, behavior: 'smooth' });
+          });
+
+          if(nextBtn) nextBtn.addEventListener('click', () => {
+              const w = slides[0].offsetWidth + 24;
+              slider.scrollBy({ left: w, behavior: 'smooth' });
+          });
+
+          dots.forEach(dot => {
+              dot.addEventListener('click', () => {
+                  const idx = dot.getAttribute('data-index');
+                  const target = document.getElementById(`slide-${idx}`);
+                  if(target) target.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+              });
+          });
+
+          const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                      entry.target.querySelectorAll('.animate-on-scroll').forEach(el => el.classList.add('animate'));
+                  }
+              });
+          }, { root: slider, threshold: 0.15 });
+
+          slides.forEach(slide => observer.observe(slide));
+      });
+    </script>
+  
+</body></html>

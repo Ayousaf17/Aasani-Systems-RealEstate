@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aasani Systems - Real Estate Operations</title>
+<!-- Scripts -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* Base Setup */
+:root {
+--bg-deep: #050505;
+}
+body {
+font-family: 'Inter', sans-serif;
+background-color: var(--bg-deep);
+color: #e5e5e5;
+scrollbar-width: none;
+-ms-overflow-style: none;
+}
+body::-webkit-scrollbar {
+display: none;
+}
+html {
+scroll-behavior: smooth;
+}
+/* Animations */
+@keyframes animationIn {
+0% { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+100% { opacity: 1; transform: translateY(0); filter: blur(0px); }
+}
+@keyframes marquee {
+0% { transform: translateX(0); }
+100% { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 40s linear infinite; }
+@keyframes shimmer {
+from { transform: translateX(-100%) skewX(-15deg); }
+to { transform: translateX(200%) skewX(-15deg); }
+}
+/* Clip Text Animation */
+@keyframes textReveal {
+0% { transform: translateY(110%); opacity: 0; }
+100% { transform: translateY(0); opacity: 1; }
+}
+.reveal-anim { overflow: hidden; display: block; }
+.reveal-anim > * {
+transform: translateY(110%);
+opacity: 0;
+will-change: transform, opacity;
+}
+.reveal-anim.animate > * {
+animation: textReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+/* Flashlight Effect */
+.flashlight-card {
+/* Base background is handled by utility classes */
+}
+.flashlight-card::before {
+content: "";
+position: absolute;
+inset: 0px;
+background: radial-gradient(
+600px circle at var(--mouse-x) var(--mouse-y),
+rgba(255, 255, 255, 0.1),
+transparent 40%
+);
+opacity: 0;
+transition: opacity 0.5s;
+pointer-events: none;
+z-index: 2;
+}
+.flashlight-card:hover::before { opacity: 1; }
+/* Utility */
+.glass-panel {
+background: rgba(23, 23, 23, 0.6);
+backdrop-filter: blur(20px);
+}
+/* Specific override for clear background */
+.glass-clear {
+background: rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(0px);
+}
+.scrollbar-hide::-webkit-scrollbar {
+display: none;
+}
+.scrollbar-hide {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+/* Font System - Consistent with Automations Page */
+:root {
+--font-display: 'Space Grotesk', system-ui, sans-serif;
+--font-body: 'Inter', system-ui, sans-serif;
+--font-mono: 'Space Mono', monospace;
+--accent-color: #14b8a6; /* Teal-400 */
+}
+body { font-family: var(--font-body); }
+h1, h2, h3, .font-display { font-family: var(--font-display); }
+code, .font-mono { font-family: var(--font-mono); }
+</style>
+<link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style></head>
+  <body class="antialiased selection:bg-white/20 selection:text-white relative bg-neutral-950 overflow-hidden">
+    <!-- Fixed Header -->
+    <header class="fixed top-0 left-0 right-0 z-[60] px-4 md:px-8 py-4 md:py-6 flex justify-between items-center pointer-events-none">
+      <div class="pointer-events-auto">
+        <h1 class="md:text-sm uppercase md:px-4 cursor-pointer text-xs font-semibold text-white tracking-tight bg-black/40 opacity-90 rounded-none pt-2 pr-3 pb-2 pl-3 backdrop-blur-md" onclick="window.location.href='index.html'" role="button">Aasani.ai</h1>
+      </div>
+
+      <div class="pointer-events-auto flex items-center gap-2 backdrop-blur-md p-1.5 md:p-2 rounded-full bg-black/40">
+        <!-- Increased touch target size to w-10 h-10 for mobile -->
+        <button onclick="navigateSlide(-1)" class="w-10 h-10 md:w-10 md:h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors text-white/70 hover:text-white" aria-label="Previous Slide">
+          <iconify-icon icon="solar:alt-arrow-up-linear" width="24" class="md:w-6 md:h-6"></iconify-icon>
+        </button>
+        <div class="w-[1px] h-5 bg-white/10"></div>
+        <button onclick="navigateSlide(1)" class="w-10 h-10 md:w-10 md:h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors text-white/70 hover:text-white" aria-label="Next Slide">
+          <iconify-icon icon="solar:alt-arrow-down-linear" width="24" class="md:w-6 md:h-6"></iconify-icon>
+        </button>
+      </div>
+    </header>
+
+    <!-- Navigation Dots (Updated to 8) -->
+    <div class="fixed right-8 top-1/2 -translate-y-1/2 z-[60] hidden md:flex flex-col gap-5" id="nav-dots">
+      <a href="#section-1" class="nav-dot w-2 h-2 rounded-full hover:bg-white transition-all duration-300" aria-label="Go to slide 1"></a>
+      <a href="#section-2" class="nav-dot w-2 h-2 rounded-full hover:bg-white transition-all duration-300" aria-label="Go to slide 2"></a>
+      <a href="#section-3" class="nav-dot w-2 h-2 rounded-full hover:bg-white transition-all duration-300" aria-label="Go to slide 3"></a>
+      <a href="#section-4" class="nav-dot w-2 h-2 rounded-full hover:bg-white transition-all duration-300" aria-label="Go to slide 4"></a>
+      <a href="#section-5" class="nav-dot w-2 h-2 rounded-full hover:bg-white transition-all duration-300" aria-label="Go to slide 5"></a>
+      <a href="#section-6" class="nav-dot w-2 h-2 rounded-full hover:bg-white transition-all duration-300 bg-white/20" aria-label="Go to slide 6"></a>
+      <a href="#section-7" class="nav-dot w-2 h-2 rounded-full hover:bg-white transition-all duration-300 bg-white/20" aria-label="Go to slide 7"></a>
+      <a href="#section-8" class="nav-dot w-2 h-2 rounded-full hover:bg-white transition-all duration-300 bg-white/20" aria-label="Go to slide 8"></a>
+    </div>
+
+    <!-- Scroll Container -->
+    <main id="main-scroll" class="overflow-y-scroll snap-y snap-mandatory scroll-smooth w-full h-screen relative">
+      <!-- Slide 1: Aasani Systems Hero -->
+      <section class="snap-start shrink-0 flex w-full h-screen pt-0 pr-0 pb-0 pl-0 relative items-center justify-center" data-index="0" id="section-1">
+        <div class="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col group bg-center md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/53970266-f8db-425c-8883-5535f3e41c4d_1600w.webp)] max-w-none bg-cover rounded-none pt-20 pr-6 pb-12 pl-6 relative shadow-2xl justify-start" style="transition: outline 0.1s ease-in-out">
+          <!-- 01 - Header Systematic -->
+          <div class="flex justify-between items-center mb-6 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.1s_both] animate">
+            <span class="text-xs uppercase tracking-widest font-mono text-neutral-400">
+              [01/08]
+            </span>
+            <div class="flex items-center gap-2">
+              <iconify-icon icon="solar:buildings-2-linear" class="text-teal-400 text-lg"></iconify-icon>
+              <span class="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
+                WELCOME
+              </span>
+            </div>
+          </div>
+
+          <div class="md:space-y-8 flex-1 flex flex-col z-10 relative space-y-6 justify-center">
+            <!-- UPDATED ICON CONTAINER -->
+            <div class="flex animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] animate bg-gradient-to-br from-teal-500/10 to-white/0 w-12 h-12 md:w-14 md:h-14 rounded-lg mb-4 md:mb-6 backdrop-blur-md border border-teal-400/20 items-center justify-center">
+              <iconify-icon icon="solar:buildings-2-linear" class="text-2xl md:text-3xl text-white"></iconify-icon>
+            </div>
+
+            <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.3s_both] animate">
+              <!-- Scaled text for mobile (4xl) to prevent wrapping overflow -->
+              <h1 class="leading-[0.9] md:text-7xl md:mb-3 text-4xl font-normal text-white tracking-tighter font-display mb-2">
+                Aasani Systems
+              </h1>
+              <p class="text-xl md:text-2xl font-light text-neutral-500 tracking-tight leading-tight">
+                Real Estate Operational Systems
+              </p>
+            </div>
+
+            <p class="leading-relaxed animate-on-scroll [animation:animationIn_0.8s_ease-out_0.4s_both] animate md:text-base text-sm font-light text-neutral-300 max-w-[95%]">Stop losing deals to admin work. Reclaim 20+ hours per week and focus on revenue-generating activities</p>
+          </div>
+          
+          <div class="space-y-6 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.5s_both] animate mt-auto">
+            <div class="h-[1px] w-full bg-white/20"></div>
+            <div class="flex justify-between items-end">
+              <div class="flex items-center gap-3 text-xs text-neutral-400 font-mono uppercase tracking-widest">
+                <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                Online
+              </div>
+              <iconify-icon icon="solar:arrow-down-linear" class="text-2xl text-white animate-bounce"></iconify-icon>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 2: The Problem -->
+      <section class="snap-start shrink-0 flex w-full h-screen pt-0 pr-0 pb-0 pl-0 relative items-center justify-center" data-index="1" id="section-2">
+        <div class="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col bg-center md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/2596b357-ea11-4df7-819d-6d24ab446fec_1600w.webp)] max-w-none bg-cover rounded-none pt-20 pr-6 pb-12 pl-6 relative justify-start">
+          <!-- 02 - Header Systematic -->
+          <div class="flex justify-between items-center mb-6 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.1s_both]">
+            <span class="text-xs uppercase tracking-widest font-mono text-neutral-400">
+              [02/08]
+            </span>
+            <div class="flex items-center gap-2">
+              <iconify-icon icon="solar:danger-circle-linear" class="text-red-400 text-lg"></iconify-icon>
+              <span class="font-display text-xs font-semibold uppercase tracking-widest text-red-400">
+                THE PROBLEM
+              </span>
+            </div>
+          </div>
+
+          <!-- Adjusted font size for mobile -->
+          <h2 class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] md:text-5xl text-3xl font-normal text-white tracking-tight mb-8 md:mb-10 font-display">
+            The Problem
+            <br>
+            <span class="text-neutral-500">Costing You Deals</span>
+          </h2>
+
+          <div class="flex flex-col gap-6 md:gap-8 overflow-y-auto scrollbar-hide flex-1 min-h-0 pb-4">
+            <!-- Stat 1 -->
+            <div class="group animate-on-scroll [animation:animationIn_0.8s_ease-out_0.3s_both] shrink-0">
+              <div class="flex mb-2 gap-x-3 gap-y-3 items-center">
+                <iconify-icon icon="solar:clock-circle-linear" class="text-2xl text-white/40"></iconify-icon>
+                <span class="text-4xl md:text-5xl font-bold bg-gradient-to-br from-white via-white to-neutral-500 bg-clip-text text-transparent tracking-tighter">
+                  78%
+                </span>
+              </div>
+              <p class="md:text-base leading-snug text-sm font-medium text-white mb-1 backdrop-blur-sm">
+                of homebuyers work with the first agent who responds
+              </p>
+              <p class="md:text-sm text-xs font-medium text-neutral-400 backdrop-blur-sm">
+                Lost opportunities from slow response times
+              </p>
+              <div class="h-[1px] w-full bg-white/5 mt-4 group-last:hidden"></div>
+            </div>
+
+            <!-- Stat 2 -->
+            <div class="group animate-on-scroll [animation:animationIn_0.8s_ease-out_0.4s_both] shrink-0">
+              <div class="flex items-center gap-3 mb-2">
+                <iconify-icon icon="solar:file-text-linear" class="text-2xl text-white/40"></iconify-icon>
+                <span class="text-4xl md:text-5xl font-bold bg-gradient-to-br from-white via-white to-neutral-500 bg-clip-text text-transparent tracking-tighter">
+                  40%
+                </span>
+              </div>
+              <p class="md:text-base leading-snug text-sm font-medium text-white mb-1 backdrop-blur-sm">
+                of agents' time spent on admin instead of selling
+              </p>
+              <p class="md:text-sm text-xs font-medium text-neutral-400 backdrop-blur-sm">
+                Less time focusing on revenue-generating activities
+              </p>
+              <div class="h-[1px] w-full bg-white/5 mt-4 group-last:hidden"></div>
+            </div>
+
+            <!-- Stat 3 -->
+            <div class="group animate-on-scroll [animation:animationIn_0.8s_ease-out_0.5s_both] shrink-0">
+              <div class="flex items-center gap-3 mb-2">
+                <iconify-icon icon="solar:users-group-rounded-linear" class="text-2xl text-white/40"></iconify-icon>
+                <span class="text-4xl md:text-5xl font-bold bg-gradient-to-br from-white via-white to-neutral-500 bg-clip-text text-transparent tracking-tighter">
+                  80%
+                </span>
+              </div>
+              <p class="md:text-base leading-snug text-sm font-medium text-white mb-1 backdrop-blur-sm">
+                of sales need 5+ follow-ups but
+                <span class="text-red-400">44%</span>
+                quit after one
+              </p>
+              <p class="md:text-sm text-xs font-medium text-neutral-300 backdrop-blur-sm">
+                Deals dropped due to insufficient follow-up
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 3: The Solution -->
+      <section class="snap-start shrink-0 flex w-full h-screen pt-0 pr-0 pb-0 pl-0 relative items-center justify-center" data-index="2" id="section-3">
+        <div class="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 bg-center bg-neutral-900/50 w-full h-full bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/cc0d42d0-ed20-4040-89d3-5a6177162b6d_1600w.webp)] max-w-none bg-cover rounded-none pt-20 pr-6 pb-12 pl-6 relative justify-start">
+          <!-- 03 - Header Systematic -->
+          <div class="flex justify-between items-center mb-6 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.1s_both] animate">
+            <span class="text-xs uppercase tracking-widest font-mono text-neutral-400">
+                [03/08]
+            </span>
+            <div class="flex items-center gap-2">
+                <iconify-icon icon="solar:lightbulb-linear" class="text-teal-400 text-lg"></iconify-icon>
+                <span class="font-display text-[10px] md:text-xs font-semibold uppercase tracking-widest text-teal-400">
+                THE SOLUTION
+                </span>
+            </div>
+          </div>
+
+          <!-- Title -->
+          <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] animate md:mb-12 mb-10">
+            <h2 class="text-4xl md:text-5xl font-normal text-white tracking-tight leading-[1.1] font-display">
+                The Solution:
+                <br>
+                <span class="text-neutral-500">Operational Systems</span>
+            </h2>
+          </div>
+
+          <!-- Benefits List -->
+          <div class="flex flex-col gap-5 md:gap-8 flex-1 overflow-y-auto scrollbar-hide pb-6">
+            <div class="group animate-on-scroll [animation:animationIn_0.8s_ease-out_0.3s_both] animate bg-white/0 hover:bg-white/5 rounded-lg p-4 -ml-4 transition-all duration-300 cursor-pointer shrink-0">
+              <div class="flex items-center gap-3 mb-2">
+                <iconify-icon icon="solar:bolt-circle-linear" class="text-2xl text-teal-400 group-hover:text-teal-300 transition-colors"></iconify-icon>
+                <h3 class="md:text-xl text-lg font-medium text-white tracking-tight group-hover:text-teal-400 transition-colors">
+                  Instant Lead Response
+                </h3>
+              </div>
+              <div class="pl-9 border-l border-white/10 ml-3 transition-all duration-300 group-hover:border-teal-400/50 group-hover:pl-10">
+                <p class="text-neutral-400 text-sm md:text-base leading-relaxed group-hover:text-neutral-300 transition-colors">
+                  Respond in 2 minutes. Automatic SMS + email sequences.
+                  <span class="text-white font-semibold">Never miss a hot lead.</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="group animate-on-scroll [animation:animationIn_0.8s_ease-out_0.45s_both] animate bg-white/0 hover:bg-white/5 rounded-lg p-4 -ml-4 transition-all duration-300 cursor-pointer shrink-0">
+              <div class="flex items-center gap-3 mb-2">
+                <iconify-icon icon="solar:chat-round-dots-linear" class="text-2xl text-teal-400 group-hover:text-teal-300 transition-colors"></iconify-icon>
+                <h3 class="md:text-xl text-lg font-medium text-white tracking-tight group-hover:text-teal-400 transition-colors">
+                  Smart Follow-Up Automation
+                </h3>
+              </div>
+              <div class="pl-9 border-l border-white/10 ml-3 transition-all duration-300 group-hover:border-teal-400/50 group-hover:pl-10">
+                <p class="text-neutral-400 text-sm md:text-base leading-relaxed group-hover:text-neutral-300 transition-colors">
+                  AI-powered lead scoring. Behavior-triggered nurture campaigns.
+                  <span class="text-white font-semibold">
+                    5-8 touchpoints happen automatically.
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            <div class="group animate-on-scroll [animation:animationIn_0.8s_ease-out_0.6s_both] animate bg-white/0 hover:bg-white/5 rounded-lg p-4 -ml-4 transition-all duration-300 cursor-pointer shrink-0">
+              <div class="flex items-center gap-3 mb-2">
+                <iconify-icon icon="solar:clipboard-check-linear" class="text-2xl text-teal-400 group-hover:text-teal-300 transition-colors"></iconify-icon>
+                <h3 class="text-lg md:text-xl font-medium text-white tracking-tight group-hover:text-teal-400 transition-colors">
+                  Transaction Coordination
+                </h3>
+              </div>
+              <div class="pl-9 border-l border-white/10 ml-3 transition-all duration-300 group-hover:border-teal-400/50 group-hover:pl-10">
+                <p class="text-neutral-400 text-sm md:text-base leading-relaxed group-hover:text-neutral-300 transition-colors">
+                  Automated task checklists. Document routing without manual
+                  work.
+                  <span class="text-white font-semibold">95% on-time closings</span>
+                  vs 76% industry average.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 4: The 7 Core Automations -->
+      <section class="snap-start shrink-0 flex w-full h-screen pt-0 pr-0 pb-0 pl-0 relative items-center justify-center" data-index="3" id="section-4">
+        <div class="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 bg-center bg-neutral-900/50 w-full h-full bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/aa2cf7be-2794-4596-80ce-cf0669fd8ec5_1600w.webp)] max-w-none bg-cover rounded-none pt-20 pr-6 pb-12 pl-6 relative justify-start">
+          <!-- 04 - Header Systematic -->
+          <div class="flex justify-between items-center mb-5 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.1s_both]">
+            <span class="text-xs uppercase tracking-widest font-mono text-neutral-400">
+              [04/08]
+            </span>
+            <div class="flex items-center gap-2">
+              <iconify-icon icon="solar:settings-linear" class="text-teal-400 text-lg"></iconify-icon>
+              <span class="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
+                AUTOMATIONS
+              </span>
+            </div>
+          </div>
+
+          <h2 class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] md:text-4xl leading-[1.1] text-3xl font-normal text-white tracking-tight mb-2 font-display">
+            The 7 Core Automations That Save 20+ Hours Per Week
+          </h2>
+          <p class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.3s_both] md:text-base leading-relaxed text-sm text-neutral-500 mb-6 backdrop-blur-md">
+            See exactly how real estate agents reclaim time and close more deals.
+          </p>
+
+          <!-- List Container -->
+          <!-- Added flex-1 and min-h-0 to ensure list scrolls internally on small screens -->
+          <div class="flex flex-col gap-2 md:gap-3 mb-6 overflow-y-auto pr-1 scrollbar-hide animate-on-scroll [animation:animationIn_0.8s_ease-out_0.4s_both] flex-1 min-h-0">
+             <!-- Item 1 -->
+            <div class="flex items-center gap-4 p-2.5 rounded-md bg-white/5 border border-white/5 hover:bg-white/10 transition-colors shrink-0">
+                <span class="text-teal-400 font-mono text-sm font-bold">01</span>
+                <span class="text-neutral-200 text-sm font-medium">Instant Lead Response</span>
+            </div>
+            <!-- Item 2 -->
+            <div class="flex items-center gap-4 p-2.5 rounded-md bg-white/5 border border-white/5 hover:bg-white/10 transition-colors shrink-0">
+                <span class="text-teal-400 font-mono text-sm font-bold">02</span>
+                <span class="text-neutral-200 text-sm font-medium">Lead Qualification &amp; Scoring</span>
+            </div>
+            <!-- Item 3 -->
+            <div class="flex items-center gap-4 p-2.5 rounded-md bg-white/5 border border-white/5 hover:bg-white/10 transition-colors shrink-0">
+                <span class="text-teal-400 font-mono text-sm font-bold">03</span>
+                <span class="text-neutral-200 text-sm font-medium">Smart Follow-Up Sequences</span>
+            </div>
+            <!-- Item 4 -->
+            <div class="flex items-center gap-4 p-2.5 rounded-md bg-white/5 border border-white/5 hover:bg-white/10 transition-colors shrink-0">
+                <span class="text-teal-400 font-mono text-sm font-bold">04</span>
+                <span class="text-sm font-medium text-neutral-200">Appointment Scheduling &amp; Reminders</span>
+            </div>
+             <!-- Item 5 -->
+            <div class="flex items-center gap-4 p-2.5 rounded-md bg-white/5 border border-white/5 hover:bg-white/10 transition-colors shrink-0">
+                <span class="text-teal-400 font-mono text-sm font-bold">05</span>
+                <span class="text-neutral-200 text-sm font-medium">Transaction Coordination</span>
+            </div>
+             <!-- Item 6 -->
+            <div class="flex items-center gap-4 p-2.5 rounded-md bg-white/5 border border-white/5 hover:bg-white/10 transition-colors shrink-0">
+                <span class="text-teal-400 font-mono text-sm font-bold">06</span>
+                <span class="text-neutral-200 text-sm font-medium">Client Communication &amp; Content</span>
+            </div>
+             <!-- Item 7 -->
+            <div class="flex items-center gap-4 p-2.5 rounded-md bg-white/5 border border-white/5 hover:bg-white/10 transition-colors shrink-0">
+                <span class="text-teal-400 font-mono text-sm font-bold">07</span>
+                <span class="text-neutral-200 text-sm font-medium">Review &amp; Referral Generation</span>
+            </div>
+          </div>
+
+          <!-- Footer Actions -->
+          <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.5s_both] mt-auto shrink-0">
+            <p class="text-[11px] md:text-xs italic text-neutral-200 mb-4">
+                "Together, they transform your operations from chaotic to systematic."
+            </p>
+            <button onclick="window.location.href='automations.html'" class="md:py-4 hover:bg-teal-500 transition-all flex group cursor-pointer font-semibold text-white bg-teal-600 opacity-90 w-full rounded-full pt-3 pb-3 shadow-lg gap-x-2 gap-y-2 items-center justify-center" role="button">
+                <span class="text-sm uppercase tracking-wide">View the Complete Breakdown</span>
+                <iconify-icon icon="solar:arrow-right-linear" class="text-lg group-hover:translate-x-1 transition-transform"></iconify-icon>
+            </button>
+            <p class="text-[10px] md:text-xs font-medium text-neutral-300 text-center mt-3">
+                5-minute read with ROI details and implementation examples
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 5: Real Results -->
+      <section class="snap-start shrink-0 flex w-full h-screen pt-0 pr-0 pb-0 pl-0 relative items-center justify-center" data-index="4" id="section-5">
+        <div class="md:h-auto md:aspect-[3/4] glass-clear overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 bg-center w-full h-full max-w-none bg-cover rounded-none pt-20 pr-6 pb-12 pl-6 relative shadow-2xl justify-start" style="background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7b8e6a1f-44f9-49ef-a26c-bf0d87724acf_1600w.webp')">
+          <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/30 z-0 pointer-events-none"></div>
+
+          <div class="relative z-10 flex flex-col h-full">
+            <!-- 05 - Header Systematic -->
+            <div class="flex justify-between items-center mb-6 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.1s_both] shrink-0">
+              <span class="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
+                [05/08]
+              </span>
+              <div class="flex items-center gap-2">
+                <iconify-icon icon="solar:chart-2-linear" class="text-teal-400 text-lg drop-shadow-md"></iconify-icon>
+                <span class="font-display text-xs font-semibold uppercase tracking-widest text-teal-400 drop-shadow-md">
+                  CASE STUDIES
+                </span>
+              </div>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-normal tracking-tight text-white mb-6 md:mb-8 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] drop-shadow-md font-display shrink-0">
+              Real Results from
+              <br>
+              <span class="text-neutral-200">Real Agents</span>
+            </h2>
+
+            <!-- Cards Stack -->
+            <!-- Added flex-1, min-h-0 and overflow to allow cards to scroll on short mobile screens -->
+            <div class="flex flex-col gap-4 w-full flex-1 min-h-0 overflow-y-auto scrollbar-hide pb-4">
+              <!-- Case Study 1 -->
+              <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.3s_both] bg-black/40 backdrop-blur-md border border-white/10 p-5 w-full hover:bg-black/50 transition-colors duration-500 shrink-0">
+                <div class="flex justify-between items-start mb-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center border border-white/10">
+                      <span class="text-white font-medium">SC</span>
+                    </div>
+                    <div class="">
+                      <h3 class="text-white font-medium text-lg leading-none">
+                        Sarah Chen
+                      </h3>
+                      <p class="text-neutral-300 text-xs mt-1">Austin, TX</p>
+                    </div>
+                  </div>
+                  <iconify-icon icon="solar:chart-2-linear" class="text-teal-400 text-xl"></iconify-icon>
+                </div>
+                <div class="grid grid-cols-3 gap-4 border-t border-white/10 pt-4">
+                  <div class="flex flex-col">
+                    <span class="text-teal-400 font-bold text-lg md:text-xl tracking-tight">
+                      +60%
+                    </span>
+                    <span class="text-xs text-neutral-300 uppercase tracking-wide font-medium mt-1">
+                      Revenue
+                    </span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-white font-semibold text-lg md:text-xl tracking-tight">
+                      -20 hrs
+                    </span>
+                    <span class="text-xs text-neutral-300 uppercase tracking-wide font-medium mt-1">
+                      Per Week
+                    </span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-white font-semibold text-lg md:text-xl tracking-tight">
+                      +27
+                    </span>
+                    <span class="text-xs text-neutral-300 uppercase tracking-wide font-medium mt-1">
+                      Transactions
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Case Study 2 -->
+              <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.4s_both] bg-black/40 backdrop-blur-md border border-white/10 p-5 w-full hover:bg-black/50 transition-colors duration-500 shrink-0">
+                <div class="flex justify-between items-start mb-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center border border-white/10">
+                      <span class="text-white font-medium">MT</span>
+                    </div>
+                    <div class="">
+                      <h3 class="text-white font-medium text-lg leading-none">
+                        Martinez Team
+                      </h3>
+                      <p class="text-neutral-300 text-xs mt-1">Phoenix, AZ</p>
+                    </div>
+                  </div>
+                  <iconify-icon icon="solar:users-group-rounded-linear" class="text-orange-400 text-xl"></iconify-icon>
+                </div>
+                <div class="grid grid-cols-3 gap-4 border-t border-white/10 pt-4">
+                  <div class="flex flex-col">
+                    <span class="text-orange-400 font-bold text-lg md:text-xl tracking-tight">
+                      +58%
+                    </span>
+                    <span class="text-xs text-neutral-300 uppercase tracking-wide font-medium mt-1">
+                      Tx Volume
+                    </span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-white font-semibold text-lg md:text-xl tracking-tight">
+                      +$200k
+                    </span>
+                    <span class="text-xs text-neutral-300 uppercase tracking-wide font-medium mt-1">
+                      Revenue
+                    </span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-white font-semibold text-lg md:text-xl tracking-tight">
+                      95%
+                    </span>
+                    <span class="text-xs text-neutral-300 uppercase tracking-wide font-medium mt-1">
+                      On-Time
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Case Study 3 -->
+              <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.5s_both] bg-black/40 backdrop-blur-md border border-white/10 p-5 w-full hover:bg-black/50 transition-colors duration-500 shrink-0">
+                <div class="flex justify-between items-start mb-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center border border-white/10">
+                      <span class="text-white font-medium">DP</span>
+                    </div>
+                    <div class="">
+                      <h3 class="text-white font-medium text-lg leading-none">
+                        David Park
+                      </h3>
+                      <p class="text-neutral-300 text-xs mt-1">Seattle, WA</p>
+                    </div>
+                  </div>
+                  <iconify-icon icon="solar:graph-up-linear" class="text-teal-400 text-xl"></iconify-icon>
+                </div>
+                <div class="grid grid-cols-3 gap-4 border-t border-white/10 pt-4">
+                  <div class="flex flex-col">
+                    <span class="text-teal-400 font-bold text-lg md:text-xl tracking-tight">
+                      8 → 34
+                    </span>
+                    <span class="text-xs text-neutral-300 uppercase tracking-wide font-medium mt-1">
+                      Deals (Yr 2)
+                    </span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-white font-semibold text-lg md:text-xl tracking-tight">
+                      $510k
+                    </span>
+                    <span class="text-xs text-neutral-300 uppercase tracking-wide font-medium mt-1">
+                      GCI
+                    </span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-white font-semibold text-lg md:text-xl tracking-tight">
+                      22%
+                    </span>
+                    <span class="text-xs text-neutral-300 uppercase tracking-wide font-medium mt-1">
+                      Conv. Rate
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 6: How It Works -->
+      <section id="section-6" class="snap-start shrink-0 flex w-full h-screen pt-0 pr-0 pb-0 pl-0 relative items-center justify-center" data-index="5">
+        <div class="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col bg-center md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/ea017f83-49bf-41a3-bcaa-b91cf47b4ffe_1600w.webp)] max-w-none bg-cover rounded-none pt-20 pr-6 pb-12 pl-6 relative justify-start">
+          <!-- 06 - Header Systematic -->
+          <div class="flex justify-between items-center mb-6 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.1s_both]">
+            <span class="text-xs uppercase tracking-widest font-mono text-neutral-400">
+              [06/08]
+            </span>
+            <div class="flex items-center gap-2">
+              <iconify-icon icon="solar:map-arrow-linear" class="text-teal-400 text-lg"></iconify-icon>
+              <span class="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
+                PROCESS
+              </span>
+            </div>
+          </div>
+
+          <h2 class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] md:text-5xl text-3xl font-normal text-white tracking-tight mb-8 font-display">
+            How It Works
+          </h2>
+
+          <div class="flex flex-col gap-4 overflow-y-auto scrollbar-hide flex-1 min-h-0 pb-4">
+            <!-- Box 1 -->
+            <div class="group animate-on-scroll [animation:animationIn_0.8s_ease-out_0.3s_both] bg-black/40 backdrop-blur-md border border-white/10 p-5 w-full hover:bg-black/50 transition-colors duration-500 rounded-sm shrink-0">
+              <div class="flex items-baseline gap-4 mb-2">
+                <span class="text-2xl font-bold text-orange-400 font-mono">01</span>
+                <h3 class="text-white font-medium text-lg leading-tight">
+                  Free Operational Assessment
+                  <span class="text-neutral-500 text-sm font-normal block md:inline md:ml-2">(30 minutes)</span>
+                </h3>
+              </div>
+              <p class="text-neutral-300 text-sm leading-relaxed pl-[3rem]">
+                I audit your current workflow and show you exactly where you're losing time and revenue.
+              </p>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="group animate-on-scroll [animation:animationIn_0.8s_ease-out_0.4s_both] bg-black/40 backdrop-blur-md border border-white/10 p-5 w-full hover:bg-black/50 transition-colors duration-500 rounded-sm shrink-0">
+              <div class="flex items-baseline gap-4 mb-2">
+                <span class="text-2xl font-bold text-orange-400 font-mono">02</span>
+                <h3 class="text-white font-medium text-lg leading-tight">
+                  Custom Roadmap
+                  <span class="text-neutral-500 text-sm font-normal block md:inline md:ml-2">(Complimentary)</span>
+                </h3>
+              </div>
+              <p class="text-neutral-300 text-sm leading-relaxed pl-[3rem]">
+                You get a written report with top 2-3 opportunities and ROI projections.
+              </p>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="group animate-on-scroll [animation:animationIn_0.8s_ease-out_0.5s_both] bg-black/40 backdrop-blur-md border border-white/10 p-5 w-full hover:bg-black/50 transition-colors duration-500 rounded-sm shrink-0">
+              <div class="flex items-baseline gap-4 mb-2">
+                <span class="text-2xl font-bold text-orange-400 font-mono">03</span>
+                <h3 class="text-white font-medium text-lg leading-tight">
+                  Implementation
+                  <span class="text-neutral-500 text-sm font-normal block md:inline md:ml-2">(If it makes sense)</span>
+                </h3>
+              </div>
+              <p class="text-neutral-300 text-sm leading-relaxed pl-[3rem]">
+                90-day plan to build the systems that fit your business. No pressure. No pitch. Just value.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 7: Build Better Operations -->
+      <section class="snap-start shrink-0 flex w-full h-screen pt-0 pr-0 pb-0 pl-0 relative items-center justify-center" data-index="6" id="section-7">
+        <div class="h-full md:h-auto md:aspect-[3/4] glass-clear overflow-hidden flex flex-col bg-center w-full bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/67df17f7-9681-4bd3-927b-ac569042a884_1600w.webp)] max-w-none md:max-w-xl bg-cover rounded-none pt-0 pr-0 pb-0 pl-0 relative justify-between shadow-2xl">
+          
+          <div class="md:p-12 md:pt-12 z-20 -multi pt-20 pr-6 pb-6 pl-6 relative">
+            <!-- 07 - Header Systematic -->
+            <div class="flex justify-between items-center mb-6 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.1s_both]">
+              <span class="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
+                [07/08]
+              </span>
+              <div class="flex items-center gap-2">
+                <iconify-icon icon="solar:cup-star-linear" class="text-teal-400 text-lg drop-shadow-md"></iconify-icon>
+                <span class="font-display text-xs font-semibold uppercase tracking-widest text-teal-400 drop-shadow-md">
+                  PHILOSOPHY
+                </span>
+              </div>
+            </div>
+
+            <h1 class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] text-5xl font-normal text-white tracking-tighter mt-6 mb-3 drop-shadow-lg md:text-5xl font-display">
+              Build Better
+              <br>
+              Operations.
+            </h1>
+            <p class="md:text-2xl animate-on-scroll [animation:animationIn_0.8s_ease-out_0.3s_both] text-xl font-light text-neutral-500/90 tracking-tight drop-shadow-md backdrop-blur">Aasani Systems is the difference.</p>
+          </div>
+
+          <!-- Quotes -->
+          <div class="z-20 md:px-12 flex-1 flex flex-col pr-6 pl-6 relative justify-center">
+            <div class="flex flex-col gap-4 w-full max-w-md animate-on-scroll [animation:animationIn_0.8s_ease-out_0.4s_both]">
+              <div class="bg-black/40 backdrop-blur-md border border-white/10 border-l-2 border-l-white p-4 rounded-sm hover:bg-black/50 transition-colors">
+                <p class="text-sm md:text-base text-neutral-100 font-medium">
+                  "Systematic operations before AI intelligence."
+                </p>
+              </div>
+              <div class="bg-black/40 backdrop-blur-md border border-white/10 border-l-2 border-l-white p-4 rounded-sm hover:bg-black/50 transition-colors">
+                <p class="text-sm md:text-base text-neutral-100 font-medium">
+                  "Structure that scales with your business."
+                </p>
+              </div>
+              <div class="bg-black/40 backdrop-blur-md border border-white/10 border-l-2 border-l-white p-4 rounded-sm hover:bg-black/50 transition-colors">
+                <p class="text-sm md:text-base text-neutral-100 font-medium">
+                  "Automation that feels like having a manager."
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Button -->
+          <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.6s_both] md:p-12 z-20 bg-gradient-to-t from-black/60 to-transparent pt-6 pr-6 pb-12 pl-6 relative">
+            <button onclick="navigateSlide(1)" class="group flex md:py-5 overflow-hidden hover:bg-neutral-200 transition-colors cursor-pointer text-black bg-white opacity-95 w-full rounded-full pt-4 pb-4 relative shadow-xl gap-x-3 gap-y-3 items-center justify-center">
+              <span class="text-xs md:text-sm font-bold uppercase tracking-widest z-10">
+                See How
+              </span>
+              <iconify-icon icon="solar:arrow-down-linear" class="text-xl md:text-2xl z-10 group-hover:translate-y-1 transition-transform"></iconify-icon>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 8: Get Started (Updated) -->
+      <section class="snap-start shrink-0 flex w-full h-screen pt-0 pr-0 pb-0 pl-0 relative items-center justify-center" data-index="7" id="section-8">
+        <div class="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col bg-center md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/47ccf769-0cb4-4a95-804e-cc919fd6d449_1600w.webp)] max-w-none bg-cover rounded-none pt-20 pr-6 pb-12 pl-6 relative justify-between">
+          <!-- Top Content -->
+          <div class="w-full relative z-10">
+            <!-- 08 - Header Systematic -->
+            <div class="flex justify-between items-center absolute top-0 left-0 right-0 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.1s_both]">
+              <span class="text-xs uppercase tracking-widest font-mono text-neutral-400">
+                [08/08]
+              </span>
+              <div class="flex items-center gap-2">
+                <iconify-icon icon="solar:calendar-add-linear" class="text-teal-400 text-lg"></iconify-icon>
+                <span class="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
+                  BOOK NOW
+                </span>
+              </div>
+            </div>
+
+            <div class="mt-12 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both]">
+              <h2 class="md:text-5xl leading-[1] text-4xl font-normal text-white tracking-tighter mb-6 font-display">
+                Ready to Reclaim
+                <span class="block text-neutral-400">20+ Hours Per Week?</span>
+              </h2>
+            </div>
+          </div>
+
+          <!-- Center Content: Primary & Secondary Actions -->
+          <div class="flex-1 flex flex-col items-center justify-center gap-8 w-full animate-on-scroll [animation:animationIn_0.8s_ease-out_0.4s_both]">
+            
+            <!-- Primary Button (Beam Animation) -->
+            <div class="flex flex-col items-center gap-6">
+              <div class="group relative scale-110 md:scale-125 cursor-pointer">
+                <div class="-inset-2 group-hover:opacity-100 transition duration-500 bg-neutral-600/30 opacity-0 rounded-full absolute blur-xl"></div>
+                <div class="absolute -inset-[1px] rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none">
+                  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] animate-[spin_2s_linear_infinite]"></div>
+                </div>
+                <button class="group relative z-10 flex items-center justify-center overflow-hidden rounded-full p-[1px] leading-none" onclick="window.open('https://cal.com/ayub-yousaf-c1ijnf/bookatime', '_blank')">
+                  <span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)]"></span>
+                  <span class="relative flex h-full w-full items-center rounded-full bg-black pt-4 pr-8 pb-4 pl-8 ring-1 ring-white/10">
+                    <span class="absolute inset-0 overflow-hidden rounded-full">
+                      <span class="group-hover:animate-[shimmer_1.5s_infinite] group-hover:opacity-100 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 w-full h-full absolute top-0 left-0 -skew-x-12"></span>
+                    </span>
+                    <span class="relative z-10 flex items-center gap-2">
+                      <span class="md:text-lg text-base font-medium text-white tracking-wide">
+                        Book Free Assessment
+                      </span>
+                      <iconify-icon icon="solar:calendar-add-linear" class="text-xl text-neutral-400 group-hover:text-white transition-colors"></iconify-icon>
+                    </span>
+                  </span>
+                </button>
+              </div>
+              <p class="text-sm font-light text-neutral-50 text-center max-w-sm">
+                No pressure. No pitch. Just value.
+              </p>
+            </div>
+
+            <!-- Secondary Action -->
+            <div class="w-full flex flex-col items-center gap-3 pt-2">
+                <p class="md:text-sm leading-tight text-xs font-light text-neutral-50 text-center">
+                    Want to see exactly what gets automated?
+                    Review the detailed breakdown first.
+                </p>
+                <button onclick="window.location.href='automations.html'" class="group/sec flex hover:text-white transition-all hover:border-white/30 hover:bg-white/5 cursor-pointer text-neutral-300 bg-[conic-gradient(from_180deg,var(--tw-gradient-stops))] from-white/10 via-white/0 to-white/10 border-white/10 border rounded-full pt-2.5 pr-5 pb-2.5 pl-5 backdrop-blur-sm gap-x-2 gap-y-2 items-center" role="button">
+                    <span class="text-sm font-medium">View the 7 Automations Breakdown</span>
+                    <iconify-icon icon="solar:arrow-right-linear" class="group-hover/sec:translate-x-1 transition-transform text-lg" width="18" height="18" style="color: rgb(255, 255, 255)"></iconify-icon>
+                </button>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="w-full border-t border-white/10 pt-6 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.5s_both]">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 text-xs md:text-sm font-mono text-neutral-500">
+              <div class="flex flex-col gap-1">
+                <span class="text-neutral-400">EMAIL</span>
+                <a href="mailto:ayub@aasani.ai" class="hover:text-teal-400 transition-colors cursor-pointer text-white">
+                  ayub@aasani.ai
+                </a>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="text-neutral-400">PHONE</span>
+                <span class="text-white">732-397-7299</span>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="text-neutral-400">WEB</span>
+                <span class="text-white tracking-widest">AASANI.AI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Existing Animation Observer
+      (function () {
+          const style = document.createElement("style");
+          style.textContent = `
+          .animate-on-scroll { animation-play-state: paused !important; }
+          .animate-on-scroll.animate { animation-play-state: running !important; }
+          `;
+          document.head.appendChild(style);
+
+          const once = true;
+
+          if (!window.__inViewIO) {
+          window.__inViewIO = new IntersectionObserver((entries) => {
+              entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add("animate");
+                  if (once) window.__inViewIO.unobserve(entry.target);
+              }
+              });
+          }, { threshold: 0.2 });
+          }
+
+          window.initInViewAnimations = function (selector = ".animate-on-scroll, .reveal-anim") {
+          document.querySelectorAll(selector).forEach((el) => {
+              window.__inViewIO.observe(el);
+          });
+          };
+
+          document.addEventListener("DOMContentLoaded", () => initInViewAnimations());
+      })();
+
+      // Navigation Logic
+      const sections = document.querySelectorAll('section');
+      const dots = document.querySelectorAll('.nav-dot');
+      const scroller = document.getElementById('main-scroll');
+      let currentSectionIndex = 0;
+
+      // Update Active Dot based on scroll
+      const navObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  const index = parseInt(entry.target.getAttribute('data-index'));
+                  currentSectionIndex = index;
+
+                  // Update dots
+                  dots.forEach(d => {
+                      d.classList.remove('bg-white', 'scale-125');
+                      d.classList.add('bg-white/20');
+                  });
+
+                  // Highlight current dot
+                  if(dots[index]) {
+                      dots[index].classList.remove('bg-white/20');
+                      dots[index].classList.add('bg-white', 'scale-125');
+                  }
+              }
+          });
+      }, { threshold: 0.5 });
+
+      sections.forEach(section => navObserver.observe(section));
+
+      // Arrow Navigation
+      window.navigateSlide = function(direction) {
+          let nextIndex = currentSectionIndex + direction;
+
+          // Clamp
+          if (nextIndex < 0) nextIndex = 0;
+          if (nextIndex >= sections.length) nextIndex = sections.length - 1;
+
+          // Scroll
+          const target = sections[nextIndex];
+          if(target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+          }
+      }
+    </script>
+  
+</body></html>
