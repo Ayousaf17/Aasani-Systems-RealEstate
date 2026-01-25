@@ -24,7 +24,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
             <span className="font-mono text-xs text-neutral-400">[{data.slideNumber}]</span>
             <div className="flex items-center gap-2">
               <iconify-icon icon={data.icon} className={`${data.iconColor} text-lg`} />
-              <span className="font-display text-[10px] md:text-xs font-semibold uppercase tracking-widest text-teal-400">
+              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
                 {data.label}
               </span>
             </div>
