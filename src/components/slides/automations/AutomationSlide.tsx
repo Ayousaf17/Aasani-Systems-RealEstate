@@ -9,14 +9,14 @@ interface AutomationSlideProps {
 export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
   return (
     <section
-      className="slide-container flex-shrink-0 md:w-[500px] h-[70vh] md:h-auto bg-[#0A0A0A] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center"
+      className="slide-container flex-shrink-0 md:w-[500px] md:h-auto bg-[#0A0A0A] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center"
       id={`slide-${slideIndex}`}
     >
       <div className="absolute inset-0 bg-wave-pattern opacity-20 pointer-events-none z-0" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/80 to-[#0A0A0A] z-0" />
 
       <div
-        className="flex flex-col md:p-10 z-10 h-full p-4 md:pt-10 relative justify-between card-bg"
+        className="flex flex-col md:p-10 z-10 h-full p-5 relative justify-between card-bg"
         style={{ backgroundImage: `url(${data.backgroundImage})` }}
       >
         <div className="flex flex-col">
