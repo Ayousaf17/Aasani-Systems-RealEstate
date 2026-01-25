@@ -6,10 +6,14 @@ export function useHorizontalScroll() {
   const startX = useRef(0);
   const scrollLeft = useRef(0);
 
-  // Handle wheel events - map vertical to horizontal
+  // Handle wheel events - map vertical to horizontal (desktop only)
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
+
+    // Skip wheel handling on mobile
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) return;
 
     let wheelTimeout: ReturnType<typeof setTimeout>;
 
@@ -37,10 +41,14 @@ export function useHorizontalScroll() {
     };
   }, []);
 
-  // Touch gesture support
+  // Touch gesture support - only on desktop, let mobile use native scroll
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
+
+    // Skip touch handling on mobile - native scroll works better
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) return;
 
     let touchStartY = 0;
     let touchStartX = 0;
@@ -61,7 +69,7 @@ export function useHorizontalScroll() {
 
       // If vertical swipe is more pronounced than horizontal
       if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 30 && timeDelta < 300) {
-        const gap = window.innerWidth >= 768 ? 48 : 0;
+        const gap = 48;
         const slideEl = container.querySelector('.slide-container') as HTMLElement;
         if (!slideEl) return;
         const slideWidth = slideEl.offsetWidth + gap;

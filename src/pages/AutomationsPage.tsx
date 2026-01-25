@@ -23,21 +23,21 @@ export function AutomationsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#050505]">
+    <div className="min-h-screen h-screen flex flex-col items-center justify-center bg-[#050505] overflow-hidden">
       {/* Fixed Navigation - Floating Glass Style */}
-      <nav className="fixed flex px-4 md:px-8 py-4 md:py-6 z-50 top-0 right-0 left-0 items-center justify-between pointer-events-none">
+      <nav className="fixed flex px-3 md:px-8 py-3 md:py-6 z-50 top-0 right-0 left-0 items-center justify-between pointer-events-none safe-area-top">
         {/* Logo */}
         <div className="pointer-events-auto flex-shrink-0">
           <button
             onClick={() => navigate('/')}
             className="cursor-pointer hover:opacity-80 transition-opacity"
           >
-            <img src="/logo.png" alt="Aasani Systems" className="h-12 md:h-14 w-auto" />
+            <img src="/logo.png" alt="Aasani Systems" className="h-10 md:h-14 w-auto" />
           </button>
         </div>
 
         {/* Center: Pagination Dots */}
-        <div className="pointer-events-auto flex items-center justify-center backdrop-blur-md p-2 md:p-2.5 rounded-full bg-black/40">
+        <div className="pointer-events-auto flex items-center justify-center backdrop-blur-md p-1.5 md:p-2.5 rounded-full bg-black/50">
           <NavigationDots
             total={TOTAL_AUTOMATIONS_SLIDES}
             currentIndex={currentIndex}
@@ -46,7 +46,7 @@ export function AutomationsPage() {
           />
         </div>
 
-        {/* Right: Arrows */}
+        {/* Right: Arrows - Hidden on mobile */}
         <div className="pointer-events-auto hidden md:flex items-center gap-2 backdrop-blur-md p-1.5 md:p-2 rounded-full bg-black/40">
           <button
             onClick={() => handleNavigate(-1)}

@@ -69,15 +69,46 @@
 /* Slide sizing for automations page */
 .slide-container {
   min-width: 0;
+  /* Mobile: smaller cards that show peek of next */
+  width: calc(100vw - 2rem);
+  max-width: calc(100vw - 2rem);
+  margin: 0 0.5rem;
+  border-radius: 1rem;
 }
 
 @media (min-width: 768px) {
   .slide-container {
     aspect-ratio: 3/4;
+    width: 500px;
+    max-width: 500px;
+    margin: 0;
+    border-radius: 0;
   }
 
   .mask-on-md {
     mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
     -webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
   }
+}
+
+/* Prevent body overflow on mobile */
+html, body {
+  overflow-x: hidden;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Safe area for mobile browsers (notches, home indicators) */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* Touch action for horizontal scroll */
+.slide-container {
+  touch-action: pan-x pan-y;
 }
