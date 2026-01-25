@@ -18,7 +18,7 @@ export const problemStats = [
     value: '80%',
     title: 'of sales need 5+ follow-ups but',
     highlight: '44%',
-    highlightText: 'quit after one',
+    highlightText: 'of agents quit after one',
     subtitle: 'Deals dropped due to insufficient follow-up',
   },
 ];

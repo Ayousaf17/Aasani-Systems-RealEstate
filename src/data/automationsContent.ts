@@ -68,7 +68,7 @@ export const automationsData: AutomationSlideData[] = [
     label: 'Automation #5',
     icon: 'solar:clipboard-check-linear',
     iconColor: 'text-teal-400',
-    title: 'Transaction Coordination & Doc Mgmt',
+    title: 'Transaction Coordination & Document Management',
     tagline: '95% on-time closings vs 78% industry average',
     statValue: '95%',
     statLabel: 'ON-TIME CLOSINGS',
