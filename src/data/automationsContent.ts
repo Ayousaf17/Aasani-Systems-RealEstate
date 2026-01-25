@@ -66,7 +66,7 @@ export const automationsData: AutomationSlideData[] = [
   {
     slideNumber: '06/09',
     label: 'Automation #5',
-    icon: 'solar:checklist-minimalistic-linear',
+    icon: 'solar:chart-2-linear',
     iconColor: 'text-teal-400',
     title: 'Transaction Coordination & Document Management',
     tagline: '95% on-time closings vs 78% industry average',
@@ -81,7 +81,7 @@ export const automationsData: AutomationSlideData[] = [
   {
     slideNumber: '07/09',
     label: 'Automation #6',
-    icon: 'solar:letter-linear',
+    icon: 'solar:chat-round-linear',
     iconColor: 'text-teal-400',
     title: 'Client Communication & Content Marketing',
     tagline: '63% of business comes from referrals and repeat clients',
@@ -96,7 +96,7 @@ export const automationsData: AutomationSlideData[] = [
   {
     slideNumber: '08/09',
     label: 'Automation #7',
-    icon: 'solar:star-shine-linear',
+    icon: 'solar:cup-star-linear',
     iconColor: 'text-teal-400',
     title: 'Review & Referral Generation',
     tagline: 'Turn happy clients into reviews and referrals',
