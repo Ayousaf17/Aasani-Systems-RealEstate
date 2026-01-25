@@ -80,18 +80,27 @@ export function CTASlide({ index }: CTASlideProps) {
               Want to see exactly what gets automated?
               Review the detailed breakdown first.
             </p>
-            <button
-              onClick={() => navigate('/automations')}
-              className="group/sec flex hover:text-white transition-all hover:border-white/30 hover:bg-white/5 cursor-pointer text-neutral-300 bg-[conic-gradient(from_180deg,var(--tw-gradient-stops))] from-white/10 via-white/0 to-white/10 border-white/10 border rounded-full pt-2.5 pr-5 pb-2.5 pl-5 backdrop-blur-sm gap-x-2 gap-y-2 items-center"
-            >
-              <span className="text-sm font-medium">View the 7 Automations Breakdown</span>
-              <iconify-icon
-                icon="solar:arrow-right-linear"
-                className="group-hover/sec:translate-x-1 transition-transform text-lg"
-                width={18}
-                height={18}
-              />
-            </button>
+            <div className="group/sec relative cursor-pointer">
+              <div className="-inset-2 group-hover/sec:opacity-100 transition duration-500 bg-neutral-600/20 opacity-0 rounded-full absolute blur-xl" />
+              <div className="absolute -inset-[1px] rounded-full overflow-hidden opacity-0 group-hover/sec:opacity-100 transition duration-500 pointer-events-none">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] animate-[spin_2s_linear_infinite]" />
+              </div>
+              <button
+                onClick={() => navigate('/automations')}
+                className="relative z-10 flex items-center justify-center overflow-hidden rounded-full p-[1px] leading-none"
+              >
+                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] opacity-0 group-hover/sec:opacity-100 transition-opacity duration-500" />
+                <span className="relative flex h-full w-full items-center rounded-full bg-black/80 pt-2.5 pr-5 pb-2.5 pl-5 ring-1 ring-white/20 gap-2">
+                  <span className="text-sm font-medium text-neutral-200 group-hover/sec:text-white transition-colors">View the 7 Automations Breakdown</span>
+                  <iconify-icon
+                    icon="solar:arrow-right-linear"
+                    className="group-hover/sec:translate-x-1 transition-transform text-lg text-neutral-400 group-hover/sec:text-white"
+                    width={18}
+                    height={18}
+                  />
+                </span>
+              </button>
+            </div>
           </div>
         </AnimatedElement>
 
