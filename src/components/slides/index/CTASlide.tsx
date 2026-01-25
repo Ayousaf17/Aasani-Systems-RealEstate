@@ -104,24 +104,35 @@ export function CTASlide({ index }: CTASlideProps) {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.5} className="w-full border-t border-white/10 pt-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 text-xs md:text-sm font-mono text-neutral-500">
-            <div className="flex flex-col gap-1">
-              <span className="text-neutral-400">EMAIL</span>
+        <AnimatedElement delay={0.5} className="w-full border-t border-white/10 pt-5">
+          <div className="flex flex-col gap-2">
+            <span className="text-[10px] text-neutral-500 font-mono uppercase tracking-widest mb-1">
+              Questions? Reach out:
+            </span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-1 gap-x-4 text-xs font-mono text-neutral-400">
               <a
                 href={`mailto:${contactInfo.email}`}
-                className="hover:text-teal-400 transition-colors cursor-pointer text-white"
+                className="flex items-center gap-2 hover:text-white transition-colors"
               >
+                <iconify-icon icon="lucide:mail" className="text-teal-500" />
                 {contactInfo.email}
               </a>
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-neutral-400">PHONE</span>
-              <span className="text-white">{contactInfo.phone}</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-neutral-400">WEB</span>
-              <span className="text-white tracking-widest">{contactInfo.website}</span>
+              <a
+                href={`tel:${contactInfo.phone.replace(/\D/g, '')}`}
+                className="flex items-center gap-2 hover:text-white transition-colors"
+              >
+                <iconify-icon icon="lucide:phone" className="text-teal-500" />
+                {contactInfo.phone}
+              </a>
+              <a
+                href={`https://${contactInfo.website.toLowerCase()}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-white transition-colors"
+              >
+                <iconify-icon icon="lucide:globe" className="text-teal-500" />
+                {contactInfo.website}
+              </a>
             </div>
           </div>
         </AnimatedElement>
