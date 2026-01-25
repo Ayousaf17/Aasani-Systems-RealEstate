@@ -24,20 +24,20 @@ export function AutomationsPage() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#050505]">
-      {/* Fixed Navigation */}
-      <nav className="fixed flex md:px-6 bg-black/80 h-16 z-50 border-white/5 border-b pt-4 pr-4 pb-4 pl-4 top-0 right-0 left-0 backdrop-blur-md items-center justify-between">
-        {/* Left: Logo */}
-        <div className="flex items-center gap-2 w-auto md:w-1/3">
+      {/* Fixed Navigation - Floating Glass Style */}
+      <nav className="fixed flex px-4 md:px-8 py-4 md:py-6 z-50 top-0 right-0 left-0 items-center justify-between pointer-events-none">
+        {/* Logo */}
+        <div className="pointer-events-auto flex-shrink-0">
           <button
             onClick={() => navigate('/')}
-            className="cursor-pointer hover:opacity-80 transition-opacity w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden"
+            className="cursor-pointer hover:opacity-80 transition-opacity"
           >
-            <img src="/logo.png" alt="Aasani Systems" className="w-full h-full scale-150" />
+            <img src="/logo.png" alt="Aasani Systems" className="h-12 md:h-14 w-auto" />
           </button>
         </div>
 
         {/* Center: Pagination Dots */}
-        <div className="w-1/3 flex items-center justify-center">
+        <div className="pointer-events-auto flex items-center justify-center backdrop-blur-md p-2 md:p-2.5 rounded-full bg-black/40">
           <NavigationDots
             total={TOTAL_AUTOMATIONS_SLIDES}
             currentIndex={currentIndex}
@@ -47,24 +47,22 @@ export function AutomationsPage() {
         </div>
 
         {/* Right: Arrows */}
-        <div className="hidden md:flex w-1/3 items-center justify-end">
-          <div className="flex items-center gap-2 backdrop-blur-md p-2 rounded-full bg-black/80 border border-white/5">
-            <button
-              onClick={() => handleNavigate(-1)}
-              disabled={currentIndex === 0}
-              className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-all text-neutral-400 hover:text-white disabled:opacity-30"
-            >
-              <iconify-icon icon="solar:arrow-left-linear" width={20} />
-            </button>
-            <div className="w-[1px] h-4 md:h-5 bg-white/10" />
-            <button
-              onClick={() => handleNavigate(1)}
-              disabled={currentIndex === TOTAL_AUTOMATIONS_SLIDES - 1}
-              className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-all text-neutral-400 hover:text-white disabled:opacity-30"
-            >
-              <iconify-icon icon="solar:arrow-right-linear" width={20} />
-            </button>
-          </div>
+        <div className="pointer-events-auto hidden md:flex items-center gap-2 backdrop-blur-md p-1.5 md:p-2 rounded-full bg-black/40">
+          <button
+            onClick={() => handleNavigate(-1)}
+            disabled={currentIndex === 0}
+            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-all text-white/70 hover:text-white disabled:opacity-30"
+          >
+            <iconify-icon icon="solar:arrow-left-linear" width={24} />
+          </button>
+          <div className="w-[1px] h-5 bg-white/10" />
+          <button
+            onClick={() => handleNavigate(1)}
+            disabled={currentIndex === TOTAL_AUTOMATIONS_SLIDES - 1}
+            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-all text-white/70 hover:text-white disabled:opacity-30"
+          >
+            <iconify-icon icon="solar:arrow-right-linear" width={24} />
+          </button>
         </div>
       </nav>
 
