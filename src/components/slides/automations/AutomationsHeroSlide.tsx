@@ -8,11 +8,11 @@ interface AutomationsHeroSlideProps {
 export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps) {
   return (
     <section
-      className="slide-container flex-shrink-0 flex flex-col overflow-hidden snap-center group bg-[#0A0A0A] md:w-[500px] h-[70vh] md:h-auto border border-white/10 relative shadow-2xl justify-between"
+      className="slide-container flex-shrink-0 flex flex-col overflow-hidden snap-center group bg-[#0A0A0A] md:w-[500px] md:h-auto border border-white/10 relative shadow-2xl justify-between"
       id="slide-0"
     >
       <div
-        className="flex flex-col z-10 md:p-10 h-full p-4 relative card-bg"
+        className="flex flex-col z-10 md:p-10 h-full p-5 relative card-bg"
         style={{ backgroundImage: `url(${automationsHeroBackground})` }}
       >
         <div className="bg-black/40 absolute inset-0" />
