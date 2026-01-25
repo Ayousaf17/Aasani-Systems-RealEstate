@@ -23,28 +23,29 @@ export function HeroSlide({ index }: HeroSlideProps) {
           <div className="flex items-center gap-2">
             <iconify-icon icon="solar:buildings-2-linear" className="text-teal-400 text-lg" />
             <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
-              WELCOME
+              AASANI.AI
             </span>
           </div>
         </AnimatedElement>
 
         <div className="md:space-y-8 flex-1 flex flex-col z-10 relative space-y-6 justify-center">
           <AnimatedElement delay={0.2} className="flex bg-gradient-to-br from-teal-500/10 to-white/0 w-12 h-12 md:w-14 md:h-14 rounded-lg mb-4 md:mb-6 backdrop-blur-md border border-teal-400/20 items-center justify-center">
-            <iconify-icon icon="solar:buildings-2-linear" className="text-2xl md:text-3xl text-white" />
+            <iconify-icon icon="solar:settings-minimalistic-linear" className="text-2xl md:text-3xl text-white" />
           </AnimatedElement>
 
           <AnimatedElement delay={0.3}>
             <h1 className="leading-[0.9] md:text-7xl md:mb-3 text-4xl font-normal text-white tracking-tighter font-display mb-2">
-              Aasani Systems
+              Real Estate Operations.
+              <span className="block text-neutral-400">Systematized.</span>
             </h1>
-            <p className="text-xl md:text-2xl font-light text-neutral-500 tracking-tight leading-tight">
-              Real Estate Operational Systems
+            <p className="text-xl md:text-2xl font-light text-teal-400 tracking-tight leading-tight">
+              Stop losing deals to admin work.
             </p>
           </AnimatedElement>
 
           <AnimatedElement delay={0.4}>
             <p className="leading-relaxed md:text-base text-sm font-light text-neutral-300 max-w-[95%]">
-              Stop losing deals to admin work. Reclaim 20+ hours per week and focus on revenue-generating activities
+              Reclaim 20+ hours per week. Automated systems for top-producing agents.
             </p>
           </AnimatedElement>
         </div>
