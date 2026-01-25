@@ -1,71 +1,73 @@
-# Aasani Systems - Real Estate Landing Page
+# React + TypeScript + Vite
 
-A modern, responsive landing page for Aasani Systems showcasing real estate operational automation services.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Overview
+Currently, two official plugins are available:
 
-This landing page presents the 7 core automations that help real estate agents save 20+ hours per week and focus on revenue-generating activities.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Features
+## React Compiler
 
-- **Modern Design**: Clean, dark-themed interface with smooth animations
-- **Responsive**: Fully optimized for mobile, tablet, and desktop devices
-- **Two Main Pages**:
-  - `index.html` - Main landing page with company overview and case studies
-  - `automations.html` - Detailed breakdown of the 7 core automations
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Technology Stack
+## Expanding the ESLint configuration
 
-- HTML5
-- TailwindCSS (via CDN)
-- Iconify Icons
-- Vanilla JavaScript
-- Google Fonts (Space Grotesk, Inter, Space Mono)
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## The 7 Core Automations
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-1. **Instant Lead Response** - Respond in 60 seconds, capture leads instantly
-2. **Lead Qualification & Scoring** - Focus on leads most likely to convert
-3. **Smart CRM Follow-Up Sequences** - 80% of conversions happen after the 5th follow-up
-4. **Appointment Scheduling & Reminders** - Eliminate phone tag and no-shows
-5. **Transaction Coordination** - 95% on-time closings vs 78% industry average
-6. **Client Communication & Content Marketing** - 63% of business from referrals and repeat clients
-7. **Review & Referral Generation** - Turn happy clients into reviews and referrals
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-## Local Development
-
-Simply open the HTML files in a web browser:
-
-```bash
-# Open main landing page
-open index.html
-
-# Open automations breakdown
-open automations.html
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-For a local server:
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```bash
-# Python 3
-python3 -m http.server 8000
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-# Node.js (with http-server)
-npx http-server
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
-
-Then visit `http://localhost:8000`
-
-## Contact Information
-
-- **Email**: ayub@aasani.ai
-- **Phone**: 732-397-7299
-- **Website**: [aasani.ai](https://aasani.ai)
-
-## Company
-
-Assani Systems - Real Estate Operational Systems
-
----
-
-Built with care for real estate professionals who want to automate their operations and focus on what matters most.
