@@ -129,7 +129,7 @@ export const contactInfo = {
 };
 
 export const backgroundImages = {
-  hero: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/53970266-f8db-425c-8883-5535f3e41c4d_1600w.webp',
+  hero: '/hero-bg.png',
   problem: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/2596b357-ea11-4df7-819d-6d24ab446fec_1600w.webp',
   solution: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/cc0d42d0-ed20-4040-89d3-5a6177162b6d_1600w.webp',
   automations: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/aa2cf7be-2794-4596-80ce-cf0669fd8ec5_1600w.webp',
