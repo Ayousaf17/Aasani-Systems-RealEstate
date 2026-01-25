@@ -20,12 +20,17 @@ export function HeroSlide({ index }: HeroSlideProps) {
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
             [01/08]
           </span>
-          <div className="flex items-center gap-2">
+          <a
+            href="https://aasani.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+          >
             <iconify-icon icon="solar:buildings-2-linear" className="text-teal-400 text-lg" />
             <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
               AASANI.AI
             </span>
-          </div>
+          </a>
         </AnimatedElement>
 
         <div className="md:space-y-8 flex-1 flex flex-col z-10 relative space-y-6 justify-center">

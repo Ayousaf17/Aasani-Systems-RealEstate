@@ -13,13 +13,12 @@ export function Header({ direction, onNavigate, showArrows = true }: HeaderProps
   return (
     <header className="fixed top-0 left-0 right-0 z-[60] px-4 md:px-8 py-4 md:py-6 flex justify-between items-center pointer-events-none">
       <div className="pointer-events-auto">
-        <h1
+        <button
           onClick={() => navigate('/')}
-          className="md:text-sm uppercase md:px-4 cursor-pointer text-xs font-semibold text-white tracking-tight bg-black/40 opacity-90 rounded-full py-2 px-3 backdrop-blur-md hover:bg-black/60 transition-colors"
-          role="button"
+          className="flex items-center justify-center cursor-pointer bg-black/40 opacity-90 rounded-full p-2 backdrop-blur-md hover:bg-black/60 transition-colors"
         >
-          Aasani.ai
-        </h1>
+          <img src="/logo.png" alt="Aasani Systems" className="h-6 md:h-7 w-auto" />
+        </button>
       </div>
 
       {showArrows && (
