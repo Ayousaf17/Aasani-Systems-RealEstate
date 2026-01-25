@@ -26,15 +26,14 @@ export function AutomationsPage() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#050505]">
       {/* Fixed Navigation */}
       <nav className="fixed flex md:px-6 bg-black/80 h-16 z-50 border-white/5 border-b pt-4 pr-4 pb-4 pl-4 top-0 right-0 left-0 backdrop-blur-md items-center justify-between">
-        {/* Left: Title */}
+        {/* Left: Logo */}
         <div className="flex items-center gap-2 w-auto md:w-1/3">
-          <h1
+          <button
             onClick={() => navigate('/')}
-            className="md:text-sm uppercase md:px-4 cursor-pointer hover:bg-black/60 transition-colors text-xs font-semibold text-white tracking-tight bg-black/40 opacity-90 rounded-full pt-2 pr-3 pb-2 pl-3 backdrop-blur-md"
-            role="button"
+            className="flex items-center justify-center cursor-pointer bg-black/40 opacity-90 rounded-full w-10 h-10 md:w-12 md:h-12 backdrop-blur-md hover:bg-black/60 transition-colors"
           >
-            Aasani.ai
-          </h1>
+            <img src="/logo.png" alt="Aasani Systems" className="h-8 md:h-10 w-auto" />
+          </button>
         </div>
 
         {/* Center: Pagination Dots */}
