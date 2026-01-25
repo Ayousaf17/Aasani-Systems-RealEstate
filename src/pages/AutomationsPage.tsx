@@ -26,8 +26,8 @@ export function AutomationsPage() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#050505]">
       {/* Fixed Navigation - Floating Glass Style */}
       <nav className="fixed flex px-4 md:px-8 py-4 md:py-6 z-50 top-0 right-0 left-0 items-center justify-between pointer-events-none">
-        {/* Left: Logo */}
-        <div className="pointer-events-auto">
+        {/* Logo */}
+        <div className="pointer-events-auto flex-shrink-0">
           <button
             onClick={() => navigate('/')}
             className="cursor-pointer hover:opacity-80 transition-opacity"
