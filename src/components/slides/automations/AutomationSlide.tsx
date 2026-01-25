@@ -20,7 +20,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
         style={{ backgroundImage: `url(${data.backgroundImage})` }}
       >
         <div className="flex flex-col">
-          <AnimatedElement delay={0.1} className="flex mix-blend-color-dodge mb-6 items-center justify-between">
+          <AnimatedElement delay={0.1} className="flex mb-6 items-center justify-between">
             <span className="font-mono text-xs text-neutral-400">[{data.slideNumber}]</span>
             <div className="flex items-center gap-2">
               <iconify-icon icon={data.icon} className={`${data.iconColor} text-lg`} />
