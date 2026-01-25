@@ -70,13 +70,13 @@ export function CTASlide({ index }: CTASlideProps) {
                 </span>
               </a>
             </div>
-            <p className="text-sm font-light text-neutral-50 text-center max-w-sm">
+            <p className="text-sm font-light text-neutral-50 text-center max-w-sm font-display">
               No pressure. No pitch. Just value.
             </p>
           </div>
 
           <div className="w-full flex flex-col items-center gap-3 pt-2">
-            <p className="md:text-sm leading-tight text-xs font-light text-neutral-50 text-center">
+            <p className="md:text-sm leading-tight text-xs font-light text-neutral-50 text-center font-display">
               Want to see exactly what gets automated?
               Review the detailed breakdown first.
             </p>
@@ -91,7 +91,7 @@ export function CTASlide({ index }: CTASlideProps) {
               >
                 <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] opacity-0 group-hover/sec:opacity-100 transition-opacity duration-500" />
                 <span className="relative flex h-full w-full items-center rounded-full bg-black/80 pt-2.5 pr-5 pb-2.5 pl-5 ring-1 ring-white/20 gap-2">
-                  <span className="text-sm font-medium text-neutral-200 group-hover/sec:text-white transition-colors">View the 7 Automations Breakdown</span>
+                  <span className="text-sm font-medium text-neutral-200 group-hover/sec:text-white transition-colors font-display">View the 7 Automations Breakdown</span>
                   <iconify-icon
                     icon="solar:arrow-right-linear"
                     className="group-hover/sec:translate-x-1 transition-transform text-lg text-neutral-400 group-hover/sec:text-white"

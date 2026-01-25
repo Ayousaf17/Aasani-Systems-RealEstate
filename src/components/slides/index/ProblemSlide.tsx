@@ -45,7 +45,7 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
                   {stat.value}
                 </span>
               </div>
-              <p className="md:text-base leading-snug text-sm font-medium text-white mb-1 backdrop-blur-sm">
+              <p className="md:text-base leading-snug text-sm font-medium text-white mb-1 backdrop-blur-sm font-display">
                 {stat.title}
                 {stat.highlight && (
                   <>
@@ -55,7 +55,7 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
                   </>
                 )}
               </p>
-              <p className="md:text-sm text-xs font-medium text-neutral-400 backdrop-blur-sm">
+              <p className="md:text-sm text-xs font-medium text-neutral-400 backdrop-blur-sm font-display">
                 {stat.subtitle}
               </p>
               {i < problemStats.length - 1 && (

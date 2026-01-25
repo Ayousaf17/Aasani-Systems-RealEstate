@@ -62,7 +62,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                 style={{ width: `${data.progressPercent}%` }}
               />
             </div>
-            <p className="text-xs text-neutral-300 font-light leading-snug">
+            <p className="text-xs text-neutral-300 font-light leading-snug font-display">
               {data.statDescription}
             </p>
           </div>
@@ -70,7 +70,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
 
         <AnimatedElement delay={0.7}>
           <div className="bg-black/50 backdrop-blur-md rounded-lg p-4 border-l-2 border-white/30">
-            <p className="leading-relaxed text-[11px] md:text-xs text-neutral-200 font-mono mb-3">
+            <p className="leading-relaxed text-[11px] md:text-xs text-neutral-200 font-display mb-3">
               {data.description}
             </p>
             <div className="border-t border-white/10 pt-3">

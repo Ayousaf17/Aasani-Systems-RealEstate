@@ -37,7 +37,7 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
             <p className="md:text-base text-sm font-medium text-teal-400 tracking-wide font-display backdrop-blur-sm">
               How top agents save 20+ hours per week
             </p>
-            <p className="uppercase leading-relaxed text-[10px] md:text-xs text-neutral-300 tracking-wide font-mono max-w-[90%] border-teal-500 border-l-2 pl-4 backdrop-blur-sm">
+            <p className="leading-relaxed text-[10px] md:text-xs text-neutral-300 tracking-wide font-display max-w-[90%] border-teal-500 border-l-2 pl-4 backdrop-blur-sm">
               Real estate agents are drowning in admin work. Here's how to
               automate it systematically.
             </p>

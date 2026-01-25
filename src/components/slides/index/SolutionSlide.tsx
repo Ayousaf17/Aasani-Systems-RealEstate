@@ -30,7 +30,7 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
 
         <AnimatedElement delay={0.2} className="md:mb-12 mb-10">
           <h2 className="text-4xl md:text-5xl font-normal text-white tracking-tight leading-[1.1] font-display">
-            The Solution:
+            The Solution
             <br />
             <span className="text-neutral-500">Operational Systems</span>
           </h2>
@@ -53,7 +53,7 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
                 </h3>
               </div>
               <div className="pl-9 border-l border-white/10 ml-3 transition-all duration-300 group-hover:border-teal-400/50 group-hover:pl-10">
-                <p className="text-neutral-400 text-sm md:text-base leading-relaxed group-hover:text-neutral-300 transition-colors">
+                <p className="text-neutral-400 text-sm md:text-base leading-relaxed group-hover:text-neutral-300 transition-colors font-display">
                   {benefit.description}
                   {' '}
                   <span className="text-white font-semibold">

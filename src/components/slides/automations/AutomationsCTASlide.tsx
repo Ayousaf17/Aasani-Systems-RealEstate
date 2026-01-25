@@ -26,7 +26,7 @@ export function AutomationsCTASlide() {
             <h2 className="text-3xl md:text-4xl text-white font-display tracking-tighter mb-4 leading-none">
               Ready to Implement These Automations?
             </h2>
-            <p className="text-xs md:text-sm text-neutral-400 font-mono leading-relaxed">
+            <p className="text-xs md:text-sm text-neutral-400 font-display leading-relaxed">
               These 7 automations work together as a system. Most agents
               implement 2-3 to start and add more as they grow. You don't need
               to figure it out alone.
@@ -40,7 +40,7 @@ export function AutomationsCTASlide() {
                   icon="solar:check-circle-bold"
                   className="text-teal-400 text-lg flex-shrink-0 mt-0.5"
                 />
-                <span className="text-xs md:text-sm text-neutral-300 font-light">
+                <span className="text-xs md:text-sm text-neutral-300 font-light font-display">
                   {item}
                 </span>
               </li>
