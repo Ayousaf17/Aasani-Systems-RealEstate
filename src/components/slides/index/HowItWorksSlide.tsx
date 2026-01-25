@@ -21,7 +21,7 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
             [06/08]
           </span>
           <div className="flex items-center gap-2">
-            <iconify-icon icon="solar:map-arrow-linear" className="text-teal-400 text-lg" />
+            <iconify-icon icon="solar:routing-linear" className="text-teal-400 text-lg" />
             <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
               PROCESS
             </span>

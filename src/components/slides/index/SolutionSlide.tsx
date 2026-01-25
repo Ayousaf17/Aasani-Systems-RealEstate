@@ -22,7 +22,7 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
           </span>
           <div className="flex items-center gap-2">
             <iconify-icon icon="solar:lightbulb-linear" className="text-teal-400 text-lg" />
-            <span className="font-display text-[10px] md:text-xs font-semibold uppercase tracking-widest text-teal-400">
+            <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
               THE SOLUTION
             </span>
           </div>
