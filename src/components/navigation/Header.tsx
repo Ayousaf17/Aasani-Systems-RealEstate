@@ -15,9 +15,9 @@ export function Header({ direction, onNavigate, showArrows = true }: HeaderProps
       <div className="pointer-events-auto">
         <button
           onClick={() => navigate('/')}
-          className="flex items-center justify-center cursor-pointer bg-black/40 opacity-90 rounded-full p-2 backdrop-blur-md hover:bg-black/60 transition-colors"
+          className="flex items-center justify-center cursor-pointer bg-black/40 opacity-90 rounded-full w-10 h-10 md:w-12 md:h-12 backdrop-blur-md hover:bg-black/60 transition-colors"
         >
-          <img src="/logo.png" alt="Aasani Systems" className="h-6 md:h-7 w-auto" />
+          <img src="/logo.png" alt="Aasani Systems" className="h-8 md:h-10 w-auto" />
         </button>
       </div>
 
