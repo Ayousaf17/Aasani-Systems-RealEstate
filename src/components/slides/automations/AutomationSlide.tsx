@@ -68,14 +68,16 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.7} className="flex flex-col gap-4">
-          <p className="leading-relaxed text-[11px] md:text-xs text-neutral-300 font-mono border-white/20 border-l-2 pl-4 backdrop-blur-sm">
-            {data.description}
-          </p>
-          <div className="border-white/10 border-t pt-4">
-            <p className="text-[9px] uppercase text-neutral-300 tracking-widest font-mono backdrop-blur-sm">
-              {data.tools}
+        <AnimatedElement delay={0.7}>
+          <div className="bg-black/50 backdrop-blur-md rounded-lg p-4 border-l-2 border-white/30">
+            <p className="leading-relaxed text-[11px] md:text-xs text-neutral-200 font-mono mb-3">
+              {data.description}
             </p>
+            <div className="border-t border-white/10 pt-3">
+              <p className="text-[9px] uppercase text-neutral-400 tracking-widest font-mono">
+                {data.tools}
+              </p>
+            </div>
           </div>
         </AnimatedElement>
       </div>
