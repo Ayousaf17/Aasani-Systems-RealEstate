@@ -30,9 +30,9 @@ export function AutomationsPage() {
         <div className="pointer-events-auto">
           <button
             onClick={() => navigate('/')}
-            className="cursor-pointer hover:opacity-80 transition-opacity w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden"
+            className="cursor-pointer hover:opacity-80 transition-opacity"
           >
-            <img src="/logo.png" alt="Aasani Systems" className="w-full h-full scale-150" />
+            <img src="/logo.png" alt="Aasani Systems" className="h-8 md:h-10 w-auto" />
           </button>
         </div>
 
