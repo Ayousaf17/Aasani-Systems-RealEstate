@@ -41,7 +41,7 @@ export const solutionBenefits = [
     title: 'Transaction Coordination',
     description: 'Automated task checklists. Document routing without manual work.',
     highlight: '95% on-time closings',
-    highlightSuffix: 'vs 76% industry average.',
+    highlightSuffix: 'vs 78% industry average.',
   },
 ];
 
@@ -123,8 +123,8 @@ export const philosophyQuotes = [
 
 export const contactInfo = {
   email: 'ayub@aasani.ai',
-  phone: '732-397-7299',
-  website: 'AASANI.AI',
+  phone: '+1 (732) 397-7299',
+  website: 'aasani.ai',
   calLink: 'https://cal.com/ayub-yousaf-c1ijnf/bookatime',
 };
 
