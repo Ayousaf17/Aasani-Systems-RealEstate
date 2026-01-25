@@ -29,15 +29,15 @@ export function NavigationDots({ total, currentIndex, onDotClick, direction = 'v
 
   // Horizontal pagination (for automations page)
   return (
-    <div className="hidden sm:flex gap-x-2 gap-y-2 items-center justify-center">
+    <div className="flex gap-x-1.5 md:gap-x-2 items-center justify-center">
       {Array.from({ length: total }, (_, i) => (
-        <div
+        <button
           key={i}
           onClick={() => onDotClick(i)}
-          className={`w-1.5 h-1.5 rounded-full hover:bg-white hover:scale-125 transition-all duration-300 cursor-pointer ${
-            i === currentIndex ? 'bg-white scale-125' : 'bg-white/20'
+          className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full hover:bg-white hover:scale-125 transition-all duration-300 cursor-pointer ${
+            i === currentIndex ? 'bg-white scale-125' : 'bg-white/30'
           }`}
-          data-index={i}
+          aria-label={`Go to slide ${i + 1}`}
         />
       ))}
     </div>

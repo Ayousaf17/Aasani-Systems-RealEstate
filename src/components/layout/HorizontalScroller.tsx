@@ -65,7 +65,7 @@ export const HorizontalScroller = forwardRef<HorizontalScrollerRef, HorizontalSc
     return (
       <main
         ref={containerRef as React.RefObject<HTMLElement>}
-        className="flex flex-row overflow-x-auto snap-x snap-mandatory hide-scrollbar scroll-smooth select-none cursor-grab active:cursor-grabbing mask-on-md w-full pt-16 md:pt-32 md:pb-12 md:px-10 md:gap-x-12"
+        className="flex flex-row overflow-x-auto snap-x snap-mandatory hide-scrollbar scroll-smooth select-none md:cursor-grab md:active:cursor-grabbing mask-on-md w-full pt-20 pb-4 px-2 gap-x-2 md:pt-32 md:pb-12 md:px-10 md:gap-x-12 items-center"
         style={{ scrollSnapType: 'x mandatory', scrollBehavior: 'smooth' }}
         {...dragHandlers}
       >

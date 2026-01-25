@@ -43,13 +43,13 @@ export function HeroSlide({ index }: HeroSlideProps) {
               Real Estate Operations.
               <span className="block text-neutral-400">Systematized.</span>
             </h1>
-            <p className="text-xl md:text-2xl font-light text-teal-400 tracking-tight leading-tight">
+            <p className="text-xl md:text-2xl font-light text-teal-400 tracking-tight leading-tight font-display">
               Stop losing deals to admin work.
             </p>
           </AnimatedElement>
 
           <AnimatedElement delay={0.4}>
-            <p className="leading-relaxed md:text-base text-sm font-light text-neutral-300 max-w-[95%]">
+            <p className="leading-relaxed md:text-base text-sm font-light text-neutral-300 max-w-[95%] font-display">
               Reclaim 20+ hours per week. Automated systems for top-producing agents.
             </p>
           </AnimatedElement>

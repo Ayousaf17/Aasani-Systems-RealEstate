@@ -34,12 +34,12 @@ export function PhilosophySlide({ index, onNavigate }: PhilosophySlideProps) {
             <h1 className="text-5xl font-normal text-white tracking-tighter mt-6 mb-3 drop-shadow-lg md:text-5xl font-display">
               Build Better
               <br />
-              Operations.
+              Operations
             </h1>
           </AnimatedElement>
 
           <AnimatedElement delay={0.3}>
-            <p className="md:text-2xl text-xl font-light text-neutral-500/90 tracking-tight drop-shadow-md backdrop-blur">
+            <p className="md:text-2xl text-xl font-light text-neutral-500/90 tracking-tight drop-shadow-md backdrop-blur font-display">
               Aasani Systems is the difference.
             </p>
           </AnimatedElement>
@@ -52,7 +52,7 @@ export function PhilosophySlide({ index, onNavigate }: PhilosophySlideProps) {
                 key={i}
                 className="bg-black/40 backdrop-blur-md border border-white/10 border-l-2 border-l-white p-4 rounded-sm hover:bg-black/50 transition-colors"
               >
-                <p className="text-sm md:text-base text-neutral-100 font-medium">
+                <p className="text-sm md:text-base text-neutral-100 font-medium font-display">
                   "{quote}"
                 </p>
               </div>

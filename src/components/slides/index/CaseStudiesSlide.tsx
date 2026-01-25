@@ -55,7 +55,7 @@ export function CaseStudiesSlide({ index }: CaseStudiesSlideProps) {
                       <h3 className="text-white font-medium text-lg leading-none">
                         {study.name}
                       </h3>
-                      <p className="text-neutral-300 text-xs mt-1">{study.location}</p>
+                      <p className="text-neutral-300 text-xs mt-1 font-display">{study.location}</p>
                     </div>
                   </div>
                   <iconify-icon icon={study.icon} className={`${study.iconColor} text-xl`} />
@@ -66,7 +66,7 @@ export function CaseStudiesSlide({ index }: CaseStudiesSlideProps) {
                       <span className={`${stat.highlight ? study.iconColor : 'text-white'} font-bold text-lg md:text-xl tracking-tight`}>
                         {stat.value}
                       </span>
-                      <span className="text-xs text-neutral-300 uppercase tracking-wide font-medium mt-1">
+                      <span className="text-xs text-neutral-300 uppercase tracking-wide font-medium mt-1 font-display">
                         {stat.label}
                       </span>
                     </div>

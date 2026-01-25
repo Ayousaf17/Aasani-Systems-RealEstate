@@ -43,14 +43,14 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
             >
               <div className="flex items-baseline gap-4 mb-2">
                 <span className="text-2xl font-bold text-orange-400 font-mono">{step.number}</span>
-                <h3 className="text-white font-medium text-lg leading-tight">
+                <h3 className="text-white font-medium text-lg leading-tight font-display">
                   {step.title}
                   <span className="text-neutral-500 text-sm font-normal block md:inline md:ml-2">
                     ({step.duration})
                   </span>
                 </h3>
               </div>
-              <p className="text-neutral-300 text-sm leading-relaxed pl-[3rem]">
+              <p className="text-neutral-300 text-sm leading-relaxed pl-[3rem] font-display">
                 {step.description}
               </p>
             </AnimatedElement>
