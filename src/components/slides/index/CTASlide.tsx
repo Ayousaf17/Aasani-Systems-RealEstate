@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { useRef, useEffect, useState } from 'react';
-import { getCalApi } from '@calcom/embed-react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
 import { contactInfo } from '../../../data/indexContent';
 
@@ -23,25 +22,10 @@ export function CTASlide({ index }: CTASlideProps) {
 
   useEffect(() => {
     if (videoRef.current && !prefersReducedMotion) {
-      // 0.5x keeps smooth motion without stutter
-      videoRef.current.playbackRate = 0.5;
+      // Very slow for calm, non-distracting background
+      videoRef.current.playbackRate = 0.25;
     }
   }, [prefersReducedMotion]);
-
-  // Initialize Cal.com embed
-  useEffect(() => {
-    (async function () {
-      const cal = await getCalApi({ namespace: 'bookatime' });
-      cal('ui', {
-        cssVarsPerTheme: {
-          light: { 'cal-brand': '#14B8A6' },
-          dark: { 'cal-brand': '#2DD4BF' },
-        },
-        hideEventTypeDetails: false,
-        layout: 'week_view',
-      });
-    })();
-  }, []);
 
   return (
     <section
@@ -61,13 +45,13 @@ export function CTASlide({ index }: CTASlideProps) {
               loop
               muted
               playsInline
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover scale-105"
             >
               <source src="/cta-bg.mp4" type="video/mp4" />
             </video>
           ) : (
             <video
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover scale-105"
               muted
               playsInline
               preload="metadata"
@@ -95,7 +79,7 @@ export function CTASlide({ index }: CTASlideProps) {
         <AnimatedElement delay={0.2} className="mb-10 md:mb-12 relative z-10">
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display">
             Ready to Reclaim
-            <span className="block text-neutral-400 font-normal">20+ Hours Per Week?</span>
+            <span className="block text-white font-normal">20+ Hours Per Week?</span>
           </h2>
         </AnimatedElement>
 
@@ -106,10 +90,10 @@ export function CTASlide({ index }: CTASlideProps) {
             <div className="absolute -inset-[1px] rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] animate-[spin_2s_linear_infinite]" />
             </div>
-            <button
-              data-cal-namespace="bookatime"
-              data-cal-link="ayub-yousaf-c1ijnf/bookatime"
-              data-cal-config='{"layout":"week_view"}'
+            <a
+              href={contactInfo.calLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative z-10 flex items-center justify-center overflow-hidden rounded-full p-[1px] leading-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)]" />
@@ -127,7 +111,7 @@ export function CTASlide({ index }: CTASlideProps) {
                   />
                 </span>
               </span>
-            </button>
+            </a>
           </div>
 
           {/* Divider */}
