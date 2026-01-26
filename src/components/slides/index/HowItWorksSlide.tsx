@@ -38,7 +38,7 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
         style={{ backgroundImage: `url(${backgroundImages.howItWorks})` }}
       >
         <div>
-          <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4">
+          <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
               [06/08]
             </span>
