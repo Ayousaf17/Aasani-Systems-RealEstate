@@ -16,7 +16,7 @@ export function CTASlide({ index }: CTASlideProps) {
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-6 pl-6 relative justify-between card-bg safe-area-bottom"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 md:pb-12 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-16 pl-6 relative justify-between card-bg safe-area-bottom"
         style={{ backgroundImage: `url(${backgroundImages.cta})` }}
       >
         <div className="w-full relative z-10">
