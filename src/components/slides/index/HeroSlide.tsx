@@ -33,12 +33,12 @@ export function HeroSlide({ index }: HeroSlideProps) {
           </a>
         </AnimatedElement>
 
-        {/* Icon - positioned at top of content area */}
-        <AnimatedElement delay={0.2} className="flex bg-gradient-to-br from-teal-500/10 to-white/0 w-12 h-12 md:w-14 md:h-14 rounded-lg backdrop-blur-md border border-teal-400/20 items-center justify-center mt-4 md:mt-8">
-          <iconify-icon icon="solar:settings-minimalistic-linear" className="text-2xl md:text-3xl text-white" />
-        </AnimatedElement>
-
         <div className="flex-1 flex flex-col z-10 relative justify-center">
+          {/* Icon - just above headline like Aura template */}
+          <AnimatedElement delay={0.2} className="flex bg-gradient-to-br from-teal-500/10 to-white/0 w-12 h-12 md:w-14 md:h-14 rounded-lg backdrop-blur-md border border-teal-400/20 items-center justify-center mb-6 md:mb-8">
+            <iconify-icon icon="solar:settings-minimalistic-linear" className="text-2xl md:text-3xl text-white" />
+          </AnimatedElement>
+
           <AnimatedElement delay={0.3}>
             <h1 className="text-4xl md:text-6xl leading-[0.95] font-bold text-white tracking-tight font-display mb-4">
               Real Estate Operations.

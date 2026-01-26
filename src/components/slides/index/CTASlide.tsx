@@ -103,7 +103,7 @@ export function CTASlide({ index }: CTASlideProps) {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.5} className="w-full border-t border-white/10 pt-3 md:pt-4 shrink-0">
+        <AnimatedElement delay={0.5} className="w-full border-t border-white/10 pt-3 md:pt-4 mb-6 md:mb-8 shrink-0">
           <div className="flex flex-col items-center gap-2 md:gap-3">
             <span className="text-[10px] text-neutral-500 font-mono uppercase tracking-widest">
               Questions? Reach out:
