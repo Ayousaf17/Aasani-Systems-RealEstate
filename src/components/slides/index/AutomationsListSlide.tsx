@@ -33,12 +33,11 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.2}>
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-2 font-display">
+            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display">
               7 Core Automations
+              <br />
+              <span className="text-neutral-500 font-normal">Reclaim 20+ Hours Per Week</span>
             </h2>
-            <p className="text-sm text-neutral-400 font-display">
-              Reclaim 20+ hours per week
-            </p>
           </AnimatedElement>
         </div>
 

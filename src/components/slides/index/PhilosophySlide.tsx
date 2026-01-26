@@ -41,8 +41,8 @@ export function PhilosophySlide({ index, onNavigate }: PhilosophySlideProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.3}>
-            <p className="text-lg md:text-2xl font-light text-neutral-400 tracking-tight drop-shadow-md font-display">
-              Aasani Systems is the difference.
+            <p className="text-3xl md:text-5xl font-normal text-neutral-500 tracking-tight drop-shadow-md font-display">
+              Aasani Systems is the Difference
             </p>
           </AnimatedElement>
         </div>
