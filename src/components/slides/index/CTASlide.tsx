@@ -51,7 +51,7 @@ export function CTASlide({ index }: CTASlideProps) {
                 href={contactInfo.calLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative z-10 flex items-center justify-center overflow-hidden rounded-full p-[1px] leading-none"
+                className="group relative z-10 flex items-center justify-center overflow-hidden rounded-full p-[1px] leading-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               >
                 <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)]" />
                 <span className="relative flex h-full w-full items-center rounded-full bg-black py-3 px-6 md:py-4 md:px-8 ring-1 ring-white/10">
@@ -108,29 +108,29 @@ export function CTASlide({ index }: CTASlideProps) {
             <span className="text-[10px] text-neutral-500 font-mono uppercase tracking-widest">
               Questions? Reach out:
             </span>
-            <div className="flex items-center gap-4 md:gap-6">
+            <div className="flex items-center gap-5 md:gap-6">
               <a
                 href={`mailto:${contactInfo.email}`}
-                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 transition-all"
-                aria-label="Email"
+                className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
+                aria-label="Email us"
               >
-                <iconify-icon icon="lucide:mail" className="text-teal-400 text-xl md:text-2xl" />
+                <iconify-icon icon="lucide:mail" className="text-teal-400 text-2xl" />
               </a>
               <a
                 href={`tel:${contactInfo.phone.replace(/\D/g, '')}`}
-                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 transition-all"
-                aria-label="Phone"
+                className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
+                aria-label="Call us"
               >
-                <iconify-icon icon="lucide:phone" className="text-teal-400 text-xl md:text-2xl" />
+                <iconify-icon icon="lucide:phone" className="text-teal-400 text-2xl" />
               </a>
               <a
                 href={`https://${contactInfo.website.toLowerCase()}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 transition-all"
-                aria-label="Website"
+                className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
+                aria-label="Visit our website"
               >
-                <iconify-icon icon="lucide:globe" className="text-teal-400 text-xl md:text-2xl" />
+                <iconify-icon icon="lucide:globe" className="text-teal-400 text-2xl" />
               </a>
             </div>
           </div>

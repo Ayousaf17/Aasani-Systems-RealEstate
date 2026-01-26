@@ -39,7 +39,7 @@ export function CaseStudiesSlide({ index }: CaseStudiesSlideProps) {
             </h2>
           </AnimatedElement>
 
-          <div className="flex flex-col gap-3 w-full flex-1 min-h-0 overflow-y-auto scrollbar-hide pb-2 justify-center">
+          <div className="flex flex-col gap-3 w-full flex-1 min-h-0 overflow-y-auto scrollbar-hide py-4 mt-2">
             {caseStudies.map((study, i) => (
               <AnimatedElement
                 key={i}

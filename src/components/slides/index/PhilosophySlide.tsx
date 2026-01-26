@@ -49,16 +49,20 @@ export function PhilosophySlide({ index, onNavigate }: PhilosophySlideProps) {
 
         <div className="z-20 md:px-12 flex-1 flex flex-col pr-6 pl-6 relative justify-center py-4">
           <AnimatedElement delay={0.4} className="flex flex-col gap-3 w-full">
-            {philosophyQuotes.map((quote, i) => (
-              <div
-                key={i}
-                className="bg-black/50 backdrop-blur-sm border border-white/10 border-l-2 border-l-white/80 p-3 md:p-4 rounded-sm"
-              >
-                <p className="text-sm md:text-base text-neutral-100 font-medium font-display">
-                  "{quote}"
-                </p>
-              </div>
-            ))}
+            {philosophyQuotes.map((quote, i) => {
+              const borderColors = ['border-l-teal-400', 'border-l-orange-400', 'border-l-white/80'];
+              return (
+                <div
+                  key={i}
+                  className={`bg-black/50 backdrop-blur-sm border border-white/10 border-l-2 ${borderColors[i]} p-3 md:p-4 rounded-sm flex gap-3 items-start`}
+                >
+                  <span className="text-xs font-mono text-neutral-500 mt-0.5">{String(i + 1).padStart(2, '0')}</span>
+                  <p className="text-sm md:text-base text-neutral-100 font-medium font-display flex-1">
+                    "{quote}"
+                  </p>
+                </div>
+              );
+            })}
           </AnimatedElement>
         </div>
 
