@@ -29,7 +29,7 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
         </AnimatedElement>
 
         <AnimatedElement delay={0.2} className="md:mb-12 mb-10">
-          <h2 className="text-4xl md:text-5xl font-normal text-white tracking-tight leading-[1.1] font-display">
+          <h2 className="text-3xl md:text-5xl font-normal text-white tracking-tight font-display">
             The Solution
             <br />
             <span className="text-neutral-500">Operational Systems</span>

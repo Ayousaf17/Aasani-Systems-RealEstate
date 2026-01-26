@@ -48,6 +48,22 @@
   100% { left: 100%; }
 }
 
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
 /* Animation utility classes */
 .animate-clip {
   animation: clip-reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite alternate;
