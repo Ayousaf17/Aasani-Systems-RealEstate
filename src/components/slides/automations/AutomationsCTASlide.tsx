@@ -1,11 +1,34 @@
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getCalApi } from '@calcom/embed-react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
 import { contactLinks } from '../../../data/automationsContent';
 
+const ctaChecklist = [
+  'Free 30-minute strategy call',
+  'Custom automation roadmap for your business',
+];
+
 export function AutomationsCTASlide() {
   const navigate = useNavigate();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  // Check for reduced motion preference
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+    const handleChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  // Set video playback rate
+  useEffect(() => {
+    if (videoRef.current && !prefersReducedMotion) {
+      videoRef.current.playbackRate = 0.5;
+    }
+  }, [prefersReducedMotion]);
 
   // Initialize Cal.com embed
   useEffect(() => {
@@ -27,12 +50,37 @@ export function AutomationsCTASlide() {
       className="slide-container flex-shrink-0 bg-[#0A0A0A] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center"
       id="slide-8"
     >
-      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none z-0" />
-      <div className="absolute inset-0 bg-gradient-to-t from-teal-900/30 via-[#0A0A0A] to-[#0A0A0A] z-0" />
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {!prefersReducedMotion ? (
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/automations-cta-bg.mp4" type="video/mp4" />
+          </video>
+        ) : (
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            muted
+            playsInline
+            preload="metadata"
+          >
+            <source src="/automations-cta-bg.mp4" type="video/mp4" />
+          </video>
+        )}
+      </div>
+
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 z-[1] bg-black/60" />
 
       <div className="flex flex-col z-10 h-full pt-12 px-5 pb-5 md:p-12 justify-between relative">
         <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 md:mb-6">
-          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">[09/09]</span>
+          <span className="text-xs uppercase tracking-widest font-mono text-white">[09/09]</span>
           <div className="flex items-center gap-2">
             <iconify-icon icon="solar:arrow-right-up-linear" className="text-teal-400 text-lg" />
             <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
@@ -48,7 +96,21 @@ export function AutomationsCTASlide() {
           </h2>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.4} className="flex-1 flex flex-col items-center justify-center gap-8 w-full">
+        <AnimatedElement delay={0.3} className="flex flex-col items-center gap-3 w-full">
+          {ctaChecklist.map((item, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <iconify-icon
+                icon="solar:check-circle-bold"
+                className="text-teal-400 text-lg flex-shrink-0"
+              />
+              <span className="text-sm md:text-base text-white font-display">
+                {item}
+              </span>
+            </div>
+          ))}
+        </AnimatedElement>
+
+        <AnimatedElement delay={0.4} className="flex-1 flex flex-col items-center justify-center gap-6 w-full">
           {/* Primary CTA */}
           <div className="group relative md:scale-110 cursor-pointer">
             <div className="-inset-2 group-hover:opacity-100 transition duration-500 bg-neutral-600/30 opacity-0 rounded-full absolute blur-xl" />
@@ -82,7 +144,7 @@ export function AutomationsCTASlide() {
           {/* Divider */}
           <div className="flex items-center gap-4 w-full max-w-xs">
             <div className="flex-1 h-px bg-white/30" />
-            <span className="text-xs text-neutral-400 font-mono uppercase tracking-wider">or</span>
+            <span className="text-xs text-white font-mono uppercase tracking-wider">or</span>
             <div className="flex-1 h-px bg-white/30" />
           </div>
 
@@ -108,7 +170,7 @@ export function AutomationsCTASlide() {
 
         {/* Footer matching page 1 CTA style */}
         <AnimatedElement delay={0.5} className="w-full shrink-0">
-          <span className="block text-[10px] text-neutral-400 font-mono uppercase tracking-widest text-center mb-3 md:mb-4">
+          <span className="block text-[10px] text-white font-mono uppercase tracking-widest text-center mb-3 md:mb-4">
             Questions? Reach out:
           </span>
 
