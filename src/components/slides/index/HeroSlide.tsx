@@ -17,7 +17,7 @@ export function HeroSlide({ index }: HeroSlideProps) {
         style={{ backgroundImage: `url(${backgroundImages.hero})` }}
       >
         <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
-          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+          <span className="hidden md:block text-xs uppercase tracking-widest font-mono text-neutral-400">
             [01/08]
           </span>
           <a

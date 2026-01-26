@@ -21,7 +21,7 @@ export function PhilosophySlide({ index, onNavigate }: PhilosophySlideProps) {
 
         <div className="md:p-12 md:pt-12 z-20 pt-16 pr-6 pb-4 pl-6 relative">
           <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4">
-            <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
+            <span className="hidden md:block text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
               [07/08]
             </span>
             <div className="flex items-center gap-2">

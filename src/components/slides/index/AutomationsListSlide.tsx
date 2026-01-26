@@ -20,7 +20,7 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
         style={{ backgroundImage: `url(${backgroundImages.automations})` }}
       >
         <AnimatedElement delay={0.1} className="flex justify-between items-center mb-3">
-          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+          <span className="hidden md:block text-xs uppercase tracking-widest font-mono text-neutral-400">
             [04/08]
           </span>
           <div className="flex items-center gap-2">
