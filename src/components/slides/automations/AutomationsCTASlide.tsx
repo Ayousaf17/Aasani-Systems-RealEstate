@@ -21,17 +21,19 @@ export function AutomationsCTASlide() {
           </div>
         </AnimatedElement>
 
+        <AnimatedElement delay={0.2} className="mb-8 md:mb-10">
+          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display">
+            Ready to Implement
+            <span className="block text-neutral-400 font-normal">These Automations?</span>
+          </h2>
+        </AnimatedElement>
+
         <AnimatedElement delay={0.3} className="flex flex-col items-start space-y-4 md:space-y-6">
-          <div>
-            <h2 className="text-3xl md:text-4xl text-white font-display tracking-tighter mb-3 md:mb-4 leading-none">
-              Ready to Implement These Automations?
-            </h2>
-            <p className="text-sm md:text-base text-neutral-400 font-display leading-relaxed">
-              These 7 automations work together as a system. Most agents
-              implement 2-3 to start and add more as they grow. You don't need
-              to figure it out alone.
-            </p>
-          </div>
+          <p className="text-sm md:text-base text-neutral-400 font-display leading-relaxed">
+            These 7 automations work together as a system. Most agents
+            implement 2-3 to start and add more as they grow. You don't need
+            to figure it out alone.
+          </p>
 
           <ul className="space-y-2 md:space-y-3 w-full">
             {ctaChecklistItems.map((item, i) => (
