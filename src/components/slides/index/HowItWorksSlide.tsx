@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
 import { processSteps, backgroundImages } from '../../../data/indexContent';
 
@@ -7,26 +6,6 @@ interface HowItWorksSlideProps {
 }
 
 export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
-  const [activeStep, setActiveStep] = useState(0);
-
-  // Auto-rotate every 4 seconds
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % processSteps.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const goToPrev = () => {
-    setActiveStep((prev) => (prev - 1 + processSteps.length) % processSteps.length);
-  };
-
-  const goToNext = () => {
-    setActiveStep((prev) => (prev + 1) % processSteps.length);
-  };
-
-  const currentStep = processSteps[activeStep];
-
   return (
     <section
       className="snap-start shrink-0 flex w-full slide-height relative items-center justify-center"
@@ -34,90 +13,68 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-6 pl-6 relative justify-between card-bg"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-6 pl-6 relative justify-start card-bg"
         style={{ backgroundImage: `url(${backgroundImages.howItWorks})` }}
       >
-        <div>
-          <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
-            <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
-              [06/08]
+        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
+          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+            [06/08]
+          </span>
+          <div className="flex items-center gap-2">
+            <iconify-icon icon="solar:routing-linear" className="text-teal-400 text-lg" />
+            <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
+              PROCESS
             </span>
-            <div className="flex items-center gap-2">
-              <iconify-icon icon="solar:routing-linear" className="text-teal-400 text-lg" />
-              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
-                PROCESS
-              </span>
-            </div>
-          </AnimatedElement>
-
-          <AnimatedElement delay={0.2}>
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display">
-              How It Works
-              <br />
-              <span className="text-neutral-500 font-normal">Simple 3-Step Process</span>
-            </h2>
-          </AnimatedElement>
-        </div>
-
-        <AnimatedElement delay={0.3} className="flex-1 flex flex-col items-center justify-center py-6">
-          {/* Card Container */}
-          <div className="w-full max-w-sm relative">
-            <div
-              key={activeStep}
-              className="bg-black/60 backdrop-blur-md border border-white/10 rounded-xl p-6 shadow-2xl animate-fade-in"
-            >
-              {/* Step Icon */}
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/20 to-teal-600/10 border border-teal-500/30 flex items-center justify-center mb-4">
-                <span className="text-2xl font-bold text-teal-400 font-mono">
-                  {currentStep.number}
-                </span>
-              </div>
-
-              {/* Title */}
-              <h3 className="text-xl md:text-2xl font-medium text-white mb-1 font-display">
-                {currentStep.title}
-              </h3>
-              <span className="text-xs text-teal-400 font-mono uppercase tracking-wider">
-                {currentStep.duration}
-              </span>
-
-              {/* Description */}
-              <p className="text-neutral-300 text-sm md:text-base leading-relaxed mt-4 font-display">
-                {currentStep.description}
-              </p>
-
-              {/* Progress bar */}
-              <div className="flex gap-2 mt-6">
-                {processSteps.map((_, i) => (
-                  <div
-                    key={i}
-                    className={`h-1 flex-1 rounded-full transition-all duration-300 ${
-                      i === activeStep ? 'bg-teal-400' : 'bg-white/20'
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Navigation Arrows */}
-            <div className="flex justify-center gap-4 mt-6">
-              <button
-                onClick={goToPrev}
-                className="w-12 h-12 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-black/80 hover:border-white/40 transition-all"
-                aria-label="Previous step"
-              >
-                <iconify-icon icon="solar:arrow-left-linear" className="text-white text-xl" />
-              </button>
-              <button
-                onClick={goToNext}
-                className="w-12 h-12 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-black/80 hover:border-white/40 transition-all"
-                aria-label="Next step"
-              >
-                <iconify-icon icon="solar:arrow-right-linear" className="text-white text-xl" />
-              </button>
-            </div>
           </div>
         </AnimatedElement>
+
+        <AnimatedElement delay={0.2} className="mb-6 md:mb-8">
+          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display">
+            How It Works
+            <br />
+            <span className="text-neutral-500 font-normal">Simple 3-Step Process</span>
+          </h2>
+        </AnimatedElement>
+
+        {/* Stacked Steps */}
+        <div className="flex-1 flex flex-col gap-3 md:gap-4 overflow-y-auto scrollbar-hide pb-4">
+          {processSteps.map((step, i) => (
+            <AnimatedElement key={i} delay={0.3 + i * 0.1}>
+              <div className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-lg p-4 hover:bg-black/60 hover:border-teal-400/30 transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  {/* Step Number */}
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-gradient-to-br from-teal-500/20 to-teal-600/10 border border-teal-500/30 flex items-center justify-center shrink-0">
+                    <span className="text-lg md:text-xl font-bold text-teal-400 font-mono">
+                      {step.number}
+                    </span>
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1 flex-wrap">
+                      <h3 className="text-base md:text-lg font-medium text-white font-display">
+                        {step.title}
+                      </h3>
+                      <span className="text-[10px] md:text-xs text-teal-400 font-mono uppercase tracking-wider bg-teal-400/10 px-2 py-0.5 rounded">
+                        {step.duration}
+                      </span>
+                    </div>
+                    <p className="text-neutral-400 text-sm md:text-base leading-relaxed font-display">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Connector line to next step */}
+                {i < processSteps.length - 1 && (
+                  <div className="flex justify-start ml-5 md:ml-6 mt-3">
+                    <div className="w-px h-4 bg-gradient-to-b from-teal-400/50 to-transparent" />
+                  </div>
+                )}
+              </div>
+            </AnimatedElement>
+          ))}
+        </div>
       </div>
     </section>
   );
