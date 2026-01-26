@@ -20,7 +20,7 @@ export function PhilosophySlide({ index, onNavigate }: PhilosophySlideProps) {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 z-10 pointer-events-none" />
 
         <div className="md:p-12 md:pt-12 z-20 pt-16 pr-6 pb-4 pl-6 relative">
-          <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4">
+          <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
               [07/08]
             </span>
