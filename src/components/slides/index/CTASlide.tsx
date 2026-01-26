@@ -21,7 +21,7 @@ export function CTASlide({ index }: CTASlideProps) {
       >
         <div className="w-full relative z-10">
           <AnimatedElement delay={0.1} className="flex justify-between items-center">
-            <span className="hidden md:block text-xs uppercase tracking-widest font-mono text-neutral-400">
+            <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
               [08/08]
             </span>
             <div className="flex items-center gap-2">
@@ -33,9 +33,9 @@ export function CTASlide({ index }: CTASlideProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.2} className="mt-4">
-            <h2 className="text-3xl md:text-5xl font-normal text-white tracking-tight mb-4 font-display">
+            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4 font-display">
               Ready to Reclaim
-              <span className="block text-neutral-400">20+ Hours Per Week?</span>
+              <span className="block text-neutral-400 font-normal">20+ Hours Per Week?</span>
             </h2>
           </AnimatedElement>
         </div>

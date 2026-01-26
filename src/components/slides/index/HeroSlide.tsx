@@ -17,7 +17,7 @@ export function HeroSlide({ index }: HeroSlideProps) {
         style={{ backgroundImage: `url(${backgroundImages.hero})` }}
       >
         <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
-          <span className="hidden md:block text-xs uppercase tracking-widest font-mono text-neutral-400">
+          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
             [01/08]
           </span>
           <a
@@ -39,9 +39,9 @@ export function HeroSlide({ index }: HeroSlideProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.3}>
-            <h1 className="text-4xl md:text-6xl leading-[0.95] font-normal text-white tracking-tight font-display mb-2">
+            <h1 className="text-4xl md:text-6xl leading-[0.95] font-bold text-white tracking-tight font-display mb-2">
               Real Estate Operations.
-              <span className="block text-neutral-400">Systematized.</span>
+              <span className="block text-neutral-400 font-normal">Systematized.</span>
             </h1>
             <p className="text-xl md:text-2xl font-light text-teal-400 tracking-tight leading-tight font-display">
               Stop losing deals to admin work.

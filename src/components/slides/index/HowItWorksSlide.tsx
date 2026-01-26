@@ -39,7 +39,7 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
       >
         <div>
           <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4">
-            <span className="hidden md:block text-xs uppercase tracking-widest font-mono text-neutral-400">
+            <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
               [06/08]
             </span>
             <div className="flex items-center gap-2">
@@ -51,7 +51,7 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.2}>
-            <h2 className="text-3xl md:text-5xl font-normal text-white tracking-tight mb-2 font-display">
+            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-2 font-display">
               How It Works
             </h2>
             <p className="text-sm text-neutral-400 font-display">
