@@ -33,22 +33,26 @@ export function HeroSlide({ index }: HeroSlideProps) {
           </a>
         </AnimatedElement>
 
-        <div className="md:space-y-8 flex-1 flex flex-col z-10 relative space-y-6 justify-center">
-          <AnimatedElement delay={0.2} className="flex bg-gradient-to-br from-teal-500/10 to-white/0 w-12 h-12 md:w-14 md:h-14 rounded-lg mb-4 md:mb-6 backdrop-blur-md border border-teal-400/20 items-center justify-center">
-            <iconify-icon icon="solar:settings-minimalistic-linear" className="text-2xl md:text-3xl text-white" />
-          </AnimatedElement>
+        {/* Icon - positioned at top of content area */}
+        <AnimatedElement delay={0.2} className="flex bg-gradient-to-br from-teal-500/10 to-white/0 w-12 h-12 md:w-14 md:h-14 rounded-lg backdrop-blur-md border border-teal-400/20 items-center justify-center mt-4 md:mt-8">
+          <iconify-icon icon="solar:settings-minimalistic-linear" className="text-2xl md:text-3xl text-white" />
+        </AnimatedElement>
 
+        <div className="flex-1 flex flex-col z-10 relative justify-center">
           <AnimatedElement delay={0.3}>
-            <h1 className="text-4xl md:text-6xl leading-[0.95] font-bold text-white tracking-tight font-display mb-2">
+            <h1 className="text-4xl md:text-6xl leading-[0.95] font-bold text-white tracking-tight font-display mb-4">
               Real Estate Operations.
               <span className="block text-neutral-400 font-normal">Systematized.</span>
             </h1>
+          </AnimatedElement>
+
+          <AnimatedElement delay={0.35} className="mt-4 md:mt-6">
             <p className="text-xl md:text-2xl font-light text-teal-400 tracking-tight leading-tight font-display">
               Stop losing deals to admin work.
             </p>
           </AnimatedElement>
 
-          <AnimatedElement delay={0.4}>
+          <AnimatedElement delay={0.4} className="mt-6 md:mt-8">
             <p className="leading-relaxed md:text-base text-sm font-light text-neutral-300 max-w-[95%] font-display">
               Reclaim 20+ hours per week. Automated systems for top-producing agents.
             </p>
