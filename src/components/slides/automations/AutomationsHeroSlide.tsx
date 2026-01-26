@@ -40,10 +40,10 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
           </AnimatedElement>
 
           <AnimatedElement delay={0.4} className="space-y-2">
-            <p className="md:text-base text-xs font-medium text-teal-400 tracking-wide font-display backdrop-blur-sm">
+            <p className="md:text-base text-sm font-medium text-teal-400 tracking-wide font-display backdrop-blur-sm">
               How top agents save 20+ hours per week
             </p>
-            <p className="leading-relaxed text-[10px] md:text-xs text-neutral-300 tracking-wide font-display max-w-[90%] border-teal-500 border-l-2 pl-3 backdrop-blur-sm">
+            <p className="leading-relaxed text-xs md:text-sm text-neutral-300 tracking-wide font-display max-w-[90%] border-teal-500 border-l-2 pl-3 backdrop-blur-sm">
               Real estate agents are drowning in admin work. Here's how to
               automate it systematically.
             </p>
@@ -52,12 +52,12 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
 
         <AnimatedElement delay={0.6} className="relative z-10 pt-4 md:pt-6 border-t border-white/10 flex justify-between items-end">
           <div className="flex flex-col">
-            <span className="font-mono text-[10px] text-neutral-500 uppercase mb-1">
+            <span className="font-mono text-xs text-neutral-500 uppercase mb-1">
               Scope
             </span>
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-pulse" />
-              <span className="font-display text-sm md:text-base tracking-wide text-neutral-200">
+              <span className="font-display text-base md:text-lg tracking-wide text-neutral-200">
                 7 Core Automations
               </span>
             </div>

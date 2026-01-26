@@ -23,24 +23,24 @@ export function AutomationsCTASlide() {
 
         <AnimatedElement delay={0.3} className="flex flex-col items-start space-y-4 md:space-y-8">
           <div>
-            <h2 className="text-2xl md:text-4xl text-white font-display tracking-tighter mb-2 md:mb-4 leading-none">
+            <h2 className="text-3xl md:text-4xl text-white font-display tracking-tighter mb-3 md:mb-4 leading-none">
               Ready to Implement These Automations?
             </h2>
-            <p className="text-[10px] md:text-sm text-neutral-400 font-display leading-relaxed">
+            <p className="text-sm md:text-base text-neutral-400 font-display leading-relaxed">
               These 7 automations work together as a system. Most agents
               implement 2-3 to start and add more as they grow. You don't need
               to figure it out alone.
             </p>
           </div>
 
-          <ul className="space-y-2 md:space-y-3 w-full">
+          <ul className="space-y-2.5 md:space-y-3 w-full">
             {ctaChecklistItems.map((item, i) => (
               <li key={i} className="flex items-start gap-2 md:gap-3">
                 <iconify-icon
                   icon="solar:check-circle-bold"
-                  className="text-teal-400 text-base md:text-lg flex-shrink-0 mt-0.5"
+                  className="text-teal-400 text-lg md:text-xl flex-shrink-0 mt-0.5"
                 />
-                <span className="text-[10px] md:text-sm text-neutral-300 font-light font-display">
+                <span className="text-sm md:text-base text-neutral-300 font-light font-display">
                   {item}
                 </span>
               </li>
@@ -66,12 +66,12 @@ export function AutomationsCTASlide() {
           </a>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.5} className="border-t border-white/10 pt-3 md:pt-5">
-          <div className="flex flex-col gap-1.5 md:gap-2">
-            <span className="text-[9px] md:text-[10px] text-neutral-500 font-mono uppercase tracking-widest mb-0.5 md:mb-1">
+        <AnimatedElement delay={0.5} className="border-t border-white/10 pt-4 md:pt-5">
+          <div className="flex flex-col gap-2">
+            <span className="text-xs md:text-sm text-neutral-500 font-mono uppercase tracking-widest mb-1">
               Questions? Reach out:
             </span>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-0.5 md:gap-y-1 gap-x-4 text-[10px] md:text-xs font-mono text-neutral-400">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-1 md:gap-y-1.5 gap-x-4 text-sm md:text-base font-mono text-neutral-400">
               <a
                 href={`mailto:${contactLinks.email}`}
                 className="flex items-center gap-2 hover:text-white transition-colors"
