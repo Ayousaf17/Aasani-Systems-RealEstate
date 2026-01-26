@@ -18,12 +18,12 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
         <div className="bg-black/40 absolute inset-0" />
 
         <AnimatedElement delay={0} className="relative z-10 flex mb-4 md:mb-6 items-center justify-between">
-          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+          <span className="text-sm md:text-base uppercase tracking-widest font-mono text-neutral-400">
             [01/09]
           </span>
           <div className="flex items-center gap-2">
-            <iconify-icon icon="solar:bolt-circle-linear" className="text-teal-400 text-lg" />
-            <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
+            <iconify-icon icon="solar:bolt-circle-linear" className="text-teal-400 text-xl" />
+            <span className="font-display text-sm md:text-base font-semibold uppercase tracking-widest text-teal-400">
               AUTOMATIONS
             </span>
           </div>
@@ -39,11 +39,11 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
             </h1>
           </AnimatedElement>
 
-          <AnimatedElement delay={0.4} className="space-y-2">
-            <p className="md:text-base text-sm font-medium text-teal-400 tracking-wide font-display backdrop-blur-sm">
+          <AnimatedElement delay={0.4} className="space-y-3">
+            <p className="md:text-xl text-base font-medium text-teal-400 tracking-wide font-display backdrop-blur-sm">
               How top agents save 20+ hours per week
             </p>
-            <p className="leading-relaxed text-xs md:text-sm text-neutral-300 tracking-wide font-display max-w-[90%] border-teal-500 border-l-2 pl-3 backdrop-blur-sm">
+            <p className="leading-relaxed text-sm md:text-base text-neutral-300 tracking-wide font-display max-w-[90%] border-teal-500 border-l-2 pl-3 backdrop-blur-sm">
               Real estate agents are drowning in admin work. Here's how to
               automate it systematically.
             </p>
@@ -52,19 +52,19 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
 
         <AnimatedElement delay={0.6} className="relative z-10 pt-4 md:pt-6 border-t border-white/10 flex justify-between items-end">
           <div className="flex flex-col">
-            <span className="font-mono text-xs text-neutral-500 uppercase mb-1">
+            <span className="font-mono text-sm md:text-base text-neutral-500 uppercase mb-1">
               Scope
             </span>
             <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-pulse" />
-              <span className="font-display text-base md:text-lg tracking-wide text-neutral-200">
+              <div className="w-2 h-2 bg-teal-500 rounded-full animate-pulse" />
+              <span className="font-display text-lg md:text-xl tracking-wide text-neutral-200">
                 7 Core Automations
               </span>
             </div>
           </div>
           <button
             onClick={onNextSlide}
-            className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition-transform cursor-pointer"
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition-transform cursor-pointer"
           >
             <iconify-icon icon="solar:arrow-right-linear" width={20} />
           </button>
