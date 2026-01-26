@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { AnimatedElement } from '../../ui/AnimatedElement';
-import { contactInfo } from '../../../data/indexContent';
+import { contactInfo, backgroundImages } from '../../../data/indexContent';
 
 interface CTASlideProps {
   index: number;
@@ -17,21 +17,8 @@ export function CTASlide({ index }: CTASlideProps) {
     >
       <div
         className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 md:pb-12 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-24 pl-6 relative justify-between card-bg safe-area-bottom"
+        style={{ backgroundImage: `url(${backgroundImages.cta})` }}
       >
-        {/* Video Background */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
-        >
-          <source src="/cta-bg.mp4" type="video/mp4" />
-        </video>
-
-        {/* Overlay for text readability */}
-        <div className="absolute inset-0 bg-black/40 z-[1]" />
-
         <div className="w-full relative z-10">
           <AnimatedElement delay={0.1} className="flex justify-between items-center">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
