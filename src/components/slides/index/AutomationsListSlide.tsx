@@ -43,50 +43,41 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
           </p>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.4} className="mb-3 flex-1">
-          <div className="bg-black/50 backdrop-blur-md rounded-lg p-3 md:p-4 border-l-2 border-white/30">
-            <div className="flex flex-col gap-0">
+        <AnimatedElement delay={0.4} className="flex-1 flex items-center justify-center">
+          <div className="bg-black/50 backdrop-blur-md rounded-xl p-5 md:p-6 border border-white/10 w-full">
+            <div className="flex flex-col gap-3">
               {automationsList.map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-3 py-2 border-b border-white/5 last:border-b-0"
+                  className="flex items-center gap-4"
                 >
-                  <span className="text-teal-400 font-mono text-xs font-bold w-6 shrink-0">
+                  <span className="text-teal-400 font-mono text-sm font-bold w-7 shrink-0">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <span className="text-neutral-200 text-xs md:text-sm font-display">{item}</span>
+                  <span className="text-neutral-100 text-sm md:text-base font-display font-medium">{item}</span>
                 </div>
               ))}
             </div>
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.5} className="mt-auto">
-          <p className="text-[10px] md:text-xs text-neutral-300 mb-3 font-display">
+        <AnimatedElement delay={0.5} className="mt-4 shrink-0">
+          <p className="text-xs text-neutral-300 mb-3 font-display text-center">
             Together, they transform your operations from chaotic to systematic.
           </p>
           <div className="group/btn relative cursor-pointer">
             <div className="-inset-2 group-hover/btn:opacity-100 transition duration-500 bg-teal-600/30 opacity-0 rounded-full absolute blur-xl" />
-            <div className="absolute -inset-[1px] rounded-full overflow-hidden opacity-0 group-hover/btn:opacity-100 transition duration-500 pointer-events-none">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] animate-[spin_2s_linear_infinite]" />
-            </div>
             <button
               onClick={() => navigate('/automations')}
-              className="relative z-10 flex items-center justify-center overflow-hidden rounded-full p-[1px] leading-none w-full"
+              className="relative z-10 flex items-center justify-center overflow-hidden rounded-full leading-none w-full bg-teal-600 hover:bg-teal-500 transition-colors py-3 px-6 gap-2"
             >
-              <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
-              <span className="relative flex h-full w-full items-center justify-center rounded-full bg-teal-600 hover:bg-teal-500 transition-colors py-3 md:py-4 px-6 gap-2">
-                <span className="text-sm font-semibold text-white uppercase tracking-wide">View Complete Breakdown</span>
-                <iconify-icon
-                  icon="solar:arrow-right-linear"
-                  className="text-lg text-white group-hover/btn:translate-x-1 transition-transform"
-                />
-              </span>
+              <span className="text-sm font-semibold text-white uppercase tracking-wide">View Complete Breakdown</span>
+              <iconify-icon
+                icon="solar:arrow-right-linear"
+                className="text-lg text-white group-hover/btn:translate-x-1 transition-transform"
+              />
             </button>
           </div>
-          <p className="text-[9px] md:text-[10px] text-neutral-400 text-center mt-2 font-mono">
-            5-minute read with ROI details
-          </p>
         </AnimatedElement>
       </div>
     </section>

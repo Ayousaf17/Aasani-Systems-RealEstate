@@ -21,8 +21,9 @@ export function Header({ direction, onNavigate, showArrows = true }: HeaderProps
         </button>
       </div>
 
+      {/* Navigation arrows - hidden on mobile, users swipe instead */}
       {showArrows && (
-        <div className="pointer-events-auto flex items-center gap-2 backdrop-blur-md p-1.5 md:p-2 rounded-full bg-black/40">
+        <div className="pointer-events-auto hidden md:flex items-center gap-2 backdrop-blur-md p-2 rounded-full bg-black/40">
           <button
             onClick={() => onNavigate(-1)}
             className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors text-white/70 hover:text-white"
