@@ -8,12 +8,12 @@ interface ProblemSlideProps {
 export function ProblemSlide({ index }: ProblemSlideProps) {
   return (
     <section
-      className="snap-start shrink-0 flex w-full h-screen relative items-center justify-center"
+      className="snap-start shrink-0 flex w-full slide-height relative items-center justify-center"
       data-slide={index}
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-20 pr-6 pb-12 pl-6 relative justify-start card-bg"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-6 pl-6 relative justify-start card-bg"
         style={{ backgroundImage: `url(${backgroundImages.problem})` }}
       >
         <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">

@@ -8,7 +8,7 @@ interface CaseStudiesSlideProps {
 export function CaseStudiesSlide({ index }: CaseStudiesSlideProps) {
   return (
     <section
-      className="snap-start shrink-0 flex w-full h-screen relative items-center justify-center"
+      className="snap-start shrink-0 flex w-full slide-height relative items-center justify-center"
       data-slide={index}
       id={`section-${index + 1}`}
     >

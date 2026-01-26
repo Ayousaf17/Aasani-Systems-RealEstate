@@ -106,3 +106,15 @@ html, body {
 .slide-container {
   touch-action: pan-x pan-y;
 }
+
+/* Dynamic viewport height for mobile browsers - accounts for browser chrome */
+.h-screen-safe {
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* Slide height that works with mobile browser UI */
+.slide-height {
+  height: 100vh;
+  height: 100dvh;
+}

@@ -11,15 +11,15 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
 
   return (
     <section
-      className="snap-start shrink-0 flex w-full h-screen relative items-center justify-center"
+      className="snap-start shrink-0 flex w-full slide-height relative items-center justify-center"
       data-slide={index}
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-10 md:pr-10 md:pl-10 bg-neutral-900/50 w-full h-full max-w-none rounded-none pt-20 pr-6 pb-8 pl-6 relative justify-start card-bg"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-10 md:pr-10 md:pl-10 bg-neutral-900/50 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-6 pl-6 relative justify-start card-bg"
         style={{ backgroundImage: `url(${backgroundImages.automations})` }}
       >
-        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4">
+        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-3">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
             [04/08]
           </span>
@@ -32,29 +32,29 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
         </AnimatedElement>
 
         <AnimatedElement delay={0.2}>
-          <h2 className="md:text-4xl leading-[1.1] text-3xl font-normal text-white tracking-tight mb-2 font-display">
+          <h2 className="md:text-4xl leading-[1.1] text-2xl font-normal text-white tracking-tight mb-1 font-display">
             7 Core Automations
           </h2>
         </AnimatedElement>
 
         <AnimatedElement delay={0.3}>
-          <p className="md:text-sm leading-relaxed text-xs text-neutral-400 mb-4 font-display">
+          <p className="md:text-sm leading-relaxed text-xs text-neutral-400 mb-3 font-display">
             See how real estate agents reclaim 20+ hours per week
           </p>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.4} className="mb-4">
-          <div className="bg-black/50 backdrop-blur-md rounded-lg p-3 border-l-2 border-white/30">
-            <div className="flex flex-col gap-1.5">
+        <AnimatedElement delay={0.4} className="mb-3 flex-1">
+          <div className="bg-black/50 backdrop-blur-md rounded-lg p-3 md:p-4 border-l-2 border-white/30">
+            <div className="flex flex-col gap-0">
               {automationsList.map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-3 py-1.5 border-b border-white/5 last:border-b-0"
+                  className="flex items-center gap-3 py-2 border-b border-white/5 last:border-b-0"
                 >
-                  <span className="text-teal-400 font-mono text-xs font-bold w-5">
+                  <span className="text-teal-400 font-mono text-xs font-bold w-6 shrink-0">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <span className="text-neutral-200 text-xs font-display">{item}</span>
+                  <span className="text-neutral-200 text-xs md:text-sm font-display">{item}</span>
                 </div>
               ))}
             </div>

@@ -32,7 +32,7 @@ export const VerticalScroller = forwardRef<VerticalScrollerRef, VerticalScroller
     return (
       <main
         ref={containerRef as React.RefObject<HTMLElement>}
-        className="overflow-y-scroll snap-y snap-mandatory scroll-smooth w-full h-screen scrollbar-hide"
+        className="overflow-y-scroll snap-y snap-mandatory scroll-smooth w-full h-screen-safe scrollbar-hide"
       >
         {children}
       </main>
