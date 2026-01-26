@@ -29,7 +29,7 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
         </AnimatedElement>
 
         <AnimatedElement delay={0.2}>
-          <h2 className="md:text-5xl text-3xl font-normal text-white tracking-tight mb-8 md:mb-10 font-display">
+          <h2 className="text-3xl md:text-5xl font-normal text-white tracking-tight mb-6 font-display">
             The Problem
             <br />
             <span className="text-neutral-500">Costing You Deals</span>

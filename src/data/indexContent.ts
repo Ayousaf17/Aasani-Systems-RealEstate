@@ -46,13 +46,13 @@ export const solutionBenefits = [
 ];
 
 export const automationsList = [
-  'Instant Lead Response',
-  'Lead Qualification & Scoring',
-  'Smart Follow-Up Sequences',
-  'Appointment Scheduling & Reminders',
-  'Transaction Coordination',
-  'Client Communication & Content',
-  'Review & Referral Generation',
+  { name: 'Instant Lead Response', icon: 'solar:bolt-circle-linear' },
+  { name: 'Lead Qualification & Scoring', icon: 'solar:chart-2-linear' },
+  { name: 'Smart Follow-Up Sequences', icon: 'solar:chat-round-dots-linear' },
+  { name: 'Appointment Scheduling & Reminders', icon: 'solar:calendar-linear' },
+  { name: 'Transaction Coordination', icon: 'solar:clipboard-check-linear' },
+  { name: 'Client Communication & Content', icon: 'solar:letter-linear' },
+  { name: 'Review & Referral Generation', icon: 'solar:star-linear' },
 ];
 
 export const caseStudies = [

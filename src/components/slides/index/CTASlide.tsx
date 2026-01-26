@@ -33,7 +33,7 @@ export function CTASlide({ index }: CTASlideProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.2} className="mt-4">
-            <h2 className="md:text-5xl leading-[1] text-3xl font-normal text-white tracking-tighter mb-4 font-display">
+            <h2 className="text-3xl md:text-5xl font-normal text-white tracking-tight mb-4 font-display">
               Ready to Reclaim
               <span className="block text-neutral-400">20+ Hours Per Week?</span>
             </h2>

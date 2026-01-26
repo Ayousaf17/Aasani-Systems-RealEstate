@@ -32,7 +32,7 @@ export function CaseStudiesSlide({ index }: CaseStudiesSlideProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.2} className="shrink-0">
-            <h2 className="text-3xl md:text-5xl font-normal tracking-tight text-white mb-4 md:mb-8 drop-shadow-md font-display">
+            <h2 className="text-3xl md:text-5xl font-normal tracking-tight text-white mb-4 drop-shadow-md font-display">
               Real Results from
               <br />
               <span className="text-neutral-200">Real Agents</span>

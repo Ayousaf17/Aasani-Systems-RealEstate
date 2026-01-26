@@ -39,7 +39,7 @@ export function HeroSlide({ index }: HeroSlideProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.3}>
-            <h1 className="leading-[0.9] md:text-7xl md:mb-3 text-4xl font-normal text-white tracking-tighter font-display mb-2">
+            <h1 className="text-4xl md:text-6xl leading-[0.95] font-normal text-white tracking-tight font-display mb-2">
               Real Estate Operations.
               <span className="block text-neutral-400">Systematized.</span>
             </h1>
