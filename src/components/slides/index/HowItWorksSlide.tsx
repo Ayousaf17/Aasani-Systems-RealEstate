@@ -32,12 +32,12 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display">
             How It Works
             <br />
-            <span className="text-neutral-500 font-normal">Simple 3-Step Process</span>
+            <span className="text-neutral-500 font-normal">3-Step Process</span>
           </h2>
         </AnimatedElement>
 
         {/* Stacked Steps */}
-        <div className="flex-1 flex flex-col gap-3 md:gap-4 overflow-y-auto scrollbar-hide pb-4">
+        <div className="flex-1 flex flex-col gap-4 md:gap-5 overflow-y-auto scrollbar-hide pb-4">
           {processSteps.map((step, i) => (
             <AnimatedElement key={i} delay={0.3 + i * 0.1}>
               <div className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-lg p-4 hover:bg-black/60 hover:border-teal-400/30 transition-all duration-300">
