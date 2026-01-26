@@ -103,25 +103,34 @@ export function CTASlide({ index }: CTASlideProps) {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.5} className="w-full border-t border-white/10 pt-3">
-          <div className="flex flex-col gap-1">
+        <AnimatedElement delay={0.5} className="w-full border-t border-white/10 pt-4">
+          <div className="flex flex-col gap-2">
             <span className="text-[10px] text-neutral-500 font-mono uppercase tracking-widest">
               Questions? Reach out:
             </span>
-            <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs font-mono text-neutral-400">
+            <div className="flex flex-col gap-2 text-xs font-mono text-neutral-400">
               <a
                 href={`mailto:${contactInfo.email}`}
-                className="flex items-center gap-1.5 hover:text-white transition-colors"
+                className="flex items-center gap-2 hover:text-white transition-colors"
               >
-                <iconify-icon icon="lucide:mail" className="text-teal-500" />
+                <iconify-icon icon="lucide:mail" className="text-teal-500 text-sm" />
                 {contactInfo.email}
               </a>
               <a
                 href={`tel:${contactInfo.phone.replace(/\D/g, '')}`}
-                className="flex items-center gap-1.5 hover:text-white transition-colors"
+                className="flex items-center gap-2 hover:text-white transition-colors"
               >
-                <iconify-icon icon="lucide:phone" className="text-teal-500" />
+                <iconify-icon icon="lucide:phone" className="text-teal-500 text-sm" />
                 {contactInfo.phone}
+              </a>
+              <a
+                href={`https://${contactInfo.website.toLowerCase()}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-white transition-colors"
+              >
+                <iconify-icon icon="lucide:globe" className="text-teal-500 text-sm" />
+                {contactInfo.website}
               </a>
             </div>
           </div>
