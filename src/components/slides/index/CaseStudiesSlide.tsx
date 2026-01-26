@@ -31,15 +31,15 @@ export function CaseStudiesSlide({ index }: CaseStudiesSlideProps) {
             </div>
           </AnimatedElement>
 
-          <AnimatedElement delay={0.2} className="shrink-0 mb-8 md:mb-10">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white drop-shadow-md font-display">
+          <AnimatedElement delay={0.2} className="shrink-0">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4 drop-shadow-md font-display">
               Real Results from
               <br />
               <span className="text-neutral-200 font-normal">Real Agents</span>
             </h2>
           </AnimatedElement>
 
-          <div className="flex flex-col gap-3 w-full flex-1 min-h-0 overflow-y-auto scrollbar-hide pb-2">
+          <div className="flex flex-col gap-3 w-full flex-1 min-h-0 overflow-y-auto scrollbar-hide pb-2 justify-center">
             {caseStudies.map((study, i) => (
               <AnimatedElement
                 key={i}
