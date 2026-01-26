@@ -13,6 +13,7 @@ export function AutomationsCTASlide() {
   const navigate = useNavigate();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [videoOpacity, setVideoOpacity] = useState(1);
 
   // Check for reduced motion preference
   useEffect(() => {
@@ -23,11 +24,28 @@ export function AutomationsCTASlide() {
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
-  // Set video playback rate
+  // Set video playback rate and handle fade loop
   useEffect(() => {
-    if (videoRef.current && !prefersReducedMotion) {
-      videoRef.current.playbackRate = 0.5;
-    }
+    const video = videoRef.current;
+    if (!video || prefersReducedMotion) return;
+
+    video.playbackRate = 0.5;
+
+    const handleTimeUpdate = () => {
+      const timeLeft = video.duration - video.currentTime;
+      // Fade out during last 1 second
+      if (timeLeft < 1) {
+        setVideoOpacity(timeLeft);
+      } else if (video.currentTime < 1) {
+        // Fade in during first 1 second
+        setVideoOpacity(video.currentTime);
+      } else {
+        setVideoOpacity(1);
+      }
+    };
+
+    video.addEventListener('timeupdate', handleTimeUpdate);
+    return () => video.removeEventListener('timeupdate', handleTimeUpdate);
   }, [prefersReducedMotion]);
 
   // Initialize Cal.com embed
@@ -59,7 +77,8 @@ export function AutomationsCTASlide() {
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+            style={{ opacity: videoOpacity }}
           >
             <source src="/automations-cta-bg.mp4" type="video/mp4" />
           </video>
