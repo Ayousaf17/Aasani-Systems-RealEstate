@@ -51,12 +51,11 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.2}>
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-2 font-display">
+            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display">
               How It Works
+              <br />
+              <span className="text-neutral-500 font-normal">Simple 3-Step Process</span>
             </h2>
-            <p className="text-sm text-neutral-400 font-display">
-              Simple 3-step process
-            </p>
           </AnimatedElement>
         </div>
 
