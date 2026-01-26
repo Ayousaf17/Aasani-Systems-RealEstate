@@ -1,7 +1,27 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getCalApi } from '@calcom/embed-react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
-import { ctaChecklistItems, contactLinks } from '../../../data/automationsContent';
+import { contactLinks } from '../../../data/automationsContent';
 
 export function AutomationsCTASlide() {
+  const navigate = useNavigate();
+
+  // Initialize Cal.com embed
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: 'bookatime' });
+      cal('ui', {
+        cssVarsPerTheme: {
+          light: { 'cal-brand': '#14B8A6' },
+          dark: { 'cal-brand': '#2DD4BF' },
+        },
+        hideEventTypeDetails: false,
+        layout: 'week_view',
+      });
+    })();
+  }, []);
+
   return (
     <section
       className="slide-container flex-shrink-0 bg-[#0A0A0A] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center"
@@ -21,45 +41,28 @@ export function AutomationsCTASlide() {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.2} className="mb-8 md:mb-10">
-          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display">
+        <AnimatedElement delay={0.2} className="mb-6 md:mb-8">
+          <h2 className="text-2xl md:text-4xl font-bold text-white tracking-tight font-display">
             Ready to Implement
             <span className="block text-neutral-400 font-normal">These Automations?</span>
           </h2>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.3} className="flex flex-col items-start space-y-4 md:space-y-6">
-          <p className="text-sm md:text-base text-neutral-400 font-display leading-relaxed">
-            These 7 automations work together as a system. Most agents
-            implement 2-3 to start and add more as they grow. You don't need
-            to figure it out alone.
-          </p>
-
-          <ul className="space-y-2 md:space-y-3 w-full">
-            {ctaChecklistItems.map((item, i) => (
-              <li key={i} className="flex items-start gap-2 md:gap-3">
-                <iconify-icon
-                  icon="solar:check-circle-bold"
-                  className="text-teal-400 text-lg flex-shrink-0 mt-0.5"
-                />
-                <span className="text-sm md:text-base text-neutral-300 font-light font-display">
-                  {item}
-                </span>
-              </li>
-            ))}
-          </ul>
-
-          {/* Button matching page 1 CTA style */}
-          <div className="group relative w-full cursor-pointer">
+        <AnimatedElement delay={0.4} className="flex-1 flex flex-col items-center justify-center gap-8 w-full">
+          {/* Primary CTA */}
+          <div className="group relative md:scale-110 cursor-pointer">
             <div className="-inset-2 group-hover:opacity-100 transition duration-500 bg-neutral-600/30 opacity-0 rounded-full absolute blur-xl" />
-            <a
-              href={contactLinks.calLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative z-10 flex items-center justify-center overflow-hidden rounded-full p-[1px] leading-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black w-full"
+            <div className="absolute -inset-[1px] rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] animate-[spin_2s_linear_infinite]" />
+            </div>
+            <button
+              data-cal-namespace="bookatime"
+              data-cal-link="ayub-yousaf-c1ijnf/bookatime"
+              data-cal-config='{"layout":"week_view"}'
+              className="group relative z-10 flex items-center justify-center overflow-hidden rounded-full p-[1px] leading-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)]" />
-              <span className="relative flex h-full w-full items-center justify-center rounded-full bg-black py-3 px-6 md:py-4 md:px-8 ring-1 ring-white/10">
+              <span className="relative flex h-full w-full items-center rounded-full bg-black py-3 px-6 md:py-4 md:px-8 ring-1 ring-white/10">
                 <span className="absolute inset-0 overflow-hidden rounded-full">
                   <span className="group-hover:animate-[shimmer_1.5s_infinite] group-hover:opacity-100 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 w-full h-full absolute top-0 left-0 -skew-x-12" />
                 </span>
@@ -73,7 +76,33 @@ export function AutomationsCTASlide() {
                   />
                 </span>
               </span>
-            </a>
+            </button>
+          </div>
+
+          {/* Divider */}
+          <div className="flex items-center gap-4 w-full max-w-xs">
+            <div className="flex-1 h-px bg-white/30" />
+            <span className="text-xs text-neutral-400 font-mono uppercase tracking-wider">or</span>
+            <div className="flex-1 h-px bg-white/30" />
+          </div>
+
+          {/* Secondary CTA */}
+          <div className="flex flex-col items-center gap-3">
+            <p className="text-sm md:text-base text-neutral-300 text-center font-display">
+              See the full picture first
+            </p>
+            <button
+              onClick={() => navigate('/')}
+              className="group flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors font-medium"
+            >
+              <iconify-icon
+                icon="solar:arrow-left-linear"
+                className="group-hover:-translate-x-1 transition-transform"
+                width={18}
+                height={18}
+              />
+              <span className="text-sm md:text-base">Back to Overview</span>
+            </button>
           </div>
         </AnimatedElement>
 
