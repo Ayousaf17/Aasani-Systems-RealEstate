@@ -118,12 +118,6 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
             </div>
           </div>
         </AnimatedElement>
-
-        <AnimatedElement delay={0.5} className="text-center shrink-0">
-          <p className="text-xs text-neutral-400 font-display">
-            No pressure. No pitch. Just value.
-          </p>
-        </AnimatedElement>
       </div>
     </section>
   );
