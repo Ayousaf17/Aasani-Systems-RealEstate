@@ -6,6 +6,7 @@ interface HeroSlideProps {
 }
 
 export function HeroSlide({ index }: HeroSlideProps) {
+
   return (
     <section
       className="snap-start shrink-0 flex w-full slide-height relative items-center justify-center"
