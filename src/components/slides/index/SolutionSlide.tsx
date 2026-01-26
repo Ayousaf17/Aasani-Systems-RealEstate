@@ -17,7 +17,7 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
         style={{ backgroundImage: `url(${backgroundImages.solution})` }}
       >
         <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
-          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+          <span className="hidden md:block text-xs uppercase tracking-widest font-mono text-neutral-400">
             [03/08]
           </span>
           <div className="flex items-center gap-2">

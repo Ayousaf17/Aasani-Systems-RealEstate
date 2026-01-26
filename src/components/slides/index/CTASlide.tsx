@@ -21,7 +21,7 @@ export function CTASlide({ index }: CTASlideProps) {
       >
         <div className="w-full relative z-10">
           <AnimatedElement delay={0.1} className="flex justify-between items-center">
-            <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+            <span className="hidden md:block text-xs uppercase tracking-widest font-mono text-neutral-400">
               [08/08]
             </span>
             <div className="flex items-center gap-2">
