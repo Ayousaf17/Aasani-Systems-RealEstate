@@ -1,73 +1,80 @@
-# React + TypeScript + Vite
+# Aasani Systems - Real Estate Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Quick Reference for Making Updates
 
-Currently, two official plugins are available:
+| Command | What it does | Why you need it |
+|---------|--------------|-----------------|
+| `cd ~/ws/aasani-systems-app` | Go to your project folder | Like opening a folder on your computer - you need to be "inside" your project first |
+| `claude` | Start Claude Code | This is how you talk to me and ask for code changes |
+| `bun run dev` | Start local preview | Lets you see changes on localhost before they go live - like a draft mode |
+| `git status` | Check what's changed | Shows you what files were modified - like "track changes" in Word |
+| `/help` | See available commands | Shows you what you can ask Claude Code to do |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Your Typical Workflow
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Open Terminal
+2. `cd ~/ws/aasani-systems-app` (go to project)
+3. `claude` (start Claude Code)
+4. Tell Claude what you want changed
+5. Claude makes changes → creates PR → merges → Vercel auto-deploys
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Starting New Sessions vs New Projects
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Same Project, New Chat Session
+If you want to continue working on THIS project but start a fresh conversation:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Open Terminal
+2. `cd ~/ws/aasani-systems-app`
+3. `claude`
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+That's it. Claude Code reads your codebase and picks up where you left off. Your code is saved in git - the chat history doesn't matter.
+
+### Brand New Project
+If you want to build something completely NEW (different website, different app):
+
+1. Create a new folder: `mkdir ~/ws/my-new-project`
+2. Go into it: `cd ~/ws/my-new-project`
+3. Start Claude: `claude`
+4. Tell Claude what you want to build from scratch
+
+Each folder = one project. Claude Code figures out what project you're working on based on which folder you're in.
+
+---
+
+## Project Structure
+
+```
+aasani-systems-app/
+├── src/
+│   ├── components/     # UI pieces (slides, buttons, etc.)
+│   ├── pages/          # Full pages (Index, Automations)
+│   ├── data/           # Content and text
+│   ├── hooks/          # Reusable logic
+│   ├── styles/         # CSS files
+│   └── types/          # TypeScript definitions
+├── public/             # Static files (videos, images)
+└── index.html          # Main HTML file with SEO tags
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Deployments
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Vercel** auto-deploys whenever code is merged to `main`
+- Live site: https://aasani.ai
+- Check deployment status: Look at GitHub PR or Vercel dashboard
+
+---
+
+## Key Files to Know
+
+| File | What it controls |
+|------|------------------|
+| `src/data/indexContent.ts` | All text/content for Page 1 |
+| `src/data/automationsContent.ts` | All text/content for Page 2 |
+| `index.html` | SEO meta tags, page title, favicon |
+| `public/` | Videos, images, logo |
