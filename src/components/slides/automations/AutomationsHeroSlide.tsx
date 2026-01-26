@@ -12,12 +12,12 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
       id="slide-0"
     >
       <div
-        className="flex flex-col z-10 md:p-12 h-full pt-16 p-6 relative card-bg"
+        className="flex flex-col z-10 md:p-12 h-full pt-12 px-5 pb-5 relative card-bg"
         style={{ backgroundImage: `url(${automationsHeroBackground})` }}
       >
         <div className="bg-black/40 absolute inset-0" />
 
-        <AnimatedElement delay={0} className="relative z-10 flex mb-6 items-center justify-between">
+        <AnimatedElement delay={0} className="relative z-10 flex mb-4 md:mb-6 items-center justify-between">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
             [01/09]
           </span>
@@ -29,7 +29,7 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
           </div>
         </AnimatedElement>
 
-        <div className="relative z-10 mt-auto mb-8 md:mb-12">
+        <div className="relative z-10 mt-auto mb-6 md:mb-12">
           <AnimatedElement delay={0.2}>
             <h1 className="leading-[0.9] md:mb-6 md:text-7xl text-4xl font-medium text-white tracking-tighter font-display mb-3">
               The 7 Core
