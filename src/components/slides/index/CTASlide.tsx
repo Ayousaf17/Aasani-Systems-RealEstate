@@ -104,33 +104,33 @@ export function CTASlide({ index }: CTASlideProps) {
         </AnimatedElement>
 
         <AnimatedElement delay={0.5} className="w-full border-t border-white/10 pt-4">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col items-center gap-3">
             <span className="text-[10px] text-neutral-500 font-mono uppercase tracking-widest">
               Questions? Reach out:
             </span>
-            <div className="flex flex-col gap-2 text-xs font-mono text-neutral-400">
+            <div className="flex items-center gap-6">
               <a
                 href={`mailto:${contactInfo.email}`}
-                className="flex items-center gap-2 hover:text-white transition-colors"
+                className="w-12 h-12 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 transition-all"
+                aria-label="Email"
               >
-                <iconify-icon icon="lucide:mail" className="text-teal-500 text-sm" />
-                {contactInfo.email}
+                <iconify-icon icon="lucide:mail" className="text-teal-400 text-2xl" />
               </a>
               <a
                 href={`tel:${contactInfo.phone.replace(/\D/g, '')}`}
-                className="flex items-center gap-2 hover:text-white transition-colors"
+                className="w-12 h-12 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 transition-all"
+                aria-label="Phone"
               >
-                <iconify-icon icon="lucide:phone" className="text-teal-500 text-sm" />
-                {contactInfo.phone}
+                <iconify-icon icon="lucide:phone" className="text-teal-400 text-2xl" />
               </a>
               <a
                 href={`https://${contactInfo.website.toLowerCase()}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-white transition-colors"
+                className="w-12 h-12 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 transition-all"
+                aria-label="Website"
               >
-                <iconify-icon icon="lucide:globe" className="text-teal-500 text-sm" />
-                {contactInfo.website}
+                <iconify-icon icon="lucide:globe" className="text-teal-400 text-2xl" />
               </a>
             </div>
           </div>
