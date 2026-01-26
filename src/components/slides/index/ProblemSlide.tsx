@@ -28,7 +28,7 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.2} className="mb-8 md:mb-12">
+        <AnimatedElement delay={0.2} className="mb-10 md:mb-12">
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display">
             The Problem
             <br />
