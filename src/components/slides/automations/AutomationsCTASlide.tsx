@@ -24,12 +24,10 @@ export function AutomationsCTASlide() {
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
-  // Set video playback rate and handle fade loop
+  // Handle fade loop transition
   useEffect(() => {
     const video = videoRef.current;
     if (!video || prefersReducedMotion) return;
-
-    video.playbackRate = 0.5;
 
     const handleTimeUpdate = () => {
       const timeLeft = video.duration - video.currentTime;
