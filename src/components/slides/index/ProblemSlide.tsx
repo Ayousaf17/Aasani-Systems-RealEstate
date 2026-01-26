@@ -28,15 +28,15 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.2}>
-          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 font-display">
+        <AnimatedElement delay={0.2} className="mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display">
             The Problem
             <br />
             <span className="text-neutral-500 font-normal">Costing You Deals</span>
           </h2>
         </AnimatedElement>
 
-        <div className="flex flex-col gap-6 md:gap-8 overflow-y-auto scrollbar-hide flex-1 min-h-0 pb-4">
+        <div className="flex flex-col gap-5 md:gap-6 overflow-y-auto scrollbar-hide flex-1 min-h-0 pb-4">
           {problemStats.map((stat, i) => (
             <AnimatedElement key={i} delay={0.3 + i * 0.1} className="group shrink-0">
               <div className="flex mb-2 gap-x-3 gap-y-3 items-center">
