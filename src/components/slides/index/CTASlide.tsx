@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { useRef, useEffect, useState } from 'react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
 import { contactInfo } from '../../../data/indexContent';
 
@@ -9,23 +8,6 @@ interface CTASlideProps {
 
 export function CTASlide({ index }: CTASlideProps) {
   const navigate = useNavigate();
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
-    const handleChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
-  useEffect(() => {
-    if (videoRef.current && !prefersReducedMotion) {
-      // Very slow for calm, non-distracting background
-      videoRef.current.playbackRate = 0.25;
-    }
-  }, [prefersReducedMotion]);
 
   return (
     <section
@@ -37,53 +19,41 @@ export function CTASlide({ index }: CTASlideProps) {
         className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 md:pb-12 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-24 pl-6 relative justify-between card-bg safe-area-bottom"
       >
         {/* Video Background */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          {!prefersReducedMotion ? (
-            <video
-              ref={videoRef}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover scale-105"
-            >
-              <source src="/cta-bg.mp4" type="video/mp4" />
-            </video>
-          ) : (
-            <video
-              className="absolute inset-0 w-full h-full object-cover scale-105"
-              muted
-              playsInline
-              preload="metadata"
-            >
-              <source src="/cta-bg.mp4" type="video/mp4" />
-            </video>
-          )}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/cta-bg.mp4" type="video/mp4" />
+        </video>
+
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-black/40 z-[1]" />
+
+        <div className="w-full relative z-10">
+          <AnimatedElement delay={0.1} className="flex justify-between items-center">
+            <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+              [08/08]
+            </span>
+            <div className="flex items-center gap-2">
+              <iconify-icon icon="solar:calendar-add-linear" className="text-teal-400 text-lg" />
+              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
+                BOOK NOW
+              </span>
+            </div>
+          </AnimatedElement>
+
+          <AnimatedElement delay={0.2} className="mt-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4 font-display">
+              Ready to Reclaim
+              <span className="block text-neutral-400 font-normal">20+ Hours Per Week?</span>
+            </h2>
+          </AnimatedElement>
         </div>
 
-        {/* Overlay - needs to be dark enough for white text to read clearly */}
-        <div className="absolute inset-0 z-[1] bg-black/70" />
-
-        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6 relative z-10">
-          <span className="text-xs uppercase tracking-widest font-mono text-white">
-            [08/08]
-          </span>
-          <div className="flex items-center gap-2">
-            <iconify-icon icon="solar:calendar-add-linear" className="text-teal-400 text-lg" />
-            <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
-              BOOK NOW
-            </span>
-          </div>
-        </AnimatedElement>
-
-        <AnimatedElement delay={0.2} className="mb-10 md:mb-12 relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display">
-            Ready to Reclaim
-            <span className="block text-white font-normal">20+ Hours Per Week?</span>
-          </h2>
-        </AnimatedElement>
-
-        <AnimatedElement delay={0.4} className="flex-1 flex flex-col items-center justify-center gap-8 w-full relative z-10">
+        <AnimatedElement delay={0.4} className="flex-1 flex flex-col items-center justify-center gap-8 w-full">
           {/* Primary CTA */}
           <div className="group relative md:scale-110 cursor-pointer">
             <div className="-inset-2 group-hover:opacity-100 transition duration-500 bg-neutral-600/30 opacity-0 rounded-full absolute blur-xl" />
@@ -107,7 +77,7 @@ export function CTASlide({ index }: CTASlideProps) {
                   </span>
                   <iconify-icon
                     icon="solar:calendar-add-linear"
-                    className="text-lg md:text-xl text-white transition-colors"
+                    className="text-lg md:text-xl text-neutral-400 group-hover:text-white transition-colors"
                   />
                 </span>
               </span>
@@ -116,14 +86,14 @@ export function CTASlide({ index }: CTASlideProps) {
 
           {/* Divider */}
           <div className="flex items-center gap-4 w-full max-w-xs">
-            <div className="flex-1 h-px bg-white/30" />
-            <span className="text-xs text-white font-mono uppercase tracking-wider">or</span>
-            <div className="flex-1 h-px bg-white/30" />
+            <div className="flex-1 h-px bg-white/10" />
+            <span className="text-xs text-neutral-500 font-mono uppercase tracking-wider">or</span>
+            <div className="flex-1 h-px bg-white/10" />
           </div>
 
           {/* Secondary CTA */}
           <div className="flex flex-col items-center gap-3">
-            <p className="text-sm md:text-base text-white text-center font-display">
+            <p className="text-sm md:text-base text-neutral-300 text-center font-display">
               Explore what gets automated first
             </p>
             <button
@@ -141,16 +111,12 @@ export function CTASlide({ index }: CTASlideProps) {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.5} className="w-full shrink-0 relative z-10">
-          {/* Questions label above the line */}
-          <span className="block text-[10px] text-white font-mono uppercase tracking-widest text-center mb-3 md:mb-4">
-            Questions? Reach out:
-          </span>
-
-          {/* Footer line */}
-          <div className="w-full border-t border-white/20 pt-4 md:pt-5 mb-6 md:mb-8">
-            {/* Icons below the line */}
-            <div className="flex items-center justify-center gap-5 md:gap-6">
+        <AnimatedElement delay={0.5} className="w-full border-t border-white/10 pt-3 md:pt-4 mb-6 md:mb-8 shrink-0">
+          <div className="flex flex-col items-center gap-2 md:gap-3">
+            <span className="text-[10px] text-neutral-500 font-mono uppercase tracking-widest">
+              Questions? Reach out:
+            </span>
+            <div className="flex items-center gap-5 md:gap-6">
               <a
                 href={`mailto:${contactInfo.email}`}
                 className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
