@@ -67,8 +67,8 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
               className="bg-black/60 backdrop-blur-md border border-white/10 rounded-xl p-6 shadow-2xl animate-fade-in"
             >
               {/* Step Icon */}
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/10 border border-orange-500/30 flex items-center justify-center mb-4">
-                <span className="text-2xl font-bold text-orange-400 font-mono">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/20 to-teal-600/10 border border-teal-500/30 flex items-center justify-center mb-4">
+                <span className="text-2xl font-bold text-teal-400 font-mono">
                   {currentStep.number}
                 </span>
               </div>
@@ -92,7 +92,7 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
                   <div
                     key={i}
                     className={`h-1 flex-1 rounded-full transition-all duration-300 ${
-                      i === activeStep ? 'bg-orange-400' : 'bg-white/20'
+                      i === activeStep ? 'bg-teal-400' : 'bg-white/20'
                     }`}
                   />
                 ))}
