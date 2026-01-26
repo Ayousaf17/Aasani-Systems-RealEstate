@@ -9,19 +9,19 @@ interface AutomationSlideProps {
 export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
   return (
     <section
-      className="slide-container flex-shrink-0 md:w-[500px] md:h-auto bg-[#0A0A0A] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center"
+      className="slide-container flex-shrink-0 bg-[#0A0A0A] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center"
       id={`slide-${slideIndex}`}
     >
       <div className="absolute inset-0 bg-wave-pattern opacity-20 pointer-events-none z-0" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/80 to-[#0A0A0A] z-0" />
 
       <div
-        className="flex flex-col md:p-10 z-10 h-full p-5 relative justify-between card-bg"
+        className="flex flex-col md:p-12 z-10 h-full pt-16 p-6 relative justify-between card-bg"
         style={{ backgroundImage: `url(${data.backgroundImage})` }}
       >
         <div className="flex flex-col">
           <AnimatedElement delay={0.1} className="flex mb-6 items-center justify-between">
-            <span className="font-mono text-xs text-neutral-400">[{data.slideNumber}]</span>
+            <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">[{data.slideNumber}]</span>
             <div className="flex items-center gap-2">
               <iconify-icon icon={data.icon} className={`${data.iconColor} text-lg`} />
               <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">

@@ -4,15 +4,15 @@ import { ctaChecklistItems, contactLinks } from '../../../data/automationsConten
 export function AutomationsCTASlide() {
   return (
     <section
-      className="slide-container flex-shrink-0 md:w-[500px] md:h-auto bg-[#0A0A0A] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center"
+      className="slide-container flex-shrink-0 bg-[#0A0A0A] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center"
       id="slide-8"
     >
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none z-0" />
       <div className="absolute inset-0 bg-gradient-to-t from-teal-900/30 via-[#0A0A0A] to-[#0A0A0A] z-0" />
 
-      <div className="flex flex-col z-10 h-full p-5 md:p-10 justify-between relative">
-        <AnimatedElement delay={0.1} className="flex justify-between items-center">
-          <span className="font-mono text-xs text-neutral-500">[09/09]</span>
+      <div className="flex flex-col z-10 h-full pt-16 p-6 md:p-12 justify-between relative">
+        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
+          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">[09/09]</span>
           <div className="flex items-center gap-2">
             <iconify-icon icon="solar:arrow-right-up-linear" className="text-teal-400 text-lg" />
             <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
