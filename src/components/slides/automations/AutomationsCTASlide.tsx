@@ -12,35 +12,35 @@ export function AutomationsCTASlide() {
 
       <div className="flex flex-col z-10 h-full pt-12 px-5 pb-5 md:p-12 justify-between relative">
         <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 md:mb-6">
-          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">[09/09]</span>
+          <span className="text-sm md:text-base uppercase tracking-widest font-mono text-neutral-400">[09/09]</span>
           <div className="flex items-center gap-2">
-            <iconify-icon icon="solar:arrow-right-up-linear" className="text-teal-400 text-lg" />
-            <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
+            <iconify-icon icon="solar:arrow-right-up-linear" className="text-teal-400 text-xl" />
+            <span className="font-display text-sm md:text-base font-semibold uppercase tracking-widest text-teal-400">
               Next Steps
             </span>
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.3} className="flex flex-col items-start space-y-4 md:space-y-8">
+        <AnimatedElement delay={0.3} className="flex flex-col items-start space-y-5 md:space-y-8">
           <div>
-            <h2 className="text-3xl md:text-4xl text-white font-display tracking-tighter mb-3 md:mb-4 leading-none">
+            <h2 className="text-3xl md:text-5xl text-white font-display tracking-tighter mb-3 md:mb-4 leading-none">
               Ready to Implement These Automations?
             </h2>
-            <p className="text-sm md:text-base text-neutral-400 font-display leading-relaxed">
+            <p className="text-base md:text-lg text-neutral-400 font-display leading-relaxed">
               These 7 automations work together as a system. Most agents
               implement 2-3 to start and add more as they grow. You don't need
               to figure it out alone.
             </p>
           </div>
 
-          <ul className="space-y-2.5 md:space-y-3 w-full">
+          <ul className="space-y-3 md:space-y-4 w-full">
             {ctaChecklistItems.map((item, i) => (
-              <li key={i} className="flex items-start gap-2 md:gap-3">
+              <li key={i} className="flex items-start gap-3">
                 <iconify-icon
                   icon="solar:check-circle-bold"
-                  className="text-teal-400 text-lg md:text-xl flex-shrink-0 mt-0.5"
+                  className="text-teal-400 text-xl md:text-2xl flex-shrink-0 mt-0.5"
                 />
-                <span className="text-sm md:text-base text-neutral-300 font-light font-display">
+                <span className="text-base md:text-lg text-neutral-300 font-light font-display">
                   {item}
                 </span>
               </li>
@@ -51,7 +51,7 @@ export function AutomationsCTASlide() {
             href={contactLinks.calLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full group relative inline-flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-teal-500 text-black rounded-full font-display font-bold tracking-tight hover:bg-teal-400 transition-all duration-200 shadow-[0_0_20px_rgba(20,184,166,0.2)] hover:shadow-[0_0_30px_rgba(20,184,166,0.4)] hover:scale-105 overflow-hidden text-sm md:text-base"
+            className="w-full group relative inline-flex items-center justify-center gap-2 px-6 py-4 md:px-8 md:py-5 bg-teal-500 text-black rounded-full font-display font-bold tracking-tight hover:bg-teal-400 transition-all duration-200 shadow-[0_0_20px_rgba(20,184,166,0.2)] hover:shadow-[0_0_30px_rgba(20,184,166,0.4)] hover:scale-105 overflow-hidden text-base md:text-lg"
           >
             <span className="absolute inset-0 rounded-full p-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', maskComposite: 'exclude', WebkitMaskComposite: 'xor' }}>
               <span className="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] animate-spin-slow" />
@@ -68,10 +68,10 @@ export function AutomationsCTASlide() {
 
         <AnimatedElement delay={0.5} className="border-t border-white/10 pt-4 md:pt-5">
           <div className="flex flex-col gap-2">
-            <span className="text-xs md:text-sm text-neutral-500 font-mono uppercase tracking-widest mb-1">
+            <span className="text-sm md:text-base text-neutral-500 font-mono uppercase tracking-widest mb-1">
               Questions? Reach out:
             </span>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-1 md:gap-y-1.5 gap-x-4 text-sm md:text-base font-mono text-neutral-400">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-1.5 md:gap-y-2 gap-x-4 text-base md:text-lg font-mono text-neutral-400">
               <a
                 href={`mailto:${contactLinks.email}`}
                 className="flex items-center gap-2 hover:text-white transition-colors"
