@@ -73,7 +73,7 @@ export const caseStudies = [
     name: 'Martinez Team',
     location: 'Phoenix, AZ',
     icon: 'solar:users-group-rounded-linear',
-    iconColor: 'text-orange-400',
+    iconColor: 'text-teal-400',
     stats: [
       { value: '+58%', label: 'Tx Volume', highlight: true },
       { value: '+$200k', label: 'Revenue' },
