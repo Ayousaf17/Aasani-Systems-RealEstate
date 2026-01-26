@@ -64,13 +64,6 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
                     </p>
                   </div>
                 </div>
-
-                {/* Connector line to next step */}
-                {i < processSteps.length - 1 && (
-                  <div className="flex justify-start ml-5 md:ml-6 mt-3">
-                    <div className="w-px h-4 bg-gradient-to-b from-teal-400/50 to-transparent" />
-                  </div>
-                )}
               </div>
             </AnimatedElement>
           ))}
