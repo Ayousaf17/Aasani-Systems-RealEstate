@@ -12,12 +12,13 @@ export function Header({ direction, onNavigate, showArrows = true }: HeaderProps
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[60] px-4 md:px-8 py-4 md:py-6 flex justify-between items-center pointer-events-none">
-      <div className="pointer-events-auto">
+      {/* Logo - hidden on mobile to avoid clash with slide headers */}
+      <div className="pointer-events-auto hidden md:block">
         <button
           onClick={() => navigate('/')}
           className="cursor-pointer hover:opacity-80 transition-opacity"
         >
-          <img src="/logo.png" alt="Aasani Systems" className="h-12 md:h-14 w-auto" />
+          <img src="/logo.png" alt="Aasani Systems" className="h-14 w-auto" />
         </button>
       </div>
 

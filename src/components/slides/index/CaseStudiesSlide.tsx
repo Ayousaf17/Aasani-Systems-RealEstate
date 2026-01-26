@@ -20,7 +20,7 @@ export function CaseStudiesSlide({ index }: CaseStudiesSlideProps) {
 
         <div className="relative z-10 flex flex-col h-full">
           <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6 shrink-0">
-            <span className="hidden md:block text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
+            <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
               [05/08]
             </span>
             <div className="flex items-center gap-2">
@@ -32,10 +32,10 @@ export function CaseStudiesSlide({ index }: CaseStudiesSlideProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.2} className="shrink-0">
-            <h2 className="text-3xl md:text-5xl font-normal tracking-tight text-white mb-4 drop-shadow-md font-display">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4 drop-shadow-md font-display">
               Real Results from
               <br />
-              <span className="text-neutral-200">Real Agents</span>
+              <span className="text-neutral-200 font-normal">Real Agents</span>
             </h2>
           </AnimatedElement>
 
