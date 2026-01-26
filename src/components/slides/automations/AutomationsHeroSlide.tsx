@@ -8,19 +8,25 @@ interface AutomationsHeroSlideProps {
 export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps) {
   return (
     <section
-      className="slide-container flex-shrink-0 flex flex-col overflow-hidden snap-center group bg-[#0A0A0A] md:w-[500px] md:h-auto border border-white/10 relative shadow-2xl justify-between"
+      className="slide-container flex-shrink-0 flex flex-col overflow-hidden snap-center group bg-[#0A0A0A] border border-white/10 relative shadow-2xl justify-between"
       id="slide-0"
     >
       <div
-        className="flex flex-col z-10 md:p-10 h-full p-5 relative card-bg"
+        className="flex flex-col z-10 md:p-12 h-full pt-16 p-6 relative card-bg"
         style={{ backgroundImage: `url(${automationsHeroBackground})` }}
       >
         <div className="bg-black/40 absolute inset-0" />
 
-        <AnimatedElement delay={0} className="relative z-10 flex mix-blend-color-dodge mb-4 md:mb-8 items-start justify-between">
-          <span className="text-[10px] md:text-xs uppercase text-neutral-400 tracking-widest font-mono">
-            [01/09] // AUTOMATIONS
+        <AnimatedElement delay={0} className="relative z-10 flex mb-6 items-center justify-between">
+          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+            [01/09]
           </span>
+          <div className="flex items-center gap-2">
+            <iconify-icon icon="solar:bolt-circle-linear" className="text-teal-400 text-lg" />
+            <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
+              AUTOMATIONS
+            </span>
+          </div>
         </AnimatedElement>
 
         <div className="relative z-10 mt-auto mb-8 md:mb-12">
