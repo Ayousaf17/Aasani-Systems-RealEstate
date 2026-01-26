@@ -39,28 +39,27 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
         <div className="flex flex-col gap-5 md:gap-6 overflow-y-auto scrollbar-hide flex-1 min-h-0 pb-4">
           {problemStats.map((stat, i) => (
             <AnimatedElement key={i} delay={0.3 + i * 0.1} className="group shrink-0">
-              <div className="flex mb-2 gap-x-3 gap-y-3 items-center">
-                <iconify-icon icon={stat.icon} className="text-2xl text-white/40" />
-                <span className="text-4xl md:text-5xl font-bold bg-gradient-to-br from-white via-white to-neutral-500 bg-clip-text text-transparent tracking-tighter">
-                  {stat.value}
-                </span>
+              <div className="bg-black/40 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+                <div className="flex mb-2 gap-x-3 gap-y-3 items-center">
+                  <iconify-icon icon={stat.icon} className="text-2xl text-white/40" />
+                  <span className="text-4xl md:text-5xl font-bold bg-gradient-to-br from-white via-white to-neutral-500 bg-clip-text text-transparent tracking-tighter">
+                    {stat.value}
+                  </span>
+                </div>
+                <p className="md:text-base leading-snug text-sm font-medium text-white mb-1 font-display">
+                  {stat.title}
+                  {stat.highlight && (
+                    <>
+                      {' '}
+                      <span className="text-red-400">{stat.highlight}</span>
+                      {' '}{stat.highlightText}
+                    </>
+                  )}
+                </p>
+                <p className="md:text-sm text-xs font-medium text-neutral-400 font-display">
+                  {stat.subtitle}
+                </p>
               </div>
-              <p className="md:text-base leading-snug text-sm font-medium text-white mb-1 backdrop-blur-sm font-display">
-                {stat.title}
-                {stat.highlight && (
-                  <>
-                    {' '}
-                    <span className="text-red-400">{stat.highlight}</span>
-                    {' '}{stat.highlightText}
-                  </>
-                )}
-              </p>
-              <p className="md:text-sm text-xs font-medium text-neutral-400 backdrop-blur-sm font-display">
-                {stat.subtitle}
-              </p>
-              {i < problemStats.length - 1 && (
-                <div className="h-[1px] w-full bg-white/5 mt-4" />
-              )}
             </AnimatedElement>
           ))}
         </div>

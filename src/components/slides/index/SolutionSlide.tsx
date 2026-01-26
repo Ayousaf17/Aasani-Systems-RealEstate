@@ -41,26 +41,28 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
             <AnimatedElement
               key={i}
               delay={0.3 + i * 0.15}
-              className="group bg-white/0 hover:bg-white/5 rounded-lg p-4 -ml-4 transition-all duration-300 cursor-pointer shrink-0"
+              className="group shrink-0"
             >
-              <div className="flex items-center gap-3 mb-2">
-                <iconify-icon
-                  icon={benefit.icon}
-                  className="text-2xl text-teal-400 group-hover:text-teal-300 transition-colors"
-                />
-                <h3 className="md:text-xl text-lg font-medium text-white tracking-tight group-hover:text-teal-400 transition-colors">
-                  {benefit.title}
-                </h3>
-              </div>
-              <div className="pl-9 border-l border-white/10 ml-3 transition-all duration-300 group-hover:border-teal-400/50 group-hover:pl-10">
-                <p className="text-neutral-400 text-sm md:text-base leading-relaxed group-hover:text-neutral-300 transition-colors font-display">
-                  {benefit.description}
-                  {' '}
-                  <span className="text-white font-semibold">
-                    {benefit.highlight}
-                  </span>
-                  {benefit.highlightSuffix && ` ${benefit.highlightSuffix}`}
-                </p>
+              <div className="bg-black/40 backdrop-blur-sm rounded-lg p-4 border border-white/10 hover:bg-black/50 hover:border-teal-400/30 transition-all duration-300 cursor-pointer">
+                <div className="flex items-center gap-3 mb-2">
+                  <iconify-icon
+                    icon={benefit.icon}
+                    className="text-2xl text-teal-400 group-hover:text-teal-300 transition-colors"
+                  />
+                  <h3 className="md:text-xl text-lg font-medium text-white tracking-tight group-hover:text-teal-400 transition-colors">
+                    {benefit.title}
+                  </h3>
+                </div>
+                <div className="pl-9 border-l border-white/10 ml-3 transition-all duration-300 group-hover:border-teal-400/50">
+                  <p className="text-neutral-400 text-sm md:text-base leading-relaxed group-hover:text-neutral-300 transition-colors font-display">
+                    {benefit.description}
+                    {' '}
+                    <span className="text-white font-semibold">
+                      {benefit.highlight}
+                    </span>
+                    {benefit.highlightSuffix && ` ${benefit.highlightSuffix}`}
+                  </p>
+                </div>
               </div>
             </AnimatedElement>
           ))}
