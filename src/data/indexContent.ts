@@ -111,7 +111,7 @@ export const processSteps = [
     number: '03',
     title: 'Implementation',
     duration: 'If it makes sense',
-    description: '90-day plan to build the systems that fit your business. No pressure. Just value.',
+    description: '90-day plan to build the systems that fit your business.',
   },
 ];
 
