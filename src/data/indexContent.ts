@@ -104,7 +104,7 @@ export const processSteps = [
 ];
 
 export const philosophyQuotes = [
-  'We handle the busywork — so you can be present for the moments that matter.',
+  'We handle the busywork so you can be present for the moments that matter.',
   'Your clients chose you. Our systems help you show up for them.',
   'Structure first. Intelligence second. Presence always.',
 ];
