@@ -10,6 +10,7 @@ import { AutomationsListSlide } from '../components/slides/index/AutomationsList
 import { CaseStudiesSlide } from '../components/slides/index/CaseStudiesSlide';
 import { HowItWorksSlide } from '../components/slides/index/HowItWorksSlide';
 import { PhilosophySlide } from '../components/slides/index/PhilosophySlide';
+import { LeadMagnetSlide } from '../components/slides/index/LeadMagnetSlide';
 import { CTASlide } from '../components/slides/index/CTASlide';
 import { TOTAL_INDEX_SLIDES } from '../data/indexContent';
 
@@ -47,7 +48,8 @@ export function IndexPage() {
         <CaseStudiesSlide index={4} />
         <HowItWorksSlide index={5} />
         <PhilosophySlide index={6} onNavigate={handleNavigate} />
-        <CTASlide index={7} />
+        <LeadMagnetSlide index={7} />
+        <CTASlide index={8} />
       </VerticalScroller>
     </div>
   );

@@ -19,7 +19,7 @@ export function HeroSlide({ index }: HeroSlideProps) {
       >
         <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
-            [01/08]
+            [01/09]
           </span>
           <a
             href="https://aasani.ai"

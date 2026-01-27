@@ -18,7 +18,7 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
       >
         <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
-            [06/08]
+            [06/09]
           </span>
           <div className="flex items-center gap-2">
             <iconify-icon icon="solar:routing-linear" className="text-teal-400 text-lg" />
