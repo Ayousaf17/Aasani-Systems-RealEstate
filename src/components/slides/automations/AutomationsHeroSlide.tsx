@@ -44,8 +44,8 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
               How top agents save 20+ hours per week
             </p>
             <p className="leading-relaxed text-xs md:text-sm text-neutral-300 tracking-wide font-display max-w-[90%] border-teal-500 border-l-2 pl-3 backdrop-blur-sm">
-              Real estate agents are drowning in admin work. Here's how to
-              automate it systematically.
+              You got into real estate to help people — not to drown in admin.
+              Here's how to get your time back.
             </p>
           </AnimatedElement>
         </div>

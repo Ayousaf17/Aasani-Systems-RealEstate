@@ -55,7 +55,7 @@ export function HeroSlide({ index }: HeroSlideProps) {
 
           <AnimatedElement delay={0.4} className="mt-6 md:mt-8">
             <p className="leading-relaxed md:text-base text-sm font-light text-neutral-300 max-w-[95%] font-display">
-              Reclaim 20+ hours per week. Automated systems for top-producing agents.
+              Reclaim 20+ hours per week — so you can be the agent your clients rave about.
             </p>
           </AnimatedElement>
         </div>
