@@ -10,7 +10,6 @@ import { AutomationsListSlide } from '../components/slides/index/AutomationsList
 import { CaseStudiesSlide } from '../components/slides/index/CaseStudiesSlide';
 import { ROICalculatorSlide } from '../components/slides/index/ROICalculatorSlide';
 import { HowItWorksSlide } from '../components/slides/index/HowItWorksSlide';
-import { PhilosophySlide } from '../components/slides/index/PhilosophySlide';
 import { FAQSlide } from '../components/slides/index/FAQSlide';
 import { LeadMagnetSlide } from '../components/slides/index/LeadMagnetSlide';
 import { CTASlide } from '../components/slides/index/CTASlide';
@@ -50,10 +49,9 @@ export function IndexPage() {
         <CaseStudiesSlide index={4} />
         <ROICalculatorSlide index={5} onNavigate={handleNavigate} />
         <HowItWorksSlide index={6} />
-        <PhilosophySlide index={7} onNavigate={handleNavigate} />
-        <FAQSlide index={8} />
-        <LeadMagnetSlide index={9} />
-        <CTASlide index={10} />
+        <FAQSlide index={7} />
+        <LeadMagnetSlide index={8} />
+        <CTASlide index={9} />
       </VerticalScroller>
     </div>
   );

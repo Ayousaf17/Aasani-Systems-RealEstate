@@ -69,7 +69,7 @@ export function FAQSlide({ index }: FAQSlideProps) {
           {/* Header */}
           <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6 shrink-0">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
-              [09/11]
+              [08/10]
             </span>
             <div className="flex items-center gap-2">
               <iconify-icon icon="solar:question-circle-linear" className="text-teal-400 text-lg drop-shadow-md" />

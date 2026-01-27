@@ -82,7 +82,7 @@ export function CTASlide({ index }: CTASlideProps) {
 
         <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6 relative z-10">
           <span className="text-xs uppercase tracking-widest font-mono text-white">
-            [11/11]
+            [10/10]
           </span>
           <div className="flex items-center gap-2">
             <iconify-icon icon="solar:calendar-add-linear" className="text-teal-400 text-lg" />
