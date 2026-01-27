@@ -17,6 +17,8 @@ interface ExpandableCardProps {
   statValue?: string;
   statLabel?: string;
   icon?: React.ReactNode;
+  // Custom collapsed content (overrides default rendering)
+  collapsedContent?: React.ReactNode;
 }
 
 export function ExpandableCard({
@@ -29,6 +31,7 @@ export function ExpandableCard({
   statValue,
   statLabel,
   icon,
+  collapsedContent,
 }: ExpandableCardProps) {
   const [active, setActive] = React.useState(false);
   const cardRef = React.useRef<HTMLDivElement>(null);
@@ -177,7 +180,12 @@ export function ExpandableCard({
           className
         )}
       >
-        {src ? (
+        {collapsedContent ? (
+          <>
+            {collapsedContent}
+            <h3 id={`card-title-${id}`} className="sr-only">{title}</h3>
+          </>
+        ) : src ? (
           <>
             <img
               src={src}

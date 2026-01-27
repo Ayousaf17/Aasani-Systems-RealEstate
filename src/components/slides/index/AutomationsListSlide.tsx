@@ -1,9 +1,17 @@
 import { useNavigate } from 'react-router-dom';
 import { AnimatedElement } from '../../ui/AnimatedElement';
+import { ExpandableCard } from '../../ui/ExpandableCard';
 import { automationsList, backgroundImages } from '../../../data/indexContent';
+import { automationsData } from '../../../data/automationsContent';
 
 interface AutomationsListSlideProps {
   index: number;
+}
+
+// Map automationsList items to their full data from automationsContent
+function getAutomationDetails(slideIndex: number) {
+  // slideIndex is 1-indexed, automationsData is 0-indexed
+  return automationsData[slideIndex - 1];
 }
 
 export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
@@ -41,32 +49,57 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
 
         <AnimatedElement delay={0.3} className="flex-1 flex items-center py-4 overflow-hidden">
           <div className="flex flex-col gap-2 w-full">
-            {automationsList.map((item, i) => (
-              <button
-                key={i}
-                onClick={() => navigate(`/automations?slide=${item.slideIndex}`)}
-                className="group bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-2.5 hover:bg-black/60 hover:border-teal-500/30 transition-all duration-300 cursor-pointer text-left w-full"
-              >
-                <div className="flex items-center gap-3">
-                  <iconify-icon
-                    icon={item.icon}
-                    className="text-teal-400 text-xl shrink-0 group-hover:scale-110 transition-transform"
-                  />
-                  <div className="flex-1 min-w-0">
-                    <span className="text-white text-sm font-display font-medium block group-hover:text-teal-300 transition-colors">
-                      {item.name}
-                    </span>
-                    <span className="text-neutral-400 text-xs font-display">
-                      {item.benefit}
-                    </span>
-                  </div>
-                  <iconify-icon
-                    icon="solar:arrow-right-linear"
-                    className="text-teal-400/50 text-lg shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"
-                  />
-                </div>
-              </button>
-            ))}
+            {automationsList.map((item, i) => {
+              const details = getAutomationDetails(item.slideIndex);
+              return (
+                <ExpandableCard
+                  key={i}
+                  title={item.name}
+                  description={`Automation #${item.slideIndex}`}
+                  statValue={details?.statValue}
+                  statLabel={details?.statLabel}
+                  icon={<iconify-icon icon={item.icon} className="text-2xl" />}
+                  className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-2.5 hover:bg-black/60 hover:border-teal-500/30 transition-all duration-300 text-left w-full"
+                  collapsedContent={
+                    <div className="flex items-center gap-3 w-full group">
+                      <iconify-icon
+                        icon={item.icon}
+                        className="text-teal-400 text-xl shrink-0 group-hover:scale-110 transition-transform"
+                      />
+                      <div className="flex-1 min-w-0">
+                        <span className="text-white text-sm font-display font-medium block group-hover:text-teal-300 transition-colors">
+                          {item.name}
+                        </span>
+                        <span className="text-neutral-400 text-xs font-display">
+                          {item.benefit}
+                        </span>
+                      </div>
+                      <iconify-icon
+                        icon="solar:add-circle-linear"
+                        className="text-teal-400/50 text-lg shrink-0"
+                      />
+                    </div>
+                  }
+                >
+                  {/* Stat context */}
+                  {details?.statDescription && (
+                    <p className="text-neutral-400 text-sm">
+                      <span className="text-teal-400 font-semibold">{details.statValue}</span> {details.statDescription}
+                    </p>
+                  )}
+
+                  {/* Description */}
+                  {details?.description && (
+                    <p className="text-neutral-300">{details.description}</p>
+                  )}
+
+                  {/* Tools */}
+                  {details?.tools && (
+                    <p className="text-neutral-500 text-xs font-mono">{details.tools}</p>
+                  )}
+                </ExpandableCard>
+              );
+            })}
           </div>
         </AnimatedElement>
 
