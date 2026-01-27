@@ -41,30 +41,21 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
           </AnimatedElement>
         </div>
 
-        <AnimatedElement delay={0.3} className="flex-1 flex items-center py-4">
-          <div className="grid grid-cols-2 gap-3 w-full">
+        <AnimatedElement delay={0.3} className="flex-1 flex items-center py-4 overflow-hidden">
+          <div className="flex flex-col gap-2 w-full">
             {automationsList.map((item, i) => (
               <div
                 key={i}
-                className={`group bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg p-3 hover:bg-black/60 hover:border-teal-500/30 transition-all duration-300 ${
-                  i === 6 ? 'col-span-2' : ''
-                }`}
+                className="group bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-3 hover:bg-black/60 hover:border-teal-500/30 transition-all duration-300"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center shrink-0 group-hover:bg-teal-500/20 transition-colors">
-                    <iconify-icon
-                      icon={item.icon}
-                      className="text-teal-400 text-lg"
-                    />
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-teal-400 font-mono text-xs font-bold">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <span className="text-white text-xs md:text-sm font-display font-medium leading-tight">
-                      {item.name}
-                    </span>
-                  </div>
+                  <iconify-icon
+                    icon={item.icon}
+                    className="text-teal-400 text-xl shrink-0"
+                  />
+                  <span className="text-white text-sm font-display font-medium">
+                    {item.name}
+                  </span>
                 </div>
               </div>
             ))}
