@@ -1,4 +1,4 @@
-export const TOTAL_INDEX_SLIDES = 9;
+export const TOTAL_INDEX_SLIDES = 10;
 
 export const problemStats = [
   {
@@ -81,6 +81,23 @@ export const industryStats = [
     source: 'NAR Member Profile 2025',
   },
 ];
+
+export const roiCalculatorContent = {
+  label: 'ROI CALCULATOR',
+  title: 'What Could You Save?',
+  subtitle: 'See Your Potential ROI',
+  inputs: {
+    hours: { label: 'Hours on admin per week', min: 5, max: 30, default: 15, step: 1 },
+    rate: { label: 'Value of your time ($/hr)', min: 50, max: 300, default: 100, step: 10 },
+  },
+  savingsRate: 0.7, // 70% time savings from automation
+  resultLabels: {
+    hoursSaved: 'Hours saved per week',
+    annualValue: 'Annual value recovered',
+  },
+  ctaText: "Let's Make It Happen",
+  ctaDescription: "That's time back with clients, not paperwork.",
+};
 
 export const processSteps = [
   {
