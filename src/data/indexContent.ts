@@ -104,9 +104,9 @@ export const processSteps = [
 ];
 
 export const philosophyQuotes = [
-  'Systematic operations before AI intelligence.',
-  'Structure that scales with your business.',
-  'Automation that feels like having a manager.',
+  'We handle the busywork — so you can be present for the moments that matter.',
+  'Your clients chose you. Our systems help you show up for them.',
+  'Structure first. Intelligence second. Presence always.',
 ];
 
 export const contactInfo = {
