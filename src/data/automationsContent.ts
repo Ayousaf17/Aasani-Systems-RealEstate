@@ -12,7 +12,7 @@ export const automationsData: AutomationSlideData[] = [
     tagline: 'Respond in 60 seconds and capture leads instantly',
     statValue: '8x',
     statLabel: 'HIGHER CONVERSION',
-    statDescription: 'Responding in 5 minutes vs 30 minutes wins deals.',
+    statDescription: 'When responding in 5 minutes vs 30, you win deals.',
     progressPercent: 80,
     description: 'Automatically send SMS confirmation, personalized email, task reminder, CRM logging, and Slack alert for hot leads.',
     tools: 'Tools: Twilio, Follow Up Boss, kvCORE, LionDesk, CRM + Zapier',
