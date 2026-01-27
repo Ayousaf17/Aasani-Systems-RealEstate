@@ -346,3 +346,179 @@ NEXT STEPS: [If this recommendation is chosen, what happens next?]
 | Competitive Analyst | Market context | How are we different? |
 | Legal/Compliance | Risk mitigation | Are we compliant? |
 | Synthesizer | Decision-making | What's the call? |
+
+---
+
+# The Aasani Lens
+
+## Content Evaluation Framework for Aasani Systems
+
+Use this framework to evaluate ANY content: website copy, automation descriptions, proposals, emails, social posts, etc.
+
+---
+
+## Core Philosophy (Read First)
+
+**The Truth:** Clients don't rave about automations. They rave about presence, patience, thoughtfulness, and going the extra mile.
+
+**The Aasani Approach:** Build systems that give agents back TIME and MENTAL SPACE — so they can do the irreplaceable human work.
+
+**The North Star:** "We give agents their time back — so they can be the agent their clients rave about."
+
+**Language Guide:**
+- "Automate your follow-ups" → "Make sure no one feels ignored"
+- "Never miss a lead" → "Be present when it matters"
+- "Set it and forget it" → "Built to adapt, not just run"
+- "Drip campaigns" → "Thoughtful touchpoints"
+- "Workflow efficiency" → "Peace of mind"
+- "Scale your business" → "Protect your relationships at scale"
+
+---
+
+## The 4 Personas + Strategic Audit
+
+### Persona A: The Skeptical Realtor
+*"I've been burned by 'automation' promises before. Show me why THIS is different."*
+
+**Ask:**
+- Does this solve MY pain points? (not generic agent problems)
+- Will this make me BETTER at relationships, or replace them?
+- Can I picture myself explaining this to a client without cringing?
+- Does this sound like someone who understands my day-to-day?
+- Would I forward this to a fellow agent saying "You NEED to see this"?
+
+**Red Flags:**
+- Jargon that sounds impressive but means nothing
+- "Efficiency" talk that ignores the human cost
+- Promises that sound too good to be true
+- Feeling sold TO, not partnered WITH
+
+---
+
+### Persona B: The AI-Curious Human
+*"I know AI can be cold and robotic. Convince me THIS won't make me sound like a bot."*
+
+**Ask:**
+- Will my clients be able to TELL this is automated?
+- Does this make me sound more human, or less?
+- Can I still inject my personality into this?
+- Would my best client think "Wow, they really thought this through"?
+
+**Red Flags:**
+- Language that sounds like ChatGPT (generic, corporate, safe)
+- Over-promising on "AI magic" without showing the human touch
+- Treating clients like "leads" instead of people
+- Missing warmth, humor, or conversational tone
+
+---
+
+### Persona C: The Ready-to-Buy Agent
+*"I don't have time for theory. Show me EXACTLY what I get and why I need it NOW."*
+
+**Ask:**
+- What's the specific outcome I'll get?
+- How long until I see results?
+- What does "done-for-you" actually MEAN?
+- Am I thinking "Hell yes, take my money" or "Let me think about it"?
+
+**Red Flags:**
+- Vague benefit statements ("streamline your workflow")
+- No clear call-to-action or next steps
+- Missing urgency (why NOW vs. 6 months from now?)
+- Too much explanation, not enough "here's what you GET"
+
+---
+
+### Persona D: The Strategic Outsider
+*"I'm not in real estate, but I know good messaging when I see it. Is this COMPELLING?"*
+
+**Ask:**
+- Does this pass the "dinner party test"? (Explain in one sentence)
+- Is there a clear problem being solved?
+- Does the solution feel inevitable once I understand the problem?
+- Is there a unique POV, or is this "me too" positioning?
+- Would I remember this brand 3 days from now?
+
+**Red Flags:**
+- Playing it too safe (sounds like everyone else)
+- Burying the lede (best part hidden on page 3)
+- Weak differentiation ("we care about our clients" — who doesn't?)
+- All logic, no feeling
+
+---
+
+### Strategic Audit: The Overlooked Opportunities
+*"What is Ayub TRYING to do that hasn't been articulated yet?"*
+
+**Ask:**
+- What's the REAL transformation? (Not "better workflows" — what does life look like 6 months after working with Aasani?)
+- What objection is NOT being addressed? (Price? Time? Trust?)
+- Where's the proof? (Are we SHOWING results or just claiming them?)
+- What's the emotional hook? (What keeps agents up at night?)
+- What makes THIS unreplicable? (Why not just use Zapier + ChatGPT?)
+- Where's the personality? (Does this sound like Ayub?)
+- What's missing for the CLIENT'S client? (How does this help the homebuyer?)
+- Is there a "wait, WHAT?" moment? (Pattern interrupt?)
+
+**Ultimate Question:**
+> "If Ayub couldn't say 'automation' or 'AI' or 'workflow,' how would he describe what Aasani does?"
+
+**Answer:** "We give agents their time back — so they can be the agent their clients rave about."
+
+---
+
+## How to Use The Lens
+
+### For Copy Review
+Run each section through all 4 personas + strategic audit.
+If ANY persona says "I'm confused" or "I don't care" — rewrite.
+
+### For Website Pages
+- Headlines → Persona D test (memorable, unique POV)
+- Body copy → Persona A + B (credible + human)
+- CTAs → Persona C (clear next step + urgency)
+- Subtext → Strategic Audit (the deeper "why")
+
+### For Proposals
+1. Lead with Persona C (the buyer) — "take my money" moment FIRST
+2. Support with Persona A (the skeptic) — address objections
+3. Close with Persona B (the human) — remind them this protects relationships
+4. Infuse with Strategic Audit — surface the overlooked transformation
+
+---
+
+## Quick Reference: The Aasani Voice
+
+**Sounds like:**
+- A trusted advisor explaining something over coffee
+- Someone who's been in the trenches and gets it
+- Warm, patient, thoughtful
+- "Here's what actually works" energy
+
+**Does NOT sound like:**
+- SaaS marketing copy
+- Consultant jargon
+- Pushy sales tactics
+- Generic AI hype
+
+**Remember:**
+- Relationships > Transactions
+- Presence > Automation
+- Peace of mind > Efficiency
+- Thoughtful touchpoints > Drip campaigns
+
+---
+
+## Example Application
+
+**BEFORE (generic):**
+"Automate your follow-ups so you never miss a lead."
+
+**AFTER (Aasani Lens):**
+"Some people need time before they're ready. This keeps the relationship warm — so when they ARE ready, you're the one they call."
+
+**What changed:**
+- Outcome over feature
+- Relationship language
+- Patient, not pushy
+- The agent's success tied to the client's experience
