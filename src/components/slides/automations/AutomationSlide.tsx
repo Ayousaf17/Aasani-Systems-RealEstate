@@ -31,8 +31,10 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.3}>
-            <h2 className="text-3xl md:text-4xl text-white font-display tracking-tighter leading-none mb-2">
-              {data.title}
+            <h2 className="text-3xl md:text-4xl text-white font-display tracking-tighter leading-tight mb-2">
+              {data.title.split('\n').map((line, i) => (
+                <span key={i} className="block">{line}</span>
+              ))}
             </h2>
             <p className="uppercase text-xs md:text-sm text-teal-400 tracking-wide font-mono">
               {data.tagline}

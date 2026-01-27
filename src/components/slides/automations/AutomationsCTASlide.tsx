@@ -113,18 +113,20 @@ export function AutomationsCTASlide() {
           </h2>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.3} className="flex flex-col items-center gap-3 w-full">
-          {ctaChecklist.map((item, i) => (
-            <div key={i} className="flex items-center gap-2">
-              <iconify-icon
-                icon="solar:check-circle-bold"
-                className="text-teal-400 text-lg flex-shrink-0"
-              />
-              <span className="text-sm md:text-base text-white font-display">
-                {item}
-              </span>
-            </div>
-          ))}
+        <AnimatedElement delay={0.3} className="flex justify-center w-full">
+          <div className="flex flex-col gap-2">
+            {ctaChecklist.map((item, i) => (
+              <div key={i} className="flex items-start gap-2">
+                <iconify-icon
+                  icon="solar:check-circle-bold"
+                  className="text-teal-400 text-lg flex-shrink-0 mt-0.5"
+                />
+                <span className="text-sm md:text-base text-white font-display">
+                  {item}
+                </span>
+              </div>
+            ))}
+          </div>
         </AnimatedElement>
 
         <AnimatedElement delay={0.4} className="flex-1 flex flex-col items-center justify-center gap-6 w-full">
