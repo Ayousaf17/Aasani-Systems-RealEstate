@@ -22,21 +22,19 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
         <div>
           <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
-              [04/10]
+              02 / 05 — THE AUTOMATIONS
             </span>
             <div className="flex items-center gap-2">
               <iconify-icon icon="solar:settings-linear" className="text-teal-400 text-lg" />
               <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
-                AUTOMATIONS
+                THE SAUCE
               </span>
             </div>
           </AnimatedElement>
 
           <AnimatedElement delay={0.2}>
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display">
-              7 Core Automations
-              <br />
-              <span className="text-neutral-500 font-normal">Reclaim 20+ Hours Per Week</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display">
+              What Gets Automated
             </h2>
           </AnimatedElement>
         </div>
@@ -46,16 +44,21 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
             {automationsList.map((item, i) => (
               <div
                 key={i}
-                className="group bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-3 hover:bg-black/60 hover:border-teal-500/30 transition-all duration-300"
+                className="group bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-2.5 hover:bg-black/60 hover:border-teal-500/30 transition-all duration-300"
               >
                 <div className="flex items-center gap-3">
                   <iconify-icon
                     icon={item.icon}
                     className="text-teal-400 text-xl shrink-0"
                   />
-                  <span className="text-white text-sm font-display font-medium">
-                    {item.name}
-                  </span>
+                  <div className="flex-1 min-w-0">
+                    <span className="text-white text-sm font-display font-medium block">
+                      {item.name}
+                    </span>
+                    <span className="text-neutral-400 text-xs font-display">
+                      {item.benefit}
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -68,7 +71,7 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
             className="w-full flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-500 transition-colors py-3 px-6 rounded-full"
           >
             <span className="text-sm font-semibold text-white uppercase tracking-wide">
-              View Complete Breakdown
+              See Full Breakdown
             </span>
             <iconify-icon
               icon="solar:arrow-right-linear"

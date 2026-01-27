@@ -4,14 +4,9 @@ import type { VerticalScrollerRef } from '../components/layout/VerticalScroller'
 import { Header } from '../components/navigation/Header';
 import { NavigationDots } from '../components/navigation/NavigationDots';
 import { HeroSlide } from '../components/slides/index/HeroSlide';
-import { ProblemSlide } from '../components/slides/index/ProblemSlide';
-import { SolutionSlide } from '../components/slides/index/SolutionSlide';
 import { AutomationsListSlide } from '../components/slides/index/AutomationsListSlide';
-import { CaseStudiesSlide } from '../components/slides/index/CaseStudiesSlide';
 import { ROICalculatorSlide } from '../components/slides/index/ROICalculatorSlide';
 import { HowItWorksSlide } from '../components/slides/index/HowItWorksSlide';
-import { FAQSlide } from '../components/slides/index/FAQSlide';
-import { LeadMagnetSlide } from '../components/slides/index/LeadMagnetSlide';
 import { CTASlide } from '../components/slides/index/CTASlide';
 import { TOTAL_INDEX_SLIDES } from '../data/indexContent';
 
@@ -43,15 +38,10 @@ export function IndexPage() {
         onIndexChange={setCurrentIndex}
       >
         <HeroSlide index={0} />
-        <ProblemSlide index={1} />
-        <SolutionSlide index={2} />
-        <AutomationsListSlide index={3} />
-        <CaseStudiesSlide index={4} />
-        <ROICalculatorSlide index={5} onNavigate={handleNavigate} />
-        <HowItWorksSlide index={6} />
-        <FAQSlide index={7} />
-        <LeadMagnetSlide index={8} />
-        <CTASlide index={9} />
+        <AutomationsListSlide index={1} />
+        <ROICalculatorSlide index={2} onNavigate={handleNavigate} />
+        <HowItWorksSlide index={3} />
+        <CTASlide index={4} />
       </VerticalScroller>
     </div>
   );

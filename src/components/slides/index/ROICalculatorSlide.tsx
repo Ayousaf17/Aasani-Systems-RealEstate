@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useCallback } from 'react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
 import { roiCalculatorContent, backgroundImages } from '../../../data/indexContent';
 
@@ -10,6 +10,8 @@ interface ROICalculatorSlideProps {
 export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProps) {
   const [hoursOnAdmin, setHoursOnAdmin] = useState(roiCalculatorContent.inputs.hours.default);
   const [hourlyValue, setHourlyValue] = useState(roiCalculatorContent.inputs.rate.default);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
 
   const calculations = useMemo(() => {
     const hoursSaved = Math.round(hoursOnAdmin * roiCalculatorContent.savingsRate * 10) / 10;
@@ -18,6 +20,15 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
     return { hoursSaved, annualSavings };
   }, [hoursOnAdmin, hourlyValue]);
 
+  // Flashlight effect handler
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setMousePosition({ x, y });
+  }, []);
+
   return (
     <section
       className="snap-start shrink-0 flex w-full slide-height relative items-center justify-center"
@@ -25,16 +36,26 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
       id={`section-${index + 1}`}
     >
       <div
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
         className="h-full md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col w-full max-w-none md:max-w-xl rounded-none relative shadow-2xl card-bg md:pt-12 md:pr-12 md:pl-12 pt-16 pr-6 pb-6 pl-6"
         style={{ backgroundImage: `url(${backgroundImages.caseStudies})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 z-0 pointer-events-none" />
 
+        {/* Flashlight effect overlay - desktop only */}
+        <div
+          className="absolute inset-0 z-[1] pointer-events-none opacity-0 md:opacity-100 transition-opacity"
+          style={{
+            background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(20,184,166,0.15) 0%, transparent 50%)`,
+          }}
+        />
+
         <div className="relative z-10 flex flex-col h-full">
           {/* Header */}
           <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6 shrink-0">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
-              [06/10]
+              03 / 05 — YOUR ROI
             </span>
             <div className="flex items-center gap-2">
               <iconify-icon icon="solar:calculator-linear" className="text-teal-400 text-lg drop-shadow-md" />
@@ -72,8 +93,8 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
                   onChange={(e) => setHoursOnAdmin(Number(e.target.value))}
                   className="w-full h-2 bg-white/10 rounded-full appearance-none cursor-pointer
                              [&::-webkit-slider-thumb]:appearance-none
-                             [&::-webkit-slider-thumb]:w-5
-                             [&::-webkit-slider-thumb]:h-5
+                             [&::-webkit-slider-thumb]:w-6
+                             [&::-webkit-slider-thumb]:h-6
                              [&::-webkit-slider-thumb]:rounded-full
                              [&::-webkit-slider-thumb]:bg-teal-400
                              [&::-webkit-slider-thumb]:cursor-pointer
@@ -81,8 +102,8 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
                              [&::-webkit-slider-thumb]:border-2
                              [&::-webkit-slider-thumb]:border-white/20
                              [&::-moz-range-thumb]:appearance-none
-                             [&::-moz-range-thumb]:w-5
-                             [&::-moz-range-thumb]:h-5
+                             [&::-moz-range-thumb]:w-6
+                             [&::-moz-range-thumb]:h-6
                              [&::-moz-range-thumb]:rounded-full
                              [&::-moz-range-thumb]:bg-teal-400
                              [&::-moz-range-thumb]:cursor-pointer
@@ -108,8 +129,8 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
                   onChange={(e) => setHourlyValue(Number(e.target.value))}
                   className="w-full h-2 bg-white/10 rounded-full appearance-none cursor-pointer
                              [&::-webkit-slider-thumb]:appearance-none
-                             [&::-webkit-slider-thumb]:w-5
-                             [&::-webkit-slider-thumb]:h-5
+                             [&::-webkit-slider-thumb]:w-6
+                             [&::-webkit-slider-thumb]:h-6
                              [&::-webkit-slider-thumb]:rounded-full
                              [&::-webkit-slider-thumb]:bg-teal-400
                              [&::-webkit-slider-thumb]:cursor-pointer
@@ -117,8 +138,8 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
                              [&::-webkit-slider-thumb]:border-2
                              [&::-webkit-slider-thumb]:border-white/20
                              [&::-moz-range-thumb]:appearance-none
-                             [&::-moz-range-thumb]:w-5
-                             [&::-moz-range-thumb]:h-5
+                             [&::-moz-range-thumb]:w-6
+                             [&::-moz-range-thumb]:h-6
                              [&::-moz-range-thumb]:rounded-full
                              [&::-moz-range-thumb]:bg-teal-400
                              [&::-moz-range-thumb]:cursor-pointer
@@ -151,6 +172,10 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
               onClick={() => onNavigate?.(1)}
               className="group flex md:py-4 overflow-hidden hover:bg-neutral-200 transition-colors cursor-pointer text-black bg-white opacity-95 w-full rounded-full py-3 relative shadow-xl gap-2 items-center justify-center"
             >
+              {/* Shimmer effect on hover */}
+              <span className="absolute inset-0 overflow-hidden rounded-full">
+                <span className="group-hover:animate-[shimmer_1.5s_infinite] group-hover:opacity-100 bg-gradient-to-r from-transparent via-black/10 to-transparent opacity-0 w-full h-full absolute top-0 left-0 -skew-x-12" />
+              </span>
               <span className="text-xs md:text-sm font-bold uppercase tracking-widest z-10">
                 {roiCalculatorContent.ctaText}
               </span>

@@ -1,4 +1,4 @@
-export const TOTAL_INDEX_SLIDES = 10;
+export const TOTAL_INDEX_SLIDES = 5;
 
 export const problemStats = [
   {
@@ -45,13 +45,33 @@ export const solutionBenefits = [
 ];
 
 export const automationsList = [
-  { name: 'Instant Lead Response', icon: 'solar:bolt-circle-linear' },
-  { name: 'Lead Qualification & Scoring', icon: 'solar:chart-2-linear' },
-  { name: 'Smart Follow-Up Sequences', icon: 'solar:chat-round-dots-linear' },
-  { name: 'Appointment Scheduling & Reminders', icon: 'solar:calendar-linear' },
-  { name: 'Transaction Coordination', icon: 'solar:clipboard-check-linear' },
-  { name: 'Client Communication & Content', icon: 'solar:letter-linear' },
-  { name: 'Review & Referral Generation', icon: 'solar:star-linear' },
+  { name: 'Instant Lead Response', icon: 'solar:bolt-circle-linear', benefit: 'You stay present, they feel cared for.' },
+  { name: 'Lead Qualification & Scoring', icon: 'solar:chart-2-linear', benefit: 'Give attention to those who need you now.' },
+  { name: 'Smart Follow-Up Sequences', icon: 'solar:chat-round-dots-linear', benefit: "When they're ready, you're the one they call." },
+  { name: 'Appointment Scheduling & Reminders', icon: 'solar:calendar-linear', benefit: 'You get your evenings back.' },
+  { name: 'Transaction Coordination', icon: 'solar:clipboard-check-linear', benefit: 'Nothing slips through the cracks.' },
+  { name: 'Client Communication & Content', icon: 'solar:letter-linear', benefit: 'Your name comes up when they ask.' },
+  { name: 'Review & Referral Generation', icon: 'solar:star-linear', benefit: 'Great relationships speak for themselves.' },
+];
+
+// Hero slide stat
+export const heroStat = {
+  value: '78%',
+  text: 'of buyers go with whoever responds first',
+  source: 'NAR 2025',
+};
+
+// Guarantee copy
+export const guarantee = {
+  text: "If you don't save 10+ hours in your first 90 days, we'll make it right.",
+  badge: '10+ hours saved in 90 days or we make it right',
+};
+
+// Trust stats for CTA slide
+export const trustStats = [
+  { value: '21x', label: 'more qualified leads' },
+  { value: '15-20', label: 'hrs saved weekly' },
+  { value: '41%', label: 'referral business' },
 ];
 
 // Verified industry statistics with sources
@@ -133,27 +153,19 @@ export const faqContent = {
   items: [
     {
       question: 'How long until I see results?',
-      answer: 'Most clients see their first automation live within 2 weeks. Full system implementation takes about 90 days, but you will start saving time from day one as we roll out each piece.',
+      answer: 'Most clients see their first automation live within 2 weeks. Full system implementation takes about 90 days, but you will start saving time from day one.',
     },
     {
       question: 'Do I need to be technical?',
-      answer: 'Not at all. We handle everything - the setup, the integrations, the testing. You just tell us how you like to work, and we build the systems around you.',
+      answer: 'Not at all. We handle everything - the setup, the integrations, the testing. You just tell us how you like to work.',
     },
     {
       question: 'What if I already use a CRM?',
-      answer: 'Great - we work with what you have. Whether it is Follow Up Boss, KVCore, Salesforce, or something else, we integrate with your existing tools rather than replacing them.',
+      answer: 'Great - we work with what you have. Whether it is Follow Up Boss, KVCore, or Salesforce, we integrate with your existing tools.',
     },
     {
       question: 'What is the investment?',
-      answer: 'Every business is different, so we custom-quote after understanding your needs. The strategy call is free, and you will leave with a clear picture of ROI before any commitment.',
-    },
-    {
-      question: 'What if it does not work for my business?',
-      answer: 'We have never had that happen, but we stand behind our work. If the systems we build do not deliver the time savings we promise, we will make it right.',
-    },
-    {
-      question: 'How much of my time will this take?',
-      answer: 'About 2-3 hours total during the 90-day setup - mostly answering questions about how you work. After that, the systems run themselves.',
+      answer: 'Every business is different, so we custom-quote after understanding your needs. The strategy call is free with no commitment.',
     },
   ],
 };
