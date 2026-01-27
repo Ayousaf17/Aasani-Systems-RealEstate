@@ -43,7 +43,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
         </div>
 
         <AnimatedElement delay={0.5} className="relative">
-          <div className="group overflow-hidden bg-black/60 hover:bg-black/70 rounded-lg p-4 md:p-6 relative shadow-2xl backdrop-blur-xl border border-white/10 hover:border-teal-400/50 transition-all duration-500 cursor-pointer md:hover:scale-[1.02] hover:shadow-teal-500/20">
+          <div className="group overflow-hidden bg-black/60 hover:bg-black/70 rounded-lg p-4 md:p-6 relative shadow-2xl backdrop-blur-xl border border-white/10 hover:border-teal-400/50 transition-all duration-500 cursor-pointer md:hover:scale-[1.02] hover:shadow-teal-500/20 min-h-[160px] md:min-h-[180px]">
             <div className="flex items-start justify-between mb-3 md:mb-4">
               <div className="flex flex-col">
                 <span className="text-3xl md:text-4xl font-bold text-white group-hover:text-teal-400 transition-colors duration-500 tracking-tighter font-display">
