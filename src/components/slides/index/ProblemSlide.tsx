@@ -18,7 +18,7 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
       >
         <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
-            [02/09]
+            [02/10]
           </span>
           <div className="flex items-center gap-2">
             <iconify-icon icon="solar:danger-circle-linear" className="text-red-400 text-lg" />
