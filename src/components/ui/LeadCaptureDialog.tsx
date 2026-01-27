@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { motion } from 'framer-motion';
-import { Dialog, DialogContent, DialogTrigger, DialogClose } from './Dialog';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, FileText, Sparkles, Clock, CheckCircle2, ArrowUpRight } from 'lucide-react';
+import { Dialog, DialogContent, DialogTrigger } from './Dialog';
 import { cn } from '../../lib/utils';
 import { leadMagnetContent } from '../../data/indexContent';
 
@@ -9,10 +10,81 @@ interface LeadCaptureDialogProps {
   className?: string;
 }
 
-const FADE_IN_VARIANTS = {
-  hidden: { opacity: 0, y: 10 },
-  show: { opacity: 1, y: 0, transition: { type: 'spring' as const, stiffness: 300, damping: 24 } },
+// Animation variants for staggered spring animations
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+    },
+  },
 };
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: 'spring' as const,
+      stiffness: 300,
+      damping: 24,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -10,
+    scale: 0.95,
+    transition: {
+      duration: 0.2,
+    },
+  },
+};
+
+const iconVariants = {
+  hidden: { opacity: 0, scale: 0, rotate: -180 },
+  show: {
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    transition: {
+      type: 'spring' as const,
+      stiffness: 200,
+      damping: 15,
+      delay: 0.2,
+    },
+  },
+};
+
+const benefitVariants = {
+  hidden: { opacity: 0, x: -20 },
+  show: (i: number) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: 'spring' as const,
+      stiffness: 300,
+      damping: 24,
+      delay: 0.3 + i * 0.1,
+    },
+  }),
+};
+
+const benefits = [
+  { icon: Clock, text: 'Reclaim 20+ hours weekly' },
+  { icon: Sparkles, text: 'Instant lead response systems' },
+  { icon: CheckCircle2, text: 'Never miss a follow-up' },
+];
 
 export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps) {
   const [open, setOpen] = React.useState(false);
@@ -22,6 +94,7 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isSuccess, setIsSuccess] = React.useState(false);
   const [error, setError] = React.useState('');
+  const [focusedField, setFocusedField] = React.useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,25 +111,22 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
           name,
           email,
           phone: phone || undefined,
-          source: 'cta-dialog-checklist'
+          source: 'cta-dialog-checklist',
         }),
       });
 
       if (response.ok) {
         setIsSuccess(true);
-        // Open checklist in new tab
         window.open(leadMagnetContent.checklistUrl, '_blank');
-        // Reset form after short delay
         setTimeout(() => {
           setOpen(false);
-          // Reset state after dialog closes
           setTimeout(() => {
             setIsSuccess(false);
             setName('');
             setEmail('');
             setPhone('');
           }, 300);
-        }, 2000);
+        }, 2500);
       } else {
         setError('Something went wrong. Please try again.');
       }
@@ -70,169 +140,318 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
   const handleOpenChange = (newOpen: boolean) => {
     setOpen(newOpen);
     if (!newOpen) {
-      // Reset error when closing
       setError('');
+      setFocusedField(null);
     }
   };
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogTrigger asChild>
-        {trigger}
-      </DialogTrigger>
+      <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent className={cn('p-0 bg-transparent border-none shadow-none', className)}>
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={{
-            hidden: {},
-            show: {
-              transition: {
-                staggerChildren: 0.1,
-              },
-            },
-          }}
-          className="relative w-full max-w-lg rounded-2xl glass-panel border border-white/10 p-6 md:p-8 shadow-2xl mx-4 md:mx-0"
-        >
-          {/* Close button */}
-          <DialogClose className="absolute right-4 top-4 w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-colors focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black">
-            <iconify-icon icon="solar:close-circle-linear" className="text-neutral-400 hover:text-white text-lg" />
-            <span className="sr-only">Close</span>
-          </DialogClose>
-
-          {/* Header */}
-          <motion.div variants={FADE_IN_VARIANTS} className="mb-6">
-            <div className="flex items-center gap-2 mb-2">
-              <iconify-icon icon="solar:document-linear" className="text-teal-400 text-xl" />
-              <span className="text-xs font-mono uppercase tracking-widest text-teal-400">
-                Free Download
-              </span>
-            </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-white font-display">
-              Get the 7 Automations Checklist
-            </h3>
-            <p className="text-neutral-400 mt-2 text-sm md:text-base">
-              Everything you need to reclaim 20+ hours per week. Delivered instantly.
-            </p>
-          </motion.div>
-
+        <AnimatePresence mode="wait">
           {!isSuccess ? (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Name Field */}
-              <motion.div variants={FADE_IN_VARIANTS}>
-                <label htmlFor="lead-name" className="block text-sm font-medium text-neutral-300 mb-1.5">
-                  Your Name <span className="text-teal-400">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="lead-name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Jane Smith"
-                  required
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-400/50 focus:ring-2 focus:ring-teal-400/20 transition-all"
-                />
-              </motion.div>
+            <motion.div
+              key="form"
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              exit="exit"
+              className="relative w-full max-w-2xl rounded-2xl glass-panel border border-white/10 shadow-2xl overflow-hidden mx-4 md:mx-0"
+            >
+              {/* Background gradient orbs */}
+              <div className="absolute -top-24 -right-24 w-48 h-48 bg-teal-500/20 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
 
-              {/* Email Field */}
-              <motion.div variants={FADE_IN_VARIANTS}>
-                <label htmlFor="lead-email" className="block text-sm font-medium text-neutral-300 mb-1.5">
-                  Email Address <span className="text-teal-400">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="lead-email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="jane@example.com"
-                  required
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-400/50 focus:ring-2 focus:ring-teal-400/20 transition-all"
-                />
-              </motion.div>
-
-              {/* Phone Field (Optional) */}
-              <motion.div variants={FADE_IN_VARIANTS}>
-                <label htmlFor="lead-phone" className="block text-sm font-medium text-neutral-300 mb-1.5">
-                  Phone <span className="text-neutral-500 text-xs">(optional)</span>
-                </label>
-                <input
-                  type="tel"
-                  id="lead-phone"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="(555) 123-4567"
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-400/50 focus:ring-2 focus:ring-teal-400/20 transition-all"
-                />
-              </motion.div>
-
-              {/* Error Message */}
-              {error && (
-                <motion.p
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-red-400 text-sm text-center"
+              <div className="relative grid md:grid-cols-5 gap-0">
+                {/* Left Panel - Visual & Benefits */}
+                <motion.div
+                  variants={itemVariants}
+                  className="md:col-span-2 bg-gradient-to-br from-teal-500/10 to-transparent p-6 md:p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10"
                 >
-                  {error}
-                </motion.p>
-              )}
+                  {/* Icon */}
+                  <div>
+                    <motion.div
+                      variants={iconVariants}
+                      className="w-16 h-16 rounded-2xl bg-teal-500/20 border border-teal-500/30 flex items-center justify-center mb-6"
+                    >
+                      <FileText className="w-8 h-8 text-teal-400" />
+                    </motion.div>
 
-              {/* Submit Button */}
-              <motion.div variants={FADE_IN_VARIANTS} className="pt-2">
-                <button
-                  type="submit"
-                  disabled={isSubmitting || !email || !name}
-                  className="group relative w-full overflow-hidden rounded-full p-[1px] focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {/* Spinning border */}
-                  <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_340deg,#14b8a6_360deg)] opacity-0 group-hover:opacity-100 group-disabled:opacity-0 transition-opacity" />
+                    <motion.h3
+                      variants={itemVariants}
+                      className="text-xl md:text-2xl font-bold text-white font-display mb-2"
+                    >
+                      The 7 Automations Checklist
+                    </motion.h3>
 
-                  <span className="relative flex h-full w-full items-center justify-center rounded-full bg-teal-500 hover:bg-teal-400 disabled:bg-teal-500/50 py-3.5 px-6 transition-colors">
-                    {/* Shimmer effect */}
-                    <span className="absolute inset-0 overflow-hidden rounded-full">
-                      <span className="group-hover:animate-shimmer group-hover:opacity-100 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 w-full h-full absolute top-0 left-0 -skew-x-12 group-disabled:!opacity-0" />
-                    </span>
+                    <motion.p variants={itemVariants} className="text-neutral-400 text-sm mb-6">
+                      Everything you need to transform your real estate business.
+                    </motion.p>
+                  </div>
 
-                    <span className="relative z-10 flex items-center gap-2 text-black font-semibold">
-                      {isSubmitting ? (
-                        <>
-                          <iconify-icon icon="solar:refresh-linear" className="animate-spin text-lg" />
-                          <span>Sending...</span>
-                        </>
-                      ) : (
-                        <>
-                          <span>Get the Checklist</span>
-                          <iconify-icon icon="solar:arrow-right-up-linear" className="text-lg group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                        </>
+                  {/* Benefits */}
+                  <div className="space-y-3">
+                    {benefits.map((benefit, i) => (
+                      <motion.div
+                        key={benefit.text}
+                        custom={i}
+                        variants={benefitVariants}
+                        className="flex items-center gap-3 group"
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-teal-500/20 group-hover:border-teal-500/30 transition-colors">
+                          <benefit.icon className="w-4 h-4 text-teal-400" />
+                        </div>
+                        <span className="text-sm text-neutral-300 group-hover:text-white transition-colors">
+                          {benefit.text}
+                        </span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* Right Panel - Form */}
+                <div className="md:col-span-3 p-6 md:p-8 relative">
+                  {/* Close button */}
+                  <motion.button
+                    variants={itemVariants}
+                    onClick={() => setOpen(false)}
+                    className="absolute right-4 top-4 w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-all hover:scale-110 focus-visible:ring-2 focus-visible:ring-teal-400"
+                  >
+                    <X className="w-4 h-4 text-neutral-400 hover:text-white" />
+                    <span className="sr-only">Close</span>
+                  </motion.button>
+
+                  {/* Header */}
+                  <motion.div variants={itemVariants} className="mb-6 pr-8">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-xs font-mono uppercase tracking-widest text-teal-400">
+                        Free Download
+                      </span>
+                    </div>
+                    <p className="text-neutral-400 text-sm">
+                      Enter your details and we'll send it right over.
+                    </p>
+                  </motion.div>
+
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    {/* Name Field */}
+                    <motion.div variants={itemVariants}>
+                      <label
+                        htmlFor="lead-name"
+                        className="block text-sm font-medium text-neutral-300 mb-1.5"
+                      >
+                        Your Name <span className="text-teal-400">*</span>
+                      </label>
+                      <div
+                        className={cn(
+                          'relative rounded-xl transition-all duration-300',
+                          focusedField === 'name' && 'ring-2 ring-teal-400/30'
+                        )}
+                      >
+                        <input
+                          type="text"
+                          id="lead-name"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          onFocus={() => setFocusedField('name')}
+                          onBlur={() => setFocusedField(null)}
+                          placeholder="Jane Smith"
+                          required
+                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-400/50 transition-all"
+                        />
+                        {name && (
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            className="absolute right-3 top-1/2 -translate-y-1/2"
+                          >
+                            <CheckCircle2 className="w-4 h-4 text-teal-400" />
+                          </motion.div>
+                        )}
+                      </div>
+                    </motion.div>
+
+                    {/* Email Field */}
+                    <motion.div variants={itemVariants}>
+                      <label
+                        htmlFor="lead-email"
+                        className="block text-sm font-medium text-neutral-300 mb-1.5"
+                      >
+                        Email Address <span className="text-teal-400">*</span>
+                      </label>
+                      <div
+                        className={cn(
+                          'relative rounded-xl transition-all duration-300',
+                          focusedField === 'email' && 'ring-2 ring-teal-400/30'
+                        )}
+                      >
+                        <input
+                          type="email"
+                          id="lead-email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          onFocus={() => setFocusedField('email')}
+                          onBlur={() => setFocusedField(null)}
+                          placeholder="jane@example.com"
+                          required
+                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-400/50 transition-all"
+                        />
+                        {email && email.includes('@') && (
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            className="absolute right-3 top-1/2 -translate-y-1/2"
+                          >
+                            <CheckCircle2 className="w-4 h-4 text-teal-400" />
+                          </motion.div>
+                        )}
+                      </div>
+                    </motion.div>
+
+                    {/* Phone Field */}
+                    <motion.div variants={itemVariants}>
+                      <label
+                        htmlFor="lead-phone"
+                        className="block text-sm font-medium text-neutral-300 mb-1.5"
+                      >
+                        Phone <span className="text-neutral-500 text-xs">(optional)</span>
+                      </label>
+                      <div
+                        className={cn(
+                          'relative rounded-xl transition-all duration-300',
+                          focusedField === 'phone' && 'ring-2 ring-teal-400/30'
+                        )}
+                      >
+                        <input
+                          type="tel"
+                          id="lead-phone"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          onFocus={() => setFocusedField('phone')}
+                          onBlur={() => setFocusedField(null)}
+                          placeholder="(555) 123-4567"
+                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-400/50 transition-all"
+                        />
+                      </div>
+                    </motion.div>
+
+                    {/* Error */}
+                    <AnimatePresence>
+                      {error && (
+                        <motion.p
+                          initial={{ opacity: 0, y: -10, height: 0 }}
+                          animate={{ opacity: 1, y: 0, height: 'auto' }}
+                          exit={{ opacity: 0, y: -10, height: 0 }}
+                          className="text-red-400 text-sm text-center"
+                        >
+                          {error}
+                        </motion.p>
                       )}
-                    </span>
-                  </span>
-                </button>
-              </motion.div>
+                    </AnimatePresence>
 
-              {/* Privacy note */}
-              <motion.p variants={FADE_IN_VARIANTS} className="text-xs text-neutral-500 text-center pt-2">
-                We respect your privacy. Unsubscribe anytime.
-              </motion.p>
-            </form>
+                    {/* Submit Button */}
+                    <motion.div variants={itemVariants} className="pt-2">
+                      <motion.button
+                        type="submit"
+                        disabled={isSubmitting || !email || !name}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="group relative w-full overflow-hidden rounded-xl bg-teal-500 hover:bg-teal-400 disabled:bg-teal-500/50 py-3.5 px-6 transition-colors disabled:cursor-not-allowed"
+                      >
+                        {/* Shimmer effect */}
+                        <span className="absolute inset-0 overflow-hidden rounded-xl">
+                          <span className="group-hover:animate-shimmer group-hover:opacity-100 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 w-full h-full absolute top-0 left-0 -skew-x-12 group-disabled:!opacity-0" />
+                        </span>
+
+                        <span className="relative z-10 flex items-center justify-center gap-2 text-black font-semibold">
+                          {isSubmitting ? (
+                            <>
+                              <motion.div
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                              >
+                                <Sparkles className="w-5 h-5" />
+                              </motion.div>
+                              <span>Sending...</span>
+                            </>
+                          ) : (
+                            <>
+                              <span>Get the Checklist</span>
+                              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                            </>
+                          )}
+                        </span>
+                      </motion.button>
+                    </motion.div>
+
+                    {/* Privacy */}
+                    <motion.p
+                      variants={itemVariants}
+                      className="text-xs text-neutral-500 text-center"
+                    >
+                      We respect your privacy. Unsubscribe anytime.
+                    </motion.p>
+                  </form>
+                </div>
+              </div>
+            </motion.div>
           ) : (
             /* Success State */
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              key="success"
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-8"
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="relative w-full max-w-md rounded-2xl glass-panel border border-white/10 p-8 shadow-2xl mx-4 md:mx-0 text-center"
             >
-              <div className="w-16 h-16 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center mx-auto mb-4">
-                <iconify-icon icon="solar:check-circle-bold" className="text-teal-400 text-3xl" />
-              </div>
-              <h4 className="text-xl font-bold text-white font-display mb-2">
+              {/* Background pulse */}
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: [0, 1.5, 1] }}
+                transition={{ duration: 0.5, times: [0, 0.6, 1] }}
+                className="absolute inset-0 bg-teal-500/10 rounded-2xl"
+              />
+
+              <motion.div
+                initial={{ scale: 0, rotate: -180 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ type: 'spring', stiffness: 200, damping: 15, delay: 0.1 }}
+                className="relative w-20 h-20 rounded-full bg-teal-500/20 border-2 border-teal-500/50 flex items-center justify-center mx-auto mb-6"
+              >
+                <CheckCircle2 className="w-10 h-10 text-teal-400" />
+              </motion.div>
+
+              <motion.h4
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="relative text-2xl font-bold text-white font-display mb-2"
+              >
                 You're all set!
-              </h4>
-              <p className="text-neutral-400">
+              </motion.h4>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="relative text-neutral-400"
+              >
                 Check your new tab for the checklist.
-              </p>
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                className="relative mt-6 flex items-center justify-center gap-1 text-sm text-teal-400"
+              >
+                <Sparkles className="w-4 h-4" />
+                <span>Closing automatically...</span>
+              </motion.div>
             </motion.div>
           )}
-        </motion.div>
+        </AnimatePresence>
       </DialogContent>
     </Dialog>
   );
