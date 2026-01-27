@@ -23,7 +23,7 @@ export function IndexPage() {
   }, []);
 
   return (
-    <div className="relative bg-neutral-950 overflow-hidden h-screen">
+    <div className="relative bg-neutral-950 overflow-hidden h-screen h-[100dvh] fixed inset-0">
       <Header direction="vertical" onNavigate={handleNavigate} />
       <NavigationDots
         total={TOTAL_INDEX_SLIDES}
