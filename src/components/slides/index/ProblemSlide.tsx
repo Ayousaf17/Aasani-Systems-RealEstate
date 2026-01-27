@@ -36,7 +36,7 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
           </h2>
         </AnimatedElement>
 
-        <div className="flex flex-col gap-5 md:gap-6 overflow-y-auto scrollbar-hide flex-1 min-h-0 pb-4">
+        <div className="flex flex-col gap-5 md:gap-6 overflow-y-auto overscroll-contain scrollbar-hide flex-1 min-h-0 pb-4 touch-pan-y">
           {problemStats.map((stat, i) => (
             <AnimatedElement key={i} delay={0.3 + i * 0.1} className="group shrink-0">
               <div className="bg-black/40 backdrop-blur-sm rounded-lg p-4 border border-white/10">

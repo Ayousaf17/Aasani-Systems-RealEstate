@@ -36,7 +36,7 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
           </h2>
         </AnimatedElement>
 
-        <div className="flex flex-col gap-5 md:gap-8 flex-1 overflow-y-auto scrollbar-hide pb-6">
+        <div className="flex flex-col gap-5 md:gap-8 flex-1 overflow-y-auto overscroll-contain scrollbar-hide pb-6 touch-pan-y">
           {solutionBenefits.map((benefit, i) => (
             <AnimatedElement
               key={i}
