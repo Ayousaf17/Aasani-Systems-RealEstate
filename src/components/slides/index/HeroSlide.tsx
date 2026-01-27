@@ -48,13 +48,13 @@ export function HeroSlide({ index }: HeroSlideProps) {
           <AnimatedElement delay={0.3}>
             <h1 className="text-4xl md:text-5xl leading-[0.95] font-bold text-white tracking-tight font-display mb-4">
               Stop Losing Deals
-              <span className="block text-neutral-400 font-normal">to Your Inbox</span>
+              <span className="block text-neutral-400 font-normal">to Slow Response</span>
             </h1>
           </AnimatedElement>
 
           <AnimatedElement delay={0.35} className="mt-4 md:mt-6">
             <p className="text-xl md:text-2xl font-light text-teal-400 tracking-tight leading-tight font-display">
-              Reclaim 20+ hours/week. Be the agent your clients rave about.
+              Reclaim 20+ hours/week. Be the agent your clients remember.
             </p>
           </AnimatedElement>
 

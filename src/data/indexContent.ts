@@ -57,7 +57,7 @@ export const automationsList = [
 // Hero slide stat
 export const heroStat = {
   value: '78%',
-  text: 'of buyers go with whoever responds first',
+  text: 'of buyers choose whoever responds first',
   source: 'NAR 2025',
 };
 
