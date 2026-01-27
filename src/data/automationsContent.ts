@@ -27,7 +27,7 @@ export const automationsData: AutomationSlideData[] = [
     tagline: 'Focus on leads most likely to convert',
     statValue: '67%',
     statLabel: 'INCREASE IN CONVERSION',
-    statDescription: "By focusing on qualified leads only, you'll stop chasing ghosts.",
+    statDescription: "Focus only on leads most likely to convert.",
     progressPercent: 67,
     description: 'Automatically score leads based on behavior (opens, clicks, calculator use). Route hot (50+ points) to you, warm to sequences, cold to newsletter.',
     tools: 'Tools: Real Geeks, BoldTrail, Lofty, custom CRM scoring',
