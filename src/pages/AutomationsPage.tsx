@@ -40,7 +40,7 @@ export function AutomationsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen h-screen flex flex-col items-center justify-center bg-[#050505] overflow-hidden">
+    <div className="h-screen h-[100dvh] flex flex-col items-center justify-center bg-[#050505] overflow-hidden fixed inset-0">
       {/* Fixed Navigation - Floating Glass Style */}
       <nav className="fixed flex px-3 md:px-8 py-3 md:py-6 z-50 top-0 right-0 left-0 items-center justify-between pointer-events-none safe-area-top">
         {/* Logo */}
