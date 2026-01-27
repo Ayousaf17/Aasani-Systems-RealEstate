@@ -1,4 +1,4 @@
-export const TOTAL_INDEX_SLIDES = 10;
+export const TOTAL_INDEX_SLIDES = 11;
 
 export const problemStats = [
   {
@@ -125,6 +125,38 @@ export const philosophyQuotes = [
   'Your clients chose you. Our systems help you show up for them.',
   'Structure first. Intelligence second. Presence always.',
 ];
+
+export const faqContent = {
+  label: 'FAQ',
+  title: 'Questions?',
+  subtitle: 'Everything you need to know before getting started.',
+  items: [
+    {
+      question: 'How long until I see results?',
+      answer: 'Most clients see their first automation live within 2 weeks. Full system implementation takes about 90 days, but you will start saving time from day one as we roll out each piece.',
+    },
+    {
+      question: 'Do I need to be technical?',
+      answer: 'Not at all. We handle everything - the setup, the integrations, the testing. You just tell us how you like to work, and we build the systems around you.',
+    },
+    {
+      question: 'What if I already use a CRM?',
+      answer: 'Great - we work with what you have. Whether it is Follow Up Boss, KVCore, Salesforce, or something else, we integrate with your existing tools rather than replacing them.',
+    },
+    {
+      question: 'What is the investment?',
+      answer: 'Every business is different, so we custom-quote after understanding your needs. The strategy call is free, and you will leave with a clear picture of ROI before any commitment.',
+    },
+    {
+      question: 'What if it does not work for my business?',
+      answer: 'We have never had that happen, but we stand behind our work. If the systems we build do not deliver the time savings we promise, we will make it right.',
+    },
+    {
+      question: 'How much of my time will this take?',
+      answer: 'About 2-3 hours total during the 90-day setup - mostly answering questions about how you work. After that, the systems run themselves.',
+    },
+  ],
+};
 
 export const leadMagnetContent = {
   label: 'FREE DOWNLOAD',

@@ -57,7 +57,7 @@ export function LeadMagnetSlide({ index }: LeadMagnetSlideProps) {
         <div className="md:p-12 md:pt-12 z-20 pt-16 pr-6 pb-4 pl-6 relative">
           <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
-              [09/10]
+              [10/11]
             </span>
             <div className="flex items-center gap-2">
               <iconify-icon icon="solar:document-text-linear" className="text-teal-400 text-lg drop-shadow-md" />
