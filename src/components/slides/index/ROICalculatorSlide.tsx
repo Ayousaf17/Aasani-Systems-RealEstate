@@ -38,7 +38,7 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
       <div
         ref={cardRef}
         onMouseMove={handleMouseMove}
-        className="h-full md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col w-full max-w-none md:max-w-xl rounded-none relative shadow-2xl card-bg md:pt-12 md:pr-12 md:pl-12 pt-16 pr-6 pb-6 pl-6"
+        className="h-full md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col w-full max-w-none md:max-w-xl rounded-none relative shadow-2xl card-bg md:pt-12 md:pr-12 md:pl-12 pt-12 pr-5 pb-4 pl-5"
         style={{ backgroundImage: `url(${backgroundImages.caseStudies})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 z-0 pointer-events-none" />
@@ -52,12 +52,13 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
         />
 
         <div className="relative z-10 flex flex-col h-full">
-          {/* Header */}
-          <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 shrink-0">
+          {/* Header - Simplified for mobile */}
+          <AnimatedElement delay={0.1} className="flex justify-between items-center mb-3 shrink-0">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
               03 / 05 — YOUR ROI
             </span>
-            <div className="flex items-center gap-2">
+            <iconify-icon icon="solar:calculator-linear" className="text-teal-400 text-lg drop-shadow-md md:hidden" />
+            <div className="hidden md:flex items-center gap-2">
               <iconify-icon icon="solar:calculator-linear" className="text-teal-400 text-lg drop-shadow-md" />
               <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400 drop-shadow-md">
                 {roiCalculatorContent.label}

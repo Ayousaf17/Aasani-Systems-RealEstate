@@ -24,7 +24,7 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-10 md:pr-10 md:pl-10 bg-neutral-900/50 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-6 pl-6 relative justify-between card-bg"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-10 md:pr-10 md:pl-10 bg-neutral-900/50 w-full h-full max-w-none rounded-none pt-12 pr-5 pb-4 pl-5 relative justify-between card-bg"
         style={{ backgroundImage: `url(${backgroundImages.automations})` }}
       >
         <div>
@@ -47,8 +47,8 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
           </AnimatedElement>
         </div>
 
-        <AnimatedElement delay={0.3} className="flex-1 flex items-center py-4 overflow-hidden">
-          <div className="flex flex-col gap-2 w-full">
+        <AnimatedElement delay={0.3} className="flex-1 flex items-center py-2 overflow-hidden">
+          <div className="flex flex-col gap-1.5 w-full">
             {automationsList.map((item, i) => {
               const details = getAutomationDetails(item.slideIndex);
               return (
@@ -58,25 +58,25 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
                   description={`Automation #${item.slideIndex}`}
                   statValue={details?.statValue}
                   statLabel={details?.statLabel}
-                  icon={<iconify-icon icon={item.icon} className="text-2xl" />}
-                  className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-2.5 hover:bg-black/60 hover:border-teal-500/30 transition-all duration-300 text-left w-full"
+                  icon={<iconify-icon icon={item.icon} className="text-xl" />}
+                  className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg px-3 py-2 hover:bg-black/60 hover:border-teal-500/30 transition-all duration-300 text-left w-full"
                   collapsedContent={
-                    <div className="flex items-center gap-3 w-full group">
+                    <div className="flex items-center gap-2 w-full group">
                       <iconify-icon
                         icon={item.icon}
-                        className="text-teal-400 text-xl shrink-0 group-hover:scale-110 transition-transform"
+                        className="text-teal-400 text-base shrink-0 group-hover:scale-110 transition-transform"
                       />
                       <div className="flex-1 min-w-0">
-                        <span className="text-white text-sm font-display font-medium block group-hover:text-teal-300 transition-colors">
+                        <span className="text-white text-xs font-display font-medium block group-hover:text-teal-300 transition-colors leading-tight">
                           {item.name}
                         </span>
-                        <span className="text-neutral-400 text-xs font-display">
+                        <span className="text-neutral-400 text-[10px] font-display leading-tight">
                           {item.benefit}
                         </span>
                       </div>
                       <iconify-icon
                         icon="solar:add-circle-linear"
-                        className="text-teal-400/50 text-lg shrink-0"
+                        className="text-teal-400/50 text-sm shrink-0"
                       />
                     </div>
                   }

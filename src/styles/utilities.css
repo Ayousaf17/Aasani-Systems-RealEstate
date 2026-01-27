@@ -112,13 +112,13 @@ html, body {
 /* Dynamic viewport height for mobile browsers - accounts for browser chrome */
 .h-screen-safe {
   height: 100vh;
-  height: 100dvh;
+  height: 100svh; /* svh = smallest viewport height, safest for mobile */
 }
 
-/* Slide height that works with mobile browser UI */
+/* Slide height that works with mobile browser UI - uses svh for safety */
 .slide-height {
   height: 100vh;
-  height: 100dvh;
+  height: 100svh; /* Ensures content fits even with browser UI visible */
 }
 
 /* Accessibility: Focus visible styles */

@@ -14,7 +14,7 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-10 md:pr-10 md:pl-10 md:pb-8 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-6 pl-6 relative card-bg"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-10 md:pr-10 md:pl-10 md:pb-8 w-full h-full max-w-none rounded-none pt-12 pr-5 pb-4 pl-5 relative card-bg"
         style={{ backgroundImage: `url(${backgroundImages.howItWorks})` }}
       >
         {/* Header */}

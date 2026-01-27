@@ -30,7 +30,7 @@ export function HeroSlide({ index }: HeroSlideProps) {
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col group md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-6 pl-6 relative shadow-2xl justify-start card-bg"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col group md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-12 pr-5 pb-4 pl-5 relative shadow-2xl justify-start card-bg"
         style={{ backgroundImage: `url(${backgroundImages.hero})` }}
       >
         <AnimatedElement delay={0.1} className="mb-6">
