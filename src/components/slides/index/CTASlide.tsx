@@ -1,17 +1,53 @@
-import { useNavigate } from 'react-router-dom';
 import { useRef, useEffect, useState } from 'react';
 import { getCalApi } from '@calcom/embed-react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
-import { contactInfo } from '../../../data/indexContent';
+import { contactInfo, faqContent, trustStats, leadMagnetContent } from '../../../data/indexContent';
 
 interface CTASlideProps {
   index: number;
 }
 
+interface FAQItemProps {
+  question: string;
+  answer: string;
+  isOpen: boolean;
+  onToggle: () => void;
+}
+
+function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
+  return (
+    <button
+      onClick={onToggle}
+      className="w-full bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg px-3 py-2 text-left hover:bg-black/40 hover:border-teal-400/20 transition-all duration-300"
+    >
+      <div className="flex items-center justify-between gap-2">
+        <span className="text-white font-medium font-display text-xs">
+          {question}
+        </span>
+        <iconify-icon
+          icon={isOpen ? 'solar:minus-circle-linear' : 'solar:add-circle-linear'}
+          className={`text-lg shrink-0 transition-colors duration-300 ${isOpen ? 'text-teal-400' : 'text-neutral-400'}`}
+        />
+      </div>
+      <div
+        className={`grid transition-all duration-300 ease-in-out ${
+          isOpen ? 'grid-rows-[1fr] opacity-100 mt-2' : 'grid-rows-[0fr] opacity-0'
+        }`}
+      >
+        <div className="overflow-hidden">
+          <p className="text-neutral-400 text-[11px] font-display leading-relaxed border-t border-white/10 pt-2">
+            {answer}
+          </p>
+        </div>
+      </div>
+    </button>
+  );
+}
+
 export function CTASlide({ index }: CTASlideProps) {
-  const navigate = useNavigate();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -23,7 +59,6 @@ export function CTASlide({ index }: CTASlideProps) {
 
   useEffect(() => {
     if (videoRef.current && !prefersReducedMotion) {
-      // 0.5x keeps smooth motion without stutter
       videoRef.current.playbackRate = 0.5;
     }
   }, [prefersReducedMotion]);
@@ -50,7 +85,7 @@ export function CTASlide({ index }: CTASlideProps) {
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 md:pb-12 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-24 pl-6 relative justify-between card-bg safe-area-bottom"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-8 md:pr-8 md:pl-8 md:pb-8 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-24 pl-6 relative justify-between card-bg safe-area-bottom"
       >
         {/* Video Background */}
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -77,12 +112,12 @@ export function CTASlide({ index }: CTASlideProps) {
           )}
         </div>
 
-        {/* Overlay - needs to be dark enough for white text to read clearly */}
+        {/* Overlay */}
         <div className="absolute inset-0 z-[1] bg-black/70" />
 
-        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6 relative z-10">
+        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 relative z-10">
           <span className="text-xs uppercase tracking-widest font-mono text-white">
-            [10/10]
+            05 / 05 — START
           </span>
           <div className="flex items-center gap-2">
             <iconify-icon icon="solar:calendar-add-linear" className="text-teal-400 text-lg" />
@@ -92,16 +127,29 @@ export function CTASlide({ index }: CTASlideProps) {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.2} className="mb-10 md:mb-12 relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display">
+        <AnimatedElement delay={0.2} className="mb-4 relative z-10">
+          <h2 className="text-2xl md:text-4xl font-bold text-white tracking-tight font-display">
             Ready to Reclaim
-            <span className="block text-neutral-400 font-normal">20+ Hours Per Week?</span>
+            <span className="block text-neutral-400 font-normal">Your Time?</span>
           </h2>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.4} className="flex-1 flex flex-col items-center justify-center gap-8 w-full relative z-10">
-          {/* Primary CTA */}
-          <div className="group relative md:scale-110 cursor-pointer">
+        {/* Trust Stats Strip */}
+        <AnimatedElement delay={0.25} className="mb-4 relative z-10">
+          <div className="flex items-center justify-center gap-3 text-xs text-neutral-300 font-display">
+            {trustStats.map((stat, i) => (
+              <span key={i} className="flex items-center gap-1">
+                <span className="text-teal-400 font-bold">{stat.value}</span>
+                <span>{stat.label}</span>
+                {i < trustStats.length - 1 && <span className="text-neutral-500 ml-2">•</span>}
+              </span>
+            ))}
+          </div>
+        </AnimatedElement>
+
+        {/* Primary CTA with Beam Animation */}
+        <AnimatedElement delay={0.3} className="flex flex-col items-center gap-4 relative z-10">
+          <div className="group relative cursor-pointer">
             <div className="-inset-2 group-hover:opacity-100 transition duration-500 bg-neutral-600/30 opacity-0 rounded-full absolute blur-xl" />
             <div className="absolute -inset-[1px] rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] animate-[spin_2s_linear_infinite]" />
@@ -118,7 +166,7 @@ export function CTASlide({ index }: CTASlideProps) {
                   <span className="group-hover:animate-[shimmer_1.5s_infinite] group-hover:opacity-100 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 w-full h-full absolute top-0 left-0 -skew-x-12" />
                 </span>
                 <span className="relative z-10 flex items-center gap-2">
-                  <span className="md:text-lg text-sm font-medium text-white tracking-wide">
+                  <span className="md:text-base text-sm font-medium text-white tracking-wide">
                     Book Strategy Call
                   </span>
                   <iconify-icon
@@ -130,65 +178,60 @@ export function CTASlide({ index }: CTASlideProps) {
             </button>
           </div>
 
-          {/* Divider */}
-          <div className="flex items-center gap-4 w-full max-w-xs">
-            <div className="flex-1 h-px bg-white/30" />
-            <span className="text-xs text-white font-mono uppercase tracking-wider">or</span>
-            <div className="flex-1 h-px bg-white/30" />
-          </div>
-
-          {/* Secondary CTA */}
-          <div className="flex flex-col items-center gap-3">
-            <p className="text-sm md:text-base text-white text-center font-display">
-              Explore what gets automated first
-            </p>
-            <button
-              onClick={() => navigate('/automations')}
-              className="group flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors font-medium"
-            >
-              <span className="text-sm md:text-base">View the 7 Automations</span>
-              <iconify-icon
-                icon="solar:arrow-right-linear"
-                className="group-hover:translate-x-1 transition-transform"
-                width={18}
-                height={18}
-              />
-            </button>
-          </div>
+          {/* Secondary CTA - Checklist Link */}
+          <a
+            href={leadMagnetContent.checklistUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-2 text-neutral-400 hover:text-teal-400 transition-colors text-sm font-display"
+          >
+            <span>Not ready? Grab the free checklist</span>
+            <iconify-icon
+              icon="solar:arrow-right-up-linear"
+              className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+            />
+          </a>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.5} className="w-full shrink-0 relative z-10">
-          {/* Questions label above the line */}
-          <span className="block text-[10px] text-white font-mono uppercase tracking-widest text-center mb-3 md:mb-4">
-            Questions? Reach out:
-          </span>
+        {/* FAQ Accordion */}
+        <AnimatedElement delay={0.4} className="flex-1 flex flex-col gap-2 mt-4 overflow-y-auto scrollbar-hide relative z-10">
+          {faqContent.items.map((item, i) => (
+            <FAQItem
+              key={i}
+              question={item.question}
+              answer={item.answer}
+              isOpen={openFaqIndex === i}
+              onToggle={() => setOpenFaqIndex(openFaqIndex === i ? null : i)}
+            />
+          ))}
+        </AnimatedElement>
 
-          {/* Footer line */}
-          <div className="w-full border-t border-white/20 pt-4 md:pt-5 mb-6 md:mb-8">
-            {/* Icons below the line */}
-            <div className="flex items-center justify-center gap-5 md:gap-6">
+        {/* Contact Footer */}
+        <AnimatedElement delay={0.5} className="w-full shrink-0 relative z-10 mt-4">
+          <div className="w-full border-t border-white/20 pt-4">
+            <div className="flex items-center justify-center gap-4">
               <a
                 href={`mailto:${contactInfo.email}`}
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
+                className="w-10 h-10 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
                 aria-label="Email us"
               >
-                <iconify-icon icon="lucide:mail" className="text-teal-400 text-2xl" />
+                <iconify-icon icon="lucide:mail" className="text-teal-400 text-xl" />
               </a>
               <a
                 href={`tel:${contactInfo.phone.replace(/\D/g, '')}`}
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
+                className="w-10 h-10 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
                 aria-label="Call us"
               >
-                <iconify-icon icon="lucide:phone" className="text-teal-400 text-2xl" />
+                <iconify-icon icon="lucide:phone" className="text-teal-400 text-xl" />
               </a>
               <a
                 href={`https://${contactInfo.website.toLowerCase()}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
+                className="w-10 h-10 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
                 aria-label="Visit our website"
               >
-                <iconify-icon icon="lucide:globe" className="text-teal-400 text-2xl" />
+                <iconify-icon icon="lucide:globe" className="text-teal-400 text-xl" />
               </a>
             </div>
           </div>
