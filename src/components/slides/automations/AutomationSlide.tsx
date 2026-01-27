@@ -19,8 +19,8 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
         className="flex flex-col md:p-12 z-10 h-full pt-12 px-5 pb-5 relative justify-between card-bg"
         style={{ backgroundImage: `url(${data.backgroundImage})` }}
       >
-        <div className="flex flex-col min-h-[180px] md:min-h-[200px]">
-          <AnimatedElement delay={0.1} className="flex mb-4 md:mb-6 items-center justify-between">
+        <div className="flex flex-col">
+          <AnimatedElement delay={0.1} className="flex mb-3 md:mb-6 items-center justify-between">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">[{data.slideNumber}]</span>
             <div className="flex items-center gap-2">
               <iconify-icon icon={data.icon} className={`${data.iconColor} text-lg`} />
@@ -31,19 +31,22 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.3}>
-            <h2 className="text-3xl md:text-4xl text-white font-display tracking-tighter leading-tight mb-2">
-              {data.title.split('\n').map((line, i) => (
-                <span key={i} className="block">{line}</span>
-              ))}
+            <h2 className="text-2xl md:text-4xl text-white font-display tracking-tighter leading-tight mb-2">
+              <span className="md:hidden">{data.title.replace(/\n/g, ' ')}</span>
+              <span className="hidden md:block">
+                {data.title.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
+              </span>
             </h2>
-            <p className="uppercase text-xs md:text-sm text-teal-400 tracking-wide font-mono">
+            <p className="uppercase text-[10px] md:text-sm text-teal-400 tracking-wide font-mono mb-3 md:mb-0">
               {data.tagline}
             </p>
           </AnimatedElement>
         </div>
 
         <AnimatedElement delay={0.5} className="relative">
-          <div className="group overflow-hidden bg-black/60 hover:bg-black/70 rounded-lg p-4 md:p-6 relative shadow-2xl backdrop-blur-xl border border-white/10 hover:border-teal-400/50 transition-all duration-500 cursor-pointer md:hover:scale-[1.02] hover:shadow-teal-500/20 min-h-[160px] md:min-h-[180px]">
+          <div className="group overflow-hidden bg-black/60 hover:bg-black/70 rounded-lg p-4 md:p-6 relative shadow-2xl backdrop-blur-xl border border-white/10 hover:border-teal-400/50 transition-all duration-500 cursor-pointer md:hover:scale-[1.02] hover:shadow-teal-500/20">
             <div className="flex items-start justify-between mb-3 md:mb-4">
               <div className="flex flex-col">
                 <span className="text-3xl md:text-4xl font-bold text-white group-hover:text-teal-400 transition-colors duration-500 tracking-tighter font-display">
