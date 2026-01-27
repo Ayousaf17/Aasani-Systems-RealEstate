@@ -7,9 +7,16 @@ export function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/landing" element={<IndexPage />} />
+        {/* LIVE: Slides-based landing page */}
+        <Route path="/" element={<IndexPage />} />
         <Route path="/automations" element={<AutomationsPage />} />
+
+        {/*
+          ⚠️ WIP - NOT PRODUCTION READY ⚠️
+          HomePage (Framer design) - DO NOT make this "/" until design is complete
+          Preview at: /home-preview
+        */}
+        <Route path="/home-preview" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
   );
