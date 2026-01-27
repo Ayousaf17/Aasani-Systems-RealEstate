@@ -32,7 +32,7 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display">
             The Solution
             <br />
-            <span className="text-neutral-500 font-normal">Operational Systems</span>
+            <span className="text-neutral-500 font-normal">Systems That Work For You</span>
           </h2>
         </AnimatedElement>
 

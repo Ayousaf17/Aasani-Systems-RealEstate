@@ -11,7 +11,7 @@ export const problemStats = [
     icon: 'solar:file-text-linear',
     value: '10+',
     title: 'hours per week lost to admin tasks',
-    subtitle: 'Time that could be spent with clients',
+    subtitle: 'Hours you could give to the clients who trust you',
   },
   {
     icon: 'solar:users-group-rounded-linear',
@@ -27,19 +27,19 @@ export const solutionBenefits = [
   {
     icon: 'solar:bolt-circle-linear',
     title: 'Instant Lead Response',
-    description: 'Respond in minutes, not hours. Automatic SMS + email sequences.',
+    description: 'Be the first voice they hear. While you are at dinner, they already feel taken care of.',
     highlight: '21x more likely to qualify leads.',
   },
   {
     icon: 'solar:chat-round-dots-linear',
     title: 'Smart Follow-Up Systems',
-    description: 'Consistent touchpoints that keep relationships warm.',
+    description: 'Stay connected without carrying it all in your head.',
     highlight: 'Be there when they are ready.',
   },
   {
     icon: 'solar:clipboard-check-linear',
     title: 'Transaction Coordination',
-    description: 'Automated task tracking. Document routing without manual work.',
+    description: 'Every deadline tracked, every document routed. You focus on the people, not the paperwork.',
     highlight: 'Nothing slips through the cracks.',
   },
 ];
@@ -87,19 +87,19 @@ export const processSteps = [
     number: '01',
     title: 'Free Strategy Call',
     duration: '60 min',
-    description: 'See exactly which automations fit your business.',
+    description: 'We learn how you work and where the time goes.',
   },
   {
     number: '02',
     title: 'Your Automation Plan',
     duration: 'Included',
-    description: 'Prioritized list of your top automation wins with ROI.',
+    description: 'A clear picture of what to automate first and why it matters.',
   },
   {
     number: '03',
     title: 'Done-For-You Setup',
     duration: '90 days',
-    description: 'Your systems, built and deployed.',
+    description: 'We build it, you use it. No tech headaches.',
   },
 ];
 
