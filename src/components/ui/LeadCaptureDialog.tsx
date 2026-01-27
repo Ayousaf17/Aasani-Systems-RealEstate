@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, FileText, Sparkles, Clock, CheckCircle2, ArrowUpRight } from 'lucide-react';
+import { X, FileText, Sparkles, Clock, CheckCircle2, ArrowUpRight, ArrowRight } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from './Dialog';
 import { cn } from '../../lib/utils';
 import { leadMagnetContent } from '../../data/indexContent';
@@ -8,6 +8,7 @@ import { leadMagnetContent } from '../../data/indexContent';
 interface LeadCaptureDialogProps {
   trigger: React.ReactNode;
   className?: string;
+  onSuccess?: () => void;
 }
 
 // Animation variants for staggered spring animations
@@ -86,7 +87,7 @@ const benefits = [
   { icon: CheckCircle2, text: 'Never miss a follow-up' },
 ];
 
-export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps) {
+export function LeadCaptureDialog({ trigger, className, onSuccess }: LeadCaptureDialogProps) {
   const [open, setOpen] = React.useState(false);
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
@@ -118,15 +119,6 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
       if (response.ok) {
         setIsSuccess(true);
         window.open(leadMagnetContent.checklistUrl, '_blank');
-        setTimeout(() => {
-          setOpen(false);
-          setTimeout(() => {
-            setIsSuccess(false);
-            setName('');
-            setEmail('');
-            setPhone('');
-          }, 300);
-        }, 2500);
       } else {
         setError('Something went wrong. Please try again.');
       }
@@ -137,8 +129,25 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
     }
   };
 
+  const handleClose = () => {
+    setOpen(false);
+    if (isSuccess && onSuccess) {
+      onSuccess();
+    }
+    setTimeout(() => {
+      setIsSuccess(false);
+      setName('');
+      setEmail('');
+      setPhone('');
+    }, 300);
+  };
+
   const handleOpenChange = (newOpen: boolean) => {
-    setOpen(newOpen);
+    if (!newOpen) {
+      handleClose();
+    } else {
+      setOpen(true);
+    }
     if (!newOpen) {
       setError('');
       setFocusedField(null);
@@ -410,7 +419,7 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="relative w-[calc(100%-2rem)] max-w-sm rounded-2xl border border-white/20 p-8 shadow-2xl mx-4 md:mx-0 text-center"
+              className="relative w-[calc(100%-2rem)] max-w-sm rounded-2xl border border-white/20 p-6 md:p-8 shadow-2xl mx-4 md:mx-0 text-center"
               style={{
                 background: 'rgba(10, 10, 10, 0.85)',
                 backdropFilter: 'blur(24px)',
@@ -429,16 +438,16 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
                 initial={{ scale: 0, rotate: -180 }}
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ type: 'spring', stiffness: 200, damping: 15, delay: 0.1 }}
-                className="relative w-20 h-20 rounded-full bg-teal-500/20 border-2 border-teal-500/50 flex items-center justify-center mx-auto mb-6"
+                className="relative w-16 h-16 md:w-20 md:h-20 rounded-full bg-teal-500/20 border-2 border-teal-500/50 flex items-center justify-center mx-auto mb-4 md:mb-6"
               >
-                <CheckCircle2 className="w-10 h-10 text-teal-400" />
+                <CheckCircle2 className="w-8 h-8 md:w-10 md:h-10 text-teal-400" />
               </motion.div>
 
               <motion.h4
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="relative text-2xl font-bold text-white font-display mb-2"
+                className="relative text-xl md:text-2xl font-bold text-white font-display mb-2"
               >
                 You're all set!
               </motion.h4>
@@ -447,20 +456,31 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="relative text-neutral-400"
+                className="relative text-neutral-400 text-sm md:text-base mb-6"
               >
                 Check your new tab for the checklist.
               </motion.p>
 
-              <motion.div
+              {/* CTA Button - Explore Automations */}
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                onClick={handleClose}
+                className="relative w-full group flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-400 text-black font-semibold py-3 px-6 rounded-xl transition-colors"
+              >
+                <span>Explore the 7 Automations</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
+
+              <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="relative mt-6 flex items-center justify-center gap-1 text-sm text-teal-400"
+                className="relative mt-4 text-xs text-neutral-500"
               >
-                <Sparkles className="w-4 h-4" />
-                <span>Closing automatically...</span>
-              </motion.div>
+                See exactly what gets automated
+              </motion.p>
             </motion.div>
           )}
         </AnimatePresence>
