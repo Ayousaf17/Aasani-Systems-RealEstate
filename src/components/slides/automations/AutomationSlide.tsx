@@ -19,7 +19,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
         className="flex flex-col md:p-12 z-10 h-full pt-12 px-5 pb-5 relative justify-between card-bg"
         style={{ backgroundImage: `url(${data.backgroundImage})` }}
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col min-h-[180px] md:min-h-[200px]">
           <AnimatedElement delay={0.1} className="flex mb-4 md:mb-6 items-center justify-between">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">[{data.slideNumber}]</span>
             <div className="flex items-center gap-2">

@@ -42,7 +42,7 @@ export const automationsData: AutomationSlideData[] = [
     tagline: 'Convert leads through consistent follow-ups',
     statValue: '80%',
     statLabel: 'OF CONVERSIONS',
-    statDescription: 'require 5+ follow-ups—most agents stop after 2.',
+    statDescription: 'require 5+ follow-ups and most agents stop after 2.',
     progressPercent: 80,
     description: 'Automate multiple sequences: new leads (14-day), property viewers (escalating engagement), past clients (anniversaries), behavior triggers (opens, price drops, dormancy).',
     tools: 'Tools: Wise Agent, Follow Up Boss, CINC, Market Leader, HubSpot',
