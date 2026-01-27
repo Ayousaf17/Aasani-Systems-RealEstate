@@ -1,5 +1,6 @@
 import { AnimatedElement } from '../../ui/AnimatedElement';
-import { processSteps, backgroundImages, industryStats, guarantee } from '../../../data/indexContent';
+import { ExpandableCard } from '../../ui/ExpandableCard';
+import { processSteps, backgroundImages, industryStats } from '../../../data/indexContent';
 
 interface HowItWorksSlideProps {
   index: number;
@@ -13,10 +14,11 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-10 md:pr-10 md:pl-10 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-6 pl-6 relative justify-start card-bg"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-10 md:pr-10 md:pl-10 md:pb-8 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-6 pl-6 relative card-bg"
         style={{ backgroundImage: `url(${backgroundImages.howItWorks})` }}
       >
-        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4">
+        {/* Header */}
+        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-2">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
             04 / 05 — PROCESS
           </span>
@@ -28,36 +30,37 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.2} className="mb-4">
+        {/* Title - More space below */}
+        <AnimatedElement delay={0.2} className="mb-6 md:mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display">
             How It Works
           </h2>
         </AnimatedElement>
 
-        {/* Stacked Steps */}
-        <div className="flex flex-col gap-3 mb-4">
+        {/* Process Steps - Cleaner, more spacious */}
+        <div className="flex flex-col gap-3 mb-6 md:mb-8">
           {processSteps.map((step, i) => (
             <AnimatedElement key={i} delay={0.3 + i * 0.1}>
-              <div className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-lg p-3 hover:bg-black/60 hover:border-teal-400/30 transition-all duration-300">
-                <div className="flex items-start gap-3">
+              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:bg-black/50 hover:border-teal-500/20 transition-all duration-300">
+                <div className="flex items-start gap-4">
                   {/* Step Number */}
-                  <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-teal-500/20 to-teal-600/10 border border-teal-500/30 flex items-center justify-center shrink-0">
-                    <span className="text-base font-bold text-teal-400 font-mono">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-teal-500/20 to-teal-600/10 border border-teal-500/30 flex items-center justify-center shrink-0">
+                    <span className="text-sm font-bold text-teal-400 font-mono">
                       {step.number}
                     </span>
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-0.5">
-                      <h3 className="text-sm font-medium text-white font-display">
+                  <div className="flex-1 min-w-0 pt-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="text-base font-semibold text-white font-display">
                         {step.title}
                       </h3>
-                      <span className="text-[10px] text-teal-400 font-mono uppercase tracking-wider bg-teal-400/10 px-1.5 py-0.5 rounded">
+                      <span className="text-[10px] text-teal-400 font-mono uppercase tracking-wider bg-teal-400/10 px-2 py-0.5 rounded-full">
                         {step.duration}
                       </span>
                     </div>
-                    <p className="text-neutral-400 text-xs leading-relaxed font-display">
+                    <p className="text-neutral-400 text-sm leading-relaxed font-display">
                       {step.description}
                     </p>
                   </div>
@@ -67,25 +70,45 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
           ))}
         </div>
 
-        {/* Trust Stats */}
-        <AnimatedElement delay={0.6} className="mb-4">
+        {/* Stats Section - Expandable Cards */}
+        <AnimatedElement delay={0.6} className="mt-auto">
+          <p className="text-xs text-neutral-500 font-mono uppercase tracking-wider text-center mb-3">
+            <iconify-icon icon="solar:graph-up-linear" className="inline-block mr-1 text-teal-400/60" />
+            Tap a stat to see the research
+          </p>
           <div className="grid grid-cols-3 gap-2">
             {industryStats.map((stat, i) => (
-              <div key={i} className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg p-3 text-center">
-                <p className="text-xl md:text-2xl font-bold text-teal-400 font-display">{stat.value}</p>
-                <p className="text-[10px] text-neutral-400 font-display leading-tight">{stat.label}</p>
-              </div>
+              <ExpandableCard
+                key={i}
+                title={stat.researchTitle || stat.label}
+                description={stat.description}
+                statValue={stat.value}
+                statLabel={stat.label}
+                icon={
+                  <iconify-icon
+                    icon={stat.icon}
+                    className={`${stat.iconColor} text-2xl`}
+                  />
+                }
+                className="group relative"
+              >
+                {stat.researchContent?.map((section, j) => (
+                  <div key={j}>
+                    <h4 className="text-white font-semibold text-lg mb-2 font-display">
+                      {section.heading}
+                    </h4>
+                    <p className="text-neutral-400 leading-relaxed">
+                      {section.text}
+                    </p>
+                  </div>
+                ))}
+                <div className="mt-4 pt-4 border-t border-white/10">
+                  <p className="text-xs text-neutral-500 font-mono">
+                    Source: {stat.source}
+                  </p>
+                </div>
+              </ExpandableCard>
             ))}
-          </div>
-        </AnimatedElement>
-
-        {/* Guarantee */}
-        <AnimatedElement delay={0.7} className="mt-auto">
-          <div className="bg-gradient-to-r from-teal-500/10 to-teal-600/5 border border-teal-500/20 rounded-lg p-3 flex items-center gap-3">
-            <iconify-icon icon="solar:shield-check-linear" className="text-teal-400 text-2xl shrink-0" />
-            <p className="text-sm text-neutral-300 font-display leading-snug">
-              {guarantee.text}
-            </p>
           </div>
         </AnimatedElement>
       </div>

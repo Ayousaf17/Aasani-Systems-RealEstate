@@ -74,31 +74,76 @@ export const trustStats = [
   { value: '41%', label: 'referral business' },
 ];
 
-// Verified industry statistics with sources
+// Verified industry statistics with sources and expandable research content
 export const industryStats = [
   {
     icon: 'solar:clock-circle-linear',
     iconColor: 'text-teal-400',
     value: '21x',
     label: 'More Likely to Qualify',
-    description: 'Responding in 5 minutes vs 30 minutes',
+    description: 'MIT Lead Response Study',
     source: 'MIT Lead Response Study',
+    researchTitle: 'The Science of Speed-to-Lead',
+    researchContent: [
+      {
+        heading: 'The 5-Minute Window',
+        text: 'Research from MIT and InsideSales.com found that responding to a lead within 5 minutes makes you 21x more likely to qualify that lead compared to waiting 30 minutes. After just one hour, your chances of qualifying drop by over 60%.',
+      },
+      {
+        heading: 'Why Speed Matters',
+        text: 'When someone inquires about a property, they are at peak interest. They are likely browsing multiple listings and reaching out to multiple agents. The first agent to respond meaningfully captures that moment of intent.',
+      },
+      {
+        heading: 'The Aasani Approach',
+        text: 'Our instant lead response automation ensures every inquiry gets acknowledged within seconds - even at 9pm on a Saturday. You stay present with family while leads feel cared for immediately.',
+      },
+    ],
   },
   {
     icon: 'solar:hourglass-linear',
     iconColor: 'text-teal-400',
     value: '15-20',
     label: 'Hours Saved Weekly',
-    description: 'With comprehensive automation systems',
+    description: 'NAR Technology Survey',
     source: 'NAR Technology Survey 2025',
+    researchTitle: 'Where Your Time Actually Goes',
+    researchContent: [
+      {
+        heading: 'The Admin Burden',
+        text: 'According to the National Association of Realtors Technology Survey, top-producing agents spend 15-20 hours per week on administrative tasks: CRM updates, follow-up emails, appointment scheduling, document coordination, and transaction management.',
+      },
+      {
+        heading: 'The Opportunity Cost',
+        text: 'Those 15-20 hours represent time not spent with clients, not prospecting, not building relationships. At an average agent hourly value of $100-200, that is $78,000-156,000 in opportunity cost annually.',
+      },
+      {
+        heading: 'The Aasani Approach',
+        text: 'We systematically automate the repetitive tasks that consume your week. Not to replace the human touch - but to give you time back for the work that actually requires you: showing homes, negotiating deals, being present for your clients.',
+      },
+    ],
   },
   {
     icon: 'solar:users-group-rounded-linear',
     iconColor: 'text-teal-400',
     value: '41%',
     label: 'From Referrals & Repeat',
-    description: 'Of top agent business comes from relationships',
+    description: 'NAR Member Profile',
     source: 'NAR Member Profile 2025',
+    researchTitle: 'The Referral Economy',
+    researchContent: [
+      {
+        heading: 'The Numbers Do Not Lie',
+        text: 'The NAR Member Profile consistently shows that 41% of top agent business comes from repeat clients and referrals. These are not cold leads - they are warm introductions from people who already trust you.',
+      },
+      {
+        heading: 'Why Referrals Convert',
+        text: 'Referral leads convert at 3-5x the rate of cold leads and typically close faster with less negotiation. The trust is already established through the referring relationship.',
+      },
+      {
+        heading: 'The Aasani Approach',
+        text: 'Our post-closing nurture sequences keep you top-of-mind without being pushy. Anniversary check-ins, home value updates, and thoughtful touchpoints ensure that when someone asks your past client "know a good agent?" - your name comes up naturally.',
+      },
+    ],
   },
 ];
 
