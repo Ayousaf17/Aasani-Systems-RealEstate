@@ -113,7 +113,7 @@ export const automationsData: AutomationSlideData[] = [
 export const automationsHeroBackground = 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/54c3bd9a-9ae0-4e13-8284-629ee960cbc8_1600w.webp';
 
 export const ctaChecklistItems = [
-  'Free 30-minute operational assessment',
+  'Free 60-minute operational assessment',
   'Custom roadmap for YOUR business',
   'Step-by-step implementation support',
   'Structure audited before any intelligence applied',
