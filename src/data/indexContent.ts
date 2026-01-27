@@ -1,4 +1,4 @@
-export const TOTAL_INDEX_SLIDES = 8;
+export const TOTAL_INDEX_SLIDES = 9;
 
 export const problemStats = [
   {
@@ -108,6 +108,19 @@ export const philosophyQuotes = [
   'Your clients chose you. Our systems help you show up for them.',
   'Structure first. Intelligence second. Presence always.',
 ];
+
+export const leadMagnetContent = {
+  label: 'FREE DOWNLOAD',
+  title: 'Get the Checklist',
+  subtitle: 'The 7 Core Automations',
+  description: 'Everything you need to reclaim 20+ hours per week. Delivered instantly.',
+  buttonText: 'Get the Checklist',
+  namePlaceholder: 'Your name',
+  emailPlaceholder: 'Your email',
+  webhookUrl: 'https://axistential.app.n8n.cloud/webhook/lead-capture',
+  checklistUrl: 'https://docs.google.com/document/d/1b3NM1lZl_4ikiDhRq3NvALP3m32tb5UOUqkA7x8pCyE/edit?usp=sharing',
+  successMessage: 'Your checklist is ready.',
+};
 
 export const contactInfo = {
   email: 'ayub@aasani.ai',
