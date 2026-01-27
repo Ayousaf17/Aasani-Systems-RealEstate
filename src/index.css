@@ -1,22 +1,26 @@
 @import "tailwindcss";
-
 @import './styles/animations.css';
 @import './styles/patterns.css';
 @import './styles/utilities.css';
 
-/* Base styles */
-:root {
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
+/* Tailwind v4 Theme Configuration */
+@theme {
+  --font-heading: 'Oswald', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
-  --font-mono: 'Space Mono', monospace;
-  --accent-color: #14b8a6;
-  --bg-deep: #050505;
+
+  --color-aasani-black: #111212;
+  --color-aasani-black-soft: #141413;
+  --color-aasani-white: #fffef5;
+  --color-aasani-white-warm: #fffefa;
+  --color-aasani-cream: #f7f4e9;
+  --color-aasani-yellow: #ffe24f;
+  --color-aasani-yellow-hover: #ffd700;
+  --color-aasani-gray: #303030;
+  --color-aasani-text-muted: rgba(255, 254, 250, 0.6);
+  --color-aasani-maroon: #3d001b;
 }
 
 body {
-  font-family: var(--font-body);
-  background-color: var(--bg-deep);
-  color: #e5e5e5;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -27,12 +31,4 @@ body::-webkit-scrollbar {
 
 html {
   scroll-behavior: smooth;
-}
-
-h1, h2, h3, .font-display {
-  font-family: var(--font-display);
-}
-
-code, .font-mono {
-  font-family: var(--font-mono);
 }

@@ -5,19 +5,21 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        heading: ['Oswald', 'system-ui', 'sans-serif'],
         body: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['Space Mono', 'monospace'],
       },
       colors: {
-        accent: {
-          DEFAULT: '#14b8a6',
-          light: '#5eead4',
-          dark: '#0d9488',
-        },
-        bg: {
-          deep: '#050505',
-          card: '#0A0A0A',
+        aasani: {
+          black: '#111212',
+          'black-soft': '#141413',
+          white: '#fffef5',
+          'white-warm': '#fffefa',
+          cream: '#f7f4e9',
+          yellow: '#ffe24f',
+          'yellow-hover': '#ffd700',
+          gray: '#303030',
+          'text-muted': 'rgba(255, 254, 250, 0.6)',
+          maroon: '#3d001b',
         },
       },
       animation: {
