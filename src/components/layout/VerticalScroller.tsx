@@ -33,7 +33,11 @@ export const VerticalScroller = forwardRef<VerticalScrollerRef, VerticalScroller
       <main
         ref={containerRef as React.RefObject<HTMLElement>}
         className="overflow-y-scroll overflow-x-hidden snap-y snap-mandatory scroll-smooth w-full h-full scrollbar-hide"
-        style={{ overscrollBehavior: 'contain' }}
+        style={{
+          overscrollBehavior: 'none',
+          scrollSnapStop: 'always',
+          WebkitOverflowScrolling: 'touch',
+        }}
       >
         {children}
       </main>

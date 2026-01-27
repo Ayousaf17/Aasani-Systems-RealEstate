@@ -31,7 +31,7 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
 
   return (
     <section
-      className="snap-start shrink-0 flex w-full slide-height relative items-center justify-center"
+      className="snap-start snap-always shrink-0 flex w-full slide-height relative items-center justify-center overflow-hidden"
       data-slide={index}
       id={`section-${index + 1}`}
     >

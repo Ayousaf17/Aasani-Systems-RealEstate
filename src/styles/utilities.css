@@ -115,10 +115,15 @@ html, body {
   height: 100svh; /* svh = smallest viewport height, safest for mobile */
 }
 
-/* Slide height that works with mobile browser UI - uses svh for safety */
+/* Slide height that works with mobile browser UI */
 .slide-height {
   height: 100vh;
-  height: 100svh; /* Ensures content fits even with browser UI visible */
+  height: 100svh;
+  min-height: 100vh;
+  min-height: 100svh;
+  max-height: 100vh;
+  max-height: 100svh;
+  overflow: hidden; /* Prevent any content from overflowing */
 }
 
 /* Accessibility: Focus visible styles */
