@@ -148,7 +148,7 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className={cn('p-0 bg-transparent border-none shadow-none', className)}>
+      <DialogContent className={cn('p-0 bg-transparent border-none shadow-none flex items-center justify-center', className)}>
         <AnimatePresence mode="wait">
           {!isSuccess ? (
             <motion.div
@@ -157,41 +157,48 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
               initial="hidden"
               animate="show"
               exit="exit"
-              className="relative w-full max-w-2xl rounded-2xl glass-panel border border-white/10 shadow-2xl overflow-hidden mx-4 md:mx-0"
+              className="relative w-[calc(100%-2rem)] max-w-xl md:max-w-2xl max-h-[calc(100vh-4rem)] md:max-h-[calc(100vh-6rem)] rounded-2xl border border-white/20 shadow-2xl overflow-y-auto mx-4 md:mx-0"
+              style={{
+                background: 'rgba(10, 10, 10, 0.85)',
+                backdropFilter: 'blur(24px)',
+                WebkitBackdropFilter: 'blur(24px)',
+              }}
             >
               {/* Background gradient orbs */}
-              <div className="absolute -top-24 -right-24 w-48 h-48 bg-teal-500/20 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -top-24 -right-24 w-48 h-48 bg-teal-500/15 rounded-full blur-3xl pointer-events-none" />
               <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
 
               <div className="relative grid md:grid-cols-5 gap-0">
                 {/* Left Panel - Visual & Benefits */}
                 <motion.div
                   variants={itemVariants}
-                  className="md:col-span-2 bg-gradient-to-br from-teal-500/10 to-transparent p-6 md:p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10"
+                  className="md:col-span-2 bg-gradient-to-br from-teal-500/10 to-transparent p-4 md:p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10"
                 >
-                  {/* Icon */}
-                  <div>
+                  {/* Icon & Title Row - Horizontal on mobile */}
+                  <div className="flex items-start gap-4 md:block">
                     <motion.div
                       variants={iconVariants}
-                      className="w-16 h-16 rounded-2xl bg-teal-500/20 border border-teal-500/30 flex items-center justify-center mb-6"
+                      className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-teal-500/20 border border-teal-500/30 flex items-center justify-center shrink-0 md:mb-6"
                     >
-                      <FileText className="w-8 h-8 text-teal-400" />
+                      <FileText className="w-6 h-6 md:w-8 md:h-8 text-teal-400" />
                     </motion.div>
 
-                    <motion.h3
-                      variants={itemVariants}
-                      className="text-xl md:text-2xl font-bold text-white font-display mb-2"
-                    >
-                      The 7 Automations Checklist
-                    </motion.h3>
+                    <div className="md:mb-0">
+                      <motion.h3
+                        variants={itemVariants}
+                        className="text-lg md:text-2xl font-bold text-white font-display mb-1 md:mb-2"
+                      >
+                        The 7 Automations Checklist
+                      </motion.h3>
 
-                    <motion.p variants={itemVariants} className="text-neutral-400 text-sm mb-6">
-                      Everything you need to transform your real estate business.
-                    </motion.p>
+                      <motion.p variants={itemVariants} className="text-neutral-400 text-xs md:text-sm md:mb-6">
+                        Everything you need to transform your real estate business.
+                      </motion.p>
+                    </div>
                   </div>
 
-                  {/* Benefits */}
-                  <div className="space-y-3">
+                  {/* Benefits - Hidden on mobile to save space */}
+                  <div className="hidden md:block space-y-3">
                     {benefits.map((benefit, i) => (
                       <motion.div
                         key={benefit.text}
@@ -211,7 +218,7 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
                 </motion.div>
 
                 {/* Right Panel - Form */}
-                <div className="md:col-span-3 p-6 md:p-8 relative">
+                <div className="md:col-span-3 p-4 md:p-8 relative">
                   {/* Close button */}
                   <motion.button
                     variants={itemVariants}
@@ -223,29 +230,29 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
                   </motion.button>
 
                   {/* Header */}
-                  <motion.div variants={itemVariants} className="mb-6 pr-8">
-                    <div className="flex items-center gap-2 mb-2">
+                  <motion.div variants={itemVariants} className="mb-4 md:mb-6 pr-8">
+                    <div className="flex items-center gap-2 mb-1 md:mb-2">
                       <span className="text-xs font-mono uppercase tracking-widest text-teal-400">
                         Free Download
                       </span>
                     </div>
-                    <p className="text-neutral-400 text-sm">
+                    <p className="text-neutral-400 text-xs md:text-sm">
                       Enter your details and we'll send it right over.
                     </p>
                   </motion.div>
 
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
                     {/* Name Field */}
                     <motion.div variants={itemVariants}>
                       <label
                         htmlFor="lead-name"
-                        className="block text-sm font-medium text-neutral-300 mb-1.5"
+                        className="block text-xs md:text-sm font-medium text-neutral-300 mb-1 md:mb-1.5"
                       >
                         Your Name <span className="text-teal-400">*</span>
                       </label>
                       <div
                         className={cn(
-                          'relative rounded-xl transition-all duration-300',
+                          'relative rounded-lg md:rounded-xl transition-all duration-300',
                           focusedField === 'name' && 'ring-2 ring-teal-400/30'
                         )}
                       >
@@ -258,7 +265,7 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
                           onBlur={() => setFocusedField(null)}
                           placeholder="Jane Smith"
                           required
-                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-400/50 transition-all"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg md:rounded-xl px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-400/50 transition-all"
                         />
                         {name && (
                           <motion.div
@@ -276,13 +283,13 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
                     <motion.div variants={itemVariants}>
                       <label
                         htmlFor="lead-email"
-                        className="block text-sm font-medium text-neutral-300 mb-1.5"
+                        className="block text-xs md:text-sm font-medium text-neutral-300 mb-1 md:mb-1.5"
                       >
                         Email Address <span className="text-teal-400">*</span>
                       </label>
                       <div
                         className={cn(
-                          'relative rounded-xl transition-all duration-300',
+                          'relative rounded-lg md:rounded-xl transition-all duration-300',
                           focusedField === 'email' && 'ring-2 ring-teal-400/30'
                         )}
                       >
@@ -295,7 +302,7 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
                           onBlur={() => setFocusedField(null)}
                           placeholder="jane@example.com"
                           required
-                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-400/50 transition-all"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg md:rounded-xl px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-400/50 transition-all"
                         />
                         {email && email.includes('@') && (
                           <motion.div
@@ -313,13 +320,13 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
                     <motion.div variants={itemVariants}>
                       <label
                         htmlFor="lead-phone"
-                        className="block text-sm font-medium text-neutral-300 mb-1.5"
+                        className="block text-xs md:text-sm font-medium text-neutral-300 mb-1 md:mb-1.5"
                       >
                         Phone <span className="text-neutral-500 text-xs">(optional)</span>
                       </label>
                       <div
                         className={cn(
-                          'relative rounded-xl transition-all duration-300',
+                          'relative rounded-lg md:rounded-xl transition-all duration-300',
                           focusedField === 'phone' && 'ring-2 ring-teal-400/30'
                         )}
                       >
@@ -331,7 +338,7 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
                           onFocus={() => setFocusedField('phone')}
                           onBlur={() => setFocusedField(null)}
                           placeholder="(555) 123-4567"
-                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-400/50 transition-all"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg md:rounded-xl px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-400/50 transition-all"
                         />
                       </div>
                     </motion.div>
@@ -351,34 +358,34 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
                     </AnimatePresence>
 
                     {/* Submit Button */}
-                    <motion.div variants={itemVariants} className="pt-2">
+                    <motion.div variants={itemVariants} className="pt-1 md:pt-2">
                       <motion.button
                         type="submit"
                         disabled={isSubmitting || !email || !name}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="group relative w-full overflow-hidden rounded-xl bg-teal-500 hover:bg-teal-400 disabled:bg-teal-500/50 py-3.5 px-6 transition-colors disabled:cursor-not-allowed"
+                        className="group relative w-full overflow-hidden rounded-lg md:rounded-xl bg-teal-500 hover:bg-teal-400 disabled:bg-teal-500/50 py-3 md:py-3.5 px-4 md:px-6 transition-colors disabled:cursor-not-allowed"
                       >
                         {/* Shimmer effect */}
-                        <span className="absolute inset-0 overflow-hidden rounded-xl">
+                        <span className="absolute inset-0 overflow-hidden rounded-lg md:rounded-xl">
                           <span className="group-hover:animate-shimmer group-hover:opacity-100 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 w-full h-full absolute top-0 left-0 -skew-x-12 group-disabled:!opacity-0" />
                         </span>
 
-                        <span className="relative z-10 flex items-center justify-center gap-2 text-black font-semibold">
+                        <span className="relative z-10 flex items-center justify-center gap-2 text-black font-semibold text-sm md:text-base">
                           {isSubmitting ? (
                             <>
                               <motion.div
                                 animate={{ rotate: 360 }}
                                 transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
                               >
-                                <Sparkles className="w-5 h-5" />
+                                <Sparkles className="w-4 h-4 md:w-5 md:h-5" />
                               </motion.div>
                               <span>Sending...</span>
                             </>
                           ) : (
                             <>
                               <span>Get the Checklist</span>
-                              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                              <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                             </>
                           )}
                         </span>
@@ -388,7 +395,7 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
                     {/* Privacy */}
                     <motion.p
                       variants={itemVariants}
-                      className="text-xs text-neutral-500 text-center"
+                      className="text-[10px] md:text-xs text-neutral-500 text-center"
                     >
                       We respect your privacy. Unsubscribe anytime.
                     </motion.p>
@@ -403,7 +410,12 @@ export function LeadCaptureDialog({ trigger, className }: LeadCaptureDialogProps
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="relative w-full max-w-md rounded-2xl glass-panel border border-white/10 p-8 shadow-2xl mx-4 md:mx-0 text-center"
+              className="relative w-[calc(100%-2rem)] max-w-sm rounded-2xl border border-white/20 p-8 shadow-2xl mx-4 md:mx-0 text-center"
+              style={{
+                background: 'rgba(10, 10, 10, 0.85)',
+                backdropFilter: 'blur(24px)',
+                WebkitBackdropFilter: 'blur(24px)',
+              }}
             >
               {/* Background pulse */}
               <motion.div
