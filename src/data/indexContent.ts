@@ -10,7 +10,7 @@ export const problemStats = [
   {
     icon: 'solar:file-text-linear',
     value: '40%',
-    title: "of agents' time spent on admin instead of selling",
+    title: "of agents time is spent on admin work instead of selling",
     subtitle: 'Less time focusing on revenue-generating activities',
   },
   {
@@ -111,7 +111,7 @@ export const processSteps = [
     number: '03',
     title: 'Implementation',
     duration: 'If it makes sense',
-    description: '90-day plan to build the systems that fit your business. No pressure. No pitch. Just value.',
+    description: '90-day plan to build the systems that fit your business. No pressure. Just value.',
   },
 ];
 
