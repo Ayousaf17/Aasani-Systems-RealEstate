@@ -117,7 +117,7 @@ export const leadMagnetContent = {
   buttonText: 'Get the Checklist',
   namePlaceholder: 'Your name',
   emailPlaceholder: 'Your email',
-  webhookUrl: 'https://axistential.app.n8n.cloud/webhook/lead-capture',
+  webhookUrl: 'https://axistential.app.n8n.cloud/webhook/fc24c600-6b00-4234-9486-9f33eac2f489',
   checklistUrl: 'https://docs.google.com/document/d/1b3NM1lZl_4ikiDhRq3NvALP3m32tb5UOUqkA7x8pCyE/edit?usp=sharing',
   successMessage: 'Your checklist is ready.',
 };
