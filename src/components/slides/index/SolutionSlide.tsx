@@ -18,7 +18,7 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
       >
         <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
-            [03/11]
+            [03/10]
           </span>
           <div className="flex items-center gap-2">
             <iconify-icon icon="solar:lightbulb-linear" className="text-teal-400 text-lg" />

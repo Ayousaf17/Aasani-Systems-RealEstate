@@ -34,7 +34,7 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
           {/* Header */}
           <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6 shrink-0">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
-              [06/11]
+              [06/10]
             </span>
             <div className="flex items-center gap-2">
               <iconify-icon icon="solar:calculator-linear" className="text-teal-400 text-lg drop-shadow-md" />

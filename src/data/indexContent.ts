@@ -1,4 +1,4 @@
-export const TOTAL_INDEX_SLIDES = 11;
+export const TOTAL_INDEX_SLIDES = 10;
 
 export const problemStats = [
   {
