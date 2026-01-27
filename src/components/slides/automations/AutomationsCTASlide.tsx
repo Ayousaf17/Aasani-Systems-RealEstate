@@ -5,7 +5,7 @@ import { AnimatedElement } from '../../ui/AnimatedElement';
 import { contactLinks } from '../../../data/automationsContent';
 
 const ctaChecklist = [
-  'Free 30-minute strategy call',
+  'Free 60-minute strategy call',
   'Custom automation roadmap for your business',
 ];
 

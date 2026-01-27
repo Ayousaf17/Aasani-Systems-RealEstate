@@ -98,7 +98,7 @@ export const processSteps = [
   {
     number: '01',
     title: 'Free Operational Assessment',
-    duration: '30 minutes',
+    duration: '60 minutes',
     description: "I audit your current workflow and show you exactly where you're losing time and revenue.",
   },
   {
