@@ -60,7 +60,6 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
                     <span className="text-white font-semibold">
                       {benefit.highlight}
                     </span>
-                    {benefit.highlightSuffix && ` ${benefit.highlightSuffix}`}
                   </p>
                 </div>
               </div>
