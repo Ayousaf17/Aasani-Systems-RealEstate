@@ -149,7 +149,7 @@ export function AutomationsCTASlide() {
                 </span>
                 <span className="relative z-10 flex items-center gap-2">
                   <span className="md:text-lg text-sm font-medium text-white tracking-wide font-display">
-                    Book Free Assessment
+                    Book Strategy Call
                   </span>
                   <iconify-icon
                     icon="solar:calendar-add-linear"
