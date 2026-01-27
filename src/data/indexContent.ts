@@ -97,21 +97,21 @@ export const caseStudies = [
 export const processSteps = [
   {
     number: '01',
-    title: 'Free Operational Assessment',
-    duration: '60 minutes',
-    description: "I audit your current workflow and show you exactly where you're losing time and revenue.",
+    title: 'Free Strategy Call',
+    duration: '60 min',
+    description: 'See exactly which automations fit your business.',
   },
   {
     number: '02',
-    title: 'Custom Roadmap',
-    duration: 'Complimentary',
-    description: 'You get a written report with top 2-3 opportunities and ROI projections.',
+    title: 'Your Automation Plan',
+    duration: 'Included',
+    description: 'Prioritized list of your top automation wins with ROI.',
   },
   {
     number: '03',
-    title: 'Implementation',
-    duration: 'If it makes sense',
-    description: '90-day plan to build the systems that fit your business.',
+    title: 'Done-For-You Setup',
+    duration: '90 days',
+    description: 'Your systems, built and deployed.',
   },
 ];
 
