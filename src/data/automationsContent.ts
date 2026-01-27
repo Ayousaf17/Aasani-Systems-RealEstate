@@ -84,7 +84,7 @@ export const automationsData: AutomationSlideData[] = [
     icon: 'solar:chat-round-linear',
     iconColor: 'text-teal-400',
     title: 'Client Communication & Content Marketing',
-    tagline: '63% of business comes from referrals and repeat clients',
+    tagline: 'Enhance client communication streams',
     statValue: '6x',
     statLabel: 'HIGHER TRANSACTION RATES',
     statDescription: 'From personalized emails vs generic newsletters.',
