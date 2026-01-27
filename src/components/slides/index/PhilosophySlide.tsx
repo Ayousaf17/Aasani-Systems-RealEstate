@@ -34,9 +34,7 @@ export function PhilosophySlide({ index, onNavigate }: PhilosophySlideProps) {
 
           <AnimatedElement delay={0.2}>
             <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-2 drop-shadow-lg font-display">
-              Build Better
-              <br />
-              <span className="font-normal">Operations</span>
+              Build Better <span className="font-normal">Operations</span>
             </h2>
           </AnimatedElement>
 

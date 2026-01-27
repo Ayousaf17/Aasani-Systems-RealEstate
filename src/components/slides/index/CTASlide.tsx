@@ -84,12 +84,17 @@ export function CTASlide({ index }: CTASlideProps) {
           <span className="text-xs uppercase tracking-widest font-mono text-white">
             [08/08]
           </span>
-          <div className="flex items-center gap-2">
+          <button
+            data-cal-namespace="bookatime"
+            data-cal-link="ayub-yousaf-c1ijnf/bookatime"
+            data-cal-config='{"layout":"week_view"}'
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer"
+          >
             <iconify-icon icon="solar:calendar-add-linear" className="text-teal-400 text-lg" />
             <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
               BOOK NOW
             </span>
-          </div>
+          </button>
         </AnimatedElement>
 
         <AnimatedElement delay={0.2} className="mb-10 md:mb-12 relative z-10">

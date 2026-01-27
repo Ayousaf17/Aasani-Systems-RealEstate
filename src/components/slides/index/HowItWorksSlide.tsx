@@ -51,14 +51,12 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
 
                   {/* Content */}
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1 flex-wrap">
-                      <h3 className="text-base md:text-lg font-medium text-white font-display">
-                        {step.title}
-                      </h3>
-                      <span className="text-[10px] md:text-xs text-teal-400 font-mono uppercase tracking-wider bg-teal-400/10 px-2 py-0.5 rounded">
-                        {step.duration}
-                      </span>
-                    </div>
+                    <h3 className="text-base md:text-lg font-medium text-white font-display">
+                      {step.title}
+                    </h3>
+                    <span className="text-[10px] md:text-xs text-teal-400 font-mono uppercase tracking-wider bg-teal-400/10 px-2 py-0.5 rounded inline-block mb-1">
+                      {step.duration}
+                    </span>
                     <p className="text-neutral-400 text-sm md:text-base leading-relaxed font-display">
                       {step.description}
                     </p>
