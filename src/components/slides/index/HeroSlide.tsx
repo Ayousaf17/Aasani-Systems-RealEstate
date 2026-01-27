@@ -33,21 +33,10 @@ export function HeroSlide({ index }: HeroSlideProps) {
         className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col group md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-6 pl-6 relative shadow-2xl justify-start card-bg"
         style={{ backgroundImage: `url(${backgroundImages.hero})` }}
       >
-        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
+        <AnimatedElement delay={0.1} className="mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
             01 / 05 — WELCOME
           </span>
-          <a
-            href="https://aasani.ai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-          >
-            <iconify-icon icon="solar:buildings-2-linear" className="text-teal-400 text-lg" />
-            <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
-              AASANI.AI
-            </span>
-          </a>
         </AnimatedElement>
 
         <div className="flex-1 flex flex-col z-10 relative justify-center">
