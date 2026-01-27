@@ -53,7 +53,7 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
 
         <div className="relative z-10 flex flex-col h-full">
           {/* Header */}
-          <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6 shrink-0">
+          <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 shrink-0">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
               03 / 05 — YOUR ROI
             </span>
@@ -66,23 +66,39 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
           </AnimatedElement>
 
           {/* Title */}
-          <AnimatedElement delay={0.2} className="shrink-0 mb-6">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-2 drop-shadow-md font-display">
+          <AnimatedElement delay={0.2} className="shrink-0 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-1 drop-shadow-md font-display">
               {roiCalculatorContent.title}
             </h2>
-            <p className="text-teal-400 text-lg md:text-xl font-display drop-shadow-md">
+            <p className="text-teal-400 text-base md:text-lg font-display drop-shadow-md">
               {roiCalculatorContent.subtitle}
             </p>
           </AnimatedElement>
 
-          {/* Sliders */}
-          <div className="flex flex-col gap-6 mb-6">
+          {/* Results Card - MOVED UP for immediate value visibility */}
+          <AnimatedElement delay={0.3} className="shrink-0 mb-6">
+            <div className="bg-black/40 backdrop-blur-sm border border-teal-400/30 rounded-xl p-5 text-center">
+              <p className="text-neutral-400 text-xs mb-0.5 font-display">{roiCalculatorContent.resultLabels.hoursSaved}</p>
+              <p className="text-xl font-bold text-white mb-3 font-display">{calculations.hoursSaved}+ hours/week</p>
+
+              <p className="text-neutral-400 text-xs mb-0.5 font-display">{roiCalculatorContent.resultLabels.annualValue}</p>
+              <p className="text-4xl md:text-5xl font-bold text-teal-400 font-display">
+                ${calculations.annualSavings.toLocaleString()}
+              </p>
+              <p className="text-xs text-neutral-500 mt-0.5 font-mono">per year</p>
+
+              <p className="text-neutral-300 mt-3 text-sm font-display">{roiCalculatorContent.ctaDescription}</p>
+            </div>
+          </AnimatedElement>
+
+          {/* Sliders - MOVED DOWN closer to thumb on mobile */}
+          <div className="flex flex-col gap-4 mt-auto mb-6">
             {/* Hours on admin slider */}
-            <AnimatedElement delay={0.3}>
-              <div className="space-y-3">
+            <AnimatedElement delay={0.4}>
+              <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="text-neutral-300 font-display">{roiCalculatorContent.inputs.hours.label}</span>
-                  <span className="text-white font-semibold font-display">{hoursOnAdmin} hrs</span>
+                  <span className="text-neutral-300 font-display text-xs">{roiCalculatorContent.inputs.hours.label}</span>
+                  <span className="text-white font-semibold font-display text-sm">{hoursOnAdmin} hrs</span>
                 </div>
                 <input
                   type="range"
@@ -93,8 +109,8 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
                   onChange={(e) => setHoursOnAdmin(Number(e.target.value))}
                   className="w-full h-2 bg-white/10 rounded-full appearance-none cursor-pointer
                              [&::-webkit-slider-thumb]:appearance-none
-                             [&::-webkit-slider-thumb]:w-6
-                             [&::-webkit-slider-thumb]:h-6
+                             [&::-webkit-slider-thumb]:w-7
+                             [&::-webkit-slider-thumb]:h-7
                              [&::-webkit-slider-thumb]:rounded-full
                              [&::-webkit-slider-thumb]:bg-teal-400
                              [&::-webkit-slider-thumb]:cursor-pointer
@@ -102,8 +118,8 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
                              [&::-webkit-slider-thumb]:border-2
                              [&::-webkit-slider-thumb]:border-white/20
                              [&::-moz-range-thumb]:appearance-none
-                             [&::-moz-range-thumb]:w-6
-                             [&::-moz-range-thumb]:h-6
+                             [&::-moz-range-thumb]:w-7
+                             [&::-moz-range-thumb]:h-7
                              [&::-moz-range-thumb]:rounded-full
                              [&::-moz-range-thumb]:bg-teal-400
                              [&::-moz-range-thumb]:cursor-pointer
@@ -114,11 +130,11 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
             </AnimatedElement>
 
             {/* Hourly value slider */}
-            <AnimatedElement delay={0.4}>
-              <div className="space-y-3">
+            <AnimatedElement delay={0.45}>
+              <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="text-neutral-300 font-display">{roiCalculatorContent.inputs.rate.label}</span>
-                  <span className="text-white font-semibold font-display">${hourlyValue}</span>
+                  <span className="text-neutral-300 font-display text-xs">{roiCalculatorContent.inputs.rate.label}</span>
+                  <span className="text-white font-semibold font-display text-sm">${hourlyValue}</span>
                 </div>
                 <input
                   type="range"
@@ -129,8 +145,8 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
                   onChange={(e) => setHourlyValue(Number(e.target.value))}
                   className="w-full h-2 bg-white/10 rounded-full appearance-none cursor-pointer
                              [&::-webkit-slider-thumb]:appearance-none
-                             [&::-webkit-slider-thumb]:w-6
-                             [&::-webkit-slider-thumb]:h-6
+                             [&::-webkit-slider-thumb]:w-7
+                             [&::-webkit-slider-thumb]:h-7
                              [&::-webkit-slider-thumb]:rounded-full
                              [&::-webkit-slider-thumb]:bg-teal-400
                              [&::-webkit-slider-thumb]:cursor-pointer
@@ -138,8 +154,8 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
                              [&::-webkit-slider-thumb]:border-2
                              [&::-webkit-slider-thumb]:border-white/20
                              [&::-moz-range-thumb]:appearance-none
-                             [&::-moz-range-thumb]:w-6
-                             [&::-moz-range-thumb]:h-6
+                             [&::-moz-range-thumb]:w-7
+                             [&::-moz-range-thumb]:h-7
                              [&::-moz-range-thumb]:rounded-full
                              [&::-moz-range-thumb]:bg-teal-400
                              [&::-moz-range-thumb]:cursor-pointer
@@ -150,24 +166,8 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
             </AnimatedElement>
           </div>
 
-          {/* Results Card */}
-          <AnimatedElement delay={0.5} className="flex-1 flex flex-col justify-center">
-            <div className="bg-black/40 backdrop-blur-sm border border-teal-400/30 rounded-lg p-6 text-center">
-              <p className="text-neutral-400 text-sm mb-1 font-display">{roiCalculatorContent.resultLabels.hoursSaved}</p>
-              <p className="text-2xl font-bold text-white mb-4 font-display">{calculations.hoursSaved}+ hours/week</p>
-
-              <p className="text-neutral-400 text-sm mb-1 font-display">{roiCalculatorContent.resultLabels.annualValue}</p>
-              <p className="text-4xl md:text-5xl font-bold text-teal-400 font-display">
-                ${calculations.annualSavings.toLocaleString()}
-              </p>
-              <p className="text-sm text-neutral-500 mt-1 font-mono">per year</p>
-
-              <p className="text-neutral-300 mt-4 text-sm font-display">{roiCalculatorContent.ctaDescription}</p>
-            </div>
-          </AnimatedElement>
-
           {/* CTA Button */}
-          <AnimatedElement delay={0.6} className="mt-6 shrink-0">
+          <AnimatedElement delay={0.5} className="shrink-0">
             <button
               onClick={() => onNavigate?.(1)}
               className="group flex md:py-4 overflow-hidden hover:bg-neutral-200 transition-colors cursor-pointer text-black bg-white opacity-95 w-full rounded-full py-3 relative shadow-xl gap-2 items-center justify-center"
