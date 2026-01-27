@@ -53,7 +53,7 @@ export const automationsData: AutomationSlideData[] = [
     label: 'Automation #4',
     icon: 'solar:calendar-linear',
     iconColor: 'text-teal-400',
-    title: 'Appointment Scheduling & Reminders',
+    title: 'Appointment Scheduling\n& Reminders',
     tagline: 'Eliminate phone tag and no-shows',
     statValue: '5-7',
     statLabel: 'HOURS SAVED PER WEEK',
