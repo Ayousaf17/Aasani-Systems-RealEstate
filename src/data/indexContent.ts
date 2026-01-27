@@ -5,13 +5,13 @@ export const problemStats = [
     icon: 'solar:clock-circle-linear',
     value: '78%',
     title: 'of homebuyers work with the first agent who responds',
-    subtitle: 'Lost opportunities from slow response times',
+    subtitle: 'Source: NAR 2025 Profile of Home Buyers and Sellers',
   },
   {
     icon: 'solar:file-text-linear',
-    value: '40%',
-    title: "of agents time is spent on admin work instead of selling",
-    subtitle: 'Less time focusing on revenue-generating activities',
+    value: '10+',
+    title: 'hours per week lost to admin tasks',
+    subtitle: 'Time that could be spent with clients',
   },
   {
     icon: 'solar:users-group-rounded-linear',
@@ -19,7 +19,7 @@ export const problemStats = [
     title: 'of sales need 5+ follow-ups but',
     highlight: '44%',
     highlightText: 'of agents quit after one',
-    subtitle: 'Deals dropped due to insufficient follow-up',
+    subtitle: 'Source: Marketing Donut / Scripted Research',
   },
 ];
 
@@ -27,21 +27,20 @@ export const solutionBenefits = [
   {
     icon: 'solar:bolt-circle-linear',
     title: 'Instant Lead Response',
-    description: 'Respond in 2 minutes. Automatic SMS + email sequences.',
-    highlight: 'Never miss a hot lead.',
+    description: 'Respond in minutes, not hours. Automatic SMS + email sequences.',
+    highlight: '21x more likely to qualify leads.',
   },
   {
     icon: 'solar:chat-round-dots-linear',
-    title: 'Smart Follow-Up Automation',
-    description: 'AI-powered lead scoring. Behavior-triggered nurture campaigns.',
-    highlight: '5-8 touchpoints happen automatically.',
+    title: 'Smart Follow-Up Systems',
+    description: 'Consistent touchpoints that keep relationships warm.',
+    highlight: 'Be there when they are ready.',
   },
   {
     icon: 'solar:clipboard-check-linear',
     title: 'Transaction Coordination',
-    description: 'Automated task checklists. Document routing without manual work.',
-    highlight: '95% on-time closings',
-    highlightSuffix: 'vs 78% industry average.',
+    description: 'Automated task tracking. Document routing without manual work.',
+    highlight: 'Nothing slips through the cracks.',
   },
 ];
 
@@ -55,42 +54,31 @@ export const automationsList = [
   { name: 'Review & Referral Generation', icon: 'solar:star-linear' },
 ];
 
-export const caseStudies = [
+// Verified industry statistics with sources
+export const industryStats = [
   {
-    initials: 'SC',
-    name: 'Sarah Chen',
-    location: 'Austin, TX',
-    icon: 'solar:chart-2-linear',
+    icon: 'solar:clock-circle-linear',
     iconColor: 'text-teal-400',
-    stats: [
-      { value: '+60%', label: 'Revenue', highlight: true },
-      { value: '-20 hrs', label: 'Per Week' },
-      { value: '+27', label: 'Transactions' },
-    ],
+    value: '21x',
+    label: 'More Likely to Qualify',
+    description: 'Responding in 5 minutes vs 30 minutes',
+    source: 'MIT Lead Response Study',
   },
   {
-    initials: 'MT',
-    name: 'Martinez Team',
-    location: 'Phoenix, AZ',
+    icon: 'solar:hourglass-linear',
+    iconColor: 'text-teal-400',
+    value: '15-20',
+    label: 'Hours Saved Weekly',
+    description: 'With comprehensive automation systems',
+    source: 'NAR Technology Survey 2025',
+  },
+  {
     icon: 'solar:users-group-rounded-linear',
     iconColor: 'text-teal-400',
-    stats: [
-      { value: '+58%', label: 'Tx Volume', highlight: true },
-      { value: '+$200k', label: 'Revenue' },
-      { value: '95%', label: 'On-Time' },
-    ],
-  },
-  {
-    initials: 'DP',
-    name: 'David Park',
-    location: 'Seattle, WA',
-    icon: 'solar:graph-up-linear',
-    iconColor: 'text-teal-400',
-    stats: [
-      { value: '8 → 34', label: 'Deals (Yr 2)', highlight: true },
-      { value: '$510k', label: 'GCI' },
-      { value: '22%', label: 'Conv. Rate' },
-    ],
+    value: '41%',
+    label: 'From Referrals & Repeat',
+    description: 'Of top agent business comes from relationships',
+    source: 'NAR Member Profile 2025',
   },
 ];
 
