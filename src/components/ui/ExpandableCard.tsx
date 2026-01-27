@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { cn } from "../../lib/utils";
@@ -64,7 +65,14 @@ export function ExpandableCard({
   // Stat card variant (no image)
   const isStatCard = !src && statValue;
 
-  return (
+  // Track if mounted for portal (SSR safety)
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Modal content to be portaled
+  const modalContent = (
     <>
       {/* Backdrop */}
       <AnimatePresence>
@@ -145,6 +153,13 @@ export function ExpandableCard({
           </div>
         )}
       </AnimatePresence>
+    </>
+  );
+
+  return (
+    <>
+      {/* Portal modal to body for proper fixed positioning */}
+      {mounted && createPortal(modalContent, document.body)}
 
       {/* Collapsed Card - dims when another card is active */}
       <div
