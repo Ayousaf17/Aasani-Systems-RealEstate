@@ -138,7 +138,7 @@ export function CTASlide({ index }: CTASlideProps) {
           </div>
 
           {/* Secondary Options */}
-          <div className="flex flex-col items-center gap-4 w-full max-w-xs">
+          <div className="flex flex-col items-center gap-6 w-full max-w-xs">
             {/* View Automations Link */}
             <button
               onClick={() => navigate('/automations')}
@@ -153,8 +153,12 @@ export function CTASlide({ index }: CTASlideProps) {
               />
             </button>
 
+            {/* Visual separator */}
+            <div className="w-12 h-px bg-white/20" />
+
             {/* Get Checklist - Opens Dialog */}
             <LeadCaptureDialog
+              onSuccess={() => navigate('/automations')}
               trigger={
                 <button className="group flex items-center gap-2 text-neutral-300 hover:text-white transition-colors">
                   <iconify-icon icon="solar:document-linear" className="text-teal-400 text-lg" />

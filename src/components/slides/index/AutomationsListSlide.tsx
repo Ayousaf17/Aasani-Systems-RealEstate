@@ -42,30 +42,41 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
         <AnimatedElement delay={0.3} className="flex-1 flex items-center py-4 overflow-hidden">
           <div className="flex flex-col gap-2 w-full">
             {automationsList.map((item, i) => (
-              <div
+              <button
                 key={i}
-                className="group bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-2.5 hover:bg-black/60 hover:border-teal-500/30 transition-all duration-300"
+                onClick={() => navigate(`/automations?slide=${item.slideIndex}`)}
+                className="group bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-2.5 hover:bg-black/60 hover:border-teal-500/30 transition-all duration-300 cursor-pointer text-left w-full"
               >
                 <div className="flex items-center gap-3">
                   <iconify-icon
                     icon={item.icon}
-                    className="text-teal-400 text-xl shrink-0"
+                    className="text-teal-400 text-xl shrink-0 group-hover:scale-110 transition-transform"
                   />
                   <div className="flex-1 min-w-0">
-                    <span className="text-white text-sm font-display font-medium block">
+                    <span className="text-white text-sm font-display font-medium block group-hover:text-teal-300 transition-colors">
                       {item.name}
                     </span>
                     <span className="text-neutral-400 text-xs font-display">
                       {item.benefit}
                     </span>
                   </div>
+                  <iconify-icon
+                    icon="solar:arrow-right-linear"
+                    className="text-teal-400/50 text-lg shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"
+                  />
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.5} className="shrink-0">
+        <AnimatedElement delay={0.5} className="shrink-0 space-y-3">
+          {/* Hint text */}
+          <p className="text-center text-xs text-neutral-500 font-mono">
+            <iconify-icon icon="solar:cursor-linear" className="inline-block mr-1 text-teal-400/60" />
+            Tap any automation to learn more
+          </p>
+
           <button
             onClick={() => navigate('/automations')}
             className="w-full flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-500 transition-colors py-3 px-6 rounded-full"

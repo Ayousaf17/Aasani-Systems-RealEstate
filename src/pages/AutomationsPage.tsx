@@ -1,5 +1,5 @@
-import { useState, useCallback, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useCallback, useRef, useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { HorizontalScroller } from '../components/layout/HorizontalScroller';
 import type { HorizontalScrollerRef } from '../components/layout/HorizontalScroller';
 import { NavigationDots } from '../components/navigation/NavigationDots';
@@ -12,6 +12,23 @@ export function AutomationsPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollerRef = useRef<HorizontalScrollerRef>(null);
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Handle ?slide= URL parameter for deep linking
+  useEffect(() => {
+    const slideParam = searchParams.get('slide');
+    if (slideParam) {
+      const slideIndex = parseInt(slideParam, 10);
+      if (!isNaN(slideIndex) && slideIndex >= 0 && slideIndex < TOTAL_AUTOMATIONS_SLIDES) {
+        // Small delay to ensure scroller is mounted
+        setTimeout(() => {
+          scrollerRef.current?.scrollToSlide(slideIndex);
+        }, 100);
+        // Clear the param from URL after navigating
+        setSearchParams({}, { replace: true });
+      }
+    }
+  }, [searchParams, setSearchParams]);
 
   const handleNavigate = useCallback((delta: number) => {
     const newIndex = Math.max(0, Math.min(currentIndex + delta, TOTAL_AUTOMATIONS_SLIDES - 1));

@@ -45,13 +45,13 @@ export const solutionBenefits = [
 ];
 
 export const automationsList = [
-  { name: 'Instant Lead Response', icon: 'solar:bolt-circle-linear', benefit: 'You stay present, they feel cared for.' },
-  { name: 'Lead Qualification & Scoring', icon: 'solar:chart-2-linear', benefit: 'Give attention to those who need you now.' },
-  { name: 'Smart Follow-Up Sequences', icon: 'solar:chat-round-dots-linear', benefit: "When they're ready, you're the one they call." },
-  { name: 'Appointment Scheduling & Reminders', icon: 'solar:calendar-linear', benefit: 'You get your evenings back.' },
-  { name: 'Transaction Coordination', icon: 'solar:clipboard-check-linear', benefit: 'Nothing slips through the cracks.' },
-  { name: 'Client Communication & Content', icon: 'solar:letter-linear', benefit: 'Your name comes up when they ask.' },
-  { name: 'Review & Referral Generation', icon: 'solar:star-linear', benefit: 'Great relationships speak for themselves.' },
+  { name: 'Instant Lead Response', icon: 'solar:bolt-circle-linear', benefit: 'You stay present, they feel cared for.', slideIndex: 1 },
+  { name: 'Lead Qualification & Scoring', icon: 'solar:chart-2-linear', benefit: 'Give attention to those who need you now.', slideIndex: 2 },
+  { name: 'Smart Follow-Up Sequences', icon: 'solar:chat-round-dots-linear', benefit: "When they're ready, you're the one they call.", slideIndex: 3 },
+  { name: 'Appointment Scheduling & Reminders', icon: 'solar:calendar-linear', benefit: 'You get your evenings back.', slideIndex: 4 },
+  { name: 'Transaction Coordination', icon: 'solar:clipboard-check-linear', benefit: 'Nothing slips through the cracks.', slideIndex: 5 },
+  { name: 'Client Communication & Content', icon: 'solar:letter-linear', benefit: 'Your name comes up when they ask.', slideIndex: 6 },
+  { name: 'Review & Referral Generation', icon: 'solar:star-linear', benefit: 'Great relationships speak for themselves.', slideIndex: 7 },
 ];
 
 // Hero slide stat
