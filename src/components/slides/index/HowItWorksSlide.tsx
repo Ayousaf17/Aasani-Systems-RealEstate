@@ -80,7 +80,7 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
             {industryStats.map((stat, i) => (
               <ExpandableCard
                 key={i}
-                title={stat.researchTitle || stat.label}
+                title={stat.researchTitle}
                 description={stat.description}
                 statValue={stat.value}
                 statLabel={stat.label}
@@ -92,20 +92,32 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
                 }
                 className="group relative"
               >
-                {stat.researchContent?.map((section, j) => (
-                  <div key={j}>
-                    <h4 className="text-white font-semibold text-lg mb-2 font-display">
-                      {section.heading}
-                    </h4>
-                    <p className="text-neutral-400 leading-relaxed">
-                      {section.text}
-                    </p>
-                  </div>
-                ))}
-                <div className="mt-4 pt-4 border-t border-white/10">
-                  <p className="text-xs text-neutral-500 font-mono">
-                    Source: {stat.source}
-                  </p>
+                {/* Key insight - bold and prominent */}
+                <p className="text-white font-medium leading-snug">
+                  {stat.keyInsight}
+                </p>
+
+                {/* Supporting context */}
+                <p className="text-neutral-400 text-sm leading-relaxed">
+                  {stat.context}
+                </p>
+
+                {/* Aasani angle */}
+                <p className="text-teal-400/90 text-sm italic">
+                  {stat.aasaniAngle}
+                </p>
+
+                {/* Source with clickable link */}
+                <div className="pt-3 border-t border-white/10">
+                  <a
+                    href={stat.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-neutral-500 font-mono hover:text-teal-400 transition-colors underline underline-offset-2"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Source: {stat.source} ↗
+                  </a>
                 </div>
               </ExpandableCard>
             ))}
