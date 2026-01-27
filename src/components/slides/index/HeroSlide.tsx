@@ -33,10 +33,17 @@ export function HeroSlide({ index }: HeroSlideProps) {
         className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col group md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-12 pr-5 pb-4 pl-5 relative shadow-2xl justify-start card-bg"
         style={{ backgroundImage: `url(${backgroundImages.hero})` }}
       >
-        <AnimatedElement delay={0.1} className="mb-6">
+        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
             01 / 05 — WELCOME
           </span>
+          <iconify-icon icon="solar:home-2-linear" className="text-teal-400 text-lg md:hidden" />
+          <div className="hidden md:flex items-center gap-2">
+            <iconify-icon icon="solar:home-2-linear" className="text-teal-400 text-lg" />
+            <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
+              HOME
+            </span>
+          </div>
         </AnimatedElement>
 
         <div className="flex-1 flex flex-col z-10 relative justify-center">

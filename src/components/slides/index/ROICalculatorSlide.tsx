@@ -53,7 +53,7 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
 
         <div className="relative z-10 flex flex-col h-full">
           {/* Header - Simplified for mobile */}
-          <AnimatedElement delay={0.1} className="flex justify-between items-center mb-3 shrink-0">
+          <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 shrink-0">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
               03 / 05 — YOUR ROI
             </span>

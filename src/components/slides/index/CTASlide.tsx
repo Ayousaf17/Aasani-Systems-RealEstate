@@ -80,11 +80,12 @@ export function CTASlide({ index }: CTASlideProps) {
         {/* Overlay */}
         <div className="absolute inset-0 z-[1] bg-black/70" />
 
-        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6 relative z-10">
+        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 relative z-10">
           <span className="text-xs uppercase tracking-widest font-mono text-white">
             05 / 05 — START
           </span>
-          <div className="flex items-center gap-2">
+          <iconify-icon icon="solar:calendar-add-linear" className="text-teal-400 text-lg md:hidden" />
+          <div className="hidden md:flex items-center gap-2">
             <iconify-icon icon="solar:calendar-add-linear" className="text-teal-400 text-lg" />
             <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
               BOOK NOW
@@ -92,8 +93,8 @@ export function CTASlide({ index }: CTASlideProps) {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.2} className="mb-10 md:mb-12 relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display">
+        <AnimatedElement delay={0.2} className="mb-6 md:mb-8 relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display">
             Ready to Reclaim
             <span className="block text-neutral-400 font-normal">20+ Hours Per Week?</span>
           </h2>

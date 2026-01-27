@@ -18,11 +18,12 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
         style={{ backgroundImage: `url(${backgroundImages.howItWorks})` }}
       >
         {/* Header */}
-        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-2">
+        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
             04 / 05 — PROCESS
           </span>
-          <div className="flex items-center gap-2">
+          <iconify-icon icon="solar:routing-linear" className="text-teal-400 text-lg md:hidden" />
+          <div className="hidden md:flex items-center gap-2">
             <iconify-icon icon="solar:routing-linear" className="text-teal-400 text-lg" />
             <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
               HOW IT WORKS
