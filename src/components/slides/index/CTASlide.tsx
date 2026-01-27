@@ -2,7 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { useRef, useEffect, useState } from 'react';
 import { getCalApi } from '@calcom/embed-react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
-import { contactInfo, leadMagnetContent } from '../../../data/indexContent';
+import { LeadCaptureDialog } from '../../ui/LeadCaptureDialog';
+import { contactInfo } from '../../../data/indexContent';
 
 interface CTASlideProps {
   index: number;
@@ -12,12 +13,6 @@ export function CTASlide({ index }: CTASlideProps) {
   const navigate = useNavigate();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-
-  // Lead capture state
-  const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState('');
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -47,34 +42,6 @@ export function CTASlide({ index }: CTASlideProps) {
       });
     })();
   }, []);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email || isSubmitting) return;
-
-    setIsSubmitting(true);
-    setError('');
-
-    try {
-      const response = await fetch(leadMagnetContent.webhookUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, source: 'cta-checklist' }),
-      });
-
-      if (response.ok) {
-        setIsSuccess(true);
-        // Open checklist in new tab
-        window.open(leadMagnetContent.checklistUrl, '_blank');
-      } else {
-        setError('Something went wrong. Please try again.');
-      }
-    } catch {
-      setError('Something went wrong. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <section
@@ -186,46 +153,21 @@ export function CTASlide({ index }: CTASlideProps) {
               />
             </button>
 
-            {/* Inline Checklist Capture */}
-            {!isSuccess ? (
-              <form onSubmit={handleSubmit} className="w-full">
-                <p className="text-xs text-neutral-400 text-center mb-2 font-display">
-                  Want the checklist? We'll send it over.
-                </p>
-                <div className="flex gap-2">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Your email"
-                    required
-                    className="flex-1 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-400/50 focus:ring-1 focus:ring-teal-400/50 transition-all"
+            {/* Get Checklist - Opens Dialog */}
+            <LeadCaptureDialog
+              trigger={
+                <button className="group flex items-center gap-2 text-neutral-300 hover:text-white transition-colors">
+                  <iconify-icon icon="solar:document-linear" className="text-teal-400 text-lg" />
+                  <span className="text-sm md:text-base font-medium">Get the free checklist</span>
+                  <iconify-icon
+                    icon="solar:arrow-right-up-linear"
+                    className="text-teal-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                    width={16}
+                    height={16}
                   />
-                  <button
-                    type="submit"
-                    disabled={isSubmitting || !email}
-                    className="bg-teal-600 hover:bg-teal-500 disabled:bg-teal-600/50 disabled:cursor-not-allowed text-white text-sm font-medium px-4 py-2 rounded-full transition-colors flex items-center gap-1.5"
-                  >
-                    {isSubmitting ? (
-                      <iconify-icon icon="solar:refresh-linear" className="animate-spin" />
-                    ) : (
-                      <>
-                        <span>Send</span>
-                        <iconify-icon icon="solar:arrow-right-up-linear" className="text-sm" />
-                      </>
-                    )}
-                  </button>
-                </div>
-                {error && (
-                  <p className="text-red-400 text-xs text-center mt-2">{error}</p>
-                )}
-              </form>
-            ) : (
-              <div className="flex items-center gap-2 text-teal-400">
-                <iconify-icon icon="solar:check-circle-linear" className="text-xl" />
-                <span className="text-sm font-display">Check your new tab!</span>
-              </div>
-            )}
+                </button>
+              }
+            />
           </div>
         </AnimatedElement>
 
