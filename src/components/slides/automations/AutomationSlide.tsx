@@ -27,17 +27,17 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.3}>
-            <p className="uppercase text-xs md:text-sm text-teal-300 tracking-wide font-mono mb-3 md:mb-2">
+            <h2 className="text-2xl md:text-4xl font-bold text-white font-display tracking-tight leading-tight mb-2">
               <span className="md:hidden">{data.title.replace(/\n/g, ' ')}</span>
               <span className="hidden md:block">
                 {data.title.split('\n').map((line, i) => (
                   <span key={i} className="block">{line}</span>
                 ))}
               </span>
-            </p>
-            <h2 className="text-2xl md:text-4xl font-bold text-white font-display tracking-tight leading-tight mb-2">
-              {data.tagline}
             </h2>
+            <p className="uppercase text-xs md:text-sm text-teal-300 tracking-wide font-mono mb-3 md:mb-0">
+              {data.tagline}
+            </p>
           </AnimatedElement>
         </div>
 
