@@ -21,7 +21,8 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
             [01/09]
           </span>
-          <div className="flex items-center gap-2">
+          <iconify-icon icon="solar:bolt-circle-linear" className="text-teal-400 text-lg md:hidden" />
+          <div className="hidden md:flex items-center gap-2">
             <iconify-icon icon="solar:bolt-circle-linear" className="text-teal-400 text-lg" />
             <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
               AUTOMATIONS

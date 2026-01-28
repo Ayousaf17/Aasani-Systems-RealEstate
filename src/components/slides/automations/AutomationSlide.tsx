@@ -22,7 +22,8 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
         <div className="flex flex-col">
           <AnimatedElement delay={0.1} className="flex mb-3 md:mb-6 items-center justify-between">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">[{data.slideNumber}]</span>
-            <div className="flex items-center gap-2">
+            <iconify-icon icon={data.icon} className={`${data.iconColor} text-lg md:hidden`} />
+            <div className="hidden md:flex items-center gap-2">
               <iconify-icon icon={data.icon} className={`${data.iconColor} text-lg`} />
               <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
                 {data.label}
