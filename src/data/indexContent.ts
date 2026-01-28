@@ -231,7 +231,7 @@ export const faqContent = {
 export const leadMagnetContent = {
   label: 'FREE DOWNLOAD',
   title: 'Get the Checklist',
-  subtitle: 'The 7 Core Automations',
+  subtitle: 'The 7 Core Systems',
   description: 'Everything you need to reclaim 20+ hours per week. Delivered instantly.',
   buttonText: 'Get the Checklist',
   namePlaceholder: 'Your name',

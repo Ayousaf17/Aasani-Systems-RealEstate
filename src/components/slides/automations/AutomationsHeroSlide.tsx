@@ -49,7 +49,7 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-pulse" />
               <span className="font-display text-sm md:text-base tracking-wide text-neutral-200">
-                7 Core Automations
+                7 Core Systems
               </span>
             </div>
           </div>
