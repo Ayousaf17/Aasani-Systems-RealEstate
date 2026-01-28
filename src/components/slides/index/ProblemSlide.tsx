@@ -227,7 +227,7 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
         {mounted && createPortal(modalContent, document.body)}
 
         {/* Problem List - Clean text items */}
-        <div className="flex flex-col flex-1 bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden">
+        <div className="flex flex-col bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden">
           {problemInsights.map((insight, i) => (
             <AnimatedElement key={i} delay={0.3 + i * 0.1}>
               <button
