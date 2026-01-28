@@ -24,8 +24,8 @@ export function CaseStudiesSlide({ index }: CaseStudiesSlideProps) {
               [05/10]
             </span>
             <div className="flex items-center gap-2">
-              <iconify-icon icon="solar:chart-2-linear" className="text-teal-400 text-lg drop-shadow-md" />
-              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400 drop-shadow-md">
+              <iconify-icon icon="solar:chart-2-linear" className="text-teal-300 text-lg drop-shadow-md" />
+              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-300 drop-shadow-md">
                 THE PROOF
               </span>
             </div>
@@ -58,7 +58,7 @@ export function CaseStudiesSlide({ index }: CaseStudiesSlideProps) {
                       <span className="text-3xl md:text-4xl font-bold text-white tracking-tight">
                         {stat.value}
                       </span>
-                      <span className="text-sm md:text-base text-teal-400 font-medium font-display">
+                      <span className="text-sm md:text-base text-teal-300 font-medium font-display">
                         {stat.label}
                       </span>
                     </div>

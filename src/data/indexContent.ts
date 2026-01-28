@@ -27,7 +27,7 @@ export const problemStats = [
 export const problemInsights = [
   {
     icon: 'solar:clock-circle-linear',
-    iconColor: 'text-red-400',
+    iconColor: 'text-slate-300',
     value: '78%',
     label: 'First Responder Wins',
     description: 'NAR 2025',
@@ -40,7 +40,7 @@ export const problemInsights = [
   },
   {
     icon: 'solar:hourglass-linear',
-    iconColor: 'text-red-400',
+    iconColor: 'text-slate-300',
     value: '15-20',
     label: 'Hours Lost Weekly',
     description: 'NAR Technology Survey',
@@ -53,7 +53,7 @@ export const problemInsights = [
   },
   {
     icon: 'solar:users-group-rounded-linear',
-    iconColor: 'text-red-400',
+    iconColor: 'text-slate-300',
     value: '80%',
     label: 'Need 5+ Follow-Ups',
     description: 'HubSpot / Invesp',

@@ -76,115 +76,114 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
             </p>
           </AnimatedElement>
 
-          {/* Results Card - MOVED UP for immediate value visibility */}
-          <AnimatedElement delay={0.3} className="shrink-0 mb-6">
-            <div className="bg-black/60 backdrop-blur-sm border border-teal-300/30 rounded-xl p-5 text-center">
-              <p className="text-neutral-400 text-xs mb-0.5 font-display">{roiCalculatorContent.resultLabels.hoursSaved}</p>
-              <p className="text-xl font-bold text-white mb-3 font-display">{calculations.hoursSaved}+ hours/week</p>
+          {/* Results Card - Contains results, sliders, and CTA */}
+          <AnimatedElement delay={0.3} className="flex-1 flex flex-col">
+            <div className="bg-black/60 backdrop-blur-sm border border-teal-300/30 rounded-xl p-5 flex flex-col flex-1">
+              {/* Results Display */}
+              <div className="text-center mb-4">
+                <p className="text-neutral-400 text-xs mb-0.5 font-display">{roiCalculatorContent.resultLabels.hoursSaved}</p>
+                <p className="text-xl font-bold text-white mb-2 font-display">{calculations.hoursSaved}+ hours/week</p>
 
-              <p className="text-neutral-400 text-xs mb-0.5 font-display">{roiCalculatorContent.resultLabels.annualValue}</p>
-              <p className="text-4xl md:text-5xl font-bold text-teal-300 font-display drop-shadow-md">
-                ${calculations.annualSavings.toLocaleString()}
-              </p>
-              <p className="text-xs text-neutral-500 mt-0.5 font-mono">per year</p>
+                <p className="text-neutral-400 text-xs mb-0.5 font-display">{roiCalculatorContent.resultLabels.annualValue}</p>
+                <p className="text-3xl md:text-4xl font-bold text-teal-300 font-display drop-shadow-md">
+                  ${calculations.annualSavings.toLocaleString()}
+                </p>
+                <p className="text-xs text-neutral-500 mt-0.5 font-mono">per year</p>
 
-              <p className="text-neutral-300 mt-3 text-sm font-display">{roiCalculatorContent.ctaDescription}</p>
+                <p className="text-neutral-300 mt-2 text-sm font-display">{roiCalculatorContent.ctaDescription}</p>
+              </div>
+
+              {/* Divider */}
+              <div className="border-t border-white/10 my-3" />
+
+              {/* Sliders */}
+              <div className="flex flex-col gap-4 flex-1 justify-center">
+                {/* Hours on admin slider */}
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-neutral-300 font-display text-xs">{roiCalculatorContent.inputs.hours.label}</span>
+                    <span className="text-white font-semibold font-display text-sm">{hoursOnAdmin} hrs</span>
+                  </div>
+                  <input
+                    type="range"
+                    min={roiCalculatorContent.inputs.hours.min}
+                    max={roiCalculatorContent.inputs.hours.max}
+                    step={roiCalculatorContent.inputs.hours.step}
+                    value={hoursOnAdmin}
+                    onChange={(e) => setHoursOnAdmin(Number(e.target.value))}
+                    className="w-full h-2 bg-white/20 rounded-full appearance-none cursor-pointer
+                               [&::-webkit-slider-thumb]:appearance-none
+                               [&::-webkit-slider-thumb]:w-6
+                               [&::-webkit-slider-thumb]:h-6
+                               [&::-webkit-slider-thumb]:rounded-full
+                               [&::-webkit-slider-thumb]:bg-teal-400
+                               [&::-webkit-slider-thumb]:cursor-pointer
+                               [&::-webkit-slider-thumb]:shadow-lg
+                               [&::-webkit-slider-thumb]:border-2
+                               [&::-webkit-slider-thumb]:border-white/20
+                               [&::-moz-range-thumb]:appearance-none
+                               [&::-moz-range-thumb]:w-6
+                               [&::-moz-range-thumb]:h-6
+                               [&::-moz-range-thumb]:rounded-full
+                               [&::-moz-range-thumb]:bg-teal-400
+                               [&::-moz-range-thumb]:cursor-pointer
+                               [&::-moz-range-thumb]:border-2
+                               [&::-moz-range-thumb]:border-white/20"
+                  />
+                </div>
+
+                {/* Hourly value slider */}
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-neutral-300 font-display text-xs">{roiCalculatorContent.inputs.rate.label}</span>
+                    <span className="text-white font-semibold font-display text-sm">${hourlyValue}</span>
+                  </div>
+                  <input
+                    type="range"
+                    min={roiCalculatorContent.inputs.rate.min}
+                    max={roiCalculatorContent.inputs.rate.max}
+                    step={roiCalculatorContent.inputs.rate.step}
+                    value={hourlyValue}
+                    onChange={(e) => setHourlyValue(Number(e.target.value))}
+                    className="w-full h-2 bg-white/20 rounded-full appearance-none cursor-pointer
+                               [&::-webkit-slider-thumb]:appearance-none
+                               [&::-webkit-slider-thumb]:w-6
+                               [&::-webkit-slider-thumb]:h-6
+                               [&::-webkit-slider-thumb]:rounded-full
+                               [&::-webkit-slider-thumb]:bg-teal-400
+                               [&::-webkit-slider-thumb]:cursor-pointer
+                               [&::-webkit-slider-thumb]:shadow-lg
+                               [&::-webkit-slider-thumb]:border-2
+                               [&::-webkit-slider-thumb]:border-white/20
+                               [&::-moz-range-thumb]:appearance-none
+                               [&::-moz-range-thumb]:w-6
+                               [&::-moz-range-thumb]:h-6
+                               [&::-moz-range-thumb]:rounded-full
+                               [&::-moz-range-thumb]:bg-teal-400
+                               [&::-moz-range-thumb]:cursor-pointer
+                               [&::-moz-range-thumb]:border-2
+                               [&::-moz-range-thumb]:border-white/20"
+                  />
+                </div>
+              </div>
+
+              {/* CTA Button - Inside card */}
+              <button
+                onClick={() => onNavigate?.(1)}
+                className="group flex md:py-3 overflow-hidden hover:bg-neutral-200 transition-colors cursor-pointer text-black bg-white opacity-95 w-full rounded-full py-3 relative shadow-xl gap-2 items-center justify-center mt-4"
+              >
+                <span className="absolute inset-0 overflow-hidden rounded-full">
+                  <span className="group-hover:animate-[shimmer_1.5s_infinite] group-hover:opacity-100 bg-gradient-to-r from-transparent via-black/10 to-transparent opacity-0 w-full h-full absolute top-0 left-0 -skew-x-12" />
+                </span>
+                <span className="text-xs md:text-sm font-bold uppercase tracking-widest z-10">
+                  {roiCalculatorContent.ctaText}
+                </span>
+                <iconify-icon
+                  icon="solar:arrow-right-linear"
+                  className="text-xl md:text-2xl z-10 group-hover:translate-x-1 transition-transform"
+                />
+              </button>
             </div>
-          </AnimatedElement>
-
-          {/* Sliders - MOVED DOWN closer to thumb on mobile */}
-          <div className="flex flex-col gap-4 mt-auto mb-6">
-            {/* Hours on admin slider */}
-            <AnimatedElement delay={0.4}>
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span className="text-neutral-300 font-display text-xs">{roiCalculatorContent.inputs.hours.label}</span>
-                  <span className="text-white font-semibold font-display text-sm">{hoursOnAdmin} hrs</span>
-                </div>
-                <input
-                  type="range"
-                  min={roiCalculatorContent.inputs.hours.min}
-                  max={roiCalculatorContent.inputs.hours.max}
-                  step={roiCalculatorContent.inputs.hours.step}
-                  value={hoursOnAdmin}
-                  onChange={(e) => setHoursOnAdmin(Number(e.target.value))}
-                  className="w-full h-2 bg-white/30 rounded-full appearance-none cursor-pointer
-                             [&::-webkit-slider-thumb]:appearance-none
-                             [&::-webkit-slider-thumb]:w-7
-                             [&::-webkit-slider-thumb]:h-7
-                             [&::-webkit-slider-thumb]:rounded-full
-                             [&::-webkit-slider-thumb]:bg-teal-400
-                             [&::-webkit-slider-thumb]:cursor-pointer
-                             [&::-webkit-slider-thumb]:shadow-lg
-                             [&::-webkit-slider-thumb]:border-2
-                             [&::-webkit-slider-thumb]:border-white/20
-                             [&::-moz-range-thumb]:appearance-none
-                             [&::-moz-range-thumb]:w-7
-                             [&::-moz-range-thumb]:h-7
-                             [&::-moz-range-thumb]:rounded-full
-                             [&::-moz-range-thumb]:bg-teal-400
-                             [&::-moz-range-thumb]:cursor-pointer
-                             [&::-moz-range-thumb]:border-2
-                             [&::-moz-range-thumb]:border-white/20"
-                />
-              </div>
-            </AnimatedElement>
-
-            {/* Hourly value slider */}
-            <AnimatedElement delay={0.45}>
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span className="text-neutral-300 font-display text-xs">{roiCalculatorContent.inputs.rate.label}</span>
-                  <span className="text-white font-semibold font-display text-sm">${hourlyValue}</span>
-                </div>
-                <input
-                  type="range"
-                  min={roiCalculatorContent.inputs.rate.min}
-                  max={roiCalculatorContent.inputs.rate.max}
-                  step={roiCalculatorContent.inputs.rate.step}
-                  value={hourlyValue}
-                  onChange={(e) => setHourlyValue(Number(e.target.value))}
-                  className="w-full h-2 bg-white/30 rounded-full appearance-none cursor-pointer
-                             [&::-webkit-slider-thumb]:appearance-none
-                             [&::-webkit-slider-thumb]:w-7
-                             [&::-webkit-slider-thumb]:h-7
-                             [&::-webkit-slider-thumb]:rounded-full
-                             [&::-webkit-slider-thumb]:bg-teal-400
-                             [&::-webkit-slider-thumb]:cursor-pointer
-                             [&::-webkit-slider-thumb]:shadow-lg
-                             [&::-webkit-slider-thumb]:border-2
-                             [&::-webkit-slider-thumb]:border-white/20
-                             [&::-moz-range-thumb]:appearance-none
-                             [&::-moz-range-thumb]:w-7
-                             [&::-moz-range-thumb]:h-7
-                             [&::-moz-range-thumb]:rounded-full
-                             [&::-moz-range-thumb]:bg-teal-400
-                             [&::-moz-range-thumb]:cursor-pointer
-                             [&::-moz-range-thumb]:border-2
-                             [&::-moz-range-thumb]:border-white/20"
-                />
-              </div>
-            </AnimatedElement>
-          </div>
-
-          {/* CTA Button */}
-          <AnimatedElement delay={0.5} className="shrink-0">
-            <button
-              onClick={() => onNavigate?.(1)}
-              className="group flex md:py-4 overflow-hidden hover:bg-neutral-200 transition-colors cursor-pointer text-black bg-white opacity-95 w-full rounded-full py-3 relative shadow-xl gap-2 items-center justify-center"
-            >
-              {/* Shimmer effect on hover */}
-              <span className="absolute inset-0 overflow-hidden rounded-full">
-                <span className="group-hover:animate-[shimmer_1.5s_infinite] group-hover:opacity-100 bg-gradient-to-r from-transparent via-black/10 to-transparent opacity-0 w-full h-full absolute top-0 left-0 -skew-x-12" />
-              </span>
-              <span className="text-xs md:text-sm font-bold uppercase tracking-widest z-10">
-                {roiCalculatorContent.ctaText}
-              </span>
-              <iconify-icon
-                icon="solar:arrow-right-linear"
-                className="text-xl md:text-2xl z-10 group-hover:translate-x-1 transition-transform"
-              />
-            </button>
           </AnimatedElement>
         </div>
       </div>

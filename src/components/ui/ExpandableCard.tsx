@@ -39,12 +39,12 @@ export function ExpandableCard({
   // Color classes based on variant
   const colors = variant === 'problem'
     ? {
-        accent: 'text-red-400',
-        borderHover: 'hover:border-red-500/30',
-        headerBg: 'from-red-500/20 to-red-600/5',
-        borderExpanded: 'border-red-500/30',
-        shadow: 'shadow-red-500/10',
-        ring: 'focus-visible:ring-red-400',
+        accent: 'text-slate-300',
+        borderHover: 'hover:border-slate-400/30',
+        headerBg: 'from-slate-500/20 to-slate-600/5',
+        borderExpanded: 'border-slate-400/30',
+        shadow: 'shadow-slate-500/10',
+        ring: 'focus-visible:ring-slate-400',
       }
     : {
         accent: 'text-teal-400',

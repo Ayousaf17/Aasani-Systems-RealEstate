@@ -49,13 +49,13 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
                 icon={<iconify-icon icon={insight.icon} className="text-xl" />}
                 variant="problem"
               >
-                <p className="text-white font-medium italic border-l-2 border-red-400/50 pl-3">
+                <p className="text-white font-medium italic border-l-2 border-slate-400/50 pl-3">
                   "{insight.keyInsight}"
                 </p>
                 <p className="text-neutral-400">
                   {insight.context}
                 </p>
-                <p className="text-red-300 font-medium">
+                <p className="text-teal-300 font-medium">
                   {insight.aasaniAngle}
                 </p>
                 <div className="pt-2 border-t border-white/10">
@@ -63,7 +63,7 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
                     href={insight.sourceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs text-neutral-500 hover:text-red-400 transition-colors inline-flex items-center gap-1"
+                    className="text-xs text-neutral-500 hover:text-teal-400 transition-colors inline-flex items-center gap-1"
                     onClick={(e) => e.stopPropagation()}
                   >
                     Source: {insight.source}
