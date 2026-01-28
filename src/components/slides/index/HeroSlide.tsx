@@ -37,9 +37,8 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
         <div className="relative z-10 flex-1 flex flex-col justify-center">
           <AnimatedElement delay={0.2} className="mb-6">
             <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight font-display leading-[1.1]">
-              Be the Agent
-              <span className="block text-neutral-500">They Rave</span>
-              <span className="block text-neutral-500">About</span>
+              Be present
+              <span className="block text-neutral-500">when it matters</span>
             </h1>
           </AnimatedElement>
 
