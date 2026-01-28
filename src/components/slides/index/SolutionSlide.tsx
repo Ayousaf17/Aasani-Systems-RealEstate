@@ -46,42 +46,42 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.2} className="mb-10 md:mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display">
+        <AnimatedElement delay={0.2} className="mb-8 md:mb-10">
+          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display leading-tight">
             Systems that work
-            <br />
-            <span className="text-neutral-500 font-normal">while you don't have to</span>
           </h2>
+          <p className="text-2xl md:text-4xl text-neutral-500 font-display tracking-tight">
+            while you don't have to
+          </p>
         </AnimatedElement>
 
-        <div className="flex flex-col gap-5 md:gap-6 overflow-y-auto overscroll-contain scrollbar-hide flex-1 min-h-0 pb-4 touch-pan-y">
-          {benefits.map((benefit, i) => (
-            <AnimatedElement key={i} delay={0.3 + i * 0.1} className="group shrink-0">
-              <div className="bg-black/60 backdrop-blur-sm rounded-lg p-4 border border-white/10 hover:bg-black/70 hover:border-teal-300/30 transition-all duration-300">
-                <div className="flex gap-x-3 gap-y-3 items-start">
-                  <iconify-icon icon={benefit.icon} className="text-2xl text-teal-300 shrink-0 mt-0.5 drop-shadow-md" />
-                  <p className="md:text-lg text-base leading-snug text-white font-display">
+        <AnimatedElement delay={0.3}>
+          <div className="bg-black/50 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/10">
+            {/* Benefits list */}
+            <div className="flex flex-col gap-6 md:gap-7">
+              {benefits.map((benefit, i) => (
+                <div key={i} className="flex gap-x-4 items-start">
+                  <iconify-icon icon={benefit.icon} className="text-2xl md:text-3xl text-teal-300 shrink-0 mt-0.5 drop-shadow-md" />
+                  <p className="text-lg md:text-xl leading-relaxed text-white font-display">
                     {benefit.text}
                   </p>
                 </div>
-              </div>
-            </AnimatedElement>
-          ))}
+              ))}
+            </div>
 
-          {/* See all automations link */}
-          <AnimatedElement delay={0.6} className="shrink-0 text-center pt-2">
+            {/* See all automations link */}
             <button
               onClick={() => navigate('/automations')}
-              className="text-teal-300 hover:text-teal-200 text-sm font-display inline-flex items-center gap-1 transition-colors duration-200 group"
+              className="w-full mt-8 py-3.5 rounded-full bg-white/10 hover:bg-white/15 border border-teal-300/30 hover:border-teal-300/50 text-white text-sm md:text-base font-display inline-flex items-center justify-center gap-2 transition-all duration-200 group"
             >
               See all 7 automations
               <iconify-icon
                 icon="solar:arrow-right-linear"
-                className="text-base group-hover:translate-x-0.5 transition-transform duration-200"
+                className="text-lg text-teal-300 group-hover:translate-x-0.5 transition-transform duration-200"
               />
             </button>
-          </AnimatedElement>
-        </div>
+          </div>
+        </AnimatedElement>
       </div>
     </section>
   );
