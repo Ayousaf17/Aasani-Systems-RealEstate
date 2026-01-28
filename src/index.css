@@ -5,7 +5,8 @@
 
 /* Tailwind v4 Theme Configuration */
 @theme {
-  --font-heading: 'Oswald', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
 
   --color-aasani-black: #111212;
