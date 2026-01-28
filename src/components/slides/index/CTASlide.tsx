@@ -2,8 +2,12 @@ import { useNavigate } from 'react-router-dom';
 import { useRef, useEffect, useState } from 'react';
 import { getCalApi } from '@calcom/embed-react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
-import { LeadCaptureDialog } from '../../ui/LeadCaptureDialog';
 import { contactInfo } from '../../../data/indexContent';
+
+const ctaChecklist = [
+  'Free 60-minute strategy call',
+  'Custom automation roadmap for your business',
+];
 
 interface CTASlideProps {
   index: number;
@@ -100,6 +104,22 @@ export function CTASlide({ index }: CTASlideProps) {
           </h2>
         </AnimatedElement>
 
+        <AnimatedElement delay={0.3} className="flex justify-center w-full relative z-10">
+          <div className="flex flex-col gap-2">
+            {ctaChecklist.map((item, i) => (
+              <div key={i} className="flex items-start gap-2">
+                <iconify-icon
+                  icon="solar:check-circle-bold"
+                  className="text-teal-300 text-lg flex-shrink-0 mt-0.5 drop-shadow-md"
+                />
+                <span className="text-sm md:text-base text-white font-display">
+                  {item}
+                </span>
+              </div>
+            ))}
+          </div>
+        </AnimatedElement>
+
         <AnimatedElement delay={0.4} className="flex-1 flex flex-col items-center justify-center gap-6 w-full relative z-10">
           {/* Primary CTA */}
           <div className="group relative md:scale-110 cursor-pointer">
@@ -138,12 +158,14 @@ export function CTASlide({ index }: CTASlideProps) {
             <div className="flex-1 h-px bg-white/30" />
           </div>
 
-          {/* Secondary Options */}
-          <div className="flex flex-col items-center gap-6 w-full max-w-xs">
-            {/* View Automations Link */}
+          {/* Secondary CTA */}
+          <div className="flex flex-col items-center gap-3">
+            <p className="text-sm md:text-base text-neutral-300 text-center font-display">
+              Want to see how it works first?
+            </p>
             <button
               onClick={() => navigate('/automations')}
-              className="group flex items-center gap-2 text-teal-300 hover:text-teal-200 transition-colors font-medium drop-shadow-md"
+              className="group flex items-center gap-2 text-teal-300 hover:text-teal-200 transition-colors font-medium"
             >
               <span className="text-sm md:text-base">View the 7 Automations</span>
               <iconify-icon
@@ -153,26 +175,6 @@ export function CTASlide({ index }: CTASlideProps) {
                 height={18}
               />
             </button>
-
-            {/* Visual separator */}
-            <div className="w-12 h-px bg-white/20" />
-
-            {/* Get Checklist - Opens Dialog */}
-            <LeadCaptureDialog
-              onSuccess={() => navigate('/automations')}
-              trigger={
-                <button className="group flex items-center gap-2 text-neutral-300 hover:text-white transition-colors">
-                  <iconify-icon icon="solar:document-linear" className="text-teal-300 text-lg drop-shadow-md" />
-                  <span className="text-sm md:text-base font-medium">Get the free checklist</span>
-                  <iconify-icon
-                    icon="solar:arrow-right-up-linear"
-                    className="text-teal-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform drop-shadow-md"
-                    width={16}
-                    height={16}
-                  />
-                </button>
-              }
-            />
           </div>
         </AnimatedElement>
 
