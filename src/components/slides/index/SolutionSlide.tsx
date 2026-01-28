@@ -46,6 +46,12 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
           </div>
         </AnimatedElement>
 
+        <AnimatedElement delay={0.15} className="mb-4">
+          <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+            <iconify-icon icon="solar:lightbulb-bolt-linear" className="text-2xl md:text-3xl text-teal-300 drop-shadow-md" />
+          </div>
+        </AnimatedElement>
+
         <AnimatedElement delay={0.2} className="mb-8 md:mb-10">
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display leading-tight">
             Systems that work
