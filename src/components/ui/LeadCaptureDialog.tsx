@@ -118,7 +118,8 @@ export function LeadCaptureDialog({ trigger, className, onSuccess }: LeadCapture
 
       if (response.ok) {
         setIsSuccess(true);
-        window.open(leadMagnetContent.checklistUrl, '_blank');
+        // Redirect to the checklist page
+        window.location.href = '/checklist';
       } else {
         setError('Something went wrong. Please try again.');
       }
