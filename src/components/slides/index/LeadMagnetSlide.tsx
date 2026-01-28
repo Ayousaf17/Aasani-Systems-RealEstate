@@ -60,8 +60,8 @@ export function LeadMagnetSlide({ index }: LeadMagnetSlideProps) {
               [09/10]
             </span>
             <div className="flex items-center gap-2">
-              <iconify-icon icon="solar:document-text-linear" className="text-teal-400 text-lg drop-shadow-md" />
-              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400 drop-shadow-md">
+              <iconify-icon icon="solar:document-text-linear" className="text-teal-300 text-lg drop-shadow-md" />
+              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-300 drop-shadow-md">
                 {leadMagnetContent.label}
               </span>
             </div>
@@ -74,7 +74,7 @@ export function LeadMagnetSlide({ index }: LeadMagnetSlideProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.3}>
-            <p className="text-2xl md:text-4xl font-normal text-teal-400 tracking-tight drop-shadow-md font-display">
+            <p className="text-2xl md:text-4xl font-normal text-teal-300 tracking-tight drop-shadow-md font-display">
               {leadMagnetContent.subtitle}
             </p>
           </AnimatedElement>
@@ -139,7 +139,7 @@ export function LeadMagnetSlide({ index }: LeadMagnetSlideProps) {
               <div className="bg-black/50 backdrop-blur-sm border border-teal-400/30 rounded-lg p-6 md:p-8">
                 <iconify-icon
                   icon="solar:check-circle-bold"
-                  className="text-5xl md:text-6xl text-teal-400 mb-4"
+                  className="text-5xl md:text-6xl text-teal-300 mb-4"
                 />
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-2 font-display">
                   {leadMagnetContent.successMessage}

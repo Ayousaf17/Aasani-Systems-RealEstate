@@ -25,7 +25,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
             <iconify-icon icon={data.icon} className={`${data.iconColor} text-lg md:hidden`} />
             <div className="hidden md:flex items-center gap-2">
               <iconify-icon icon={data.icon} className={`${data.iconColor} text-lg`} />
-              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
+              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-300 drop-shadow-md">
                 {data.label}
               </span>
             </div>
@@ -50,16 +50,16 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           <div className="group overflow-hidden bg-black/60 hover:bg-black/70 rounded-lg p-4 md:p-6 relative shadow-2xl backdrop-blur-xl border border-white/10 hover:border-teal-400/50 transition-all duration-500 cursor-pointer md:hover:scale-[1.02] hover:shadow-teal-500/20">
             <div className="flex items-start justify-between mb-3 md:mb-4">
               <div className="flex flex-col">
-                <span className="text-3xl md:text-4xl font-bold text-white group-hover:text-teal-400 transition-colors duration-500 tracking-tighter font-display">
+                <span className="text-3xl md:text-4xl font-bold text-white group-hover:text-teal-300 transition-colors duration-500 tracking-tighter font-display">
                   {data.statValue}
                 </span>
-                <span className="text-xs md:text-sm text-teal-400 group-hover:text-teal-300 transition-colors duration-500 font-mono mt-1 tracking-wider">
+                <span className="text-xs md:text-sm text-teal-300 group-hover:text-teal-200 transition-colors duration-500 font-mono mt-1 tracking-wider">
                   {data.statLabel}
                 </span>
               </div>
               <iconify-icon
                 icon="solar:graph-up-linear"
-                className="text-teal-400 group-hover:text-teal-300 group-hover:scale-110 transition-all duration-300 text-2xl md:text-3xl"
+                className="text-teal-300 group-hover:text-teal-200 group-hover:scale-110 transition-all duration-300 text-2xl md:text-3xl"
               />
             </div>
             <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden mb-3 group-hover:bg-white/20 transition-colors duration-500">

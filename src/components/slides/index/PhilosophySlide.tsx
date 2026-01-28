@@ -25,8 +25,8 @@ export function PhilosophySlide({ index, onNavigate }: PhilosophySlideProps) {
               [08/11]
             </span>
             <div className="flex items-center gap-2">
-              <iconify-icon icon="solar:cup-star-linear" className="text-teal-400 text-lg drop-shadow-md" />
-              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400 drop-shadow-md">
+              <iconify-icon icon="solar:cup-star-linear" className="text-teal-300 text-lg drop-shadow-md" />
+              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-300 drop-shadow-md">
                 PHILOSOPHY
               </span>
             </div>
@@ -48,7 +48,7 @@ export function PhilosophySlide({ index, onNavigate }: PhilosophySlideProps) {
         <div className="z-20 md:px-12 flex-1 flex flex-col pr-6 pl-6 relative justify-center py-4">
           <AnimatedElement delay={0.4} className="flex flex-col gap-3 w-full">
             {philosophyQuotes.map((quote, i) => {
-              const borderColors = ['border-l-teal-400', 'border-l-teal-400/60', 'border-l-white/80'];
+              const borderColors = ['border-l-teal-300', 'border-l-teal-300/60', 'border-l-white/80'];
               return (
                 <div
                   key={i}

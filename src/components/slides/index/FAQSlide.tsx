@@ -19,7 +19,7 @@ function FAQItem({ question, answer, isOpen, onToggle, delay }: FAQItemProps) {
     <AnimatedElement delay={delay}>
       <button
         onClick={onToggle}
-        className="w-full bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg p-4 text-left hover:bg-black/50 hover:border-teal-400/30 transition-all duration-300"
+        className="w-full bg-black/60 backdrop-blur-sm border border-white/10 rounded-lg p-4 text-left hover:bg-black/70 hover:border-teal-300/30 transition-all duration-300"
       >
         <div className="flex items-center justify-between gap-4">
           <span className="text-white font-medium font-display text-sm md:text-base">
@@ -27,7 +27,7 @@ function FAQItem({ question, answer, isOpen, onToggle, delay }: FAQItemProps) {
           </span>
           <iconify-icon
             icon={isOpen ? 'solar:minus-circle-linear' : 'solar:add-circle-linear'}
-            className={`text-xl shrink-0 transition-colors duration-300 ${isOpen ? 'text-teal-400' : 'text-neutral-400'}`}
+            className={`text-xl shrink-0 transition-colors duration-300 ${isOpen ? 'text-teal-300' : 'text-neutral-400'}`}
           />
         </div>
         <div
@@ -72,8 +72,8 @@ export function FAQSlide({ index }: FAQSlideProps) {
               [08/10]
             </span>
             <div className="flex items-center gap-2">
-              <iconify-icon icon="solar:question-circle-linear" className="text-teal-400 text-lg drop-shadow-md" />
-              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400 drop-shadow-md">
+              <iconify-icon icon="solar:question-circle-linear" className="text-teal-300 text-lg drop-shadow-md" />
+              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-300 drop-shadow-md">
                 {faqContent.label}
               </span>
             </div>
