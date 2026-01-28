@@ -1,5 +1,5 @@
 import { AnimatedElement } from '../../ui/AnimatedElement';
-import { backgroundImages, heroStat } from '../../../data/indexContent';
+import { backgroundImages } from '../../../data/indexContent';
 
 interface HeroSlideProps {
   index: number;
@@ -28,27 +28,14 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
 
         {/* Main Content - Left Aligned */}
         <div className="relative z-10 flex-1 flex flex-col justify-center">
-          <AnimatedElement delay={0.2} className="mb-6">
-            <h1 className="text-4xl md:text-7xl font-bold text-white tracking-tight font-display leading-tight">
-              We respond to your leads
+          <AnimatedElement delay={0.2}>
+            <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight font-display leading-[1.1]">
+              Real Estate Operations
+              <span className="block text-neutral-500">Streamlined</span>
             </h1>
-            <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
-              while you sleep
+            <p className="text-base md:text-lg font-normal text-neutral-400 tracking-tight font-display mt-6">
+              So you can focus on people, not admin tasks.
             </p>
-          </AnimatedElement>
-
-          <AnimatedElement delay={0.3} className="mb-4">
-            <p className="text-base md:text-lg font-semibold text-teal-300 font-display">
-              {heroStat.value} {heroStat.text}
-            </p>
-          </AnimatedElement>
-
-          <AnimatedElement delay={0.4} className="mb-6">
-            <div className="border-l-2 border-teal-300/50 pl-4">
-              <p className="text-base md:text-lg text-neutral-300 font-display leading-relaxed">
-                You got into real estate to help people, not to drown in admin. Here's how to get your time back.
-              </p>
-            </div>
           </AnimatedElement>
         </div>
 
@@ -57,7 +44,7 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
           <div className="border-t border-white/10 pt-4 flex justify-between items-end">
             <p className="text-base font-display text-white flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-teal-300 animate-pulse" />
-              Systems for Real Estate
+              Aasani Systems
             </p>
             <button
               onClick={() => onNavigate?.(1)}
