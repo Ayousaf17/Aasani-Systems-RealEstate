@@ -94,7 +94,7 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
                 {/* Hours on admin slider */}
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
-                    <span className="text-neutral-300 font-display text-xs">{roiCalculatorContent.inputs.hours.label}</span>
+                    <span className="text-neutral-300 font-display text-sm">{roiCalculatorContent.inputs.hours.label}</span>
                     <span className="text-white font-semibold font-display text-sm">{hoursOnAdmin} hrs</span>
                   </div>
                   <input
@@ -128,7 +128,7 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
                 {/* Hourly value slider */}
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
-                    <span className="text-neutral-300 font-display text-xs">{roiCalculatorContent.inputs.rate.label}</span>
+                    <span className="text-neutral-300 font-display text-sm">{roiCalculatorContent.inputs.rate.label}</span>
                     <span className="text-white font-semibold font-display text-sm">${hourlyValue}</span>
                   </div>
                   <input
