@@ -29,11 +29,12 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
         {/* Main Content - Left Aligned */}
         <div className="relative z-10 flex-1 flex flex-col justify-center">
           <AnimatedElement delay={0.2} className="mb-6">
-            <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight font-display leading-[1.1]">
-              We respond to
-              <span className="block">your leads</span>
-              <span className="block text-neutral-500">while you sleep</span>
+            <h1 className="text-4xl md:text-7xl font-bold text-white tracking-tight font-display leading-tight">
+              We respond to your leads
             </h1>
+            <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
+              while you sleep
+            </p>
           </AnimatedElement>
 
           <AnimatedElement delay={0.3} className="mb-4">
@@ -55,8 +56,8 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
         <AnimatedElement delay={0.5} className="relative z-10">
           <div className="border-t border-white/10 pt-4 flex justify-between items-end">
             <p className="text-base font-display text-white flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-teal-300" />
-              Automation for Real Estate
+              <span className="w-2 h-2 rounded-full bg-teal-300 animate-pulse" />
+              Systems for Real Estate
             </p>
             <button
               onClick={() => onNavigate?.(1)}

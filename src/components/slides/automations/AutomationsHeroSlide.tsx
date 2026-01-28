@@ -19,24 +19,21 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
 
         <AnimatedElement delay={0} className="relative z-10 mb-4 md:mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
-            01 / 09 — AUTOMATIONS
+            01 / 09 — SYSTEMS
           </span>
         </AnimatedElement>
 
         <div className="relative z-10 mt-auto mb-6 md:mb-12">
           <AnimatedElement delay={0.2}>
-            <h1 className="leading-[0.9] md:mb-6 md:text-7xl text-4xl font-medium text-white tracking-tighter font-display mb-3">
-              The 7 Core
-              <span className="block text-neutral-400 tracking-tighter">
-                Automations
-              </span>
+            <h1 className="text-4xl md:text-7xl font-bold text-white tracking-tight font-display leading-tight mb-2">
+              The 7 Core Systems
             </h1>
-          </AnimatedElement>
-
-          <AnimatedElement delay={0.4} className="space-y-2">
-            <p className="md:text-base text-sm font-semibold text-teal-300 tracking-wide font-display drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
+            <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
               How top agents save 20+ hours per week
             </p>
+          </AnimatedElement>
+
+          <AnimatedElement delay={0.4} className="mt-6">
             <p className="leading-relaxed text-sm md:text-base text-white/90 tracking-wide font-display max-w-[90%] border-teal-300 border-l-2 pl-3 bg-black/60 py-2 pr-2 rounded-r-lg">
               You got into real estate to help people, not to drown in admin.
               Here's how to get your time back.
