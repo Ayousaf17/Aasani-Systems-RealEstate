@@ -17,8 +17,6 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
         className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col group md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none pt-12 px-5 pb-5 relative shadow-2xl justify-between card-bg"
         style={{ backgroundImage: `url(${backgroundImages.hero})` }}
       >
-        <div className="bg-black/60 absolute inset-0" />
-
         {/* Header */}
         <AnimatedElement delay={0.1} className="relative z-10 mb-4 md:mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
@@ -29,7 +27,7 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
         {/* Main Content - Left Aligned */}
         <div className="relative z-10 flex-1 flex flex-col justify-center">
           <AnimatedElement delay={0.2}>
-            <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight font-display leading-[1.1]">
+            <h1 className="text-5xl md:text-6xl font-normal text-white tracking-tight font-display leading-[1.1]">
               Real Estate Operations
               <span className="block text-neutral-500">Streamlined</span>
             </h1>
@@ -51,7 +49,7 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
               className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition-transform cursor-pointer shadow-lg"
               aria-label="Next slide"
             >
-              <iconify-icon icon="solar:arrow-right-linear" width={20} />
+              <iconify-icon icon="solar:arrow-down-linear" width={20} />
             </button>
           </div>
         </AnimatedElement>
