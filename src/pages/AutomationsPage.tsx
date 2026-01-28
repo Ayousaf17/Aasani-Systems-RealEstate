@@ -40,21 +40,19 @@ export function AutomationsPage() {
   }, []);
 
   return (
-    <div className="h-screen h-[100dvh] flex flex-col items-center justify-center bg-[#050505] overflow-hidden fixed inset-0">
-      {/* Fixed Navigation - Floating Glass Style */}
-      <nav className="fixed flex px-3 md:px-8 py-3 md:py-6 z-50 top-0 right-0 left-0 items-center justify-between pointer-events-none safe-area-top">
+    <div className="h-screen h-[100dvh] flex flex-col bg-black overflow-hidden fixed inset-0">
+      {/* Fixed Navigation Bar - Solid Black */}
+      <nav className="shrink-0 h-14 md:h-16 flex px-3 md:px-8 items-center justify-between bg-black border-b border-white/10 safe-area-top z-50">
         {/* Logo */}
-        <div className="pointer-events-auto flex-shrink-0">
-          <button
-            onClick={() => navigate('/')}
-            className="cursor-pointer hover:opacity-80 transition-opacity"
-          >
-            <img src="/logo.png" alt="Aasani Systems" className="h-12 md:h-14 w-auto" />
-          </button>
-        </div>
+        <button
+          onClick={() => navigate('/')}
+          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0"
+        >
+          <img src="/logo.png" alt="Aasani Systems" className="h-9 md:h-11 w-auto" />
+        </button>
 
         {/* Center: Pagination Dots */}
-        <div className="pointer-events-auto flex items-center justify-center backdrop-blur-md p-1.5 md:p-2.5 rounded-full bg-black/50">
+        <div className="flex items-center justify-center">
           <NavigationDots
             total={TOTAL_AUTOMATIONS_SLIDES}
             currentIndex={currentIndex}
@@ -63,26 +61,28 @@ export function AutomationsPage() {
           />
         </div>
 
-        {/* Right: Arrows - Hidden on mobile */}
-        <div className="pointer-events-auto hidden md:flex items-center gap-2 backdrop-blur-md p-1.5 md:p-2 rounded-full bg-black/40">
+        {/* Right: Arrows - Hidden on mobile, placeholder for balance */}
+        <div className="hidden md:flex items-center gap-2">
           <button
             onClick={() => handleNavigate(-1)}
             disabled={currentIndex === 0}
-            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-all text-white/70 hover:text-white disabled:opacity-30"
+            className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-white/10 transition-all text-white/70 hover:text-white disabled:opacity-30"
           >
-            <iconify-icon icon="solar:arrow-left-linear" width={24} />
+            <iconify-icon icon="solar:arrow-left-linear" width={20} />
           </button>
-          <div className="w-[1px] h-5 bg-white/10" />
           <button
             onClick={() => handleNavigate(1)}
             disabled={currentIndex === TOTAL_AUTOMATIONS_SLIDES - 1}
-            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-all text-white/70 hover:text-white disabled:opacity-30"
+            className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-white/10 transition-all text-white/70 hover:text-white disabled:opacity-30"
           >
-            <iconify-icon icon="solar:arrow-right-linear" width={24} />
+            <iconify-icon icon="solar:arrow-right-linear" width={20} />
           </button>
         </div>
+        {/* Mobile spacer for centering dots */}
+        <div className="w-9 md:hidden" />
       </nav>
 
+      {/* Slide Area - Below Nav */}
       <HorizontalScroller
         ref={scrollerRef}
         totalSlides={TOTAL_AUTOMATIONS_SLIDES}
