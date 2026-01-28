@@ -25,7 +25,7 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
 
         <div className="relative z-10 mt-auto mb-6 md:mb-12">
           <AnimatedElement delay={0.2}>
-            <h1 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight mb-2">
+            <h1 className="text-4xl md:text-7xl font-bold text-white tracking-tight font-display leading-tight mb-2">
               The 7 Core Systems
             </h1>
             <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
