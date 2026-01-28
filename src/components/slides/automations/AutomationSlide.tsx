@@ -40,7 +40,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                 ))}
               </span>
             </h2>
-            <p className="uppercase text-[10px] md:text-sm text-teal-400 tracking-wide font-mono mb-3 md:mb-0">
+            <p className="uppercase text-xs md:text-sm text-teal-300 tracking-wide font-mono mb-3 md:mb-0 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
               {data.tagline}
             </p>
           </AnimatedElement>
@@ -75,12 +75,12 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
         </AnimatedElement>
 
         <AnimatedElement delay={0.7}>
-          <div className="bg-black/50 backdrop-blur-md rounded-lg p-3 md:p-4 border-l-2 border-white/30">
-            <p className="leading-relaxed text-xs md:text-sm text-neutral-200 font-display mb-2">
+          <div className="bg-black/60 backdrop-blur-md rounded-lg p-4 md:p-4 border-l-2 border-teal-500/50">
+            <p className="leading-relaxed text-sm md:text-base text-white/90 font-display mb-2">
               {data.description}
             </p>
             <div className="border-t border-white/10 pt-2">
-              <p className="text-[10px] md:text-xs uppercase text-neutral-400 tracking-widest font-mono">
+              <p className="text-xs md:text-xs uppercase text-neutral-300 tracking-widest font-mono">
                 {data.tools}
               </p>
             </div>

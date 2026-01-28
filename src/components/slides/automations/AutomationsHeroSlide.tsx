@@ -41,10 +41,10 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
           </AnimatedElement>
 
           <AnimatedElement delay={0.4} className="space-y-2">
-            <p className="md:text-base text-sm font-medium text-teal-400 tracking-wide font-display backdrop-blur-sm">
+            <p className="md:text-base text-sm font-semibold text-teal-300 tracking-wide font-display drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
               How top agents save 20+ hours per week
             </p>
-            <p className="leading-relaxed text-xs md:text-sm text-neutral-300 tracking-wide font-display max-w-[90%] border-teal-500 border-l-2 pl-3 backdrop-blur-sm">
+            <p className="leading-relaxed text-sm md:text-base text-white/90 tracking-wide font-display max-w-[90%] border-teal-400 border-l-2 pl-3 bg-black/40 py-2 pr-2 rounded-r-lg">
               You got into real estate to help people, not to drown in admin.
               Here's how to get your time back.
             </p>
