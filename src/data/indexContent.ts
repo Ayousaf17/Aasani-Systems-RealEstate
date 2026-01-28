@@ -23,6 +23,49 @@ export const problemStats = [
   },
 ];
 
+// Problem-focused research insights with expandable content
+export const problemInsights = [
+  {
+    icon: 'solar:clock-circle-linear',
+    iconColor: 'text-red-400',
+    value: '78%',
+    label: 'First Responder Wins',
+    description: 'NAR 2025',
+    source: 'NAR Profile of Home Buyers and Sellers 2025',
+    sourceUrl: 'https://www.nar.realtor/research-and-statistics/research-reports/highlights-from-the-profile-of-home-buyers-and-sellers',
+    researchTitle: 'Speed-to-Lead Reality',
+    keyInsight: '78% of homebuyers work with the first agent who responds to their inquiry.',
+    context: 'In a competitive market, being second means being forgotten. Every minute counts when a buyer is actively searching.',
+    aasaniAngle: 'Our instant response automation ensures you are always first - even at 2am.',
+  },
+  {
+    icon: 'solar:hourglass-linear',
+    iconColor: 'text-red-400',
+    value: '15-20',
+    label: 'Hours Lost Weekly',
+    description: 'NAR Technology Survey',
+    source: 'NAR Technology Survey 2025',
+    sourceUrl: 'https://www.nar.realtor/research-and-statistics/research-reports/real-estate-in-a-digital-age',
+    researchTitle: 'The Admin Burden',
+    keyInsight: 'Top-producing agents spend 15-20 hours weekly on admin: CRM updates, follow-ups, scheduling, and transaction coordination.',
+    context: 'At $100-200/hour, that is $78,000-156,000 in opportunity cost annually — time not spent with clients.',
+    aasaniAngle: 'We automate the repetitive tasks so you can focus on the work that actually requires you.',
+  },
+  {
+    icon: 'solar:users-group-rounded-linear',
+    iconColor: 'text-red-400',
+    value: '80%',
+    label: 'Need 5+ Follow-Ups',
+    description: 'Marketing Research',
+    source: 'Marketing Donut / Scripted Research',
+    sourceUrl: 'https://www.marketingdonut.co.uk/sales/sales-techniques-and-negotiations/why-8-of-sales-people-get-80-of-the-sales',
+    researchTitle: 'The Follow-Up Gap',
+    keyInsight: '80% of sales require 5+ follow-up contacts, but 44% of agents quit after just one.',
+    context: 'The agents who persist win. But persistence is exhausting when you are doing it manually.',
+    aasaniAngle: 'Our smart follow-up sequences never forget - so you can be persistent without being present.',
+  },
+];
+
 export const solutionBenefits = [
   {
     icon: 'solar:bolt-circle-linear',

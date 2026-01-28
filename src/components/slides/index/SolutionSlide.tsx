@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { AnimatedElement } from '../../ui/AnimatedElement';
 import { backgroundImages } from '../../../data/indexContent';
 
@@ -21,6 +22,8 @@ const benefits = [
 ];
 
 export function SolutionSlide({ index }: SolutionSlideProps) {
+  const navigate = useNavigate();
+
   return (
     <section
       className="snap-start shrink-0 flex w-full slide-height relative items-center justify-center"
@@ -64,6 +67,20 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
               </div>
             </AnimatedElement>
           ))}
+
+          {/* See all automations link */}
+          <AnimatedElement delay={0.6} className="shrink-0 text-center pt-2">
+            <button
+              onClick={() => navigate('/automations')}
+              className="text-teal-300 hover:text-teal-200 text-sm font-display inline-flex items-center gap-1 transition-colors duration-200 group"
+            >
+              See all 7 automations
+              <iconify-icon
+                icon="solar:arrow-right-linear"
+                className="text-base group-hover:translate-x-0.5 transition-transform duration-200"
+              />
+            </button>
+          </AnimatedElement>
         </div>
       </div>
     </section>

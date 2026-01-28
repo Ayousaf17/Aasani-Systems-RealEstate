@@ -1,24 +1,10 @@
 import { AnimatedElement } from '../../ui/AnimatedElement';
-import { backgroundImages } from '../../../data/indexContent';
+import { ExpandableCard } from '../../ui/ExpandableCard';
+import { backgroundImages, problemInsights } from '../../../data/indexContent';
 
 interface ProblemSlideProps {
   index: number;
 }
-
-const painPoints = [
-  {
-    icon: 'solar:clock-circle-linear',
-    text: '78% of buyers choose whoever responds first. Are you always first?',
-  },
-  {
-    icon: 'solar:hourglass-linear',
-    text: "The average agent spends 20+ hours/week on tasks that don't need them",
-  },
-  {
-    icon: 'solar:users-group-rounded-linear',
-    text: 'Every missed follow-up is a relationship you worked hard to build',
-  },
-];
 
 export function ProblemSlide({ index }: ProblemSlideProps) {
   return (
@@ -43,7 +29,7 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.2} className="mb-10 md:mb-12">
+        <AnimatedElement delay={0.2} className="mb-8 md:mb-10">
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display">
             You didn't get into real estate
             <br />
@@ -51,20 +37,51 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
           </h2>
         </AnimatedElement>
 
-        <div className="flex flex-col gap-5 md:gap-6 overflow-y-auto overscroll-contain scrollbar-hide flex-1 min-h-0 pb-4 touch-pan-y">
-          {painPoints.map((point, i) => (
-            <AnimatedElement key={i} delay={0.3 + i * 0.1} className="group shrink-0">
-              <div className="bg-black/60 backdrop-blur-sm rounded-lg p-4 border border-white/10">
-                <div className="flex gap-x-3 gap-y-3 items-start">
-                  <iconify-icon icon={point.icon} className="text-2xl text-red-400/80 shrink-0 mt-0.5" />
-                  <p className="md:text-lg text-base leading-snug text-white font-display">
-                    {point.text}
-                  </p>
+        {/* Research Insight Cards */}
+        <div className="grid grid-cols-3 gap-3 mb-4">
+          {problemInsights.map((insight, i) => (
+            <AnimatedElement key={i} delay={0.3 + i * 0.1}>
+              <ExpandableCard
+                title={insight.researchTitle}
+                description={insight.source}
+                statValue={insight.value}
+                statLabel={insight.label}
+                icon={<iconify-icon icon={insight.icon} className="text-xl" />}
+                variant="problem"
+              >
+                <p className="text-white font-medium italic border-l-2 border-red-400/50 pl-3">
+                  "{insight.keyInsight}"
+                </p>
+                <p className="text-neutral-400">
+                  {insight.context}
+                </p>
+                <p className="text-red-300 font-medium">
+                  {insight.aasaniAngle}
+                </p>
+                <div className="pt-2 border-t border-white/10">
+                  <a
+                    href={insight.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-neutral-500 hover:text-red-400 transition-colors inline-flex items-center gap-1"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Source: {insight.source}
+                    <iconify-icon icon="solar:arrow-right-up-linear" className="text-sm" />
+                  </a>
                 </div>
-              </div>
+              </ExpandableCard>
             </AnimatedElement>
           ))}
         </div>
+
+        {/* Tap hint */}
+        <AnimatedElement delay={0.6} className="text-center">
+          <p className="text-xs text-neutral-500 font-mono">
+            <iconify-icon icon="solar:hand-stars-linear" className="text-sm mr-1 align-middle" />
+            Tap any stat to see the research
+          </p>
+        </AnimatedElement>
       </div>
     </section>
   );
