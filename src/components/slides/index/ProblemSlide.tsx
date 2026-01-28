@@ -77,8 +77,8 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
 
         {/* Tap hint */}
         <AnimatedElement delay={0.6} className="text-center">
-          <p className="text-xs text-neutral-500 font-mono">
-            <iconify-icon icon="solar:hand-stars-linear" className="text-sm mr-1 align-middle" />
+          <p className="text-xs text-white/70 font-mono bg-black/40 backdrop-blur-sm rounded-full px-4 py-2 inline-flex items-center gap-2">
+            <iconify-icon icon="solar:hand-stars-linear" className="text-sm text-teal-300" />
             Tap any stat to see the research
           </p>
         </AnimatedElement>
