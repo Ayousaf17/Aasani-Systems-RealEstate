@@ -87,10 +87,10 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="w-full max-w-md max-h-[70vh] flex flex-col overflow-auto rounded-2xl border shadow-2xl [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] bg-neutral-900/95 backdrop-blur-xl border-slate-400/30 shadow-slate-500/10"
+              className="w-full max-w-md max-h-[70vh] flex flex-col overflow-auto rounded-2xl border shadow-2xl [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] bg-black/40 backdrop-blur-2xl border-white/20 shadow-black/20"
             >
               {/* Header with stat */}
-              <div className="relative py-6 px-6 bg-gradient-to-br from-slate-500/20 to-slate-600/5 border-b border-white/10">
+              <div className="relative py-6 px-6 bg-white/5 border-b border-white/10">
                 <div className="flex items-center justify-center gap-3">
                   <iconify-icon icon={currentInsight.icon} className="text-3xl text-slate-300" />
                   <p className="text-4xl md:text-5xl font-bold font-display text-slate-300">
@@ -162,7 +162,7 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
               </div>
 
               {/* Navigation footer */}
-              <div className="flex items-center justify-between px-5 py-4 border-t border-white/10 bg-black/20">
+              <div className="flex items-center justify-between px-5 py-4 border-t border-white/10 bg-white/5">
                 <button
                   onClick={() => setCurrentIndex((prev) => prev - 1)}
                   disabled={!hasPrev}
