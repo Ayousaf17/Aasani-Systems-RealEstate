@@ -261,12 +261,12 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
             {/* See Research button */}
             <button
               onClick={() => openViewer(0)}
-              className="w-full mt-8 py-3.5 rounded-full bg-white/10 hover:bg-white/15 border border-slate-300/30 hover:border-slate-300/50 text-white text-sm md:text-base font-display inline-flex items-center justify-center gap-2 transition-all duration-200 group"
+              className="w-full mt-8 py-3.5 rounded-full bg-white/10 hover:bg-white/15 border border-teal-300/30 hover:border-teal-300/50 text-white text-sm md:text-base font-display inline-flex items-center justify-center gap-2 transition-all duration-200 group"
             >
               See Research
               <iconify-icon
                 icon="solar:arrow-right-linear"
-                className="text-lg text-slate-300 group-hover:translate-x-0.5 transition-transform duration-200"
+                className="text-lg text-teal-300 group-hover:translate-x-0.5 transition-transform duration-200"
               />
             </button>
           </div>
