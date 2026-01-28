@@ -36,7 +36,7 @@ export const problemInsights = [
     researchTitle: 'Speed-to-Lead Reality',
     keyInsight: '78% of homebuyers work with the first agent who responds to their inquiry.',
     context: 'In a competitive market, being second means being forgotten. Every minute counts when a buyer is actively searching.',
-    aasaniAngle: 'Our instant response automation ensures you are always first - even at 2am.',
+    aasaniAngle: 'Someone reaches out at 9pm. They hear back immediately — warm, personal, YOU. You stay present at dinner. They feel cared for.',
   },
   {
     icon: 'solar:hourglass-linear',
@@ -49,7 +49,7 @@ export const problemInsights = [
     researchTitle: 'The Admin Burden',
     keyInsight: 'Top-producing agents spend 15-20 hours weekly on admin: CRM updates, follow-ups, scheduling, and transaction coordination.',
     context: 'At $100-200/hour, that is $78,000-156,000 in opportunity cost annually — time not spent with clients.',
-    aasaniAngle: 'We automate the repetitive tasks so you can focus on the work that actually requires you.',
+    aasaniAngle: 'That is time you could spend with the client who is nervous about their first offer. We handle the rest.',
   },
   {
     icon: 'solar:users-group-rounded-linear',
@@ -62,7 +62,7 @@ export const problemInsights = [
     researchTitle: 'The Follow-Up Gap',
     keyInsight: '80% of sales require 5+ follow-up contacts, but 44% of agents quit after just one.',
     context: 'The agents who persist win. But persistence is exhausting when you are doing it manually.',
-    aasaniAngle: 'Our smart follow-up sequences never forget - so you can be persistent without being present.',
+    aasaniAngle: "The system remembers so you don't have to. When they're ready, you're the one they call.",
   },
 ];
 
