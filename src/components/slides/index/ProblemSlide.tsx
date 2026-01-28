@@ -208,17 +208,17 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
         className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-6 pl-6 relative justify-start card-bg"
         style={{ backgroundImage: `url(${backgroundImages.problem})` }}
       >
-        <AnimatedElement delay={0.1} className="mb-4">
+        <AnimatedElement delay={0.1} className="mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
             02 / 05 — THE PROBLEM
           </span>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.2} className="mb-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight font-display leading-snug">
+        <AnimatedElement delay={0.2} className="mb-8 md:mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
             20 hours back every week
           </h2>
-          <p className="text-xl md:text-2xl font-display italic text-neutral-400 mt-1">
+          <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
             What would you do with them?
           </p>
         </AnimatedElement>
@@ -226,31 +226,39 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
         {/* Portal modal to body */}
         {mounted && createPortal(modalContent, document.body)}
 
-        {/* Problem List - Clean text items */}
-        <div className="flex flex-col bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden">
-          {problemInsights.map((insight, i) => (
-            <AnimatedElement key={i} delay={0.3 + i * 0.1}>
-              <button
-                onClick={() => openViewer(i)}
-                className={`w-full py-4 px-4 text-left transition-colors hover:bg-white/5 active:bg-white/10 ${
-                  i < problemInsights.length - 1 ? 'border-b border-white/10' : ''
-                }`}
-              >
-                <p className="text-white text-base leading-relaxed">{insight.keyInsight}</p>
-              </button>
-            </AnimatedElement>
-          ))}
-        </div>
+        <AnimatedElement delay={0.3}>
+          <div className="bg-black/50 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/10">
+            {/* Problem list - matching Solution slide style */}
+            <div className="flex flex-col gap-6 md:gap-7">
+              {problemInsights.map((insight, i) => (
+                <button
+                  key={i}
+                  onClick={() => openViewer(i)}
+                  className="flex gap-x-4 items-start text-left group"
+                >
+                  <iconify-icon
+                    icon={insight.icon}
+                    className="text-2xl md:text-3xl text-slate-300 shrink-0 mt-0.5 drop-shadow-md group-hover:text-slate-200 transition-colors"
+                  />
+                  <p className="text-lg md:text-xl leading-relaxed text-white font-display group-hover:text-white/90 transition-colors">
+                    {insight.keyInsight}
+                  </p>
+                </button>
+              ))}
+            </div>
 
-        {/* Tap hint - clickable to open viewer */}
-        <AnimatedElement delay={0.6} className="text-center mt-4">
-          <button
-            onClick={() => openViewer(0)}
-            className="text-xs text-white/70 font-mono bg-black/40 backdrop-blur-sm rounded-full px-4 py-2 inline-flex items-center gap-2 hover:bg-black/60 hover:text-white/90 transition-colors active:scale-95"
-          >
-            <iconify-icon icon="solar:hand-stars-linear" className="text-sm text-teal-300" />
-            Tap to see the research
-          </button>
+            {/* See Research button */}
+            <button
+              onClick={() => openViewer(0)}
+              className="w-full mt-8 py-3.5 rounded-full bg-white/10 hover:bg-white/15 border border-slate-300/30 hover:border-slate-300/50 text-white text-sm md:text-base font-display inline-flex items-center justify-center gap-2 transition-all duration-200 group"
+            >
+              See Research
+              <iconify-icon
+                icon="solar:arrow-right-linear"
+                className="text-lg text-slate-300 group-hover:translate-x-0.5 transition-transform duration-200"
+              />
+            </button>
+          </div>
         </AnimatedElement>
       </div>
     </section>
