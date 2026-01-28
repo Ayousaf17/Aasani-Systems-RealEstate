@@ -197,7 +197,7 @@ export function LeadCaptureDialog({ trigger, className, onSuccess }: LeadCapture
                         variants={itemVariants}
                         className="text-lg md:text-2xl font-bold text-white font-display mb-1 md:mb-2"
                       >
-                        The 7 Automations Checklist
+                        The 7 Systems Checklist
                       </motion.h3>
 
                       <motion.p variants={itemVariants} className="text-neutral-400 text-xs md:text-sm md:mb-6">
