@@ -27,7 +27,7 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
         {/* Main Content - Left Aligned */}
         <div className="relative z-10 flex-1 flex flex-col justify-center">
           <AnimatedElement delay={0.2}>
-            <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight font-display leading-[1.1]">
+            <h1 className="text-5xl md:text-6xl font-normal text-white tracking-tight font-display leading-[1.1]">
               Real Estate Operations
               <span className="block text-neutral-500">Streamlined</span>
             </h1>
