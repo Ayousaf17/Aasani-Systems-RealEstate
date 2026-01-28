@@ -104,15 +104,10 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
               className="w-full max-w-md max-h-[70vh] flex flex-col overflow-auto rounded-2xl border shadow-2xl [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] bg-black/40 backdrop-blur-2xl border-white/20 shadow-black/20"
             >
-              {/* Header with stat */}
-              <div className="relative py-6 px-6 bg-white/5 border-b border-white/10">
-                <div className="flex items-center justify-center gap-3">
-                  <iconify-icon icon={currentInsight.icon} className="text-3xl text-slate-300" />
-                  <p className="text-4xl md:text-5xl font-bold font-display text-slate-300">
-                    {currentInsight.value}
-                  </p>
-                </div>
-                <p className="text-center text-neutral-400 text-sm mt-2">
+              {/* Header with icon only */}
+              <div className="relative py-8 px-6 bg-white/5 border-b border-white/10 flex flex-col items-center">
+                <iconify-icon icon={currentInsight.icon} className="text-5xl md:text-6xl text-slate-300 mb-3" />
+                <p className="text-center text-xl md:text-2xl font-bold font-display text-slate-300">
                   {currentInsight.label}
                 </p>
                 {/* Progress indicator */}
