@@ -61,15 +61,10 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
         {/* Footer */}
         <AnimatedElement delay={0.5} className="relative z-10">
           <div className="border-t border-white/10 pt-4 flex justify-between items-end">
-            <div>
-              <p className="text-xs uppercase tracking-widest font-mono text-neutral-500 mb-1">
-                What We Offer
-              </p>
-              <p className="text-base font-display text-white flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-teal-300" />
-                Automation for Real Estate
-              </p>
-            </div>
+            <p className="text-base font-display text-white flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-teal-300" />
+              Automation for Real Estate
+            </p>
             <button
               onClick={() => onNavigate?.(1)}
               className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition-transform cursor-pointer shadow-lg"
