@@ -1,28 +1,12 @@
-import { useEffect } from 'react';
-import { getCalApi } from '@calcom/embed-react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
 import { backgroundImages, heroStat } from '../../../data/indexContent';
 
 interface HeroSlideProps {
   index: number;
+  onNavigate?: (delta: number) => void;
 }
 
-export function HeroSlide({ index }: HeroSlideProps) {
-  // Initialize Cal.com embed
-  useEffect(() => {
-    (async function () {
-      const cal = await getCalApi({ namespace: 'bookatime' });
-      cal('ui', {
-        cssVarsPerTheme: {
-          light: { 'cal-brand': '#14B8A6' },
-          dark: { 'cal-brand': '#2DD4BF' },
-        },
-        hideEventTypeDetails: false,
-        layout: 'week_view',
-      });
-    })();
-  }, []);
-
+export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
   return (
     <section
       className="snap-start snap-always shrink-0 flex w-full slide-height relative items-center justify-center overflow-hidden"
@@ -30,10 +14,12 @@ export function HeroSlide({ index }: HeroSlideProps) {
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col group md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-12 pr-5 pb-5 pl-5 relative shadow-2xl justify-between card-bg"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col group md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none pt-12 px-5 pb-5 relative shadow-2xl justify-between card-bg"
         style={{ backgroundImage: `url(${backgroundImages.hero})` }}
       >
-        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 md:mb-6">
+        <div className="bg-black/40 absolute inset-0" />
+
+        <AnimatedElement delay={0.1} className="relative z-10 flex justify-between items-center mb-4 md:mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
             01 / 05 — WELCOME
           </span>
@@ -46,68 +32,46 @@ export function HeroSlide({ index }: HeroSlideProps) {
           </div>
         </AnimatedElement>
 
-        {/* Centered content area */}
-        <div className="flex-1 flex flex-col z-10 relative justify-center items-center text-center">
-          {/* Icon centered */}
-          <AnimatedElement delay={0.2} className="flex bg-gradient-to-br from-teal-500/10 to-white/0 w-12 h-12 md:w-14 md:h-14 rounded-lg backdrop-blur-md border border-teal-400/20 items-center justify-center mb-6 md:mb-8">
-            <iconify-icon icon="solar:settings-minimalistic-linear" className="text-2xl md:text-3xl text-white" />
-          </AnimatedElement>
-
-          {/* Simplified headline - ONE clear value proposition (Aasani Voice) */}
-          <AnimatedElement delay={0.3}>
-            <h1 className="text-3xl md:text-4xl leading-[0.95] font-bold text-white tracking-tight font-display mb-6 md:mb-8">
-              Be the Agent Your
-              <span className="block text-teal-400">Clients Rave About</span>
+        {/* Left-aligned content - matching Page 2's bold, confident style */}
+        <div className="relative z-10 mt-auto mb-6 md:mb-12">
+          <AnimatedElement delay={0.2}>
+            <h1 className="leading-[0.9] md:mb-6 md:text-7xl text-4xl font-medium text-white tracking-tighter font-display mb-3">
+              Be the Agent
+              <span className="block text-neutral-400 tracking-tighter">
+                They Rave About
+              </span>
             </h1>
           </AnimatedElement>
 
-          {/* Subhead with breathing room */}
-          <AnimatedElement delay={0.35}>
-            <p className="text-lg md:text-xl font-light text-neutral-300 tracking-tight leading-relaxed font-display max-w-sm mb-6 md:mb-8">
-              Systems that give you your time back — so you can do the work only you can do.
+          <AnimatedElement delay={0.4} className="space-y-2">
+            <p className="md:text-base text-sm font-semibold text-teal-300 tracking-wide font-display drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
+              {heroStat.value} {heroStat.text}
             </p>
-          </AnimatedElement>
-
-          {/* Single stat callout */}
-          <AnimatedElement delay={0.4} className="mb-6 md:mb-8">
-            <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2">
-              <span className="text-teal-400 font-bold font-display">{heroStat.value}</span>
-              <span className="text-neutral-300 text-sm font-display">{heroStat.text}</span>
-            </div>
-          </AnimatedElement>
-
-          {/* CTA Button with proper spacing */}
-          <AnimatedElement delay={0.45}>
-            <button
-              data-cal-namespace="bookatime"
-              data-cal-link="ayub-yousaf-c1ijnf/bookatime"
-              data-cal-config='{"layout":"week_view"}'
-              className="group relative inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-500 transition-colors py-3 px-6 rounded-full overflow-hidden"
-            >
-              {/* Shimmer beam animation on hover */}
-              <span className="absolute inset-0 overflow-hidden rounded-full">
-                <span className="group-hover:animate-[shimmer_1.5s_infinite] group-hover:opacity-100 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 w-full h-full absolute top-0 left-0 -skew-x-12" />
-              </span>
-              <span className="relative z-10 text-sm font-semibold text-white uppercase tracking-wide">
-                Book Free Strategy Call
-              </span>
-              <iconify-icon
-                icon="solar:calendar-add-linear"
-                className="relative z-10 text-lg text-white"
-              />
-            </button>
+            <p className="leading-relaxed text-sm md:text-base text-white/90 tracking-wide font-display max-w-[90%] border-teal-400 border-l-2 pl-3 bg-black/40 py-2 pr-2 rounded-r-lg">
+              You got into real estate to help people, not to drown in admin.
+              Here's how to get your time back.
+            </p>
           </AnimatedElement>
         </div>
 
-        <AnimatedElement delay={0.5} className="space-y-6 mt-auto">
-          <div className="h-[1px] w-full bg-white/20" />
-          <div className="flex justify-between items-end">
-            <div className="flex items-center gap-3 text-xs text-neutral-400 font-mono uppercase tracking-widest">
-              <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
-              Online
+        <AnimatedElement delay={0.6} className="relative z-10 pt-4 md:pt-6 border-t border-white/10 flex justify-between items-end">
+          <div className="flex flex-col">
+            <span className="font-mono text-[10px] text-neutral-500 uppercase mb-1">
+              What We Offer
+            </span>
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-pulse" />
+              <span className="font-display text-sm md:text-base tracking-wide text-neutral-200">
+                Automation for Real Estate
+              </span>
             </div>
-            <iconify-icon icon="solar:arrow-down-linear" className="text-2xl text-white animate-bounce" />
           </div>
+          <button
+            onClick={() => onNavigate?.(1)}
+            className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition-transform cursor-pointer"
+          >
+            <iconify-icon icon="solar:arrow-right-linear" width={20} />
+          </button>
         </AnimatedElement>
       </div>
     </section>
