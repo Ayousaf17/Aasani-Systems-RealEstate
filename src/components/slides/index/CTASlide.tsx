@@ -135,12 +135,12 @@ export function CTASlide({ index }: CTASlideProps) {
 
           {/* Secondary Options */}
           <div className="flex flex-col items-center gap-6 w-full max-w-xs">
-            {/* View Automations Link */}
+            {/* View Systems Link */}
             <button
               onClick={() => navigate('/automations')}
               className="group flex items-center gap-2 text-teal-300 hover:text-teal-200 transition-colors font-medium drop-shadow-md"
             >
-              <span className="text-sm md:text-base">View the 7 Automations</span>
+              <span className="text-sm md:text-base">View the 7 Systems</span>
               <iconify-icon
                 icon="solar:arrow-right-linear"
                 className="group-hover:translate-x-1 transition-transform"
