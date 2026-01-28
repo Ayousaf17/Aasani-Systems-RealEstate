@@ -75,6 +75,7 @@ export function AutomationsCTASlide() {
             loop
             muted
             playsInline
+            poster="/automations-cta-poster.jpg"
             className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
             style={{ opacity: videoOpacity }}
           >
@@ -86,6 +87,7 @@ export function AutomationsCTASlide() {
             muted
             playsInline
             preload="metadata"
+            poster="/automations-cta-poster.jpg"
           >
             <source src="/automations-cta-bg.mp4" type="video/mp4" />
           </video>
@@ -98,10 +100,10 @@ export function AutomationsCTASlide() {
       <div className="flex flex-col z-10 h-full pt-12 px-5 pb-5 md:p-12 justify-between relative">
         <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 md:mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-white">[09/09]</span>
-          <iconify-icon icon="solar:arrow-right-up-linear" className="text-teal-400 text-lg md:hidden" />
+          <iconify-icon icon="solar:arrow-right-up-linear" className="text-teal-300 text-lg md:hidden drop-shadow-md" />
           <div className="hidden md:flex items-center gap-2">
-            <iconify-icon icon="solar:arrow-right-up-linear" className="text-teal-400 text-lg" />
-            <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
+            <iconify-icon icon="solar:arrow-right-up-linear" className="text-teal-300 text-lg drop-shadow-md" />
+            <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-300 drop-shadow-md">
               Next Steps
             </span>
           </div>
@@ -120,7 +122,7 @@ export function AutomationsCTASlide() {
               <div key={i} className="flex items-start gap-2">
                 <iconify-icon
                   icon="solar:check-circle-bold"
-                  className="text-teal-400 text-lg flex-shrink-0 mt-0.5"
+                  className="text-teal-300 text-lg flex-shrink-0 mt-0.5 drop-shadow-md"
                 />
                 <span className="text-sm md:text-base text-white font-display">
                   {item}
@@ -175,7 +177,7 @@ export function AutomationsCTASlide() {
             </p>
             <button
               onClick={() => navigate('/')}
-              className="group flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors font-medium"
+              className="group flex items-center gap-2 text-teal-300 hover:text-teal-200 transition-colors font-medium drop-shadow-md"
             >
               <iconify-icon
                 icon="solar:arrow-left-linear"
@@ -201,14 +203,14 @@ export function AutomationsCTASlide() {
                 className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
                 aria-label="Email us"
               >
-                <iconify-icon icon="lucide:mail" className="text-teal-400 text-2xl" />
+                <iconify-icon icon="lucide:mail" className="text-teal-300 text-2xl drop-shadow-md" />
               </a>
               <a
                 href={`tel:${contactLinks.phone.replace(/\D/g, '')}`}
                 className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
                 aria-label="Call us"
               >
-                <iconify-icon icon="lucide:phone" className="text-teal-400 text-2xl" />
+                <iconify-icon icon="lucide:phone" className="text-teal-300 text-2xl drop-shadow-md" />
               </a>
               <a
                 href={`https://${contactLinks.website}`}
@@ -217,7 +219,7 @@ export function AutomationsCTASlide() {
                 className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
                 aria-label="Visit our website"
               >
-                <iconify-icon icon="lucide:globe" className="text-teal-400 text-2xl" />
+                <iconify-icon icon="lucide:globe" className="text-teal-300 text-2xl drop-shadow-md" />
               </a>
             </div>
           </div>

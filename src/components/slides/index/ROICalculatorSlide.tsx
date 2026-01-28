@@ -38,7 +38,7 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
       <div
         ref={cardRef}
         onMouseMove={handleMouseMove}
-        className="h-full md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col w-full max-w-none md:max-w-xl rounded-none relative shadow-2xl card-bg md:pt-12 md:pr-12 md:pl-12 pt-12 pr-5 pb-4 pl-5"
+        className="h-full md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col w-full max-w-none md:max-w-xl rounded-none relative shadow-2xl card-bg md:p-12 px-5 pb-5 pt-12"
         style={{ backgroundImage: `url(${backgroundImages.caseStudies})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 z-0 pointer-events-none" />
@@ -53,14 +53,14 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
 
         <div className="relative z-10 flex flex-col h-full">
           {/* Header - Simplified for mobile */}
-          <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 shrink-0">
+          <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 md:mb-6 shrink-0">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
               03 / 05 — YOUR ROI
             </span>
-            <iconify-icon icon="solar:calculator-linear" className="text-teal-400 text-lg drop-shadow-md md:hidden" />
+            <iconify-icon icon="solar:calculator-linear" className="text-teal-300 text-lg drop-shadow-md md:hidden" />
             <div className="hidden md:flex items-center gap-2">
-              <iconify-icon icon="solar:calculator-linear" className="text-teal-400 text-lg drop-shadow-md" />
-              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400 drop-shadow-md">
+              <iconify-icon icon="solar:calculator-linear" className="text-teal-300 text-lg drop-shadow-md" />
+              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-300 drop-shadow-md">
                 {roiCalculatorContent.label}
               </span>
             </div>
@@ -71,19 +71,19 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-1 drop-shadow-md font-display">
               {roiCalculatorContent.title}
             </h2>
-            <p className="text-teal-400 text-base md:text-lg font-display drop-shadow-md">
+            <p className="text-teal-300 text-base md:text-lg font-display drop-shadow-md">
               {roiCalculatorContent.subtitle}
             </p>
           </AnimatedElement>
 
           {/* Results Card - MOVED UP for immediate value visibility */}
           <AnimatedElement delay={0.3} className="shrink-0 mb-6">
-            <div className="bg-black/40 backdrop-blur-sm border border-teal-400/30 rounded-xl p-5 text-center">
+            <div className="bg-black/60 backdrop-blur-sm border border-teal-300/30 rounded-xl p-5 text-center">
               <p className="text-neutral-400 text-xs mb-0.5 font-display">{roiCalculatorContent.resultLabels.hoursSaved}</p>
               <p className="text-xl font-bold text-white mb-3 font-display">{calculations.hoursSaved}+ hours/week</p>
 
               <p className="text-neutral-400 text-xs mb-0.5 font-display">{roiCalculatorContent.resultLabels.annualValue}</p>
-              <p className="text-4xl md:text-5xl font-bold text-teal-400 font-display">
+              <p className="text-4xl md:text-5xl font-bold text-teal-300 font-display drop-shadow-md">
                 ${calculations.annualSavings.toLocaleString()}
               </p>
               <p className="text-xs text-neutral-500 mt-0.5 font-mono">per year</p>
@@ -108,7 +108,7 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
                   step={roiCalculatorContent.inputs.hours.step}
                   value={hoursOnAdmin}
                   onChange={(e) => setHoursOnAdmin(Number(e.target.value))}
-                  className="w-full h-2 bg-white/10 rounded-full appearance-none cursor-pointer
+                  className="w-full h-2 bg-white/30 rounded-full appearance-none cursor-pointer
                              [&::-webkit-slider-thumb]:appearance-none
                              [&::-webkit-slider-thumb]:w-7
                              [&::-webkit-slider-thumb]:h-7
@@ -144,7 +144,7 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
                   step={roiCalculatorContent.inputs.rate.step}
                   value={hourlyValue}
                   onChange={(e) => setHourlyValue(Number(e.target.value))}
-                  className="w-full h-2 bg-white/10 rounded-full appearance-none cursor-pointer
+                  className="w-full h-2 bg-white/30 rounded-full appearance-none cursor-pointer
                              [&::-webkit-slider-thumb]:appearance-none
                              [&::-webkit-slider-thumb]:w-7
                              [&::-webkit-slider-thumb]:h-7
