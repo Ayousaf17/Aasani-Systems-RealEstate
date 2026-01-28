@@ -17,17 +17,10 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
       >
         <div className="bg-black/60 absolute inset-0" />
 
-        <AnimatedElement delay={0} className="relative z-10 flex mb-4 md:mb-6 items-center justify-between">
+        <AnimatedElement delay={0} className="relative z-10 mb-4 md:mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
-            [01/09]
+            01 / 09 — AUTOMATIONS
           </span>
-          <iconify-icon icon="solar:bolt-circle-linear" className="text-teal-300 text-lg md:hidden drop-shadow-md" />
-          <div className="hidden md:flex items-center gap-2">
-            <iconify-icon icon="solar:bolt-circle-linear" className="text-teal-300 text-lg drop-shadow-md" />
-            <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-300 drop-shadow-md">
-              AUTOMATIONS
-            </span>
-          </div>
         </AnimatedElement>
 
         <div className="relative z-10 mt-auto mb-6 md:mb-12">
