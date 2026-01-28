@@ -171,7 +171,7 @@ export function CTASlide({ index }: CTASlideProps) {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.5} className="w-full shrink-0 relative z-10 border border-teal-300/30 rounded-lg p-4 md:p-6">
+        <AnimatedElement delay={0.5} className="w-full shrink-0 relative z-10">
           {/* Questions label above the line */}
           <span className="block text-[10px] text-white font-mono uppercase tracking-widest text-center mb-3 md:mb-4">
             Questions? Reach out:
