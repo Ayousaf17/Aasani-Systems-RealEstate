@@ -24,18 +24,18 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-10 md:pr-10 md:pl-10 bg-neutral-900/50 w-full h-full max-w-none rounded-none pt-12 pr-5 pb-4 pl-5 relative justify-between card-bg"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:p-12 bg-neutral-900/50 w-full h-full max-w-none rounded-none px-5 pb-5 pt-12 relative justify-between card-bg"
         style={{ backgroundImage: `url(${backgroundImages.automations})` }}
       >
         <div>
-          <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4">
+          <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 md:mb-6">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
               02 / 05 — THE AUTOMATIONS
             </span>
-            <iconify-icon icon="solar:settings-linear" className="text-teal-400 text-lg md:hidden" />
+            <iconify-icon icon="solar:settings-linear" className="text-teal-300 text-lg md:hidden drop-shadow-md" />
             <div className="hidden md:flex items-center gap-2">
-              <iconify-icon icon="solar:settings-linear" className="text-teal-400 text-lg" />
-              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
+              <iconify-icon icon="solar:settings-linear" className="text-teal-300 text-lg drop-shadow-md" />
+              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-300 drop-shadow-md">
                 THE SAUCE
               </span>
             </div>
@@ -60,12 +60,12 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
                   statValue={details?.statValue}
                   statLabel={details?.statLabel}
                   icon={<iconify-icon icon={item.icon} className="text-xl" />}
-                  className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg px-3 py-2 hover:bg-black/60 hover:border-teal-500/30 transition-all duration-300 text-left w-full"
+                  className="bg-black/60 backdrop-blur-sm border border-white/10 rounded-lg px-3 py-2 hover:bg-black/70 hover:border-teal-500/30 transition-all duration-300 text-left w-full"
                   collapsedContent={
                     <div className="flex items-center gap-2 w-full group">
                       <iconify-icon
                         icon={item.icon}
-                        className="text-teal-400 text-base shrink-0 group-hover:scale-110 transition-transform"
+                        className="text-teal-300 text-base shrink-0 group-hover:scale-110 transition-transform drop-shadow-md"
                       />
                       <div className="flex-1 min-w-0">
                         <span className="text-white text-xs font-display font-medium block group-hover:text-teal-300 transition-colors leading-tight">
@@ -77,7 +77,7 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
                       </div>
                       <iconify-icon
                         icon="solar:add-circle-linear"
-                        className="text-teal-400/50 text-sm shrink-0"
+                        className="text-teal-300/50 text-sm shrink-0"
                       />
                     </div>
                   }
@@ -85,7 +85,7 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
                   {/* Stat context */}
                   {details?.statDescription && (
                     <p className="text-neutral-400 text-sm">
-                      <span className="text-teal-400 font-semibold">{details.statValue}</span> {details.statDescription}
+                      <span className="text-teal-300 font-semibold drop-shadow-md">{details.statValue}</span> {details.statDescription}
                     </p>
                   )}
 
@@ -107,7 +107,7 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
         <AnimatedElement delay={0.5} className="shrink-0 space-y-3">
           {/* Hint text */}
           <p className="text-center text-xs text-neutral-500 font-mono">
-            <iconify-icon icon="solar:cursor-linear" className="inline-block mr-1 text-teal-400/60" />
+            <iconify-icon icon="solar:cursor-linear" className="inline-block mr-1 text-teal-300/60" />
             Tap any automation to learn more
           </p>
 

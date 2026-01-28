@@ -50,7 +50,7 @@ export function CTASlide({ index }: CTASlideProps) {
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 md:pb-12 w-full h-full max-w-none rounded-none pt-12 pr-5 pb-3 pl-5 relative justify-between card-bg safe-area-bottom"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none px-5 pb-5 pt-12 relative justify-between card-bg safe-area-bottom"
       >
         {/* Video Background */}
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -80,14 +80,14 @@ export function CTASlide({ index }: CTASlideProps) {
         {/* Overlay */}
         <div className="absolute inset-0 z-[1] bg-black/70" />
 
-        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 relative z-10">
+        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 md:mb-6 relative z-10">
           <span className="text-xs uppercase tracking-widest font-mono text-white">
             05 / 05 — START
           </span>
-          <iconify-icon icon="solar:calendar-add-linear" className="text-teal-400 text-lg md:hidden" />
+          <iconify-icon icon="solar:calendar-add-linear" className="text-teal-300 text-lg md:hidden drop-shadow-md" />
           <div className="hidden md:flex items-center gap-2">
-            <iconify-icon icon="solar:calendar-add-linear" className="text-teal-400 text-lg" />
-            <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-400">
+            <iconify-icon icon="solar:calendar-add-linear" className="text-teal-300 text-lg drop-shadow-md" />
+            <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-300 drop-shadow-md">
               BOOK NOW
             </span>
           </div>
@@ -143,7 +143,7 @@ export function CTASlide({ index }: CTASlideProps) {
             {/* View Automations Link */}
             <button
               onClick={() => navigate('/automations')}
-              className="group flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors font-medium"
+              className="group flex items-center gap-2 text-teal-300 hover:text-teal-200 transition-colors font-medium drop-shadow-md"
             >
               <span className="text-sm md:text-base">View the 7 Automations</span>
               <iconify-icon
@@ -162,11 +162,11 @@ export function CTASlide({ index }: CTASlideProps) {
               onSuccess={() => navigate('/automations')}
               trigger={
                 <button className="group flex items-center gap-2 text-neutral-300 hover:text-white transition-colors">
-                  <iconify-icon icon="solar:document-linear" className="text-teal-400 text-lg" />
+                  <iconify-icon icon="solar:document-linear" className="text-teal-300 text-lg drop-shadow-md" />
                   <span className="text-sm md:text-base font-medium">Get the free checklist</span>
                   <iconify-icon
                     icon="solar:arrow-right-up-linear"
-                    className="text-teal-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                    className="text-teal-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform drop-shadow-md"
                     width={16}
                     height={16}
                   />
@@ -191,14 +191,14 @@ export function CTASlide({ index }: CTASlideProps) {
                 className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
                 aria-label="Email us"
               >
-                <iconify-icon icon="lucide:mail" className="text-teal-400 text-xl md:text-2xl" />
+                <iconify-icon icon="lucide:mail" className="text-teal-300 text-xl md:text-2xl drop-shadow-md" />
               </a>
               <a
                 href={`tel:${contactInfo.phone.replace(/\D/g, '')}`}
                 className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
                 aria-label="Call us"
               >
-                <iconify-icon icon="lucide:phone" className="text-teal-400 text-xl md:text-2xl" />
+                <iconify-icon icon="lucide:phone" className="text-teal-300 text-xl md:text-2xl drop-shadow-md" />
               </a>
               <a
                 href={`https://${contactInfo.website.toLowerCase()}`}
@@ -207,7 +207,7 @@ export function CTASlide({ index }: CTASlideProps) {
                 className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
                 aria-label="Visit our website"
               >
-                <iconify-icon icon="lucide:globe" className="text-teal-400 text-xl md:text-2xl" />
+                <iconify-icon icon="lucide:globe" className="text-teal-300 text-xl md:text-2xl drop-shadow-md" />
               </a>
             </div>
           </div>

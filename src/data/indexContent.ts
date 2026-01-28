@@ -78,7 +78,7 @@ export const trustStats = [
 export const industryStats = [
   {
     icon: 'solar:clock-circle-linear',
-    iconColor: 'text-teal-400',
+    iconColor: 'text-teal-300 drop-shadow-md',
     value: '21x',
     label: 'More Likely to Qualify',
     description: 'MIT Lead Response Study',
@@ -91,7 +91,7 @@ export const industryStats = [
   },
   {
     icon: 'solar:hourglass-linear',
-    iconColor: 'text-teal-400',
+    iconColor: 'text-teal-300 drop-shadow-md',
     value: '15-20',
     label: 'Hours Saved Weekly',
     description: 'NAR Technology Survey',
@@ -104,7 +104,7 @@ export const industryStats = [
   },
   {
     icon: 'solar:users-group-rounded-linear',
-    iconColor: 'text-teal-400',
+    iconColor: 'text-teal-300 drop-shadow-md',
     value: '41%',
     label: 'From Referrals & Repeat',
     description: 'NAR Member Profile',

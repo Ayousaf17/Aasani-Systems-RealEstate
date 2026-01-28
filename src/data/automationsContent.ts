@@ -12,7 +12,7 @@ export const automationsData: AutomationSlideData[] = [
     tagline: 'Always be the first to respond',
     statValue: '21x',
     statLabel: 'MORE LIKELY TO QUALIFY',
-    statDescription: 'when responding in 5 minutes vs 30. (MIT Lead Response Study)',
+    statDescription: 'when responding in 5 minutes vs 30.',
     progressPercent: 100,
     description: "Someone reaches out at 9pm while you're at dinner. They hear back right away. You stay present, they feel cared for.",
     tools: 'Tools: Twilio, Follow Up Boss, kvCORE, LionDesk, CRM + Zapier',
