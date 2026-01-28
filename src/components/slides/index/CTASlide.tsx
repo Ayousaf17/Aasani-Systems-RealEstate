@@ -80,17 +80,10 @@ export function CTASlide({ index }: CTASlideProps) {
         {/* Overlay */}
         <div className="absolute inset-0 z-[1] bg-black/70" />
 
-        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 md:mb-6 relative z-10">
+        <AnimatedElement delay={0.1} className="mb-4 md:mb-6 relative z-10">
           <span className="text-xs uppercase tracking-widest font-mono text-white">
-            05 / 05 — START
+            05 / 05 — BOOK NOW
           </span>
-          <iconify-icon icon="solar:calendar-add-linear" className="text-teal-300 text-lg md:hidden drop-shadow-md" />
-          <div className="hidden md:flex items-center gap-2">
-            <iconify-icon icon="solar:calendar-add-linear" className="text-teal-300 text-lg drop-shadow-md" />
-            <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-300 drop-shadow-md">
-              BOOK NOW
-            </span>
-          </div>
         </AnimatedElement>
 
         <AnimatedElement delay={0.2} className="mb-6 md:mb-8 relative z-10">

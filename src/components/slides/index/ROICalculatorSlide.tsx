@@ -52,18 +52,11 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
         />
 
         <div className="relative z-10 flex flex-col h-full">
-          {/* Header - Simplified for mobile */}
-          <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 md:mb-6 shrink-0">
+          {/* Header */}
+          <AnimatedElement delay={0.1} className="mb-4 md:mb-6 shrink-0">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
               04 / 05 — YOUR ROI
             </span>
-            <iconify-icon icon="solar:calculator-linear" className="text-teal-300 text-lg drop-shadow-md md:hidden" />
-            <div className="hidden md:flex items-center gap-2">
-              <iconify-icon icon="solar:calculator-linear" className="text-teal-300 text-lg drop-shadow-md" />
-              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-300 drop-shadow-md">
-                {roiCalculatorContent.label}
-              </span>
-            </div>
           </AnimatedElement>
 
           {/* Title */}
