@@ -20,17 +20,10 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
         <div className="bg-black/60 absolute inset-0" />
 
         {/* Header */}
-        <AnimatedElement delay={0.1} className="relative z-10 flex justify-between items-center mb-4 md:mb-6">
+        <AnimatedElement delay={0.1} className="relative z-10 mb-4 md:mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
-            01 / 05 — WELCOME
+            01 / 05 — HOME
           </span>
-          <iconify-icon icon="solar:home-2-linear" className="text-teal-300 text-lg md:hidden drop-shadow-md" />
-          <div className="hidden md:flex items-center gap-2">
-            <iconify-icon icon="solar:home-2-linear" className="text-teal-300 text-lg drop-shadow-md" />
-            <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-300 drop-shadow-md">
-              HOME
-            </span>
-          </div>
         </AnimatedElement>
 
         {/* Main Content - Left Aligned */}

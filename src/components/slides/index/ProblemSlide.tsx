@@ -17,16 +17,10 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
         className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-6 pl-6 relative justify-start card-bg"
         style={{ backgroundImage: `url(${backgroundImages.problem})` }}
       >
-        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
+        <AnimatedElement delay={0.1} className="mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
-            02 / 05 — THE REALITY
+            02 / 05 — THE PROBLEM
           </span>
-          <div className="flex items-center gap-2">
-            <iconify-icon icon="solar:danger-circle-linear" className="text-red-400 text-lg" />
-            <span className="font-display text-xs font-semibold uppercase tracking-widest text-red-400">
-              THE PROBLEM
-            </span>
-          </div>
         </AnimatedElement>
 
         <AnimatedElement delay={0.2} className="mb-8 md:mb-10">

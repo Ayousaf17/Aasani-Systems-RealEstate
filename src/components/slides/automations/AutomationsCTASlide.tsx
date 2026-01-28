@@ -96,15 +96,10 @@ export function AutomationsCTASlide() {
       <div className="absolute inset-0 z-[1] bg-black/70" />
 
       <div className="flex flex-col z-10 h-full pt-12 px-5 pb-5 md:p-12 justify-between relative">
-        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 md:mb-6">
-          <span className="text-xs uppercase tracking-widest font-mono text-white">[09/09]</span>
-          <iconify-icon icon="solar:arrow-right-up-linear" className="text-teal-300 text-lg md:hidden drop-shadow-md" />
-          <div className="hidden md:flex items-center gap-2">
-            <iconify-icon icon="solar:arrow-right-up-linear" className="text-teal-300 text-lg drop-shadow-md" />
-            <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-300 drop-shadow-md">
-              Next Steps
-            </span>
-          </div>
+        <AnimatedElement delay={0.1} className="mb-4 md:mb-6">
+          <span className="text-xs uppercase tracking-widest font-mono text-white">
+            09 / 09 — NEXT STEPS
+          </span>
         </AnimatedElement>
 
         <AnimatedElement delay={0.2} className="mb-6 md:mb-8">

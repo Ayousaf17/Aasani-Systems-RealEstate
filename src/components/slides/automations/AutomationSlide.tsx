@@ -20,15 +20,10 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
         style={{ backgroundImage: `url(${data.backgroundImage})` }}
       >
         <div className="flex flex-col">
-          <AnimatedElement delay={0.1} className="flex mb-3 md:mb-6 items-center justify-between">
-            <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">[{data.slideNumber}]</span>
-            <iconify-icon icon={data.icon} className={`${data.iconColor} text-lg md:hidden`} />
-            <div className="hidden md:flex items-center gap-2">
-              <iconify-icon icon={data.icon} className={`${data.iconColor} text-lg`} />
-              <span className="font-display text-xs font-semibold uppercase tracking-widest text-teal-300 drop-shadow-md">
-                {data.label}
-              </span>
-            </div>
+          <AnimatedElement delay={0.1} className="mb-3 md:mb-6">
+            <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+              {data.slideNumber.replace('/', ' / ')} — {data.label.toUpperCase()}
+            </span>
           </AnimatedElement>
 
           <AnimatedElement delay={0.3}>
