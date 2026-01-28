@@ -163,17 +163,17 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
               {/* CTA Button - Inside card */}
               <button
                 onClick={() => onNavigate?.(1)}
-                className="group flex md:py-3 overflow-hidden hover:bg-neutral-200 transition-colors cursor-pointer text-black bg-white opacity-95 w-full rounded-full py-3 relative shadow-xl gap-2 items-center justify-center mt-4"
+                className="group flex md:py-3 overflow-hidden hover:bg-white/20 transition-colors cursor-pointer text-white bg-white/10 w-full rounded-full py-3 relative shadow-xl gap-2 items-center justify-center mt-4 border border-teal-300/30 hover:border-teal-300/50"
               >
                 <span className="absolute inset-0 overflow-hidden rounded-full">
-                  <span className="group-hover:animate-[shimmer_1.5s_infinite] group-hover:opacity-100 bg-gradient-to-r from-transparent via-black/10 to-transparent opacity-0 w-full h-full absolute top-0 left-0 -skew-x-12" />
+                  <span className="group-hover:animate-[shimmer_1.5s_infinite] group-hover:opacity-100 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 w-full h-full absolute top-0 left-0 -skew-x-12" />
                 </span>
                 <span className="text-xs md:text-sm font-bold uppercase tracking-widest z-10">
                   {roiCalculatorContent.ctaText}
                 </span>
                 <iconify-icon
                   icon="solar:arrow-right-linear"
-                  className="text-xl md:text-2xl z-10 group-hover:translate-x-1 transition-transform"
+                  className="text-lg md:text-xl z-10 text-teal-300 group-hover:translate-x-1 transition-transform"
                 />
               </button>
             </div>

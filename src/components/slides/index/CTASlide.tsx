@@ -173,14 +173,14 @@ export function CTASlide({ index }: CTASlideProps) {
 
         <AnimatedElement delay={0.5} className="w-full shrink-0 relative z-10">
           {/* Questions label above the line */}
-          <span className="block text-[10px] text-white font-mono uppercase tracking-widest text-center mb-3 md:mb-4">
+          <span className="block text-[10px] text-white font-mono uppercase tracking-widest text-center mb-4 md:mb-6">
             Questions? Reach out:
           </span>
 
           {/* Footer line */}
-          <div className="w-full border-t border-white/20 pt-4 md:pt-5">
+          <div className="w-full border-t border-white/20 pt-5 md:pt-6">
             {/* Icons below the line */}
-            <div className="flex items-center justify-center gap-5 md:gap-6">
+            <div className="flex items-center justify-center gap-6 md:gap-8">
               <a
                 href={`mailto:${contactInfo.email}`}
                 className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
