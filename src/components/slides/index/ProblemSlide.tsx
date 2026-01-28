@@ -5,7 +5,22 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
 import { backgroundImages, problemInsights } from '../../../data/indexContent';
 
-// Using custom research viewer modal instead of ExpandableCard for sequential navigation
+// Pain points for display (emotional, not stat-heavy)
+// "See Research" button opens the detailed research modal
+const painPoints = [
+  {
+    icon: 'solar:clock-circle-linear',
+    text: "Leads slip through while you're with clients",
+  },
+  {
+    icon: 'solar:hourglass-linear',
+    text: 'Admin eats your evenings and weekends',
+  },
+  {
+    icon: 'solar:users-group-rounded-linear',
+    text: 'Follow-ups fall through the cracks',
+  },
+];
 
 interface ProblemSlideProps {
   index: number;
@@ -72,7 +87,7 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-black/70 backdrop-blur-md h-full w-full z-[100]"
+            className="fixed inset-0 bg-black/40 backdrop-blur-md h-full w-full z-[100]"
           />
         )}
       </AnimatePresence>
@@ -228,22 +243,18 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
 
         <AnimatedElement delay={0.3}>
           <div className="bg-black/50 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/10">
-            {/* Problem list - matching Solution slide style */}
+            {/* Pain points - emotional, not stat-heavy */}
             <div className="flex flex-col gap-6 md:gap-7">
-              {problemInsights.map((insight, i) => (
-                <button
-                  key={i}
-                  onClick={() => openViewer(i)}
-                  className="flex gap-x-4 items-start text-left group"
-                >
+              {painPoints.map((point, i) => (
+                <div key={i} className="flex gap-x-4 items-start">
                   <iconify-icon
-                    icon={insight.icon}
-                    className="text-2xl md:text-3xl text-slate-300 shrink-0 mt-0.5 drop-shadow-md group-hover:text-slate-200 transition-colors"
+                    icon={point.icon}
+                    className="text-2xl md:text-3xl text-slate-300 shrink-0 mt-0.5 drop-shadow-md"
                   />
-                  <p className="text-lg md:text-xl leading-relaxed text-white font-display group-hover:text-white/90 transition-colors">
-                    {insight.keyInsight}
+                  <p className="text-lg md:text-xl leading-relaxed text-white font-display">
+                    {point.text}
                   </p>
-                </button>
+                </div>
               ))}
             </div>
 
