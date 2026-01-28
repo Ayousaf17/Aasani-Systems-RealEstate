@@ -24,11 +24,12 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
         </AnimatedElement>
 
         <AnimatedElement delay={0.2} className="mb-8 md:mb-10">
-          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display">
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
             You didn't get into real estate
-            <br />
-            <span className="text-neutral-500 font-normal">to drown in admin</span>
           </h2>
+          <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
+            to drown in admin
+          </p>
         </AnimatedElement>
 
         {/* Research Insight Cards */}

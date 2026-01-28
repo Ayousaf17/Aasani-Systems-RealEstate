@@ -54,18 +54,18 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
         <div className="relative z-10 flex flex-col h-full">
           {/* Header */}
           <AnimatedElement delay={0.1} className="mb-4 md:mb-6 shrink-0">
-            <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
+            <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
               04 / 05 — YOUR ROI
             </span>
           </AnimatedElement>
 
           {/* Title */}
           <AnimatedElement delay={0.2} className="shrink-0 mb-4">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-1 drop-shadow-md font-display">
-              {roiCalculatorContent.title}
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white font-display leading-tight drop-shadow-md">
+              20 hours back every week
             </h2>
-            <p className="text-teal-300 text-base md:text-lg font-display drop-shadow-md">
-              {roiCalculatorContent.subtitle}
+            <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
+              What would you do with them?
             </p>
           </AnimatedElement>
 

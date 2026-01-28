@@ -6,7 +6,7 @@ import { contactLinks } from '../../../data/automationsContent';
 
 const ctaChecklist = [
   'Free 60-minute strategy call',
-  'Custom automation roadmap for your business',
+  'Your personalized system plan',
 ];
 
 export function AutomationsCTASlide() {
@@ -97,16 +97,18 @@ export function AutomationsCTASlide() {
 
       <div className="flex flex-col z-10 h-full pt-12 px-5 pb-5 md:p-12 justify-between relative">
         <AnimatedElement delay={0.1} className="mb-4 md:mb-6">
-          <span className="text-xs uppercase tracking-widest font-mono text-white">
+          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
             09 / 09 — NEXT STEPS
           </span>
         </AnimatedElement>
 
         <AnimatedElement delay={0.2} className="mb-6 md:mb-8">
-          <h2 className="text-2xl md:text-4xl font-bold text-white tracking-tight font-display">
-            Ready to Implement
-            <span className="block text-neutral-400 font-normal">These Automations?</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
+            Let's build your system
           </h2>
+          <p className="uppercase text-xs md:text-sm text-teal-300 tracking-wide font-mono mt-2">
+            BOOK A STRATEGY CALL
+          </p>
         </AnimatedElement>
 
         <AnimatedElement delay={0.3} className="flex justify-center w-full">

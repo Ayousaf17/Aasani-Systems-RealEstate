@@ -81,16 +81,18 @@ export function CTASlide({ index }: CTASlideProps) {
         <div className="absolute inset-0 z-[1] bg-black/70" />
 
         <AnimatedElement delay={0.1} className="mb-4 md:mb-6 relative z-10">
-          <span className="text-xs uppercase tracking-widest font-mono text-white">
+          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
             05 / 05 — BOOK NOW
           </span>
         </AnimatedElement>
 
         <AnimatedElement delay={0.2} className="mb-6 md:mb-8 relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display">
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
             Ready to be present
-            <span className="block text-neutral-400 font-normal">when it matters?</span>
           </h2>
+          <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
+            when it matters?
+          </p>
         </AnimatedElement>
 
         <AnimatedElement delay={0.4} className="flex-1 flex flex-col items-center justify-center gap-6 w-full relative z-10">

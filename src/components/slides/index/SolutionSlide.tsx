@@ -41,10 +41,10 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
         </AnimatedElement>
 
         <AnimatedElement delay={0.2} className="mb-8 md:mb-10">
-          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
             Systems that work
           </h2>
-          <p className="text-2xl md:text-4xl text-neutral-500 font-display tracking-tight">
+          <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
             while you don't have to
           </p>
         </AnimatedElement>

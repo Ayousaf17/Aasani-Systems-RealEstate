@@ -27,7 +27,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.3}>
-            <h2 className="text-2xl md:text-4xl text-white font-display tracking-tighter leading-tight mb-2">
+            <h2 className="text-2xl md:text-4xl font-bold text-white font-display tracking-tight leading-tight mb-2">
               <span className="md:hidden">{data.title.replace(/\n/g, ' ')}</span>
               <span className="hidden md:block">
                 {data.title.split('\n').map((line, i) => (
@@ -35,7 +35,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                 ))}
               </span>
             </h2>
-            <p className="uppercase text-xs md:text-sm text-teal-300 tracking-wide font-mono mb-3 md:mb-0 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+            <p className="uppercase text-xs md:text-sm text-teal-300 tracking-wide font-mono mb-3 md:mb-0">
               {data.tagline}
             </p>
           </AnimatedElement>
