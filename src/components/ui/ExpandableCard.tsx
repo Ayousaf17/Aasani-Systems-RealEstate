@@ -19,6 +19,8 @@ interface ExpandableCardProps {
   icon?: React.ReactNode;
   // Custom collapsed content (overrides default rendering)
   collapsedContent?: React.ReactNode;
+  // Color variant: 'solution' (teal) or 'problem' (red)
+  variant?: 'solution' | 'problem';
 }
 
 export function ExpandableCard({
@@ -32,7 +34,26 @@ export function ExpandableCard({
   statLabel,
   icon,
   collapsedContent,
+  variant = 'solution',
 }: ExpandableCardProps) {
+  // Color classes based on variant
+  const colors = variant === 'problem'
+    ? {
+        accent: 'text-red-400',
+        borderHover: 'hover:border-red-500/30',
+        headerBg: 'from-red-500/20 to-red-600/5',
+        borderExpanded: 'border-red-500/30',
+        shadow: 'shadow-red-500/10',
+        ring: 'focus-visible:ring-red-400',
+      }
+    : {
+        accent: 'text-teal-400',
+        borderHover: 'hover:border-teal-500/30',
+        headerBg: 'from-teal-500/20 to-teal-600/5',
+        borderExpanded: 'border-teal-500/30',
+        shadow: 'shadow-teal-500/10',
+        ring: 'focus-visible:ring-teal-400',
+      };
   const [active, setActive] = React.useState(false);
   const cardRef = React.useRef<HTMLDivElement>(null);
   const id = React.useId();
@@ -101,22 +122,24 @@ export function ExpandableCard({
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
               className={cn(
-                "w-full max-w-md max-h-[70vh] flex flex-col overflow-auto rounded-2xl border border-teal-500/30 shadow-2xl shadow-teal-500/10",
+                "w-full max-w-md max-h-[70vh] flex flex-col overflow-auto rounded-2xl border shadow-2xl",
                 "[scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]",
                 "bg-neutral-900/95 backdrop-blur-xl",
+                colors.borderExpanded,
+                colors.shadow,
                 classNameExpanded
               )}
             >
               {/* Header with stat */}
               {isStatCard && (
-                <div className="relative py-6 px-6 bg-gradient-to-br from-teal-500/20 to-teal-600/5 border-b border-white/10">
+                <div className={cn("relative py-6 px-6 bg-gradient-to-br border-b border-white/10", colors.headerBg)}>
                   <div className="flex items-center justify-center gap-3">
                     {icon && (
-                      <div className="text-teal-400 text-3xl">
+                      <div className={cn("text-3xl", colors.accent)}>
                         {icon}
                       </div>
                     )}
-                    <p className="text-4xl md:text-5xl font-bold text-teal-400 font-display">
+                    <p className={cn("text-4xl md:text-5xl font-bold font-display", colors.accent)}>
                       {statValue}
                     </p>
                   </div>
@@ -139,7 +162,7 @@ export function ExpandableCard({
 
                 {/* Title */}
                 <div className="pr-10 mb-4">
-                  <p className="text-teal-400 text-xs font-mono uppercase tracking-wider mb-1">
+                  <p className={cn("text-xs font-mono uppercase tracking-wider mb-1", colors.accent)}>
                     {description}
                   </p>
                   <h3 className="font-bold text-white text-xl font-display">
@@ -172,10 +195,11 @@ export function ExpandableCard({
         onClick={() => setActive(true)}
         onKeyDown={(e) => e.key === "Enter" && setActive(true)}
         className={cn(
-          "cursor-pointer transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400",
+          "cursor-pointer transition-all duration-200 focus:outline-none focus-visible:ring-2",
+          colors.ring,
           isStatCard
-            ? "bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg p-3 text-center hover:bg-black/50 hover:border-teal-500/30 active:scale-[0.98]"
-            : "p-3 flex flex-col bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-black/50 hover:border-teal-500/30 active:scale-[0.98]",
+            ? cn("bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg p-3 text-center hover:bg-black/50 active:scale-[0.98]", colors.borderHover)
+            : cn("p-3 flex flex-col bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-black/50 active:scale-[0.98]", colors.borderHover),
           active && "opacity-0",
           className
         )}
@@ -201,7 +225,7 @@ export function ExpandableCard({
                   {title}
                 </h3>
               </div>
-              <div className="h-8 w-8 shrink-0 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-teal-400">
+              <div className={cn("h-8 w-8 shrink-0 flex items-center justify-center rounded-full bg-white/5 border border-white/10", colors.accent)}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="14"
@@ -222,11 +246,11 @@ export function ExpandableCard({
         ) : isStatCard ? (
           <>
             {icon && (
-              <div className="mb-1 text-teal-400">
+              <div className={cn("mb-1", colors.accent)}>
                 {icon}
               </div>
             )}
-            <p className="text-xl md:text-2xl font-bold text-teal-400 font-display">
+            <p className={cn("text-xl md:text-2xl font-bold font-display", colors.accent)}>
               {statValue}
             </p>
             <p className="text-[10px] text-neutral-400 font-display leading-tight">
