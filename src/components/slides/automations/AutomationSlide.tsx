@@ -1,5 +1,4 @@
 import { AnimatedElement } from '../../ui/AnimatedElement';
-import { AnimatedCounter } from '../../ui/AnimatedCounter';
 import type { AutomationSlideData } from '../../../types';
 
 interface AutomationSlideProps {
@@ -47,22 +46,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
             <div className="flex items-start justify-between mb-3 md:mb-4">
               <div className="flex flex-col">
                 <span className="text-3xl md:text-4xl font-bold text-white group-hover:text-teal-300 transition-colors duration-500 tracking-tighter font-display">
-                  {(() => {
-                    // Check if value contains a range (e.g., "5-7", "5–7")
-                    const isRange = /\d+[\-–]\d+/.test(data.statValue);
-
-                    if (isRange) {
-                      // Display range values as static text
-                      return data.statValue;
-                    }
-
-                    // For single values, animate them
-                    const match = data.statValue.match(/^(\d+(?:\.\d+)?)/);
-                    const numValue = match ? parseFloat(match[0]) : 0;
-                    const suffix = match ? data.statValue.substring(match[0].length).trim() : data.statValue;
-                    // Increase duration to account for CSS animation delay (0.5s)
-                    return <AnimatedCounter from={0} to={numValue} duration={1700} suffix={suffix} decimals={0} />;
-                  })()}
+                  {data.statValue}
                 </span>
                 <span className="text-xs md:text-sm text-teal-300 group-hover:text-teal-200 transition-colors duration-500 font-mono mt-1 tracking-wider">
                   {data.statLabel}
