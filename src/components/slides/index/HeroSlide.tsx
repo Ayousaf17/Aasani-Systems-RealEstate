@@ -17,6 +17,8 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
         className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col group md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none pt-12 px-5 pb-20 md:pb-5 relative shadow-2xl justify-between card-bg z-[60]"
         style={{ backgroundImage: `url(${backgroundImages.hero})` }}
       >
+        {/* Bottom fade gradient - visual hierarchy for mobile */}
+        <div className="absolute bottom-0 left-0 right-0 h-20 md:h-0 bg-gradient-to-t from-black via-black/40 to-transparent z-20 pointer-events-none md:hidden" />
         {/* Header */}
         <AnimatedElement delay={0.1} className="relative z-10 mb-4 md:mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">

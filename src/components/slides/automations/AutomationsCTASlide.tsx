@@ -142,7 +142,7 @@ export function AutomationsCTASlide() {
               className="group relative z-10 flex items-center justify-center overflow-hidden rounded-full p-[1px] leading-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)]" />
-              <span className="relative flex h-full w-full items-center rounded-full bg-black py-3 px-6 md:py-4 md:px-8 ring-1 ring-white/10">
+              <span className="relative flex h-full w-full items-center rounded-full bg-black py-4 px-6 md:py-4 md:px-8 ring-1 ring-white/10 min-h-[44px]">
                 <span className="absolute inset-0 overflow-hidden rounded-full">
                   <span className="group-hover:animate-[shimmer_1.5s_infinite] group-hover:opacity-100 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 w-full h-full absolute top-0 left-0 -skew-x-12" />
                 </span>

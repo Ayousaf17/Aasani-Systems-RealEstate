@@ -55,7 +55,7 @@ export function BottomNav() {
   return (
     <>
       {/* Mobile Bottom Nav (<768px) */}
-      <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden border-t border-white/10 backdrop-blur-xl bg-black/80 safe-area-bottom">
+      <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden border-t border-white/20 backdrop-blur-2xl bg-black/90 safe-area-bottom shadow-lg shadow-black/50">
         <div className="flex items-center justify-around h-16">
           {navItems.map((item) => {
             const active = isActive(item.path);

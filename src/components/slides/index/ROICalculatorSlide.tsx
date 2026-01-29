@@ -47,6 +47,8 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
         className="h-full md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col w-full max-w-none md:max-w-xl rounded-none relative shadow-2xl card-bg md:p-12 px-5 pb-20 md:pb-5 pt-12 z-[60]"
         style={{ backgroundImage: `url(${backgroundImages.caseStudies})` }}
       >
+        {/* Bottom fade gradient - visual hierarchy for mobile */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 md:h-0 bg-gradient-to-t from-black via-black/50 to-transparent z-20 pointer-events-none md:hidden" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 z-0 pointer-events-none" />
 
         {/* Flashlight effect overlay - desktop only */}
@@ -174,7 +176,7 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
               {/* CTA Button - Inside card */}
               <button
                 onClick={() => onNavigate?.(1)}
-                className="group flex md:py-3 overflow-hidden hover:bg-white/20 transition-colors cursor-pointer text-white bg-white/10 w-full rounded-full py-3 relative shadow-xl gap-2 items-center justify-center mt-4 border border-teal-300/30 hover:border-teal-300/50"
+                className="group flex md:py-3 overflow-hidden hover:bg-white/20 transition-colors cursor-pointer text-white bg-white/10 w-full rounded-full py-4 md:py-3 relative shadow-xl gap-2 items-center justify-center mt-4 border border-teal-300/30 hover:border-teal-300/50 min-h-[44px]"
               >
                 <span className="absolute inset-0 overflow-hidden rounded-full">
                   <span className="group-hover:animate-[shimmer_1.5s_infinite] group-hover:opacity-100 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 w-full h-full absolute top-0 left-0 -skew-x-12" />
