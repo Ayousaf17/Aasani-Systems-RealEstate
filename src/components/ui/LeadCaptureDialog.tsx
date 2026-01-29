@@ -469,7 +469,7 @@ export function LeadCaptureDialog({ trigger, className, onSuccess }: LeadCapture
                 onClick={handleClose}
                 className="relative w-full group flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-400 text-black font-semibold py-3 px-6 rounded-xl transition-colors"
               >
-                <span>Explore the 7 Automations</span>
+                <span>Explore the 7 Systems</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </motion.button>
 
@@ -479,7 +479,7 @@ export function LeadCaptureDialog({ trigger, className, onSuccess }: LeadCapture
                 transition={{ delay: 0.5 }}
                 className="relative mt-4 text-xs text-neutral-500"
               >
-                See exactly what gets automated
+                See how systems transform your business
               </motion.p>
             </motion.div>
           )}
