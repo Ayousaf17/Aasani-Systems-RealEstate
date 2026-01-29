@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getCalApi } from '@calcom/embed-react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
+import { LeadCaptureDialog } from '../../ui/LeadCaptureDialog';
 import { contactLinks } from '../../../data/automationsContent';
 
 const ctaChecklist = [
@@ -165,11 +166,28 @@ export function AutomationsCTASlide() {
             <div className="flex-1 h-px bg-white/30" />
           </div>
 
-          {/* Secondary CTA */}
-          <div className="flex flex-col items-center gap-3">
-            <p className="text-sm md:text-base text-neutral-300 text-center font-display">
-              See the full picture first
-            </p>
+          {/* Secondary Options */}
+          <div className="flex flex-col items-center gap-6 w-full max-w-xs">
+            {/* Get Checklist - Opens Dialog */}
+            <LeadCaptureDialog
+              trigger={
+                <button className="group flex items-center gap-2 text-neutral-300 hover:text-white transition-colors">
+                  <iconify-icon icon="solar:document-linear" className="text-teal-300 text-lg drop-shadow-md" />
+                  <span className="text-sm md:text-base font-medium">Get the free checklist</span>
+                  <iconify-icon
+                    icon="solar:arrow-right-up-linear"
+                    className="text-teal-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform drop-shadow-md"
+                    width={16}
+                    height={16}
+                  />
+                </button>
+              }
+            />
+
+            {/* Visual separator */}
+            <div className="w-12 h-px bg-white/20" />
+
+            {/* Back to Overview Link */}
             <button
               onClick={() => navigate('/')}
               className="group flex items-center gap-2 text-teal-300 hover:text-teal-200 transition-colors font-medium"
