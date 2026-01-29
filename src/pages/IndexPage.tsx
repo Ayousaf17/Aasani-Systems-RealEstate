@@ -3,6 +3,7 @@ import { VerticalScroller } from '../components/layout/VerticalScroller';
 import type { VerticalScrollerRef } from '../components/layout/VerticalScroller';
 import { Header } from '../components/navigation/Header';
 import { NavigationDots } from '../components/navigation/NavigationDots';
+import { BottomNav } from '../components/navigation/BottomNav';
 import { HeroSlide } from '../components/slides/index/HeroSlide';
 import { ProblemSlide } from '../components/slides/index/ProblemSlide';
 import { SolutionSlide } from '../components/slides/index/SolutionSlide';
@@ -31,6 +32,7 @@ export function IndexPage() {
         onDotClick={handleDotClick}
         direction="vertical"
       />
+      <BottomNav />
 
       <VerticalScroller
         ref={scrollerRef}
