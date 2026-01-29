@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
 @import './styles/animations.css';
 @import './styles/patterns.css';
 @import './styles/utilities.css';
@@ -8,6 +9,7 @@
   --font-display: 'Space Grotesk', system-ui, sans-serif;
   --font-heading: 'Space Grotesk', system-ui, sans-serif;
   --font-body: 'Space Grotesk', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', serif;
 
   --color-aasani-black: #111212;
   --color-aasani-black-soft: #141413;
@@ -32,4 +34,40 @@ body::-webkit-scrollbar {
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Enhanced Stat Card Styling */
+.stat-card-enhanced {
+  @apply relative border-l-4 border-teal-300/60 hover:border-teal-300 transition-all duration-300;
+}
+
+.stat-card-enhanced:hover {
+  @apply shadow-lg;
+  box-shadow: 0 0 20px rgba(45, 212, 191, 0.2);
+}
+
+/* Button Glow Effect */
+.btn-glow {
+  @apply transition-all duration-300;
+  box-shadow: 0 0 20px rgba(45, 212, 191, 0.4);
+}
+
+.btn-glow:hover {
+  @apply scale-105;
+  box-shadow: 0 0 40px rgba(45, 212, 191, 0.8);
+}
+
+.btn-glow:active {
+  @apply scale-95;
+}
+
+/* ROI Calculator Dynamic Background */
+.roi-calculator-dynamic {
+  transition: background 0.3s ease;
+}
+
+/* Display Typography */
+.font-serif {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: -0.02em;
 }

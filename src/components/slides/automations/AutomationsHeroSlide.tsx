@@ -25,7 +25,7 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
 
         <div className="relative z-10 mt-auto mb-6 md:mb-12">
           <AnimatedElement delay={0.2}>
-            <h1 className="text-6xl md:text-7xl font-medium text-white tracking-tight font-display leading-none">
+            <h1 className="text-6xl md:text-7xl font-bold text-white tracking-tight font-serif leading-none">
               The 7 Core Systems
             </h1>
             <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
@@ -55,7 +55,7 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
           </div>
           <button
             onClick={onNextSlide}
-            className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition-transform cursor-pointer"
+            className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white text-black flex items-center justify-center hover:scale-110 transition-all cursor-pointer btn-glow"
           >
             <iconify-icon icon="solar:arrow-right-linear" width={20} />
           </button>
