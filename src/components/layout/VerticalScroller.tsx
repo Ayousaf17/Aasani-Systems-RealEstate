@@ -37,6 +37,7 @@ export const VerticalScroller = forwardRef<VerticalScrollerRef, VerticalScroller
           overscrollBehavior: 'none',
           scrollSnapStop: 'always',
           WebkitOverflowScrolling: 'touch',
+          scrollPaddingBottom: '96px',
         }}
       >
         {children}

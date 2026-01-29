@@ -16,7 +16,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/80 to-[#0A0A0A] z-0" />
 
       <div
-        className="flex flex-col md:p-12 z-10 h-full pt-12 px-5 pb-24 md:pb-5 relative justify-between card-bg"
+        className="flex flex-col md:p-12 z-10 h-full pt-12 px-5 pb-5 relative justify-between card-bg"
         style={{ backgroundImage: `url(${data.backgroundImage})` }}
       >
         <div className="flex flex-col">
