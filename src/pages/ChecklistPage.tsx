@@ -99,7 +99,7 @@ export function ChecklistPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white pb-12 md:pb-16 md:pt-20 safe-area-bottom">
+    <div className="min-h-screen bg-[#0a0a0a] text-white pb-12 md:pb-16 pt-14 md:pt-20">
       <BottomNav />
 
       {/* Content */}

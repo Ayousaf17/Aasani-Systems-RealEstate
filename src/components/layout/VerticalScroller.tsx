@@ -6,6 +6,7 @@ interface VerticalScrollerProps {
   children: ReactNode;
   totalSlides: number;
   onIndexChange?: (index: number) => void;
+  className?: string;
 }
 
 export interface VerticalScrollerRef {
@@ -14,7 +15,7 @@ export interface VerticalScrollerRef {
 }
 
 export const VerticalScroller = forwardRef<VerticalScrollerRef, VerticalScrollerProps>(
-  ({ children, totalSlides, onIndexChange }, ref) => {
+  ({ children, totalSlides, onIndexChange, className = '' }, ref) => {
     const { containerRef, currentIndex, scrollToSlide, navigateSlide } = useScrollNavigation({
       direction: 'vertical',
       totalSlides,
@@ -32,12 +33,11 @@ export const VerticalScroller = forwardRef<VerticalScrollerRef, VerticalScroller
     return (
       <main
         ref={containerRef as React.RefObject<HTMLElement>}
-        className="overflow-y-scroll overflow-x-hidden snap-y snap-mandatory scroll-smooth w-full h-full scrollbar-hide"
+        className={`overflow-y-scroll overflow-x-hidden snap-y snap-mandatory scroll-smooth w-full h-full scrollbar-hide ${className}`}
         style={{
           overscrollBehavior: 'none',
           scrollSnapStop: 'always',
           WebkitOverflowScrolling: 'touch',
-          scrollPaddingBottom: '96px',
         }}
       >
         {children}
