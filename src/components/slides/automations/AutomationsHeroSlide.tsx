@@ -15,7 +15,7 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
         className="flex flex-col z-10 md:p-12 h-full pt-12 px-5 pb-5 relative card-bg"
         style={{ backgroundImage: `url(${automationsHeroBackground})` }}
       >
-        <div className="bg-black/60 absolute inset-0" />
+        <div className="bg-black/20 absolute inset-0" />
 
         <AnimatedElement delay={0} className="relative z-10 mb-4 md:mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
