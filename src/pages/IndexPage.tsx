@@ -37,7 +37,7 @@ export function IndexPage() {
         totalSlides={TOTAL_INDEX_SLIDES}
         onIndexChange={setCurrentIndex}
       >
-        <HeroSlide index={0} />
+        <HeroSlide index={0} onNavigate={handleNavigate} />
         <ProblemSlide index={1} />
         <SolutionSlide index={2} />
         <ROICalculatorSlide index={3} onNavigate={handleNavigate} />
