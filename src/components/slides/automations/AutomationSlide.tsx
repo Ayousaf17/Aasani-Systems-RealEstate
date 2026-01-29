@@ -75,7 +75,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
               {data.description}
             </p>
             <div className="border-t border-teal-500/50 pt-2">
-              <p className="text-xs md:text-xs uppercase text-teal-300 tracking-widest font-mono [text-indent:-2.5ch] [padding-left:2.5ch]">
+              <p className="text-xs md:text-xs uppercase text-teal-300 tracking-widest font-mono [text-indent:-7ch] [padding-left:7ch]">
                 {data.tools}
               </p>
             </div>
