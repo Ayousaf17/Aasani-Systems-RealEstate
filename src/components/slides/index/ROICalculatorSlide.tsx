@@ -20,6 +20,12 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
     return { hoursSaved, annualSavings };
   }, [hoursOnAdmin, hourlyValue]);
 
+  // Calculate dynamic background color shift based on slider values
+  const colorShiftPercent = ((hoursOnAdmin - roiCalculatorContent.inputs.hours.min) /
+    (roiCalculatorContent.inputs.hours.max - roiCalculatorContent.inputs.hours.min)) * 100;
+
+  const hueShift = 180 + (colorShiftPercent / 100) * 30; // Shift from 180° (cyan) to 210° (blue)
+
   // Flashlight effect handler
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -71,7 +77,12 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
 
           {/* Results Card - Contains results, sliders, and CTA */}
           <AnimatedElement delay={0.3} className="flex-1 flex flex-col">
-            <div className="bg-black/60 backdrop-blur-sm border border-teal-300/30 rounded-xl p-5 flex flex-col flex-1">
+            <div
+              className="backdrop-blur-sm border border-teal-300/30 rounded-xl p-5 flex flex-col flex-1 transition-colors duration-300 roi-calculator-dynamic"
+              style={{
+                background: `linear-gradient(135deg, hsla(${hueShift}, 70%, 15%, 0.6), hsla(200, 70%, 15%, 0.6))`,
+              }}
+            >
               {/* Results Display */}
               <div className="text-center mb-4">
                 <p className="text-neutral-400 text-xs mb-0.5 font-display">{roiCalculatorContent.resultLabels.hoursSaved}</p>
