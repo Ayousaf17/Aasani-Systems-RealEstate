@@ -50,7 +50,7 @@ export function CTASlide({ index }: CTASlideProps) {
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none px-5 pb-5 md:pb-5 pt-12 relative justify-between card-bg safe-area-bottom z-[60]"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none px-5 pb-20 md:pb-5 pt-12 relative justify-between card-bg safe-area-bottom z-[60]"
       >
         {/* Video Background */}
         <div className="absolute inset-0 z-0 overflow-hidden">

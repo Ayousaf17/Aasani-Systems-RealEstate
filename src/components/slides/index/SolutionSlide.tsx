@@ -31,7 +31,7 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-6 pl-6 relative justify-start card-bg z-[60]"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-16 pr-6 pb-20 md:pb-6 pl-6 relative justify-start card-bg z-[60]"
         style={{ backgroundImage: `url(${backgroundImages.solution})` }}
       >
         <AnimatedElement delay={0.1} className="mb-6">
