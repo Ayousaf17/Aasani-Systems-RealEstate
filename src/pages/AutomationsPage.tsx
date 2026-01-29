@@ -54,7 +54,7 @@ export function AutomationsPage() {
         ref={scrollerRef}
         totalSlides={TOTAL_AUTOMATIONS_SLIDES}
         onIndexChange={setCurrentIndex}
-        className="pt-16 md:pt-20 pb-20 md:pb-0 safe-area-bottom"
+        className="pt-16 md:pt-20 pb-0 md:pb-0 safe-area-bottom"
       >
         <AutomationsHeroSlide onNextSlide={() => scrollerRef.current?.scrollToSlide(1)} />
         {automationsData.map((data, i) => (
