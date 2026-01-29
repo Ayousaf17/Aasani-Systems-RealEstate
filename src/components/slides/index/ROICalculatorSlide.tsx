@@ -104,7 +104,7 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
                     step={roiCalculatorContent.inputs.hours.step}
                     value={hoursOnAdmin}
                     onChange={(e) => setHoursOnAdmin(Number(e.target.value))}
-                    className="w-full h-2 bg-white/20 rounded-full appearance-none cursor-pointer
+                    className="w-full h-3 bg-white/40 rounded-full appearance-none cursor-pointer
                                [&::-webkit-slider-thumb]:appearance-none
                                [&::-webkit-slider-thumb]:w-6
                                [&::-webkit-slider-thumb]:h-6
@@ -138,7 +138,7 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
                     step={roiCalculatorContent.inputs.rate.step}
                     value={hourlyValue}
                     onChange={(e) => setHourlyValue(Number(e.target.value))}
-                    className="w-full h-2 bg-white/20 rounded-full appearance-none cursor-pointer
+                    className="w-full h-3 bg-white/40 rounded-full appearance-none cursor-pointer
                                [&::-webkit-slider-thumb]:appearance-none
                                [&::-webkit-slider-thumb]:w-6
                                [&::-webkit-slider-thumb]:h-6
