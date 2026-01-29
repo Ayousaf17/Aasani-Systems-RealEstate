@@ -47,7 +47,12 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
             <div className="flex items-start justify-between mb-3 md:mb-4">
               <div className="flex flex-col">
                 <span className="text-3xl md:text-4xl font-bold text-white group-hover:text-teal-300 transition-colors duration-500 tracking-tighter font-display">
-                  <AnimatedCounter from={0} to={parseFloat(data.statValue.replace(/[^0-9.]/g, ''))} duration={1200} suffix={data.statValue.replace(/[0-9.]/g, '')} decimals={0} />
+                  {(() => {
+                    const match = data.statValue.match(/^(\d+(?:\.\d+)?)/);
+                    const numValue = match ? parseFloat(match[0]) : 0;
+                    const suffix = match ? data.statValue.substring(match[0].length).trim() : data.statValue;
+                    return <AnimatedCounter from={0} to={numValue} duration={1200} suffix={suffix} decimals={0} />;
+                  })()}
                 </span>
                 <span className="text-xs md:text-sm text-teal-300 group-hover:text-teal-200 transition-colors duration-500 font-mono mt-1 tracking-wider">
                   {data.statLabel}
