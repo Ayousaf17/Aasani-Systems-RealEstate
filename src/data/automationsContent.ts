@@ -15,7 +15,7 @@ export const automationsData: AutomationSlideData[] = [
     statDescription: 'when responding in 5 minutes vs 30.',
     progressPercent: 100,
     description: "Someone reaches out at 9pm while you're at dinner. They hear back right away. You stay present, they feel cared for.",
-    tools: 'Tools: Twilio, Follow Up Boss, kvCORE, LionDesk, CRM + Zapier',
+    tools: 'Tools: Twilio, Follow Up Boss, kvCORE, LionDesk, CRM, Zapier',
     backgroundImage: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/5833cd3e-4d17-4ecb-bfa4-cb530767ba0f_1600w.webp',
   },
   {
