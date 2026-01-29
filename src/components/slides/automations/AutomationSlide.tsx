@@ -48,6 +48,15 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
               <div className="flex flex-col">
                 <span className="text-3xl md:text-4xl font-bold text-white group-hover:text-teal-300 transition-colors duration-500 tracking-tighter font-display">
                   {(() => {
+                    // Check if value contains a range (e.g., "5-7", "5–7")
+                    const isRange = /\d+[\-–]\d+/.test(data.statValue);
+
+                    if (isRange) {
+                      // Display range values as static text
+                      return data.statValue;
+                    }
+
+                    // For single values, animate them
                     const match = data.statValue.match(/^(\d+(?:\.\d+)?)/);
                     const numValue = match ? parseFloat(match[0]) : 0;
                     const suffix = match ? data.statValue.substring(match[0].length).trim() : data.statValue;
