@@ -60,7 +60,8 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                     const match = data.statValue.match(/^(\d+(?:\.\d+)?)/);
                     const numValue = match ? parseFloat(match[0]) : 0;
                     const suffix = match ? data.statValue.substring(match[0].length).trim() : data.statValue;
-                    return <AnimatedCounter from={0} to={numValue} duration={1200} suffix={suffix} decimals={0} />;
+                    // Increase duration to account for CSS animation delay (0.5s)
+                    return <AnimatedCounter from={0} to={numValue} duration={1700} suffix={suffix} decimals={0} />;
                   })()}
                 </span>
                 <span className="text-xs md:text-sm text-teal-300 group-hover:text-teal-200 transition-colors duration-500 font-mono mt-1 tracking-wider">
