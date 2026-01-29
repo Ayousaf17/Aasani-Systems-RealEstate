@@ -15,7 +15,7 @@ export const automationsData: AutomationSlideData[] = [
     statDescription: 'when responding in 5 minutes vs 30.',
     progressPercent: 100,
     description: "Someone reaches out at 9pm while you're at dinner. They hear back right away. You stay present, they feel cared for.",
-    tools: 'Tools: Twilio, Follow Up Boss, kvCORE, LionDesk, CRM, Zapier',
+    tools: 'Tools: Twilio, Follow Up Boss, kvCORE, LionDesk, CRM, Zapier, and more',
     backgroundImage: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/5833cd3e-4d17-4ecb-bfa4-cb530767ba0f_1600w.webp',
   },
   {
@@ -30,7 +30,7 @@ export const automationsData: AutomationSlideData[] = [
     statDescription: "by focusing only on qualified leads.",
     progressPercent: 67,
     description: 'Stop spreading yourself thin on everyone. Know who needs you NOW so you can give them the attention they deserve.',
-    tools: 'Tools: Real Geeks, BoldTrail, Lofty, custom CRM scoring',
+    tools: 'Tools: Real Geeks, BoldTrail, Lofty, custom CRM scoring, and more',
     backgroundImage: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/28c300b5-bd2f-449c-a915-f968ced09242_1600w.webp',
   },
   {
@@ -45,7 +45,7 @@ export const automationsData: AutomationSlideData[] = [
     statDescription: 'require 5+ follow-ups and most agents stop after 2.',
     progressPercent: 80,
     description: "Some people need time before they're ready. This keeps the relationship warm. When they ARE ready, you're the one they call.",
-    tools: 'Tools: Wise Agent, Follow Up Boss, CINC, Market Leader, HubSpot',
+    tools: 'Tools: Wise Agent, Follow Up Boss, CINC, Market Leader, HubSpot, and more',
     backgroundImage: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e5a1f416-a865-4aed-8dc3-01f47f1411d8_1600w.webp',
   },
   {
@@ -60,7 +60,7 @@ export const automationsData: AutomationSlideData[] = [
     statDescription: 'on scheduling and follow-up coordination.',
     progressPercent: 60,
     description: 'Clients book when it works, get gentle reminders, and actually show up. You get your evenings back.',
-    tools: 'Tools: Calendly, Acuity Scheduling, ShowingTime, Zillow Showing Manager',
+    tools: 'Tools: Calendly, Acuity Scheduling, ShowingTime, Zillow Showing Manager, and more',
     backgroundImage: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e447375c-3ed0-4923-a1dd-34dc0c311246_1600w.webp',
   },
   {
@@ -75,7 +75,7 @@ export const automationsData: AutomationSlideData[] = [
     statDescription: 'tracked automatically so nothing falls through the cracks.',
     progressPercent: 100,
     description: "30+ things happen between offer and close. This tracks every one so nothing slips and you never chase paperwork.",
-    tools: 'Tools: Skyslope, Dotloop, Transaction Desk, Brokermint',
+    tools: 'Tools: Skyslope, Dotloop, Transaction Desk, Brokermint, and more',
     backgroundImage: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/57db1b72-80c1-4608-bb68-3a0d7b7dc2ad_1600w.webp',
   },
   {
@@ -90,7 +90,7 @@ export const automationsData: AutomationSlideData[] = [
     statDescription: 'from personalized emails vs generic newsletters.',
     progressPercent: 100,
     description: "Your past clients trusted you with one of the biggest decisions of their lives. Stay in their world. When someone asks 'know a good agent?' your name comes up.",
-    tools: 'Tools: Mailchimp, Constant Contact, Real Geeks marketing suite, Follow Up Boss',
+    tools: 'Tools: Mailchimp, Constant Contact, Real Geeks marketing suite, Follow Up Boss, and more',
     backgroundImage: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/5a6af9b6-b3cd-4249-882f-5f2827b577f9_1600w.jpg',
   },
   {
@@ -105,7 +105,7 @@ export const automationsData: AutomationSlideData[] = [
     statDescription: 'comes from referrals.',
     progressPercent: 41,
     description: 'The right check-ins at the right moments after closing. Reviews and referrals come naturally because the relationship was nurtured.',
-    tools: 'Tools: BirdEye, Podium, GatherUp, built-in CRM review features',
+    tools: 'Tools: BirdEye, Podium, GatherUp, built-in CRM review features, and more',
     backgroundImage: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/fb2aee34-64cb-4040-867f-e6ea29394e32_1600w.webp',
   },
 ];
