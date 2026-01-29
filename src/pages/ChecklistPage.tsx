@@ -1,6 +1,6 @@
-import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getCalApi } from '@calcom/embed-react';
+import { BottomNav } from '../components/navigation/BottomNav';
 
 const checklistItems = [
   {
@@ -84,8 +84,6 @@ const scoreGuide = [
 ];
 
 export function ChecklistPage() {
-  const navigate = useNavigate();
-
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({ namespace: 'bookatime' });
@@ -101,27 +99,8 @@ export function ChecklistPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
-      {/* Header */}
-      <header className="border-b border-white/10 sticky top-0 bg-[#0a0a0a]/95 backdrop-blur-sm z-50">
-        <div className="max-w-3xl mx-auto px-5 py-4 flex items-center justify-between">
-          <button
-            onClick={() => navigate('/')}
-            className="flex items-center gap-2 text-white hover:text-teal-300 transition-colors"
-          >
-            <iconify-icon icon="solar:arrow-left-linear" width={20} />
-            <span className="text-sm font-medium">Back to Home</span>
-          </button>
-          <a
-            href="https://aasani.ai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-teal-300 hover:text-teal-200 transition-colors"
-          >
-            <iconify-icon icon="solar:home-2-linear" width={24} />
-          </a>
-        </div>
-      </header>
+    <div className="min-h-screen bg-[#0a0a0a] text-white pb-16 md:pt-20">
+      <BottomNav />
 
       {/* Content */}
       <main className="max-w-3xl mx-auto px-5 py-12 md:py-16">
