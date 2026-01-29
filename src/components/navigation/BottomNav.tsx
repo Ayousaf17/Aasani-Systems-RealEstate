@@ -55,7 +55,7 @@ export function BottomNav() {
   return (
     <>
       {/* Mobile Bottom Nav (<768px) */}
-      <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden border-t border-white/10 backdrop-blur-xl bg-black/80 safe-area-bottom">
+      <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden border-t border-white/20 backdrop-blur-2xl bg-black/90 safe-area-bottom shadow-lg shadow-black/50">
         <div className="flex items-center justify-around h-16">
           {navItems.map((item) => {
             const active = isActive(item.path);
@@ -90,9 +90,9 @@ export function BottomNav() {
         </div>
       </nav>
 
-      {/* Desktop Top Nav (≥768px) */}
-      <nav className="hidden md:fixed md:top-0 md:left-0 md:right-0 md:z-50 md:flex md:h-16 md:border-b md:border-white/10 md:backdrop-blur-xl md:bg-black/80 md:safe-area-top md:items-center md:justify-between md:px-8">
-        <div className="flex items-center justify-center gap-8">
+      {/* Desktop Top Nav (≥768px) - Centered Floating Pill */}
+      <nav className="hidden md:fixed md:top-6 md:left-1/2 md:-translate-x-1/2 md:z-50 md:flex md:w-auto md:gap-6 md:px-6 md:py-3 md:rounded-full md:border md:border-white/10 md:backdrop-blur-xl md:bg-black/60 md:shadow-2xl md:shadow-black/20 md:items-center">
+        <div className="flex items-center justify-center gap-6">
           {navItems.map((item) => {
             const active = isActive(item.path);
             return (

@@ -99,7 +99,7 @@ export function ChecklistPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white pb-16 md:pt-20">
+    <div className="min-h-screen bg-[#0a0a0a] text-white pb-12 md:pb-16 md:pt-20 safe-area-bottom">
       <BottomNav />
 
       {/* Content */}
@@ -204,7 +204,7 @@ export function ChecklistPage() {
             data-cal-namespace="bookatime"
             data-cal-link="ayub-yousaf-c1ijnf/bookatime"
             data-cal-config='{"layout":"week_view"}'
-            className="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-400 text-black font-semibold py-3 px-6 rounded-full transition-colors"
+            className="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-400 text-black font-semibold py-4 px-6 rounded-full transition-colors min-h-[44px]"
           >
             Book Your Free Strategy Call
             <iconify-icon icon="solar:calendar-add-linear" width={20} />

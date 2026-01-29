@@ -50,8 +50,10 @@ export function CTASlide({ index }: CTASlideProps) {
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none px-5 pb-20 md:pb-5 pt-12 relative justify-between card-bg safe-area-bottom"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none px-5 pb-20 md:pb-5 pt-12 relative justify-between card-bg safe-area-bottom z-[60]"
       >
+        {/* Bottom fade gradient - visual hierarchy for mobile */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 md:h-0 bg-gradient-to-t from-black via-black/50 to-transparent z-20 pointer-events-none md:hidden" />
         {/* Video Background */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           {!prefersReducedMotion ? (
@@ -109,7 +111,7 @@ export function CTASlide({ index }: CTASlideProps) {
               className="group relative z-10 flex items-center justify-center overflow-hidden rounded-full p-[1px] leading-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)]" />
-              <span className="relative flex h-full w-full items-center rounded-full bg-black py-3 px-6 md:py-4 md:px-8 ring-1 ring-white/10">
+              <span className="relative flex h-full w-full items-center rounded-full bg-black py-4 px-6 md:py-4 md:px-8 ring-1 ring-white/10 min-h-[44px]">
                 <span className="absolute inset-0 overflow-hidden rounded-full">
                   <span className="group-hover:animate-[shimmer_1.5s_infinite] group-hover:opacity-100 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 w-full h-full absolute top-0 left-0 -skew-x-12" />
                 </span>
