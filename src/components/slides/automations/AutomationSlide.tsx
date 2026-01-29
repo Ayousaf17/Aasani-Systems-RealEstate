@@ -9,7 +9,7 @@ interface AutomationSlideProps {
 export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
   return (
     <section
-      className="slide-container flex-shrink-0 bg-[#0A0A0A] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center"
+      className="slide-container flex-shrink-0 bg-[#0A0A0A] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center z-[60]"
       id={`slide-${slideIndex}`}
     >
       <div className="absolute inset-0 bg-wave-pattern opacity-20 pointer-events-none z-0" />
