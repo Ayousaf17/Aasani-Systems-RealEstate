@@ -60,10 +60,9 @@ export function FAQSlide({ index }: FAQSlideProps) {
       id={`section-${index + 1}`}
     >
       <div
-        className="h-full md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col w-full max-w-none md:max-w-xl rounded-none relative shadow-2xl card-bg md:pt-12 md:pr-12 md:pl-12 pt-16 pr-6 pb-6 pl-6"
+        className="h-full md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col w-full max-w-none md:max-w-xl rounded-none relative shadow-2xl card-bg md:pt-12 md:pr-12 md:pl-12 pt-14 md:pt-12 pr-6 pb-20 md:pb-6 pl-6"
         style={{ backgroundImage: `url(${backgroundImages.philosophy})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 z-0 pointer-events-none" />
 
         <div className="relative z-10 flex flex-col h-full">
           {/* Header */}

@@ -50,10 +50,10 @@ export function CTASlide({ index }: CTASlideProps) {
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none px-5 pb-5 pt-12 relative justify-between card-bg safe-area-bottom z-[60]"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none px-5 pb-20 md:pb-5 pt-14 md:pt-12 relative justify-between card-bg safe-area-bottom z-[60]"
       >
-        {/* Bottom fade gradient - visual hierarchy for mobile */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 md:h-0 bg-gradient-to-t from-black via-black/50 to-transparent z-20 pointer-events-none md:hidden" />
+        {/* Bottom fade gradient - subtle mobile transition */}
+        <div className="absolute bottom-0 left-0 right-0 h-12 md:h-0 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none md:hidden" />
         {/* Video Background */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           {!prefersReducedMotion ? (
