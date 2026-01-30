@@ -16,7 +16,6 @@ export function CaseStudiesSlide({ index }: CaseStudiesSlideProps) {
         className="md:h-auto md:aspect-[3/4] glass-clear overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-16 pr-4 pb-4 pl-4 relative shadow-2xl justify-start card-bg"
         style={{ backgroundImage: `url(${backgroundImages.caseStudies})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/30 z-0 pointer-events-none" />
 
         <div className="relative z-10 flex flex-col h-full">
           <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6 shrink-0">

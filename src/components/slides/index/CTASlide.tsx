@@ -52,8 +52,8 @@ export function CTASlide({ index }: CTASlideProps) {
       <div
         className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none px-5 pb-20 md:pb-5 pt-14 md:pt-12 relative justify-between card-bg safe-area-bottom z-[60]"
       >
-        {/* Bottom fade gradient - only at the very bottom, preserves footer visibility */}
-        <div className="absolute bottom-0 left-0 right-0 h-12 md:h-0 bg-gradient-to-t from-black via-black/70 via-black/20 to-transparent z-20 pointer-events-none md:hidden" />
+        {/* Bottom fade gradient - subtle mobile transition */}
+        <div className="absolute bottom-0 left-0 right-0 h-12 md:h-0 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none md:hidden" />
         {/* Video Background */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           {!prefersReducedMotion ? (

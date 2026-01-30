@@ -52,7 +52,6 @@ export function LeadMagnetSlide({ index }: LeadMagnetSlideProps) {
         className="h-full md:h-auto md:aspect-[3/4] glass-clear overflow-hidden flex flex-col w-full max-w-none md:max-w-xl rounded-none relative shadow-2xl card-bg"
         style={{ backgroundImage: `url(${backgroundImages.philosophy})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70 z-10 pointer-events-none" />
 
         <div className="md:p-12 md:pt-12 z-20 pt-16 pr-6 pb-4 pl-6 relative">
           <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
