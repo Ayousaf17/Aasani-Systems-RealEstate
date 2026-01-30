@@ -38,6 +38,7 @@ export function IndexPage() {
         ref={scrollerRef}
         totalSlides={TOTAL_INDEX_SLIDES}
         onIndexChange={setCurrentIndex}
+        className="pt-14 md:pt-0"
       >
         <HeroSlide index={0} onNavigate={handleNavigate} />
         <ProblemSlide index={1} />
