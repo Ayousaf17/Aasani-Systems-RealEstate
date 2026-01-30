@@ -53,7 +53,7 @@ export function LeadMagnetSlide({ index }: LeadMagnetSlideProps) {
         style={{ backgroundImage: `url(${backgroundImages.philosophy})` }}
       >
 
-        <div className="md:p-12 md:pt-12 z-20 pt-16 pr-6 pb-4 pl-6 relative">
+        <div className="md:p-12 md:pt-12 z-20 pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative">
           <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
               [09/10]

@@ -12,7 +12,7 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
       id="slide-0"
     >
       <div
-        className="flex flex-col z-10 md:p-12 h-full pt-12 px-5 pb-5 relative card-bg"
+        className="flex flex-col z-10 md:p-12 h-full pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative card-bg"
         style={{ backgroundImage: `url(${automationsHeroBackground})` }}
       >
         <div className="bg-black/20 absolute inset-0" />
