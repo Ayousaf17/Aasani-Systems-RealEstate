@@ -55,8 +55,17 @@ export function ExpandableCard({
         ring: 'focus-visible:ring-teal-400',
       };
   const [active, setActive] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
   const cardRef = React.useRef<HTMLDivElement>(null);
   const id = React.useId();
+
+  // Detect mobile on mount
+  React.useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   React.useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -120,7 +129,7 @@ export function ExpandableCard({
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              transition={isMobile ? { duration: 0.3, ease: "easeOut" } : { type: "spring", damping: 25, stiffness: 300 }}
               className={cn(
                 "w-full max-w-md max-h-[70vh] flex flex-col overflow-auto rounded-2xl border shadow-2xl",
                 "[scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]",
