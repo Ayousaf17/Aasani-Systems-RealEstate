@@ -9,7 +9,7 @@
   backdrop-filter: blur(0px);
 }
 
-/* Flashlight Effect */
+/* Flashlight Effect - Desktop only */
 .flashlight-card {
   position: relative;
 }
@@ -29,8 +29,11 @@
   z-index: 2;
 }
 
-.flashlight-card:hover::before {
-  opacity: 1;
+/* Only enable flashlight hover on devices that support hover */
+@media (hover: hover) and (pointer: fine) {
+  .flashlight-card:hover::before {
+    opacity: 1;
+  }
 }
 
 /* Scrollbar hide */
