@@ -96,7 +96,7 @@ export function AutomationsCTASlide() {
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 z-[1] bg-black/70" />
 
-      <div className="flex flex-col z-10 h-full pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 justify-between relative">
+      <div className="flex flex-col z-10 h-full pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 justify-between relative md:max-w-4xl md:mx-auto w-full">
         <AnimatedElement delay={0.1} className="mb-4 md:mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
             09 / 09 — NEXT STEPS
