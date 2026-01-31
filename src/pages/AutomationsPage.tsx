@@ -1,6 +1,6 @@
 import { useState, useCallback, useRef } from 'react';
-import { VerticalScroller } from '../components/layout/VerticalScroller';
-import type { VerticalScrollerRef } from '../components/layout/VerticalScroller';
+import { HorizontalScroller } from '../components/layout/HorizontalScroller';
+import type { HorizontalScrollerRef } from '../components/layout/HorizontalScroller';
 import { Header } from '../components/navigation/Header';
 import { NavigationDots } from '../components/navigation/NavigationDots';
 import { BottomNav } from '../components/navigation/BottomNav';
@@ -11,11 +11,7 @@ import { automationsData, TOTAL_AUTOMATIONS_SLIDES } from '../data/automationsCo
 
 export function AutomationsPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const scrollerRef = useRef<VerticalScrollerRef>(null);
-
-  const handleNavigate = useCallback((delta: number) => {
-    scrollerRef.current?.navigateSlide(delta);
-  }, []);
+  const scrollerRef = useRef<HorizontalScrollerRef>(null);
 
   const handleDotClick = useCallback((index: number) => {
     scrollerRef.current?.scrollToSlide(index);
@@ -23,28 +19,26 @@ export function AutomationsPage() {
 
   return (
     <div className="relative bg-neutral-950 overflow-hidden h-screen h-[100dvh]">
-      <Header direction="vertical" onNavigate={handleNavigate} />
+      <Header direction="horizontal" />
       <NavigationDots
         total={TOTAL_AUTOMATIONS_SLIDES}
         currentIndex={currentIndex}
         onDotClick={handleDotClick}
-        direction="vertical"
+        direction="horizontal"
       />
       <BottomNav />
 
-      <VerticalScroller
+      <HorizontalScroller
         ref={scrollerRef}
         totalSlides={TOTAL_AUTOMATIONS_SLIDES}
         onIndexChange={setCurrentIndex}
-        className="pt-14 md:pt-0"
-        disableSnap={true}
       >
-        <AutomationsHeroSlide onNextSlide={() => handleNavigate(1)} />
+        <AutomationsHeroSlide onNextSlide={() => handleDotClick(1)} />
         {automationsData.map((data, i) => (
           <AutomationSlide key={i} data={data} slideIndex={i + 1} />
         ))}
         <AutomationsCTASlide />
-      </VerticalScroller>
+      </HorizontalScroller>
     </div>
   );
 }
