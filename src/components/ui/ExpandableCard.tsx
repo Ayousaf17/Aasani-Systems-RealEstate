@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { createPortal } from "react-dom";
-import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { cn } from "../../lib/utils";
 
@@ -55,17 +54,8 @@ export function ExpandableCard({
         ring: 'focus-visible:ring-teal-400',
       };
   const [active, setActive] = React.useState(false);
-  const [isMobile, setIsMobile] = React.useState(false);
   const cardRef = React.useRef<HTMLDivElement>(null);
   const id = React.useId();
-
-  // Detect mobile on mount
-  React.useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   React.useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -108,37 +98,26 @@ export function ExpandableCard({
   const modalContent = (
     <>
       {/* Backdrop */}
-      <AnimatePresence>
-        {active && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-black/70 backdrop-blur-md h-full w-full z-[100]"
-          />
-        )}
-      </AnimatePresence>
+      {active && (
+        <div
+          className="fixed inset-0 bg-black/70 backdrop-blur-md h-full w-full z-[100] modal-backdrop-enter"
+        />
+      )}
 
-      {/* Expanded Card - Simple scale/fade, no layoutId fly animation */}
-      <AnimatePresence>
-        {active && (
-          <div className="fixed inset-0 flex items-center justify-center z-[101] p-6 md:p-12">
-            <motion.div
-              ref={cardRef}
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 10 }}
-              transition={isMobile ? { duration: 0.3, ease: "easeOut" } : { type: "spring", damping: 25, stiffness: 300 }}
-              className={cn(
-                "w-full max-w-md max-h-[70vh] flex flex-col overflow-auto rounded-2xl border shadow-2xl",
-                "[scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]",
-                "bg-neutral-900/95 backdrop-blur-xl",
-                colors.borderExpanded,
-                colors.shadow,
-                classNameExpanded
-              )}
-            >
+      {/* Expanded Card */}
+      {active && (
+        <div className="fixed inset-0 flex items-center justify-center z-[101] p-6 md:p-12">
+          <div
+            ref={cardRef}
+            className={cn(
+              "w-full max-w-md max-h-[70vh] flex flex-col overflow-auto rounded-2xl border shadow-2xl modal-card-enter",
+              "[scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]",
+              "bg-neutral-900/95 backdrop-blur-xl",
+              colors.borderExpanded,
+              colors.shadow,
+              classNameExpanded
+            )}
+          >
               {/* Header with stat */}
               {isStatCard && (
                 <div className={cn("relative py-6 px-6 bg-gradient-to-br border-b border-white/10", colors.headerBg)}>
@@ -184,10 +163,9 @@ export function ExpandableCard({
                   {children}
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         )}
-      </AnimatePresence>
     </>
   );
 
