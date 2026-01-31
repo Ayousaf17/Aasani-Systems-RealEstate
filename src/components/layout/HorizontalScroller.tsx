@@ -11,6 +11,7 @@ interface HorizontalScrollerProps {
 
 export interface HorizontalScrollerRef {
   scrollToSlide: (index: number) => void;
+  navigateSlide: (delta: number) => void;
 }
 
 export const HorizontalScroller = forwardRef<HorizontalScrollerRef, HorizontalScrollerProps>(
@@ -59,14 +60,20 @@ export const HorizontalScroller = forwardRef<HorizontalScrollerRef, HorizontalSc
       }
     };
 
+    const navigateSlide = (delta: number) => {
+      const newIndex = Math.max(0, Math.min(currentIndex + delta, totalSlides - 1));
+      scrollToSlide(newIndex);
+    };
+
     useImperativeHandle(ref, () => ({
       scrollToSlide,
-    }), [totalSlides]);
+      navigateSlide,
+    }), [totalSlides, currentIndex]);
 
     return (
       <main
         ref={containerRef as React.RefObject<HTMLElement>}
-        className={`flex flex-row overflow-x-auto overflow-y-hidden snap-x snap-mandatory hide-scrollbar scroll-smooth select-none md:cursor-grab md:active:cursor-grabbing mask-on-md w-full flex-1 py-1 px-1 gap-x-1 md:py-4 md:px-10 md:gap-x-12 items-center ${className}`}
+        className={`flex flex-row overflow-x-auto overflow-y-hidden snap-x snap-mandatory hide-scrollbar scroll-smooth select-none md:cursor-grab md:active:cursor-grabbing mask-on-md w-full flex-1 pt-24 md:pt-32 pb-8 md:pb-12 px-6 md:px-10 gap-x-6 md:gap-x-12 items-center ${className}`}
         style={{ scrollSnapType: 'x mandatory', scrollBehavior: 'smooth', overscrollBehavior: 'contain' }}
         {...dragHandlers}
       >
