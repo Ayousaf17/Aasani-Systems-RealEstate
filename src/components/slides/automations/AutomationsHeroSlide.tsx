@@ -8,11 +8,14 @@ interface AutomationsHeroSlideProps {
 export function AutomationsHeroSlide({ onNextSlide: onNavigate }: AutomationsHeroSlideProps) {
   return (
     <section
-      className="flex w-full slide-height relative items-center justify-center overflow-hidden bg-[#0A0A0A]"
+      className="slide-container flex-shrink-0 bg-[#0A0A0A] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center z-[60]"
       id="slide-0"
     >
+      <div className="absolute inset-0 bg-wave-pattern opacity-20 pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/80 to-[#0A0A0A] z-0" />
+
       <div
-        className="glass-panel overflow-hidden flex flex-col group w-full h-full rounded-none pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative shadow-2xl justify-between card-bg z-[60] md:max-w-4xl md:mx-auto"
+        className="flex flex-col md:p-12 z-10 h-full pt-12 px-5 pb-5 relative justify-between card-bg"
         style={{ backgroundImage: `url(${automationsHeroBackground})` }}
       >
         <div className="absolute bottom-0 left-0 right-0 h-12 md:h-0 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none md:hidden" />

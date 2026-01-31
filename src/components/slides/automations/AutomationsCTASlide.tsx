@@ -64,9 +64,12 @@ export function AutomationsCTASlide() {
 
   return (
     <section
-      className="flex w-full slide-height relative items-center justify-center overflow-hidden bg-[#0A0A0A]"
+      className="slide-container flex-shrink-0 bg-[#0A0A0A] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center z-[60]"
       id="slide-8"
     >
+      <div className="absolute inset-0 bg-wave-pattern opacity-20 pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/80 to-[#0A0A0A] z-0" />
+
       {/* Video Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {!prefersReducedMotion ? (
@@ -96,7 +99,7 @@ export function AutomationsCTASlide() {
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 z-[1] bg-black/70" />
 
-      <div className="flex flex-col z-10 h-full pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 justify-between relative md:max-w-4xl md:mx-auto w-full">
+      <div className="flex flex-col md:p-12 z-10 h-full pt-12 px-5 pb-5 relative justify-between card-bg">
         <AnimatedElement delay={0.1} className="mb-4 md:mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
             09 / 09 — NEXT STEPS
