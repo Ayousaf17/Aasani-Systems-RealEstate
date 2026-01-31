@@ -9,7 +9,7 @@ interface AutomationSlideProps {
 export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
   return (
     <section
-      className="flex w-full relative items-center justify-center overflow-hidden bg-[#0A0A0A] min-h-screen md:min-h-[65vh] md:max-h-[65vh] py-12 md:py-20"
+      className="snap-start shrink-0 flex w-full slide-height relative items-center justify-center overflow-hidden bg-[#0A0A0A]"
       id={`slide-${slideIndex}`}
     >
       <div
@@ -18,15 +18,19 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
       >
         {/* Bottom fade gradient - subtle mobile transition */}
         <div className="absolute bottom-0 left-0 right-0 h-12 md:h-0 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none md:hidden" />
-        <div className="flex flex-col">
-          <AnimatedElement delay={0.1} className="mb-3 md:mb-6">
-            <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
-              {data.slideNumber.replace('/', ' / ')} — {data.label.toUpperCase()}
-            </span>
-          </AnimatedElement>
 
-          <AnimatedElement delay={0.3}>
-            <h2 className="text-2xl md:text-4xl font-bold text-white font-display tracking-tight leading-tight mb-2">
+        {/* Header Section */}
+        <AnimatedElement delay={0.1} className="mb-6 md:mb-8">
+          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+            {data.slideNumber.replace('/', ' / ')} — {data.label.toUpperCase()}
+          </span>
+        </AnimatedElement>
+
+        {/* Main Content - Centered */}
+        <div className="flex-1 flex flex-col justify-center relative z-10">
+          {/* Title & Tagline */}
+          <AnimatedElement delay={0.2} className="mb-8 md:mb-12">
+            <h2 className="text-4xl md:text-6xl font-bold text-white font-display tracking-tight leading-tight mb-4">
               <span className="md:hidden">{data.title.replace(/\n/g, ' ')}</span>
               <span className="hidden md:block">
                 {data.title.split('\n').map((line, i) => (
@@ -34,52 +38,46 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                 ))}
               </span>
             </h2>
-            <p className="uppercase text-xs md:text-sm text-teal-300 tracking-wide font-mono mb-3 md:mb-0">
+            <p className="uppercase text-sm md:text-base text-teal-300 tracking-wide font-mono">
               {data.tagline}
+            </p>
+          </AnimatedElement>
+
+          {/* Stat Display - Large & Prominent */}
+          <AnimatedElement delay={0.35} className="mb-10 md:mb-12">
+            <div className="flex flex-col md:flex-row md:items-baseline md:gap-6">
+              <div>
+                <div className="text-5xl md:text-7xl font-bold text-teal-300 font-display tracking-tighter mb-2">
+                  {data.statValue}
+                </div>
+                <p className="text-base md:text-lg text-neutral-300 font-display max-w-2xl">
+                  {data.statLabel}
+                </p>
+              </div>
+            </div>
+          </AnimatedElement>
+
+          {/* Description */}
+          <AnimatedElement delay={0.5} className="mb-8 md:mb-10">
+            <p className="text-base md:text-lg leading-relaxed text-white/90 font-display max-w-2xl">
+              {data.statDescription}
+            </p>
+          </AnimatedElement>
+
+          {/* Context/Story */}
+          <AnimatedElement delay={0.65}>
+            <p className="text-sm md:text-base leading-relaxed text-neutral-300 font-display max-w-2xl border-l-2 border-teal-400/50 pl-4">
+              {data.description}
             </p>
           </AnimatedElement>
         </div>
 
-        <AnimatedElement delay={0.5} className="relative">
-          <div className="group overflow-hidden bg-black/60 hover:bg-black/70 rounded-lg p-4 md:p-6 relative shadow-2xl backdrop-blur-xl border border-white/10 hover:border-teal-400/50 transition-all duration-500 cursor-pointer md:hover:scale-[1.02] hover:shadow-teal-500/20 stat-card-enhanced">
-            <div className="flex items-start justify-between mb-3 md:mb-4">
-              <div className="flex flex-col">
-                <span className="text-3xl md:text-4xl font-bold text-white group-hover:text-teal-300 transition-colors duration-500 tracking-tighter font-display">
-                  {data.statValue}
-                </span>
-                <span className="text-xs md:text-sm text-teal-300 group-hover:text-teal-200 transition-colors duration-500 font-mono mt-1 tracking-wider">
-                  {data.statLabel}
-                </span>
-              </div>
-              <iconify-icon
-                icon="solar:graph-up-linear"
-                className="text-teal-300 group-hover:text-teal-200 group-hover:scale-110 transition-all duration-300 text-2xl md:text-3xl"
-              />
-            </div>
-            <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden mb-3 group-hover:bg-white/20 transition-colors duration-500">
-              <div
-                className="h-full bg-teal-400 group-hover:bg-teal-300 transition-all duration-500 rounded-full"
-                style={{ width: `${data.progressPercent}%` }}
-              />
-            </div>
-            <p className="text-sm md:text-base text-neutral-300 font-light leading-relaxed font-display">
-              {data.statDescription}
-            </p>
-          </div>
-        </AnimatedElement>
-
-        <AnimatedElement delay={0.7}>
-          <div className="bg-black/60 backdrop-blur-md rounded-lg p-4 md:p-4 border-l-2 border-teal-500/50">
-            <p className="leading-relaxed text-sm md:text-base text-white/90 font-display mb-2">
-              {data.description}
-            </p>
-            <div className="border-t border-teal-500/50 pt-2">
-              <p className="text-xs md:text-xs uppercase tracking-widest font-mono">
-                <span className="text-teal-300">Tools:</span>{' '}
-                <span className="text-white/90">{data.tools.replace('Tools: ', '')}</span>
-              </p>
-            </div>
-          </div>
+        {/* Footer - Tools Section */}
+        <AnimatedElement delay={0.8} className="pt-6 md:pt-8 border-t border-white/10">
+          <p className="text-[10px] md:text-xs uppercase tracking-widest font-mono text-neutral-500 mb-2">
+            <span className="text-teal-300">Tools:</span>{' '}
+            <span className="text-neutral-400">{data.tools.replace('Tools: ', '')}</span>
+          </p>
         </AnimatedElement>
       </div>
     </section>
