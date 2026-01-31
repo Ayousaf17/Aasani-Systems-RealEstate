@@ -13,7 +13,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
       id={`slide-${slideIndex}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative shadow-2xl justify-between card-bg z-[60]"
+        className="glass-panel overflow-hidden flex flex-col group w-full h-full rounded-none pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative shadow-2xl justify-between card-bg z-[60]"
         style={{ backgroundImage: `url(${data.backgroundImage})` }}
       >
         {/* Bottom fade gradient - subtle mobile transition */}
