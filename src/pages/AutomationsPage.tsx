@@ -22,7 +22,7 @@ export function AutomationsPage() {
   }, []);
 
   return (
-    <div className="relative bg-neutral-950 overflow-hidden h-screen h-[100dvh] fixed inset-0">
+    <div className="relative bg-neutral-950 overflow-hidden h-screen h-[100dvh]">
       <Header direction="vertical" onNavigate={handleNavigate} />
       <NavigationDots
         total={TOTAL_AUTOMATIONS_SLIDES}
