@@ -109,13 +109,13 @@ export function ChecklistPage() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://hook.us.make.com/avlh6kcfqwbh9spkzpxs5s9vs8b7bhs5', {
+      const response = await fetch('https://axistential.app.n8n.cloud/webhook/fc24c600-6b00-4234-9486-9f33eac2f489', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: emailForm.name,
           email: emailForm.email,
-          phone: emailForm.phone,
+          phone: emailForm.phone || undefined,
           source: 'checklist_page',
         }),
       });
