@@ -13,13 +13,17 @@ export function AutomationsPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollerRef = useRef<HorizontalScrollerRef>(null);
 
+  const handleNavigate = useCallback((delta: number) => {
+    scrollerRef.current?.navigateSlide(delta);
+  }, []);
+
   const handleDotClick = useCallback((index: number) => {
     scrollerRef.current?.scrollToSlide(index);
   }, []);
 
   return (
-    <div className="relative bg-neutral-950 overflow-hidden h-screen h-[100dvh]">
-      <Header direction="horizontal" />
+    <div className="relative bg-neutral-950 overflow-hidden h-screen h-[100dvh] flex flex-col items-center justify-center">
+      <Header direction="horizontal" onNavigate={handleNavigate} />
       <NavigationDots
         total={TOTAL_AUTOMATIONS_SLIDES}
         currentIndex={currentIndex}
