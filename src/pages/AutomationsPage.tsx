@@ -37,6 +37,7 @@ export function AutomationsPage() {
         totalSlides={TOTAL_AUTOMATIONS_SLIDES}
         onIndexChange={setCurrentIndex}
         className="pt-14 md:pt-0"
+        disableSnap={true}
       >
         <AutomationsHeroSlide onNextSlide={() => handleNavigate(1)} />
         {automationsData.map((data, i) => (

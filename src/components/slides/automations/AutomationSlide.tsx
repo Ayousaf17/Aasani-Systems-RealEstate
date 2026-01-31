@@ -9,7 +9,7 @@ interface AutomationSlideProps {
 export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
   return (
     <section
-      className="snap-start shrink-0 flex w-full slide-height relative items-center justify-center overflow-hidden bg-[#0A0A0A]"
+      className="flex w-full relative items-center justify-center overflow-hidden bg-[#0A0A0A] min-h-screen md:min-h-[65vh] md:max-h-[65vh] py-12 md:py-20"
       id={`slide-${slideIndex}`}
     >
       <div

@@ -64,7 +64,7 @@ export function AutomationsCTASlide() {
 
   return (
     <section
-      className="snap-start snap-always shrink-0 flex w-full slide-height relative items-center justify-center overflow-hidden bg-[#0A0A0A]"
+      className="flex w-full slide-height relative items-center justify-center overflow-hidden bg-[#0A0A0A]"
       id="slide-8"
     >
       {/* Video Background */}
