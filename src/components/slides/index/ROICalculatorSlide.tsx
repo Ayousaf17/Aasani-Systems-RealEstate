@@ -44,7 +44,7 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
       <div
         ref={cardRef}
         onMouseMove={handleMouseMove}
-        className="h-full md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col w-full max-w-none md:max-w-xl rounded-none relative shadow-2xl card-bg md:p-12 px-5 pb-20 md:pb-5 pt-14 md:pt-12 z-[60]"
+        className="h-full md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col w-full max-w-none md:max-w-xl rounded-none relative shadow-2xl card-bg md:p-12 px-6 md:px-12 pb-8 md:pb-12 pt-20 md:pt-12 z-[60]"
         style={{ backgroundImage: `url(${backgroundImages.caseStudies})` }}
       >
 

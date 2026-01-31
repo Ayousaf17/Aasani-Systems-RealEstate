@@ -18,7 +18,7 @@ export function PhilosophySlide({ index, onNavigate }: PhilosophySlideProps) {
         style={{ backgroundImage: `url(${backgroundImages.philosophy})` }}
       >
 
-        <div className="md:p-12 md:pt-12 z-20 pt-16 pr-6 pb-4 pl-6 relative">
+        <div className="md:p-12 md:pt-12 z-20 pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative">
           <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
               [08/11]
@@ -44,7 +44,7 @@ export function PhilosophySlide({ index, onNavigate }: PhilosophySlideProps) {
           </AnimatedElement>
         </div>
 
-        <div className="z-20 md:px-12 flex-1 flex flex-col pr-6 pl-6 relative justify-center py-4">
+        <div className="z-20 md:px-12 flex-1 flex flex-col px-6 md:px-12 relative justify-center py-4">
           <AnimatedElement delay={0.4} className="flex flex-col gap-3 w-full">
             {philosophyQuotes.map((quote, i) => {
               const borderColors = ['border-l-teal-300', 'border-l-teal-300/60', 'border-l-white/80'];
