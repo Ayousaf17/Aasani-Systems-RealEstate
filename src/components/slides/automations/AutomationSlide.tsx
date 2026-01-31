@@ -9,16 +9,15 @@ interface AutomationSlideProps {
 export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
   return (
     <section
-      className="slide-container flex-shrink-0 bg-[#0A0A0A] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center z-[60]"
+      className="snap-start shrink-0 flex w-full slide-height relative items-center justify-center overflow-hidden bg-[#0A0A0A]"
       id={`slide-${slideIndex}`}
     >
-      <div className="absolute inset-0 bg-wave-pattern opacity-20 pointer-events-none z-0" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/80 to-[#0A0A0A] z-0" />
-
       <div
-        className="flex flex-col md:p-12 z-10 h-full pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative justify-between card-bg"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative shadow-2xl justify-between card-bg z-[60]"
         style={{ backgroundImage: `url(${data.backgroundImage})` }}
       >
+        {/* Bottom fade gradient - subtle mobile transition */}
+        <div className="absolute bottom-0 left-0 right-0 h-12 md:h-0 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none md:hidden" />
         <div className="flex flex-col">
           <AnimatedElement delay={0.1} className="mb-3 md:mb-6">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
