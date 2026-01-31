@@ -5,17 +5,17 @@ interface AutomationsHeroSlideProps {
   onNextSlide: () => void;
 }
 
-export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps) {
+export function AutomationsHeroSlide({ onNextSlide: onNavigate }: AutomationsHeroSlideProps) {
   return (
     <section
-      className="slide-container flex-shrink-0 flex flex-col overflow-hidden snap-center group bg-[#0A0A0A] border border-white/10 relative shadow-2xl justify-between"
+      className="snap-start snap-always shrink-0 flex w-full slide-height relative items-center justify-center overflow-hidden bg-[#0A0A0A]"
       id="slide-0"
     >
       <div
-        className="flex flex-col z-10 md:p-12 h-full pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative card-bg"
+        className="glass-panel overflow-hidden flex flex-col group w-full h-full rounded-none pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative shadow-2xl justify-between card-bg z-[60]"
         style={{ backgroundImage: `url(${automationsHeroBackground})` }}
       >
-        <div className="bg-black/20 absolute inset-0" />
+        <div className="absolute bottom-0 left-0 right-0 h-12 md:h-0 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none md:hidden" />
 
         <AnimatedElement delay={0} className="relative z-10 mb-4 md:mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
@@ -54,15 +54,15 @@ export function AutomationsHeroSlide({ onNextSlide }: AutomationsHeroSlideProps)
             </div>
           </div>
           <button
-            onClick={onNextSlide}
-            className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white text-black flex items-center justify-center hover:scale-110 transition-all cursor-pointer btn-glow"
+            onClick={onNavigate}
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition-transform cursor-pointer shadow-lg"
+            aria-label="Next slide"
           >
-            <iconify-icon icon="solar:arrow-right-linear" width={20} />
+            <iconify-icon icon="solar:arrow-down-linear" width={20} />
           </button>
         </AnimatedElement>
       </div>
 
-      <div className="absolute inset-0 z-0 bg-grid-pattern opacity-30" />
     </section>
   );
 }
