@@ -65,12 +65,19 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
           </AnimatedElement>
 
           {/* Title */}
-          <AnimatedElement delay={0.2} className="shrink-0 mb-4">
+          <AnimatedElement delay={0.2} className="shrink-0 mb-6">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white font-display leading-tight drop-shadow-md">
               20 hours back every week
             </h2>
             <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
-              What would you do with them?
+              Your tools handle the busywork. You handle the relationships.
+            </p>
+          </AnimatedElement>
+
+          {/* Mechanism explanation */}
+          <AnimatedElement delay={0.25} className="shrink-0 mb-6 max-w-md">
+            <p className="text-sm md:text-base text-neutral-300 leading-relaxed font-display">
+              We connect your systems so they run in the background. When something needs adjusting, we're here. You get your time back—and peace of mind.
             </p>
           </AnimatedElement>
 
