@@ -120,11 +120,11 @@ export function LeadCaptureDialog({ trigger, className, onSuccess }: LeadCapture
                         className="text-lg md:text-2xl font-bold text-white font-display mb-1 md:mb-2 dialog-item-enter"
                         data-stagger-index="2"
                       >
-                        The 7 Systems Checklist
+                        The 7 Systems Deep-Dive
                       </h3>
 
                       <p className="text-neutral-400 text-xs md:text-sm md:mb-6 dialog-item-enter" data-stagger-index="3">
-                        Everything you need to transform your real estate business.
+                        Complete integration guide with diagrams showing exactly how we wire your tools together.
                       </p>
                     </div>
                   </div>
@@ -295,7 +295,7 @@ export function LeadCaptureDialog({ trigger, className, onSuccess }: LeadCapture
                             </>
                           ) : (
                             <>
-                              <span>Get the Checklist</span>
+                              <span>Get the Deep-Dive</span>
                               <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                             </>
                           )}
@@ -334,7 +334,7 @@ export function LeadCaptureDialog({ trigger, className, onSuccess }: LeadCapture
               </h4>
 
               <p className="relative text-neutral-400 text-sm md:text-base mb-6 success-text-enter" style={{animationDelay: '0.3s'}}>
-                Check your new tab for the checklist.
+                Check your new tab for the deep-dive guide.
               </p>
 
               {/* CTA Button - Explore Automations */}

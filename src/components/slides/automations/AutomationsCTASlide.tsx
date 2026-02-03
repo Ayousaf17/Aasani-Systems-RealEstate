@@ -3,12 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { getCalApi } from '@calcom/embed-react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
 import { LeadCaptureDialog } from '../../ui/LeadCaptureDialog';
-import { contactLinks } from '../../../data/automationsContent';
 
-const ctaChecklist = [
+const ctaPoints = [
   'Free 60-minute strategy call',
-  "We'll show you exactly how your tools can work together automatically",
-  'When something breaks or needs changes, you call us—not a help desk',
+  'See exactly how your tools work together',
+  'We manage it—you stay in control',
 ];
 
 export function AutomationsCTASlide() {
@@ -100,31 +99,35 @@ export function AutomationsCTASlide() {
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 z-[1] bg-black/70" />
 
-      <div className="flex flex-col md:p-12 z-10 h-full pt-12 px-5 pb-5 relative justify-between card-bg">
-        <AnimatedElement delay={0.1} className="mb-4 md:mb-6">
-          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
-            09 / 09 — NEXT STEPS
-          </span>
-        </AnimatedElement>
+      <div className="flex flex-col md:p-12 z-10 h-full pt-12 px-5 relative card-bg">
+        {/* Header - Fixed */}
+        <div className="flex-shrink-0 mb-8 md:mb-10">
+          <AnimatedElement delay={0.1} className="mb-3 md:mb-4">
+            <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+              09 / 09 — NEXT STEPS
+            </span>
+          </AnimatedElement>
 
-        <AnimatedElement delay={0.2} className="mb-6 md:mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
-            We'll Build It. You'll Own It. We'll Manage It.
-          </h2>
-          <p className="uppercase text-xs md:text-sm text-teal-300 tracking-wide font-mono mt-2">
-            BOOK A STRATEGY CALL
-          </p>
-        </AnimatedElement>
+          <AnimatedElement delay={0.2}>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight mb-1">
+              We'll Build It. You'll Own It. We'll Manage It.
+            </h2>
+            <p className="text-sm md:text-base text-neutral-300 font-display">
+              Everything you need in one call.
+            </p>
+          </AnimatedElement>
+        </div>
 
-        <AnimatedElement delay={0.3} className="flex justify-center w-full">
-          <div className="flex flex-col gap-2">
-            {ctaChecklist.map((item, i) => (
-              <div key={i} className="flex items-start gap-2">
+        {/* Quick Benefits - Fixed */}
+        <AnimatedElement delay={0.3} className="flex-shrink-0 mb-10 md:mb-12">
+          <div className="flex flex-col gap-3">
+            {ctaPoints.map((item, i) => (
+              <div key={i} className="flex items-start gap-2.5">
                 <iconify-icon
                   icon="solar:check-circle-bold"
-                  className="text-teal-300 text-lg flex-shrink-0 mt-0.5 drop-shadow-md"
+                  className="text-teal-300 text-base flex-shrink-0 mt-0.5"
                 />
-                <span className="text-sm md:text-base text-white font-display">
+                <span className="text-sm md:text-base text-white/90 font-display">
                   {item}
                 </span>
               </div>
@@ -132,7 +135,8 @@ export function AutomationsCTASlide() {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.4} className="flex-1 flex flex-col items-center justify-center gap-6 w-full">
+        {/* CTA Area - Grows to fill space */}
+        <div className="flex-1 flex flex-col items-center justify-center gap-8 pb-8 md:pb-10">
           {/* Primary CTA */}
           <div className="group relative md:scale-110 cursor-pointer">
             <div className="-inset-2 group-hover:opacity-100 transition duration-500 bg-neutral-600/30 opacity-0 rounded-full absolute blur-xl" />
@@ -146,101 +150,41 @@ export function AutomationsCTASlide() {
               className="group relative z-10 flex items-center justify-center overflow-hidden rounded-full p-[1px] leading-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)]" />
-              <span className="relative flex h-full w-full items-center rounded-full bg-black py-4 px-6 md:py-4 md:px-8 ring-1 ring-white/10 min-h-[44px]">
+              <span className="relative flex h-full w-full items-center rounded-full bg-black py-4 px-8 md:py-4 md:px-10 ring-1 ring-white/10 min-h-[50px]">
                 <span className="absolute inset-0 overflow-hidden rounded-full">
                   <span className="group-hover:animate-[shimmer_1.5s_infinite] group-hover:opacity-100 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 w-full h-full absolute top-0 left-0 -skew-x-12" />
                 </span>
                 <span className="relative z-10 flex items-center gap-2">
-                  <span className="md:text-lg text-sm font-medium text-white tracking-wide font-display">
-                    Book Strategy Call
-                  </span>
                   <iconify-icon
                     icon="solar:calendar-add-linear"
-                    className="text-lg md:text-xl text-white transition-colors"
+                    className="text-lg md:text-xl text-white"
                   />
+                  <span className="text-base md:text-lg font-semibold text-white font-display">
+                    Book Strategy Call
+                  </span>
                 </span>
               </span>
             </button>
           </div>
 
-          {/* Divider */}
-          <div className="flex items-center gap-4 w-full max-w-xs">
-            <div className="flex-1 h-px bg-white/30" />
-            <span className="text-xs text-white font-mono uppercase tracking-wider">or</span>
-            <div className="flex-1 h-px bg-white/30" />
-          </div>
-
-          {/* Secondary Options */}
-          <div className="flex flex-col items-center gap-6 w-full max-w-xs">
-            {/* Get Checklist - Opens Dialog */}
+          {/* Secondary Options - Minimal */}
+          <div className="flex flex-col items-center gap-4 w-full">
             <LeadCaptureDialog
               trigger={
-                <button className="group flex items-center gap-2 text-neutral-300 hover:text-white transition-colors">
-                  <iconify-icon icon="solar:document-linear" className="text-teal-300 text-lg drop-shadow-md" />
-                  <span className="text-sm md:text-base font-medium">Get the free checklist</span>
-                  <iconify-icon
-                    icon="solar:arrow-right-up-linear"
-                    className="text-teal-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform drop-shadow-md"
-                    width={16}
-                    height={16}
-                  />
+                <button className="text-teal-300 hover:text-teal-200 text-sm md:text-base font-display transition-colors">
+                  Get the free checklist
                 </button>
               }
             />
 
-            {/* Visual separator */}
-            <div className="w-12 h-px bg-white/20" />
-
-            {/* Back to Overview Link */}
             <button
               onClick={() => navigate('/')}
-              className="group flex items-center gap-2 text-teal-300 hover:text-teal-200 transition-colors font-medium"
+              className="text-neutral-400 hover:text-neutral-300 text-sm md:text-base font-display transition-colors"
             >
-              <iconify-icon
-                icon="solar:arrow-left-linear"
-                className="group-hover:-translate-x-1 transition-transform"
-                width={18}
-                height={18}
-              />
-              <span className="text-sm md:text-base">Back to Overview</span>
+              Back to overview
             </button>
           </div>
-        </AnimatedElement>
-
-        {/* Footer matching page 1 CTA style */}
-        <AnimatedElement delay={0.5} className="w-full shrink-0">
-          <span className="block text-[10px] text-white font-mono uppercase tracking-widest text-center mb-3 md:mb-4">
-            Questions? Reach out:
-          </span>
-
-          <div className="w-full border-t border-white/20 pt-4 md:pt-5">
-            <div className="flex items-center justify-center gap-5 md:gap-6">
-              <a
-                href={`mailto:${contactLinks.email}`}
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
-                aria-label="Email us"
-              >
-                <iconify-icon icon="lucide:mail" className="text-teal-300 text-2xl drop-shadow-md" />
-              </a>
-              <a
-                href={`tel:${contactLinks.phone.replace(/\D/g, '')}`}
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
-                aria-label="Call us"
-              >
-                <iconify-icon icon="lucide:phone" className="text-teal-300 text-2xl drop-shadow-md" />
-              </a>
-              <a
-                href={`https://${contactLinks.website}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
-                aria-label="Visit our website"
-              >
-                <iconify-icon icon="lucide:globe" className="text-teal-300 text-2xl drop-shadow-md" />
-              </a>
-            </div>
-          </div>
-        </AnimatedElement>
+        </div>
       </div>
     </section>
   );

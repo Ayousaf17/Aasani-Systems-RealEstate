@@ -230,15 +230,15 @@ export const faqContent = {
 
 export const leadMagnetContent = {
   label: 'FREE DOWNLOAD',
-  title: 'Get the Checklist',
-  subtitle: 'The 7 Core Systems',
-  description: 'Everything you need to reclaim 20+ hours per week. Delivered instantly.',
-  buttonText: 'Get the Checklist',
+  title: 'Get the 7 Systems Deep-Dive',
+  subtitle: 'Complete Integration Guide with Diagrams',
+  description: 'Full breakdown of each system, how tools integrate, and what happens on your call. See exactly how we wire everything together.',
+  buttonText: 'Get the Deep-Dive',
   namePlaceholder: 'Your name',
   emailPlaceholder: 'Your email',
   webhookUrl: 'https://axistential.app.n8n.cloud/webhook/fc24c600-6b00-4234-9486-9f33eac2f489',
   checklistUrl: 'https://docs.google.com/document/d/1b3NM1lZl_4ikiDhRq3NvALP3m32tb5UOUqkA7x8pCyE/edit?usp=sharing',
-  successMessage: 'Your checklist is ready.',
+  successMessage: 'Your deep-dive guide is ready. Check your new tab.',
 };
 
 export const contactInfo = {

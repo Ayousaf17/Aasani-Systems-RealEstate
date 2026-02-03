@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
 import type { AutomationSlideData } from '../../../types';
 
@@ -6,16 +7,24 @@ interface AutomationSlideProps {
   slideIndex: number;
 }
 
-const sectionLabels = ['The Reality', 'What We Do', 'The Outcome', 'We Manage It'];
-const sectionIcons = [
-  'solar:danger-linear',
-  'solar:wrench-2-linear',
-  'solar:check-circle-linear',
-  'solar:shield-check-linear'
+const sectionConfig = [
+  { label: 'The Reality', icon: 'solar:danger-linear', color: 'from-red-500/20 to-red-500/5 border-red-400/30' },
+  { label: 'What We Do', icon: 'solar:wrench-2-linear', color: 'from-teal-500/20 to-teal-500/5 border-teal-400/30' },
+  { label: 'The Outcome', icon: 'solar:check-circle-linear', color: 'from-emerald-500/20 to-emerald-500/5 border-emerald-400/30' },
+  { label: 'We Manage It', icon: 'solar:shield-check-linear', color: 'from-cyan-500/20 to-cyan-500/5 border-cyan-400/30' },
 ];
 
 export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
+  const [currentStep, setCurrentStep] = useState(0);
   const sections = data.description.split('|||').map(s => s.trim());
+
+  const goToPrevious = () => {
+    setCurrentStep(prev => (prev > 0 ? prev - 1 : prev));
+  };
+
+  const goToNext = () => {
+    setCurrentStep(prev => (prev < 3 ? prev + 1 : prev));
+  };
 
   return (
     <section
@@ -26,19 +35,19 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/80 to-[#0A0A0A] z-0" />
 
       <div
-        className="flex flex-col md:p-12 z-10 h-full pt-12 px-5 pb-5 relative justify-between card-bg overflow-y-auto"
+        className="flex flex-col md:p-12 z-10 h-full pt-12 px-5 relative card-bg"
         style={{ backgroundImage: `url(${data.backgroundImage})` }}
       >
-        {/* Header */}
-        <div className="flex flex-col">
-          <AnimatedElement delay={0.1} className="mb-3 md:mb-4">
+        {/* Header Section - Flex Shrink */}
+        <div className="flex-shrink-0 mb-5 md:mb-6">
+          <AnimatedElement delay={0.1} className="mb-1 md:mb-2">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
               {data.slideNumber.replace('/', ' / ')} — {data.label.toUpperCase()}
             </span>
           </AnimatedElement>
 
           <AnimatedElement delay={0.2}>
-            <h2 className="text-2xl md:text-4xl font-bold text-white font-display tracking-tight leading-tight mb-1">
+            <h2 className="text-2xl md:text-3xl font-bold text-white font-display tracking-tight leading-tight mb-1">
               <span className="md:hidden">{data.title.replace(/\n/g, ' ')}</span>
               <span className="hidden md:block">
                 {data.title.split('\n').map((line, i) => (
@@ -46,85 +55,143 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                 ))}
               </span>
             </h2>
-            <p className="uppercase text-xs md:text-sm text-teal-300 tracking-wide font-mono mb-6 md:mb-8">
+            <p className="uppercase text-xs md:text-sm text-teal-300 tracking-wide font-mono">
               {data.tagline}
             </p>
           </AnimatedElement>
         </div>
 
-        {/* Stat Card - Compact */}
-        <AnimatedElement delay={0.3} className="mb-6 md:mb-8">
-          <div className="group overflow-hidden bg-black/60 hover:bg-black/70 rounded-lg p-4 md:p-5 relative shadow-2xl backdrop-blur-xl border border-white/10 hover:border-teal-400/50 transition-all duration-500 cursor-pointer">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex flex-col flex-1">
-                <span className="text-2xl md:text-3xl font-bold text-white group-hover:text-teal-300 transition-colors duration-500 tracking-tighter font-display">
+        {/* Stat Card - Ultra Compact - Flex Shrink */}
+        <AnimatedElement delay={0.3} className="flex-shrink-0 mb-5 md:mb-6">
+          <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-lg p-3 md:p-4 shadow-2xl">
+            <div className="flex items-start justify-between gap-3">
+              <div className="flex flex-col flex-1 min-w-0">
+                <span className="text-xl md:text-2xl font-bold text-white tracking-tighter font-display">
                   {data.statValue}
                 </span>
-                <span className="text-xs md:text-xs text-teal-300 group-hover:text-teal-200 transition-colors duration-500 font-mono mt-1 tracking-wider">
+                <span className="text-xs text-teal-300 font-mono mt-0.5 tracking-wider">
                   {data.statLabel}
                 </span>
               </div>
               <iconify-icon
                 icon="solar:graph-up-linear"
-                className="text-teal-300 group-hover:text-teal-200 group-hover:scale-110 transition-all duration-300 text-xl md:text-2xl flex-shrink-0 mt-0.5"
+                className="text-teal-300 text-lg md:text-xl flex-shrink-0 mt-0.5"
               />
             </div>
-            <div className="h-0.5 w-full bg-white/10 rounded-full overflow-hidden mt-3 group-hover:bg-white/20 transition-colors duration-500">
+            <div className="h-0.5 w-full bg-white/10 rounded-full overflow-hidden mt-2">
               <div
-                className="h-full bg-teal-400 group-hover:bg-teal-300 transition-all duration-500 rounded-full"
+                className="h-full bg-teal-400 rounded-full transition-all duration-300"
                 style={{ width: `${data.progressPercent}%` }}
               />
             </div>
-            <p className="text-xs md:text-sm text-neutral-400 font-light leading-relaxed font-display mt-2">
+            <p className="text-xs text-neutral-400 font-light leading-relaxed font-display mt-2">
               {data.statDescription}
             </p>
           </div>
         </AnimatedElement>
 
-        {/* Information Flow - 4 Sections */}
-        <AnimatedElement delay={0.4} className="flex-1">
-          <div className="space-y-3">
-            {sections.map((section, idx) => (
-              <div key={idx} className="relative group">
-                {/* Section Container */}
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 group-hover:border-white/20 rounded-lg p-3 md:p-4 transition-all duration-300">
-                  {/* Section Label */}
-                  <div className="flex items-center gap-2 mb-2">
+        {/* Step Navigation - Dots - Flex Shrink */}
+        <div className="flex-shrink-0 flex items-center justify-center gap-2 mb-5 md:mb-6">
+          {sectionConfig.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentStep(idx)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                idx === currentStep
+                  ? 'w-8 bg-teal-400 shadow-lg shadow-teal-400/50'
+                  : 'bg-white/20 hover:bg-white/40'
+              }`}
+              aria-label={`Go to step ${idx + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Content Area - Flex Grow to take remaining space */}
+        <div className="flex-1 relative min-h-[120px] flex flex-col pb-5 md:pb-6">
+          {/* Step Content with Fade Transition */}
+          <div className="relative flex-1">
+            {sectionConfig.map((config, idx) => (
+              <div
+                key={idx}
+                className={`absolute inset-0 transition-all duration-500 ease-out ${
+                  idx === currentStep
+                    ? 'opacity-100 pointer-events-auto'
+                    : 'opacity-0 pointer-events-none'
+                }`}
+              >
+                {/* Step Box with Gradient Background */}
+                <div className={`bg-gradient-to-br ${config.color} backdrop-blur-sm border rounded-lg p-4 md:p-5 h-full flex flex-col justify-between`}>
+                  {/* Step Label */}
+                  <div className="flex items-center gap-2 mb-3">
                     <iconify-icon
-                      icon={sectionIcons[idx]}
-                      className={`text-sm md:text-base flex-shrink-0 ${
-                        idx === 0 ? 'text-red-400/70' :
+                      icon={config.icon}
+                      className={`text-base md:text-lg flex-shrink-0 ${
+                        idx === 0 ? 'text-red-400' :
                         idx === 1 ? 'text-teal-400' :
-                        idx === 2 ? 'text-blue-400' :
-                        'text-emerald-400'
+                        idx === 2 ? 'text-emerald-400' :
+                        'text-cyan-400'
                       }`}
                     />
-                    <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 group-hover:text-neutral-300 transition-colors">
-                      {sectionLabels[idx]}
+                    <span className="text-xs font-mono uppercase tracking-wider text-white/70">
+                      {idx + 1} / 4 — {config.label}
                     </span>
                   </div>
 
-                  {/* Section Content */}
-                  <p className="text-sm md:text-sm leading-relaxed text-white/80 group-hover:text-white/90 transition-colors font-display">
-                    {section}
+                  {/* Step Content */}
+                  <p className="text-sm md:text-base leading-relaxed text-white/90 font-display flex-1">
+                    {sections[idx]}
                   </p>
-
-                  {/* Visual Connector Line (except last) */}
-                  {idx < 3 && (
-                    <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-0.5 h-3 bg-gradient-to-b from-white/10 to-transparent" />
-                  )}
                 </div>
               </div>
             ))}
           </div>
-        </AnimatedElement>
 
-        {/* Tools Footer */}
-        <AnimatedElement delay={0.5} className="mt-4 pt-3 border-t border-white/5">
-          <p className="text-xs text-neutral-500 font-mono tracking-widest uppercase">
-            <span className="text-teal-300/70">→</span> {data.tools.replace('Tools: ', '')}
-          </p>
-        </AnimatedElement>
+          {/* Navigation Buttons */}
+          <div className="flex-shrink-0 flex items-center justify-between gap-3 mt-4 pt-4 border-t border-white/5">
+            <button
+              onClick={goToPrevious}
+              disabled={currentStep === 0}
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
+                currentStep === 0
+                  ? 'text-white/20 cursor-not-allowed'
+                  : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
+              }`}
+            >
+              <iconify-icon icon="solar:arrow-left-linear" className="text-sm" />
+              <span className="hidden md:inline">Back</span>
+            </button>
+
+            {/* Progress Indicator */}
+            <span className="text-xs text-neutral-400 font-mono">
+              {currentStep + 1} of 4
+            </span>
+
+            <button
+              onClick={goToNext}
+              disabled={currentStep === 3}
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
+                currentStep === 3
+                  ? 'text-white/20 cursor-not-allowed'
+                  : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
+              }`}
+            >
+              <span className="hidden md:inline">Next</span>
+              <iconify-icon icon="solar:arrow-right-linear" className="text-sm" />
+            </button>
+          </div>
+        </div>
+
+        {/* Technologies Footer - LOCKED at bottom, Flex Shrink */}
+        <div className="flex-shrink-0 pb-5 md:pb-8 border-t border-white/10 pt-3">
+          <div className="flex flex-col gap-2">
+            <span className="text-xs text-neutral-400 font-mono tracking-widest uppercase font-semibold">
+              Technologies
+            </span>
+            <p className="text-xs text-neutral-300 font-display leading-relaxed">
+              {data.tools.replace('Tools: ', '')}
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
