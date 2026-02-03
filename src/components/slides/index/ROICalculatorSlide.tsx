@@ -69,18 +69,11 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white font-display leading-tight drop-shadow-md mb-3">
               20 hours back every week
             </h2>
-            <p className="text-lg md:text-xl font-normal text-teal-300 tracking-wide font-display mb-2">
+            <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mb-3">
               The ROI
             </p>
-            <p className="text-base md:text-lg text-neutral-300 tracking-tight font-display">
+            <p className="text-base md:text-lg text-white tracking-tight font-display">
               Your tools handle the busywork. You handle the relationships.
-            </p>
-          </AnimatedElement>
-
-          {/* Mechanism explanation */}
-          <AnimatedElement delay={0.25} className="shrink-0 mb-6 max-w-md">
-            <p className="text-sm md:text-base text-neutral-300 leading-relaxed font-display">
-              We connect your systems so they run in the background. When something needs adjusting, we're here. You get your time back—and peace of mind.
             </p>
           </AnimatedElement>
 
