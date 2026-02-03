@@ -77,10 +77,10 @@ const checklistItems = [
 ];
 
 const scoreGuide = [
-  { range: '7 checks', description: "You're ahead of 95% of agents. Let's optimize." },
-  { range: '4-6 checks', description: "You have foundations. Let's fill the gaps." },
-  { range: '1-3 checks', description: "You're leaving time (and money) on the table." },
-  { range: '0 checks', description: "You're not alone. Most agents are here." },
+  { range: '7 checks', description: "You're ahead of 95% of agents. Time to dial in the details." },
+  { range: '4-6 checks', description: "You have foundations. Now fill the gaps that are costing you." },
+  { range: '1-3 checks', description: "You're leaving significant time and money on the table." },
+  { range: '0 checks', description: "You're not alone. Most agents are here. This is where it changes." },
 ];
 
 export function ChecklistPage() {
@@ -231,7 +231,7 @@ export function ChecklistPage() {
             What's Next?
           </h3>
           <p className="text-neutral-400 mb-6 max-w-md mx-auto font-display">
-            Every unchecked box is time you're trading for busywork. Let's fix that.
+            Every unchecked box is time you're trading for busywork. This is where we change that.
           </p>
           <button
             data-cal-namespace="bookatime"
@@ -253,7 +253,7 @@ export function ChecklistPage() {
             Found some gaps?
           </h3>
           <p className="text-neutral-400 mb-6 max-w-md mx-auto text-center font-display">
-            Let's build your custom automation roadmap. Book a free 60-minute strategy call.
+            Build your custom automation roadmap. Book a free sixty-minute strategy call.
           </p>
 
           {formSuccess ? (
@@ -263,7 +263,7 @@ export function ChecklistPage() {
               </div>
               <p className="text-white font-semibold mb-2 font-display">Thanks!</p>
               <p className="text-neutral-400 text-sm font-display">
-                Check your email for next steps. We'll reach out shortly.
+                Check your email for next steps. We'll be in touch within one business day.
               </p>
             </div>
           ) : (
