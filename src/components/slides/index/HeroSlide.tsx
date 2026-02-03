@@ -31,12 +31,15 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
         {/* Main Content - Left Aligned */}
         <div className="relative z-10 flex-1 flex flex-col justify-center">
           <AnimatedElement delay={0.2}>
-            <h1 className="text-6xl md:text-7xl font-medium text-white tracking-tight font-display leading-none">
+            <h1 className="text-6xl md:text-7xl font-bold text-white tracking-tight font-display leading-none">
               Your Tools.
               <span className="block">Automated.</span>
-              <span className="block text-neutral-500">Managed.</span>
+              <span className="block">Managed.</span>
             </h1>
-            <p className="text-base md:text-lg font-normal text-neutral-400 tracking-tight font-display mt-6">
+            <p className="text-lg md:text-xl font-normal text-teal-300 tracking-wide font-display mt-6 mb-4">
+              Built. Automated. Managed.
+            </p>
+            <p className="text-base md:text-lg text-neutral-300 tracking-tight font-display leading-relaxed">
               You already have the tools—CRM, calendar, email. They just don't talk. We wire them together so they work automatically. When something needs tweaking, we handle it. You focus on clients.
             </p>
           </AnimatedElement>

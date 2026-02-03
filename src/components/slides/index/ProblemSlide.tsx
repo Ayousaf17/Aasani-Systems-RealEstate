@@ -227,10 +227,13 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
         </AnimatedElement>
 
         <AnimatedElement delay={0.2} className="mb-8 md:mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight mb-3">
             You know these tools. They just don't talk.
           </h2>
-          <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
+          <p className="text-lg md:text-xl font-normal text-teal-300 tracking-wide font-display mb-2">
+            The Reality
+          </p>
+          <p className="text-base md:text-lg text-neutral-300 tracking-tight font-display">
             Your CRM, email, calendar, and transactions sit in silos.
           </p>
         </AnimatedElement>
