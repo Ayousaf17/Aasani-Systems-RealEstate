@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import { useRef, useEffect, useState } from 'react';
 import { getCalApi } from '@calcom/embed-react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
-import { contactInfo } from '../../../data/indexContent';
 
 interface CTASlideProps {
   index: number;
@@ -176,42 +175,6 @@ export function CTASlide({ index }: CTASlideProps) {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.5} className="w-full shrink-0 relative z-10 p-4 md:p-6">
-          {/* Questions label above the line */}
-          <span className="block text-[10px] text-white font-mono uppercase tracking-widest text-center mb-3 md:mb-4">
-            Questions? Reach out:
-          </span>
-
-          {/* Footer line */}
-          <div className="w-full border-t border-white/20 pt-4 md:pt-5">
-            {/* Icons below the line */}
-            <div className="flex items-center justify-center gap-5 md:gap-6">
-              <a
-                href={`mailto:${contactInfo.email}`}
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
-                aria-label="Email us"
-              >
-                <iconify-icon icon="lucide:mail" className="text-teal-300 text-2xl drop-shadow-md" />
-              </a>
-              <a
-                href={`tel:${contactInfo.phone.replace(/\D/g, '')}`}
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
-                aria-label="Call us"
-              >
-                <iconify-icon icon="lucide:phone" className="text-teal-300 text-2xl drop-shadow-md" />
-              </a>
-              <a
-                href={`https://${contactInfo.website.toLowerCase()}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/60 border border-white/20 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/50 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
-                aria-label="Visit our website"
-              >
-                <iconify-icon icon="lucide:globe" className="text-teal-300 text-2xl drop-shadow-md" />
-              </a>
-            </div>
-          </div>
-        </AnimatedElement>
       </div>
     </section>
   );
