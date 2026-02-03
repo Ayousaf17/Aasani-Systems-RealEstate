@@ -35,32 +35,34 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/80 to-[#0A0A0A] z-0" />
 
       <div
-        className="flex flex-col md:p-12 z-10 h-full pt-12 px-5 pb-8 md:pb-12 relative justify-between card-bg"
+        className="flex flex-col md:p-12 z-10 h-full pt-12 px-5 relative card-bg"
         style={{ backgroundImage: `url(${data.backgroundImage})` }}
       >
-        {/* Header */}
-        <AnimatedElement delay={0.1} className="mb-1 md:mb-2">
-          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
-            {data.slideNumber.replace('/', ' / ')} — {data.label.toUpperCase()}
-          </span>
-        </AnimatedElement>
-
-        <AnimatedElement delay={0.2} className="mb-5 md:mb-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-white font-display tracking-tight leading-tight mb-1">
-            <span className="md:hidden">{data.title.replace(/\n/g, ' ')}</span>
-            <span className="hidden md:block">
-              {data.title.split('\n').map((line, i) => (
-                <span key={i} className="block">{line}</span>
-              ))}
+        {/* Header Section - Flex Shrink */}
+        <div className="flex-shrink-0 mb-5 md:mb-6">
+          <AnimatedElement delay={0.1} className="mb-1 md:mb-2">
+            <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+              {data.slideNumber.replace('/', ' / ')} — {data.label.toUpperCase()}
             </span>
-          </h2>
-          <p className="uppercase text-xs md:text-sm text-teal-300 tracking-wide font-mono">
-            {data.tagline}
-          </p>
-        </AnimatedElement>
+          </AnimatedElement>
 
-        {/* Stat Card - Ultra Compact */}
-        <AnimatedElement delay={0.3} className="mb-6 md:mb-8">
+          <AnimatedElement delay={0.2}>
+            <h2 className="text-2xl md:text-3xl font-bold text-white font-display tracking-tight leading-tight mb-1">
+              <span className="md:hidden">{data.title.replace(/\n/g, ' ')}</span>
+              <span className="hidden md:block">
+                {data.title.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
+              </span>
+            </h2>
+            <p className="uppercase text-xs md:text-sm text-teal-300 tracking-wide font-mono">
+              {data.tagline}
+            </p>
+          </AnimatedElement>
+        </div>
+
+        {/* Stat Card - Ultra Compact - Flex Shrink */}
+        <AnimatedElement delay={0.3} className="flex-shrink-0 mb-5 md:mb-6">
           <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-lg p-3 md:p-4 shadow-2xl">
             <div className="flex items-start justify-between gap-3">
               <div className="flex flex-col flex-1 min-w-0">
@@ -88,8 +90,8 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           </div>
         </AnimatedElement>
 
-        {/* Step Navigation - Dots */}
-        <div className="flex items-center justify-center gap-2 mb-5 md:mb-6">
+        {/* Step Navigation - Dots - Flex Shrink */}
+        <div className="flex-shrink-0 flex items-center justify-center gap-2 mb-5 md:mb-6">
           {sectionConfig.map((_, idx) => (
             <button
               key={idx}
@@ -104,8 +106,8 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           ))}
         </div>
 
-        {/* Content Area - Single Step at a Time */}
-        <div className="flex-1 relative min-h-[140px] md:min-h-[160px] flex flex-col justify-between">
+        {/* Content Area - Flex Grow to take remaining space */}
+        <div className="flex-1 relative min-h-[120px] flex flex-col pb-5 md:pb-6">
           {/* Step Content with Fade Transition */}
           <div className="relative flex-1">
             {sectionConfig.map((config, idx) => (
@@ -145,7 +147,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex items-center justify-between gap-3 mt-4 pt-4 border-t border-white/5">
+          <div className="flex-shrink-0 flex items-center justify-between gap-3 mt-4 pt-4 border-t border-white/5">
             <button
               onClick={goToPrevious}
               disabled={currentStep === 0}
@@ -179,8 +181,8 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           </div>
         </div>
 
-        {/* Technologies Footer */}
-        <div className="mt-4 pt-3 border-t border-white/10">
+        {/* Technologies Footer - LOCKED at bottom, Flex Shrink */}
+        <div className="flex-shrink-0 pb-5 md:pb-8 border-t border-white/10 pt-3">
           <div className="flex flex-col gap-2">
             <span className="text-xs text-neutral-400 font-mono tracking-widest uppercase font-semibold">
               Technologies
