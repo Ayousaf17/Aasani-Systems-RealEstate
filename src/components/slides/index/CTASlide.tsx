@@ -89,10 +89,16 @@ export function CTASlide({ index }: CTASlideProps) {
 
         <AnimatedElement delay={0.2} className="mb-6 md:mb-8 relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
-            Ready to be present
+            Ready to stop managing tools and start using them?
           </h2>
           <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
-            when it matters?
+            We'll wire them. You'll own them. We'll manage them.
+          </p>
+        </AnimatedElement>
+
+        <AnimatedElement delay={0.3} className="mb-6 relative z-10">
+          <p className="text-center text-sm md:text-base text-white/90 font-display">
+            On the call, we'll show you exactly how your tools can work together automatically—and how we stay your back office when things need fixing.
           </p>
         </AnimatedElement>
 

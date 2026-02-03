@@ -7,7 +7,8 @@ import { contactLinks } from '../../../data/automationsContent';
 
 const ctaChecklist = [
   'Free 60-minute strategy call',
-  'Your personalized system plan',
+  "We'll show you exactly how your tools can work together automatically",
+  'When something breaks or needs changes, you call us—not a help desk',
 ];
 
 export function AutomationsCTASlide() {
@@ -108,7 +109,7 @@ export function AutomationsCTASlide() {
 
         <AnimatedElement delay={0.2} className="mb-6 md:mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
-            Let's build your system
+            We'll Build It. You'll Own It. We'll Manage It.
           </h2>
           <p className="uppercase text-xs md:text-sm text-teal-300 tracking-wide font-mono mt-2">
             BOOK A STRATEGY CALL
