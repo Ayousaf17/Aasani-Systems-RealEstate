@@ -29,12 +29,13 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
         {/* Main Content - Left Aligned */}
         <div className="relative z-10 flex-1 flex flex-col justify-center">
           <AnimatedElement delay={0.2}>
-<h1 className="text-6xl md:text-7xl font-medium text-white tracking-tight font-display leading-none">
-              Real Estate Operations
-              <span className="block text-neutral-500">Streamlined</span>
+            <h1 className="text-6xl md:text-7xl font-medium text-white tracking-tight font-display leading-none">
+              Your Tools.
+              <span className="block">Automated.</span>
+              <span className="block text-neutral-500">Managed.</span>
             </h1>
             <p className="text-base md:text-lg font-normal text-neutral-400 tracking-tight font-display mt-6">
-              So you can focus on people, not admin tasks.
+              You already have the tools. Most agents do. We wire them together so they work automatically — and we manage the system for you when something needs tweaking.
             </p>
           </AnimatedElement>
         </div>

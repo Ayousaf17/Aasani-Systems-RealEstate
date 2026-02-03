@@ -8,16 +8,16 @@ interface SolutionSlideProps {
 
 const benefits = [
   {
+    icon: 'solar:plug-2-linear',
+    text: 'Your tools finally talk to each other',
+  },
+  {
     icon: 'solar:bolt-circle-linear',
-    text: 'Instant response to every lead - even at 2am',
+    text: 'Automations run on their own, not you',
   },
   {
-    icon: 'solar:chat-round-dots-linear',
-    text: 'Nurture sequences that feel personal, not robotic',
-  },
-  {
-    icon: 'solar:clipboard-check-linear',
-    text: 'Transaction coordination that runs itself',
+    icon: 'solar:hand-open-linear',
+    text: 'We stay involved if something needs tweaking',
   },
 ];
 
@@ -44,10 +44,10 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
 
         <AnimatedElement delay={0.2} className="mb-8 md:mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
-            Systems that work
+            We wire your tools together
           </h2>
           <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
-            while you don't have to
+            So they work as one automated system
           </p>
         </AnimatedElement>
 
