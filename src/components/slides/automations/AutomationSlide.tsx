@@ -70,11 +70,23 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
         </AnimatedElement>
 
         <AnimatedElement delay={0.7}>
-          <div className="bg-black/60 backdrop-blur-md rounded-lg p-4 md:p-4 border-l-2 border-teal-500/50">
-            <p className="leading-relaxed text-sm md:text-base text-white/90 font-display mb-2">
-              {data.description}
-            </p>
-            <div className="border-t border-teal-500/50 pt-2">
+          <div className="space-y-3 md:space-y-4">
+            {data.description.split('|||').map((section, idx) => (
+              <div
+                key={idx}
+                className={`${
+                  idx === 0 ? 'bg-red-500/10 border-red-400/50' :
+                  idx === 1 ? 'bg-teal-500/10 border-teal-400/50' :
+                  idx === 2 ? 'bg-blue-500/10 border-blue-400/50' :
+                  'bg-purple-500/10 border-purple-400/50'
+                } backdrop-blur-md rounded-lg p-3 md:p-4 border-l-2`}
+              >
+                <p className="leading-relaxed text-sm md:text-base text-white/90 font-display">
+                  {section.trim()}
+                </p>
+              </div>
+            ))}
+            <div className="bg-black/60 backdrop-blur-md rounded-lg p-3 md:p-4 border-l-2 border-teal-500/50">
               <p className="text-xs md:text-xs uppercase tracking-widest font-mono">
                 <span className="text-teal-300">Tools:</span>{' '}
                 <span className="text-white/90">{data.tools.replace('Tools: ', '')}</span>

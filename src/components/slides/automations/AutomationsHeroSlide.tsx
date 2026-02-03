@@ -29,17 +29,17 @@ export function AutomationsHeroSlide({ onNextSlide: onNavigate }: AutomationsHer
         <div className="relative z-10 mt-auto mb-6 md:mb-12">
           <AnimatedElement delay={0.2}>
             <h1 className="text-6xl md:text-7xl font-bold text-white tracking-tight font-serif leading-none">
-              The 7 Core Systems
+              The 7 Systems
+              <span className="block">We Build For You</span>
             </h1>
             <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
-              How top agents save 20+ hours per week
+              Built. Automated. Managed.
             </p>
           </AnimatedElement>
 
           <AnimatedElement delay={0.4} className="mt-6">
             <p className="leading-relaxed text-sm md:text-base text-white/90 tracking-wide font-display max-w-[90%] border-teal-300 border-l-2 pl-3 bg-black/60 py-2 pr-2 rounded-r-lg">
-              You got into real estate to help people, not to drown in admin.
-              Here's how to get your time back.
+              We wire these systems together so they work automatically. Then we manage them—so if something needs tweaking, you just call us.
             </p>
           </AnimatedElement>
         </div>

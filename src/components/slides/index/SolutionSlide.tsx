@@ -9,15 +9,15 @@ interface SolutionSlideProps {
 const benefits = [
   {
     icon: 'solar:link-linear',
-    text: 'Your tools finally talk to each other',
+    text: 'Your CRM, calendar, and email work as one system',
   },
   {
     icon: 'solar:bolt-circle-linear',
-    text: 'Automations run on their own, not you',
+    text: 'It happens automatically—no manual work from you',
   },
   {
     icon: 'solar:hand-heart-linear',
-    text: 'We stay involved if something needs tweaking',
+    text: "When it breaks or needs changes, we fix it—you're not stuck troubleshooting",
   },
 ];
 
@@ -47,7 +47,7 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
             We wire your tools together
           </h2>
           <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
-            So they work as one automated system
+            So they work automatically—and we stay your back office
           </p>
         </AnimatedElement>
 
