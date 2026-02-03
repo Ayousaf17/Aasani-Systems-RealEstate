@@ -91,13 +91,13 @@ export function CTASlide({ index }: CTASlideProps) {
             Ready to stop managing tools and start using them?
           </h2>
           <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
-            We'll wire them. You'll own them. We'll manage them.
+            We wire them. You own them. We manage the rest.
           </p>
         </AnimatedElement>
 
         <AnimatedElement delay={0.3} className="mb-6 relative z-10">
           <p className="text-center text-sm md:text-base text-white/90 font-display">
-            On the call, we'll show you exactly how your tools can work together automatically—and how we stay your back office when things need fixing.
+            On the call, you'll see exactly how your tools work together automatically and where we stay involved to manage things when they need adjusting.
           </p>
         </AnimatedElement>
 

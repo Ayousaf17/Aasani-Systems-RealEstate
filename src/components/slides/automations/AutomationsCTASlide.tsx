@@ -7,7 +7,7 @@ import { LeadCaptureDialog } from '../../ui/LeadCaptureDialog';
 const ctaPoints = [
   'Free 60-minute strategy call',
   'See exactly how your tools work together',
-  'We manage it—you stay in control',
+  'We handle the backend while you stay in control',
 ];
 
 export function AutomationsCTASlide() {
@@ -110,7 +110,7 @@ export function AutomationsCTASlide() {
 
           <AnimatedElement delay={0.2}>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight mb-1">
-              We'll Build It. You'll Own It. We'll Manage It.
+              We build it. You own it. We manage it.
             </h2>
             <p className="text-sm md:text-base text-neutral-300 font-display">
               Everything you need in one call.
