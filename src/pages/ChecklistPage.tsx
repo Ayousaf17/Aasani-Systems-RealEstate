@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { getCalApi } from '@calcom/embed-react';
 import { BottomNav } from '../components/navigation/BottomNav';
+import { LeadCaptureDialog } from '../components/ui/LeadCaptureDialog';
 
 const checklistItems = [
   {
@@ -84,10 +85,6 @@ const scoreGuide = [
 ];
 
 export function ChecklistPage() {
-  const [emailForm, setEmailForm] = useState({ name: '', email: '', phone: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formSuccess, setFormSuccess] = useState(false);
-  const [formError, setFormError] = useState('');
 
   useEffect(() => {
     (async function () {
@@ -103,33 +100,6 @@ export function ChecklistPage() {
     })();
   }, []);
 
-  const handleEmailSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormError('');
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch('https://axistential.app.n8n.cloud/webhook/fc24c600-6b00-4234-9486-9f33eac2f489', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: emailForm.name,
-          email: emailForm.email,
-          phone: emailForm.phone || undefined,
-          source: 'checklist_page',
-        }),
-      });
-
-      if (!response.ok) throw new Error('Submission failed');
-      setFormSuccess(true);
-      setEmailForm({ name: '', email: '', phone: '' });
-      setTimeout(() => setFormSuccess(false), 3000);
-    } catch (err) {
-      setFormError('Failed to submit. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white pb-12 md:pb-16 pt-14 md:pt-20">
@@ -225,83 +195,40 @@ export function ChecklistPage() {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center bg-gradient-to-b from-teal-500/10 to-transparent border border-teal-500/20 rounded-2xl p-8">
-          <h3 className="text-2xl font-bold font-display mb-3">
+        {/* Primary CTA */}
+        <div className="text-center bg-gradient-to-b from-teal-500/10 to-transparent border border-teal-500/20 rounded-2xl p-8 mb-12">
+          <h3 className="text-2xl font-bold font-display mb-2">
             What's Next?
           </h3>
           <p className="text-neutral-400 mb-6 max-w-md mx-auto font-display">
-            Every unchecked box is time you're trading for busywork. This is where we change that.
+            Your systems can work together. It starts with a conversation.
           </p>
           <button
             data-cal-namespace="bookatime"
             data-cal-link="ayub-yousaf-c1ijnf/bookatime"
             data-cal-config='{"layout":"week_view"}'
-            className="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-400 text-black font-semibold py-4 px-6 rounded-full transition-colors min-h-[44px]"
+            className="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-400 text-black font-semibold py-4 px-6 rounded-full transition-colors min-h-[44px] mb-4"
           >
             Book Your Free Strategy Call
             <iconify-icon icon="solar:calendar-add-linear" width={20} />
           </button>
-          <p className="text-neutral-500 text-sm mt-4">
+          <p className="text-neutral-500 text-sm mb-4">
             60 minutes. Custom automation roadmap. No strings attached.
           </p>
-        </div>
 
-        {/* Email Capture Section */}
-        <div className="bg-gradient-to-b from-teal-500/10 to-transparent border border-teal-500/20 rounded-2xl p-8 mb-12">
-          <h3 className="text-2xl font-bold font-display mb-3 text-center">
-            Found some gaps?
-          </h3>
-          <p className="text-neutral-400 mb-6 max-w-md mx-auto text-center font-display">
-            Build your custom automation roadmap. Book a free sixty-minute strategy call.
-          </p>
-
-          {formSuccess ? (
-            <div className="text-center py-6">
-              <div className="flex justify-center mb-3">
-                <iconify-icon icon="solar:check-circle-bold" className="text-teal-300 text-5xl" />
-              </div>
-              <p className="text-white font-semibold mb-2 font-display">Thanks!</p>
-              <p className="text-neutral-400 text-sm font-display">
-                Check your email for next steps. We'll be in touch within one business day.
-              </p>
-            </div>
-          ) : (
-            <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto space-y-3">
-              <input
-                type="text"
-                placeholder="Your name"
-                value={emailForm.name}
-                onChange={(e) => setEmailForm({ ...emailForm, name: e.target.value })}
-                required
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-500 transition-colors font-display"
-              />
-              <input
-                type="email"
-                placeholder="Email address"
-                value={emailForm.email}
-                onChange={(e) => setEmailForm({ ...emailForm, email: e.target.value })}
-                required
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-500 transition-colors font-display"
-              />
-              <input
-                type="tel"
-                placeholder="Phone number"
-                value={emailForm.phone}
-                onChange={(e) => setEmailForm({ ...emailForm, phone: e.target.value })}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-500 transition-colors font-display"
-              />
-              {formError && <p className="text-red-400 text-sm font-display">{formError}</p>}
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-teal-500 hover:bg-teal-400 disabled:bg-neutral-600 text-black font-semibold py-3 rounded-lg transition-colors min-h-[44px] flex items-center justify-center gap-2 font-display"
-              >
-                {isSubmitting ? 'Sending...' : 'Book Your Free Strategy Call'}
-                <iconify-icon icon="solar:calendar-add-linear" width={18} />
-              </button>
-            </form>
-          )}
+          {/* Secondary CTA - Deep Dive Guide */}
+          <div className="pt-4 border-t border-white/10">
+            <p className="text-neutral-500 text-sm mb-3">Want to see how first?</p>
+            <LeadCaptureDialog
+              trigger={
+                <button className="text-teal-300 hover:text-teal-200 text-sm font-display transition-colors inline-flex items-center gap-1">
+                  Get the 7 Systems Deep-Dive guide
+                  <iconify-icon icon="solar:arrow-right-linear" width={16} />
+                </button>
+              }
+              source="checklist_page"
+            />
+          </div>
         </div>
 
         {/* Footer */}
