@@ -175,6 +175,7 @@ export function AutomationsCTASlide() {
                   Get the free checklist
                 </button>
               }
+              source="systems-page-cta"
             />
 
             <button

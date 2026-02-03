@@ -8,6 +8,7 @@ interface LeadCaptureDialogProps {
   trigger: React.ReactNode;
   className?: string;
   onSuccess?: () => void;
+  source?: string; // Track which CTA source generated this lead
 }
 
 const benefits = [
@@ -16,7 +17,7 @@ const benefits = [
   { icon: CheckCircle2, text: 'Never miss a follow-up' },
 ];
 
-export function LeadCaptureDialog({ trigger, className, onSuccess }: LeadCaptureDialogProps) {
+export function LeadCaptureDialog({ trigger, className, onSuccess, source = 'cta-dialog-default' }: LeadCaptureDialogProps) {
   const [open, setOpen] = React.useState(false);
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
@@ -41,7 +42,7 @@ export function LeadCaptureDialog({ trigger, className, onSuccess }: LeadCapture
           name,
           email,
           phone: phone || undefined,
-          source: 'cta-dialog-checklist',
+          source,
         }),
       });
 
