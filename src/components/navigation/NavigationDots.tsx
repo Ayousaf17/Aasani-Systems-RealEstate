@@ -29,13 +29,15 @@ export function NavigationDots({ total, currentIndex, onDotClick, direction = 'v
 
   // Horizontal pagination (for automations page)
   return (
-    <div className="flex gap-x-1.5 md:gap-x-2 items-center justify-center">
+    <div className="flex gap-x-2 md:gap-x-3 items-center justify-center">
       {Array.from({ length: total }, (_, i) => (
         <button
           key={i}
           onClick={() => onDotClick(i)}
-          className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full hover:bg-white hover:scale-125 transition-all duration-300 cursor-pointer ${
-            i === currentIndex ? 'bg-white scale-125' : 'bg-white/30'
+          className={`rounded-full hover:scale-125 transition-all duration-300 cursor-pointer ${
+            i === currentIndex
+              ? 'w-2.5 h-2.5 md:w-3 md:h-3 bg-teal-400 scale-125 shadow-lg shadow-teal-400/50'
+              : 'w-1.5 h-1.5 md:w-2 md:h-2 bg-white/40 hover:bg-white/70'
           }`}
           aria-label={`Go to slide ${i + 1}`}
         />

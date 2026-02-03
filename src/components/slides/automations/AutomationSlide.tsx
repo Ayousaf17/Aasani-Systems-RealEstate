@@ -147,47 +147,47 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex-shrink-0 flex items-center justify-between gap-3 mt-4 pt-4 border-t border-white/5">
+          <div className="flex-shrink-0 flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4 mt-4 pt-4 border-t border-white/5">
             <button
               onClick={goToPrevious}
               disabled={currentStep === 0}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
+              className={`flex items-center justify-center md:justify-start gap-1.5 px-4 py-2 md:px-3 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
                 currentStep === 0
                   ? 'text-white/20 cursor-not-allowed'
                   : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
               }`}
             >
               <iconify-icon icon="solar:arrow-left-linear" className="text-sm" />
-              <span className="hidden md:inline">Back</span>
+              <span>Back</span>
             </button>
 
             {/* Progress Indicator */}
-            <span className="text-xs text-neutral-400 font-mono">
+            <span className="text-xs text-neutral-400 font-mono text-center md:text-left">
               {currentStep + 1} of 4
             </span>
 
             <button
               onClick={goToNext}
               disabled={currentStep === 3}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
+              className={`flex items-center justify-center md:justify-end gap-1.5 px-4 py-2 md:px-3 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
                 currentStep === 3
                   ? 'text-white/20 cursor-not-allowed'
                   : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
               }`}
             >
-              <span className="hidden md:inline">Next</span>
+              <span>Next</span>
               <iconify-icon icon="solar:arrow-right-linear" className="text-sm" />
             </button>
           </div>
         </div>
 
         {/* Technologies Footer - LOCKED at bottom, Flex Shrink */}
-        <div className="flex-shrink-0 pb-5 md:pb-8 border-t border-white/10 pt-3">
+        <div className="flex-shrink-0 pb-5 md:pb-8 border-t border-white/10 pt-3 hidden md:block">
           <div className="flex flex-col gap-2">
             <span className="text-xs text-neutral-400 font-mono tracking-widest uppercase font-semibold">
               Technologies
             </span>
-            <p className="text-xs text-neutral-300 font-display leading-relaxed">
+            <p className="text-xs text-neutral-300 font-display leading-relaxed line-clamp-2">
               {data.tools.replace('Tools: ', '')}
             </p>
           </div>

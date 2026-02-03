@@ -127,7 +127,7 @@ export function ChecklistPage() {
         </div>
 
         {/* Checklist Items */}
-        <div className="space-y-8 mb-16">
+        <div className="space-y-10 mb-16">
           {checklistItems.map((item) => (
             <div
               key={item.number}
@@ -177,17 +177,17 @@ export function ChecklistPage() {
         </div>
 
         {/* Score Guide */}
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12">
-          <h3 className="text-lg font-bold font-display mb-4 text-center">
+        <div className="bg-gradient-to-br from-teal-500/15 to-teal-500/5 border border-teal-500/40 rounded-2xl p-8 mb-12 backdrop-blur-sm">
+          <h3 className="text-xl font-bold font-display mb-6 text-center text-white">
             Score Yourself
           </h3>
-          <div className="space-y-2">
+          <div className="space-y-3">
             {scoreGuide.map((score, i) => (
-              <div key={i} className="flex items-center gap-3">
-                <span className="text-teal-300 font-mono text-sm w-24 flex-shrink-0">
-                  {score.range}:
+              <div key={i} className="flex items-start gap-4 pb-3 border-b border-white/5 last:border-b-0">
+                <span className="text-teal-300 font-mono text-sm font-semibold w-20 flex-shrink-0">
+                  {score.range}
                 </span>
-                <span className="text-neutral-300 text-sm font-display">
+                <span className="text-neutral-200 text-sm font-display">
                   {score.description}
                 </span>
               </div>
@@ -232,12 +232,12 @@ export function ChecklistPage() {
         </div>
 
         {/* Footer */}
-        <div className="mt-12 pt-8 border-t border-white/10 text-center">
-          <p className="text-neutral-500 text-sm mb-2 font-display">
-            Questions? Email me directly:{' '}
+        <div className="mt-16 pt-8 px-6 -mx-5 border-t border-white/10 bg-gradient-to-b from-white/5 to-transparent text-center">
+          <p className="text-neutral-400 text-sm mb-2 font-display">
+            Questions? Reach out:{' '}
             <a
               href="mailto:ayub@aasani.ai"
-              className="text-teal-300 hover:text-teal-200 transition-colors"
+              className="text-teal-300 hover:text-teal-200 transition-colors font-semibold"
             >
               ayub@aasani.ai
             </a>
