@@ -13,7 +13,7 @@ const painPoints = [
     text: "You know about all the tools (most agents do)",
   },
   {
-    icon: 'solar:link-break-linear',
+    icon: 'solar:forbidden-linear',
     text: "But they're not connected to each other",
   },
   {
