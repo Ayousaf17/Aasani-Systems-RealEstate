@@ -79,28 +79,28 @@ const services = [
 
 const comparison = {
   others: [
-    'Jump straight to tools',
-    'Generic playbooks',
+    'Just connect tools & hope',
+    'You manage the system yourself',
     'Vendor lock-in',
-    'Hourly billing',
-    'Band-aid fixes',
-    'Technical jargon',
-    'Break/fix support',
-    'Automation first',
-    'Ongoing dependencies',
-    'Figure it out later',
+    'Ongoing support costs',
+    'Breaks when you need changes',
+    'Heavy technical jargon',
+    "You're on the hook when it fails",
+    'Automation = set it & forget it',
+    'No documentation, you own the headache',
+    'No one backing your system',
   ],
   aasani: [
-    { text: 'Diagnose first', icon: '🔍' },
-    { text: 'Custom roadmap', icon: '🗺️' },
+    { text: 'We build it right the first time', icon: '🔍' },
+    { text: 'Your tools, our expertise', icon: '🔌' },
     { text: 'You own everything', icon: '🏠' },
-    { text: 'Fixed-scope pricing', icon: '💰' },
-    { text: '90-day monitoring', icon: '😊' },
-    { text: 'Plain English', icon: '🏷️' },
-    { text: 'Proactive optimization', icon: '⚡' },
-    { text: 'Structure Before Intelligence', icon: '🧱' },
-    { text: 'Complete documentation', icon: '🏆' },
-    { text: 'Detailed roadmap upfront', icon: '💛' },
+    { text: 'Fixed-scope, no surprises', icon: '💰' },
+    { text: 'We manage it if it needs tweaking', icon: '🛠️' },
+    { text: 'Plain English, not tech speak', icon: '🏷️' },
+    { text: 'We stay involved, not absent', icon: '⚡' },
+    { text: 'Automation with human oversight', icon: '🤝' },
+    { text: 'Full documentation & training', icon: '📚' },
+    { text: 'You get your time back', icon: '💛' },
   ],
 };
 
@@ -141,23 +141,23 @@ const stats = [
 const processSteps = [
   {
     number: 1,
-    title: 'We Start with Discovery',
+    title: 'We Map Your Tools',
     description:
-      'Before any tool or system goes in place, we understand your operation. What are you trying to accomplish? Where are the friction points? This foundation shapes everything that comes next.',
+      "We see how your tools actually work right now — and identify what's NOT talking to each other. No assumptions. We understand your real workflow before we change anything.",
     image: 'https://framerusercontent.com/images/9vm9krN4tsbMXG4806k8VN5NeE.png?width=1024&height=1024',
   },
   {
     number: 2,
-    title: 'We Design and Build',
+    title: 'We Wire Them Together',
     description:
-      "We create workflows and systems tailored to how you actually work. Your team gets trained. Documentation gets done. Everything integrates cleanly. You're not adapting to software, the software tools adapts to you.",
+      "We build the automated connections between your existing tools so they work as one system. No new software to learn. No extra tools to buy. Your tools become smarter because they finally talk to each other.",
     image: 'https://framerusercontent.com/images/9vm9krN4tsbMXG4806k8VN5NeE.png?width=1024&height=1024',
   },
   {
     number: 3,
-    title: 'We Stabilize and Transfer',
+    title: 'We Manage & Optimize',
     description:
-      "We run the systems for 30 days, optimize based on real-world performance, and train your team to own it completely. When we're done, you have fully functional operations. No handoff anxiety. No ongoing dependency.",
+      "We run it for 30 days, catch the edge cases, fix what's broken. If something needs tweaking later — you call us, not a tech support line. You get your system AND our expertise backing it.",
     image: 'https://framerusercontent.com/images/9vm9krN4tsbMXG4806k8VN5NeE.png?width=1024&height=1024',
   },
 ];
@@ -693,11 +693,11 @@ export function HomePage() {
             AASANI
           </h1>
           <h2 className="font-heading text-[clamp(24px,5vw,48px)] italic text-aasani-white/90 mb-6">
-            Structure Before Intelligence
+            Your Tools. Automated. Managed.
           </h2>
           <p className="text-[clamp(16px,2vw,20px)] text-white/80 max-w-[600px] mx-auto mb-10 leading-relaxed">
-            We connect your people, data, and tools so nothing falls through the cracks and your team can focus on what
-            matters.
+            You already have the tools. Most agents do. We wire them together so they work automatically — and we manage
+            the system for you when something needs tweaking.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -771,23 +771,23 @@ export function HomePage() {
       <section className="py-20 px-5 bg-aasani-white text-center">
         <div className="max-w-[1200px] mx-auto">
           <div className="w-[200px] h-[200px] mx-auto mb-10 bg-aasani-yellow rounded-full flex items-center justify-center p-8">
-            <span className="text-7xl">🤝</span>
+            <span className="text-7xl">🔌</span>
           </div>
           <p className="font-heading text-[clamp(20px,4vw,28px)] leading-relaxed mb-8">
-            You have tools.
+            You know about all these tools.
             <br />
-            You have data.
+            CRM. Email. Calendar. Transactions.
             <br />
-            Simple questions take hours to answer.
+            But they don't talk to each other.
             <br />
-            Reports are manual. Decisions are guesses.
+            So you're stuck doing the wiring manually.
           </p>
           <p className="font-heading text-[clamp(28px,5vw,40px)] font-semibold">
-            That's not a data problem.
+            That's not a tool problem.
             <br />
-            That's a{' '}
+            That's an{' '}
             <span className="text-aasani-yellow italic" style={{ background: 'linear-gradient(to bottom, transparent 60%, #ffe24f 60%)', padding: '0 4px' }}>
-              structure problem
+              integration problem
             </span>
             .
           </p>

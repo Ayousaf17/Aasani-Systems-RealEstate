@@ -9,16 +9,16 @@ import { backgroundImages, problemInsights } from '../../../data/indexContent';
 // "See Research" button opens the detailed research modal
 const painPoints = [
   {
-    icon: 'solar:clock-circle-linear',
-    text: "Leads slip through while you're with clients",
+    icon: 'solar:tools-2-linear',
+    text: "You know about all the tools (most agents do)",
+  },
+  {
+    icon: 'solar:disconnect-linear',
+    text: "But they're not connected to each other",
   },
   {
     icon: 'solar:hourglass-linear',
-    text: 'Admin eats your evenings and weekends',
-  },
-  {
-    icon: 'solar:users-group-rounded-linear',
-    text: 'Follow-ups fall through the cracks',
+    text: "So you're manually bridging the gaps",
   },
 ];
 
@@ -228,10 +228,10 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
 
         <AnimatedElement delay={0.2} className="mb-8 md:mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
-            20 hours back every week
+            You know these tools. They just don't talk.
           </h2>
           <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
-            What would you do with them?
+            Your CRM, email, calendar, transactions all siloed.
           </p>
         </AnimatedElement>
 
