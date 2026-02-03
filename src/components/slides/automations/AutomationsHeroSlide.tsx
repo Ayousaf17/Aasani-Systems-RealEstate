@@ -61,7 +61,7 @@ export function AutomationsHeroSlide({ onNextSlide: onNavigate }: AutomationsHer
             className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition-transform cursor-pointer shadow-lg"
             aria-label="Next slide"
           >
-            <iconify-icon icon="solar:arrow-down-linear" width={20} />
+            <iconify-icon icon="solar:arrow-right-linear" width={20} />
           </button>
         </AnimatedElement>
       </div>
