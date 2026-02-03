@@ -95,13 +95,7 @@ export function CTASlide({ index }: CTASlideProps) {
           </p>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.3} className="mb-6 relative z-10">
-          <p className="text-center text-sm md:text-base text-white/90 font-display">
-            On the call, you'll see exactly how your tools work together automatically and where we stay involved to manage things when they need adjusting.
-          </p>
-        </AnimatedElement>
-
-        <AnimatedElement delay={0.4} className="flex-1 flex flex-col items-center justify-center gap-6 w-full relative z-10">
+        <AnimatedElement delay={0.3} className="flex-1 flex flex-col items-center justify-center gap-6 w-full relative z-10">
           {/* Primary CTA */}
           <div className="group relative md:scale-110 cursor-pointer">
             <div className="-inset-2 group-hover:opacity-100 transition duration-500 bg-neutral-600/30 opacity-0 rounded-full absolute blur-xl" />
