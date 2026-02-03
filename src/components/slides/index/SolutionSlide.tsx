@@ -8,7 +8,7 @@ interface SolutionSlideProps {
 
 const benefits = [
   {
-    icon: 'solar:plug-2-linear',
+    icon: 'solar:link-linear',
     text: 'Your tools finally talk to each other',
   },
   {
@@ -16,7 +16,7 @@ const benefits = [
     text: 'Automations run on their own, not you',
   },
   {
-    icon: 'solar:hand-open-linear',
+    icon: 'solar:hand-heart-linear',
     text: 'We stay involved if something needs tweaking',
   },
 ];

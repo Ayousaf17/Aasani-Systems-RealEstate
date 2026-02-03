@@ -9,11 +9,11 @@ import { backgroundImages, problemInsights } from '../../../data/indexContent';
 // "See Research" button opens the detailed research modal
 const painPoints = [
   {
-    icon: 'solar:tools-2-linear',
+    icon: 'solar:bag-cross-linear',
     text: "You know about all the tools (most agents do)",
   },
   {
-    icon: 'solar:disconnect-linear',
+    icon: 'solar:link-break-linear',
     text: "But they're not connected to each other",
   },
   {

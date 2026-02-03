@@ -35,7 +35,7 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
               <span className="block text-neutral-500">Managed.</span>
             </h1>
             <p className="text-base md:text-lg font-normal text-neutral-400 tracking-tight font-display mt-6">
-              You already have the tools. Most agents do. We wire them together so they work automatically — and we manage the system for you when something needs tweaking.
+              Your tools are powerful—but only when they work together. We integrate them into one seamless system and manage it for you, so you focus on what matters: your clients.
             </p>
           </AnimatedElement>
         </div>
