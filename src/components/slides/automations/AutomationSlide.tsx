@@ -179,11 +179,16 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           </div>
         </div>
 
-        {/* Tools Footer */}
-        <div className="mt-4 pt-3 border-t border-white/5">
-          <p className="text-xs text-neutral-500 font-mono tracking-widest uppercase line-clamp-2">
-            <span className="text-teal-300/70">→</span> {data.tools.replace('Tools: ', '')}
-          </p>
+        {/* Technologies Footer */}
+        <div className="mt-4 pt-3 border-t border-white/10">
+          <div className="flex flex-col gap-2">
+            <span className="text-xs text-neutral-400 font-mono tracking-widest uppercase font-semibold">
+              Technologies
+            </span>
+            <p className="text-xs text-neutral-300 font-display leading-relaxed">
+              {data.tools.replace('Tools: ', '')}
+            </p>
+          </div>
         </div>
       </div>
     </section>
