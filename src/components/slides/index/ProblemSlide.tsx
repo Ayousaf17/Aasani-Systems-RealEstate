@@ -14,11 +14,11 @@ const painPoints = [
   },
   {
     icon: 'solar:forbidden-linear',
-    text: "But you don't know how to make them automate together",
+    text: "But they don't work together automatically—nobody taught you how",
   },
   {
     icon: 'solar:hourglass-linear',
-    text: "So we build the system and manage it—so you're not stuck doing the manual work",
+    text: "So you're stuck managing the connections yourself",
   },
 ];
 
