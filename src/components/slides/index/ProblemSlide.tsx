@@ -231,7 +231,7 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
             You know these tools. They just don't talk.
           </h2>
           <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
-            Your CRM, email, calendar, transactions all siloed.
+            Your CRM, email, calendar, and transactions sit in silos.
           </p>
         </AnimatedElement>
 
