@@ -149,7 +149,7 @@ export function ChecklistPage() {
 
         {/* Intro */}
         <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12">
-          <p className="text-neutral-300 leading-relaxed">
+          <p className="text-neutral-300 leading-relaxed font-display">
             <span className="text-white font-semibold">How many of these do you have in place?</span>
             <br /><br />
             Be honest. Check the ones that are actually working, not the ones you "have somewhere" but never use.
@@ -171,14 +171,14 @@ export function ChecklistPage() {
                   <h2 className="text-xl font-bold font-display text-white mb-2">
                     {item.title}
                   </h2>
-                  <p className="text-neutral-400 text-sm md:text-base">
+                  <p className="text-neutral-400 text-sm md:text-base font-display">
                     {item.question}
                   </p>
                 </div>
               </div>
 
               {item.stat && (
-                <p className="text-teal-300 text-sm font-semibold mb-4 ml-14">
+                <p className="text-teal-300 text-sm font-semibold mb-4 ml-14 font-display">
                   {item.stat}
                 </p>
               )}
@@ -196,7 +196,7 @@ export function ChecklistPage() {
                       type="checkbox"
                       className="mt-1 w-5 h-5 rounded border-2 border-white/20 bg-transparent checked:bg-teal-500 checked:border-teal-500 focus:ring-2 focus:ring-teal-500/50 focus:ring-offset-0 cursor-pointer transition-colors"
                     />
-                    <span className="text-neutral-300 group-hover:text-white transition-colors">
+                    <span className="text-neutral-300 group-hover:text-white transition-colors font-display">
                       {check}
                     </span>
                   </label>
@@ -217,7 +217,7 @@ export function ChecklistPage() {
                 <span className="text-teal-300 font-mono text-sm w-24 flex-shrink-0">
                   {score.range}:
                 </span>
-                <span className="text-neutral-300 text-sm">
+                <span className="text-neutral-300 text-sm font-display">
                   {score.description}
                 </span>
               </div>
@@ -230,7 +230,7 @@ export function ChecklistPage() {
           <h3 className="text-2xl font-bold font-display mb-3">
             What's Next?
           </h3>
-          <p className="text-neutral-400 mb-6 max-w-md mx-auto">
+          <p className="text-neutral-400 mb-6 max-w-md mx-auto font-display">
             Every unchecked box is time you're trading for busywork. Let's fix that.
           </p>
           <button
@@ -252,7 +252,7 @@ export function ChecklistPage() {
           <h3 className="text-2xl font-bold font-display mb-3 text-center">
             Found some gaps?
           </h3>
-          <p className="text-neutral-400 mb-6 max-w-md mx-auto text-center">
+          <p className="text-neutral-400 mb-6 max-w-md mx-auto text-center font-display">
             Let's build your custom automation roadmap. Book a free 60-minute strategy call.
           </p>
 
@@ -261,8 +261,8 @@ export function ChecklistPage() {
               <div className="flex justify-center mb-3">
                 <iconify-icon icon="solar:check-circle-bold" className="text-teal-300 text-5xl" />
               </div>
-              <p className="text-white font-semibold mb-2">Thanks!</p>
-              <p className="text-neutral-400 text-sm">
+              <p className="text-white font-semibold mb-2 font-display">Thanks!</p>
+              <p className="text-neutral-400 text-sm font-display">
                 Check your email for next steps. We'll reach out shortly.
               </p>
             </div>
@@ -274,7 +274,7 @@ export function ChecklistPage() {
                 value={emailForm.name}
                 onChange={(e) => setEmailForm({ ...emailForm, name: e.target.value })}
                 required
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-500 transition-colors"
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-500 transition-colors font-display"
               />
               <input
                 type="email"
@@ -282,20 +282,20 @@ export function ChecklistPage() {
                 value={emailForm.email}
                 onChange={(e) => setEmailForm({ ...emailForm, email: e.target.value })}
                 required
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-500 transition-colors"
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-500 transition-colors font-display"
               />
               <input
                 type="tel"
                 placeholder="Phone number"
                 value={emailForm.phone}
                 onChange={(e) => setEmailForm({ ...emailForm, phone: e.target.value })}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-500 transition-colors"
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-neutral-500 focus:outline-none focus:border-teal-500 transition-colors font-display"
               />
-              {formError && <p className="text-red-400 text-sm">{formError}</p>}
+              {formError && <p className="text-red-400 text-sm font-display">{formError}</p>}
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-teal-500 hover:bg-teal-400 disabled:bg-neutral-600 text-black font-semibold py-3 rounded-lg transition-colors min-h-[44px] flex items-center justify-center gap-2"
+                className="w-full bg-teal-500 hover:bg-teal-400 disabled:bg-neutral-600 text-black font-semibold py-3 rounded-lg transition-colors min-h-[44px] flex items-center justify-center gap-2 font-display"
               >
                 {isSubmitting ? 'Sending...' : 'Book Your Free Strategy Call'}
                 <iconify-icon icon="solar:calendar-add-linear" width={18} />
@@ -306,7 +306,7 @@ export function ChecklistPage() {
 
         {/* Footer */}
         <div className="mt-12 pt-8 border-t border-white/10 text-center">
-          <p className="text-neutral-500 text-sm mb-2">
+          <p className="text-neutral-500 text-sm mb-2 font-display">
             Questions? Email me directly:{' '}
             <a
               href="mailto:ayub@aasani.ai"
