@@ -17,6 +17,8 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
         className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col group md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative shadow-2xl justify-between card-bg z-[60]"
         style={{ backgroundImage: `url(${backgroundImages.hero})` }}
       >
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/50 z-5 pointer-events-none" />
         {/* Bottom fade gradient - subtle mobile transition */}
         <div className="absolute bottom-0 left-0 right-0 h-12 md:h-0 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none md:hidden" />
         {/* Header */}
