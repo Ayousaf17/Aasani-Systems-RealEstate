@@ -66,8 +66,8 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
 
           {/* Title */}
           <AnimatedElement delay={0.2} className="shrink-0 mb-6">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white font-display leading-tight drop-shadow-md">
-              20 hours back every week
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight uppercase">
+              YOUR TIME BACK
             </h2>
             <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-4">
               Your tools handle the busywork. You handle the relationships
