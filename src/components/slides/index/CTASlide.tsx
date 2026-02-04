@@ -90,8 +90,8 @@ export function CTASlide({ index }: CTASlideProps) {
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
             Ready to stop managing tools and start using them?
           </h2>
-          <p className="text-lg md:text-xl text-teal-300 tracking-tight font-display mt-4">
-            We wire them. You own them. We manage the rest.
+          <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-4">
+            We wire them. You own them. We manage the rest
           </p>
         </AnimatedElement>
 

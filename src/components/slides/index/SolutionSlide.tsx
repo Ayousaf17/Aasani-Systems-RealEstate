@@ -46,8 +46,8 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
             We wire your tools together
           </h2>
-          <p className="text-lg md:text-xl text-teal-300 tracking-tight font-display mt-4">
-            So they work automatically—and we stay your back office.
+          <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-4">
+            So they work automatically—and we stay your back office
           </p>
         </AnimatedElement>
 
