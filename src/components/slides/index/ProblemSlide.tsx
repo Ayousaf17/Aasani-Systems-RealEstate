@@ -241,14 +241,14 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
         <AnimatedElement delay={0.3}>
           <div className="bg-black/50 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/10">
             {/* Pain points - emotional, not stat-heavy */}
-            <div className="flex flex-col gap-6 md:gap-7">
+            <div className="flex flex-col gap-5 md:gap-6">
               {painPoints.map((point, i) => (
                 <div key={i} className="flex gap-x-4 items-start">
                   <iconify-icon
                     icon={point.icon}
-                    className="text-2xl md:text-3xl text-slate-300 shrink-0 mt-0.5 drop-shadow-md"
+                    className="text-xl md:text-2xl text-slate-300 shrink-0 mt-0.5 drop-shadow-md"
                   />
-                  <p className="text-lg md:text-xl leading-relaxed text-white font-display">
+                  <p className="text-base md:text-lg leading-relaxed text-white font-display">
                     {point.text}
                   </p>
                 </div>
@@ -260,7 +260,7 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
               onClick={() => openViewer(0)}
               className="w-full mt-8 py-3.5 rounded-full bg-white/10 hover:bg-white/15 border border-teal-300/30 hover:border-teal-300/50 text-white text-sm md:text-base font-display inline-flex items-center justify-center gap-2 transition-all duration-200 group"
             >
-              See Research
+              Why This Matters
               <iconify-icon
                 icon="solar:arrow-right-linear"
                 className="text-lg text-teal-300 group-hover:translate-x-0.5 transition-transform duration-200"
