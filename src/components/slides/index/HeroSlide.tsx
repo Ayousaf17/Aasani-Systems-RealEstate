@@ -24,7 +24,7 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
         {/* Header */}
         <AnimatedElement delay={0.1} className="relative z-10 mb-4 md:mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
-            01 / 05 — HOME
+            01 / 05 — REAL ESTATE OPERATIONS
           </span>
         </AnimatedElement>
 
@@ -32,12 +32,11 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
         <div className="relative z-10 flex-1 flex flex-col justify-center">
           <AnimatedElement delay={0.2}>
             <h1 className="text-6xl md:text-7xl font-bold text-white tracking-tight font-display leading-none">
-              Your Tools.
-              <span className="block">Automated.</span>
-              <span className="block">Managed.</span>
+              Systems That Work Together
+              <span className="block">Built For You</span>
             </h1>
             <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-6">
-              We wire them together so they work automatically
+              We build your automation, manage it, and stay your back office when things need tweaking
             </p>
           </AnimatedElement>
         </div>
