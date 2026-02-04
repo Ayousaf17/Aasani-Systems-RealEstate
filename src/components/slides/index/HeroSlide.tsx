@@ -36,11 +36,8 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
               <span className="block">Automated.</span>
               <span className="block">Managed.</span>
             </h1>
-            <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-6 mb-4">
-              The Starting Point
-            </p>
-            <p className="text-base md:text-lg text-white tracking-tight font-display leading-relaxed">
-              You have CRM, calendar, email. They just don't talk. We wire them so they work automatically. You focus on clients.
+            <p className="text-lg md:text-xl text-teal-300 tracking-tight font-display mt-6">
+              We wire them together so they work automatically.
             </p>
           </AnimatedElement>
         </div>
