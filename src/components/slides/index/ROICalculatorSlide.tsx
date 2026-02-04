@@ -47,10 +47,12 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
         className="h-full md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col w-full max-w-none md:max-w-xl rounded-none relative shadow-2xl card-bg md:p-12 px-6 md:px-12 pb-8 md:pb-12 pt-20 md:pt-12 z-[60]"
         style={{ backgroundImage: `url(${backgroundImages.caseStudies})` }}
       >
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/50 z-[1] pointer-events-none" />
 
         {/* Flashlight effect overlay - desktop only */}
         <div
-          className="absolute inset-0 z-[1] pointer-events-none opacity-0 md:opacity-100 transition-opacity"
+          className="absolute inset-0 z-[2] pointer-events-none opacity-0 md:opacity-100 transition-opacity"
           style={{
             background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(20,184,166,0.15) 0%, transparent 50%)`,
           }}
