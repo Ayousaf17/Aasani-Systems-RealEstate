@@ -24,7 +24,7 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
         {/* Header */}
         <AnimatedElement delay={0.1} className="relative z-10 mb-4 md:mb-6">
           <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
-            01 / 05 — REAL ESTATE OPERATIONS
+            01 / 05 — HOME
           </span>
         </AnimatedElement>
 
