@@ -44,7 +44,7 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
 
         <AnimatedElement delay={0.2} className="mb-8 md:mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
-            We wire your tools together
+            We Wire Them
           </h2>
           <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-4">
             So they work automatically—and we stay your back office
