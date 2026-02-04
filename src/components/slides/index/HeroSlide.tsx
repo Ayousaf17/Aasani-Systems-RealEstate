@@ -36,8 +36,8 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
               <span className="block">Automated.</span>
               <span className="block">Managed.</span>
             </h1>
-            <p className="text-lg md:text-xl text-teal-300 tracking-tight font-display mt-6">
-              We wire them together so they work automatically.
+            <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-6">
+              We wire them together so they work automatically
             </p>
           </AnimatedElement>
         </div>

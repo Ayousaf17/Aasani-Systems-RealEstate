@@ -230,8 +230,8 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
             You know these tools. They just don't talk.
           </h2>
-          <p className="text-lg md:text-xl text-teal-300 tracking-tight font-display mt-4">
-            Your CRM, email, calendar, and transactions sit in silos.
+          <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-4">
+            Your CRM, email, calendar, and transactions sit in silos
           </p>
         </AnimatedElement>
 

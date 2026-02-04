@@ -69,8 +69,8 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white font-display leading-tight drop-shadow-md">
               20 hours back every week
             </h2>
-            <p className="text-lg md:text-xl text-teal-300 tracking-tight font-display mt-4">
-              Your tools handle the busywork. You handle the relationships.
+            <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-4">
+              Your tools handle the busywork. You handle the relationships
             </p>
           </AnimatedElement>
 
