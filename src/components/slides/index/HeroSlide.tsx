@@ -32,11 +32,11 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
         <div className="relative z-10 flex-1 flex flex-col justify-center">
           <AnimatedElement delay={0.2}>
             <h1 className="text-6xl md:text-7xl font-bold text-white tracking-tight font-display leading-none">
-              Systems That Work Together
+              Real Estate Systems
               <span className="block">Built For You</span>
             </h1>
             <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-6">
-              We build your automation, manage it, and stay your back office when things need tweaking
+              We automate your tools and run them — so you can be the agent your clients rave about
             </p>
           </AnimatedElement>
         </div>
