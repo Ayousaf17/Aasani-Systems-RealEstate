@@ -88,7 +88,7 @@ export function CTASlide({ index }: CTASlideProps) {
 
         <AnimatedElement delay={0.2} className="mb-6 md:mb-8 relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
-            Ready to stop managing tools and start using them?
+            Let's Get Started
           </h2>
           <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-4">
             We wire them. You own them. We manage the rest

@@ -228,7 +228,7 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
 
         <AnimatedElement delay={0.2} className="mb-8 md:mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
-            You know these tools. They just don't talk.
+            They Don't Talk
           </h2>
           <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-4">
             Your CRM, email, calendar, and transactions sit in silos
