@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useNavVisibility } from '../../hooks/useNavVisibility';
 
 interface HeaderProps {
   direction: 'vertical' | 'horizontal';
@@ -9,9 +10,14 @@ interface HeaderProps {
 export function Header({ direction, onNavigate, showArrows = true }: HeaderProps) {
   const navigate = useNavigate();
   const isVertical = direction === 'vertical';
+  const navVisible = useNavVisibility();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[60] px-4 md:px-8 py-4 md:py-6 flex justify-between items-center pointer-events-none">
+    <header
+      className={`fixed top-0 left-0 right-0 z-[60] px-4 md:px-8 py-4 md:py-6 flex justify-between items-center pointer-events-none transition-opacity duration-500 ease-out ${
+        navVisible ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
       {/* Logo - hidden on mobile to avoid clash with slide headers */}
       <div className="pointer-events-auto hidden md:block">
         <button

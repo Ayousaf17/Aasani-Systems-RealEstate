@@ -30,7 +30,7 @@ export function OperationsHeroSlide({ index, onNavigate }: OperationsHeroSlidePr
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col group md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative shadow-2xl justify-between card-bg z-[60]"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col group md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none pt-16 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative shadow-2xl justify-between card-bg z-[60]"
         style={{ backgroundImage: `url(${backgroundImages.hero})` }}
       >
         <div className="absolute inset-0 bg-black/50 z-5 pointer-events-none" />

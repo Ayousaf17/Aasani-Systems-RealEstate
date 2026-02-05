@@ -196,7 +196,7 @@ export const partnershipPhases = [
   },
   {
     title: 'Phase 3: Partnership',
-    duration: 'Weeks 3-8 and beyond',
+    duration: 'Week 3+',
     badgeColor: 'bg-emerald-500/20 text-emerald-300',
     whatHappens: [
       'Monthly performance reviews',
@@ -281,14 +281,14 @@ export const faqItems = [
   },
   {
     question: 'What does the discovery call look like?',
-    answer: "60 minutes, no pitch. We learn about your business, walk through your current tools, and identify where you're losing time. You leave with a clear picture of what's possible — whether you work with us or not.",
+    answer: "60 minutes. We learn about your business, walk through your current tools, and identify where you're losing time. You leave with a clear picture of what's possible — whether you work with us or not.",
   },
 ];
 
 export const ctaContent = {
   label: '07 / 07 — LET\'S BUILD',
   headline: "Let's Build Your Operating System",
-  subheadline: 'Free 60-minute strategy call. No pitch. No pressure.',
+  subheadline: 'Free 60-minute strategy call.',
   ctaPrimary: 'Book Your Free Strategy Call',
   email: 'ayub@aasani.ai',
   phone: '+1 (732) 397-7299',

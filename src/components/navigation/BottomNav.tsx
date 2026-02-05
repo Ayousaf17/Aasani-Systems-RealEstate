@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getCalApi } from '@calcom/embed-react';
+import { useNavVisibility } from '../../hooks/useNavVisibility';
 
 interface NavItem {
   icon: string;
@@ -19,6 +20,7 @@ const navItems: NavItem[] = [
 export function BottomNav() {
   const location = useLocation();
   const navigate = useNavigate();
+  const navVisible = useNavVisibility();
 
   // Initialize Cal.com
   useEffect(() => {
@@ -55,7 +57,13 @@ export function BottomNav() {
   return (
     <>
       {/* Mobile Top Nav (<768px) */}
-      <nav className="fixed top-0 left-0 right-0 z-50 md:hidden border-b border-white/20 backdrop-blur-2xl bg-black/90 safe-area-top shadow-lg shadow-black/50">
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 md:hidden safe-area-top transition-all duration-500 ease-out ${
+          navVisible
+            ? 'opacity-100 backdrop-blur-2xl bg-black/90 border-b border-white/20 shadow-lg shadow-black/50'
+            : 'opacity-0 pointer-events-none'
+        }`}
+      >
         <div className="flex items-center justify-around h-14">
           {navItems.map((item) => {
             const active = isActive(item.path);
@@ -91,7 +99,13 @@ export function BottomNav() {
       </nav>
 
       {/* Desktop Top Nav (≥768px) - Centered Floating Pill */}
-      <nav className="hidden md:fixed md:top-6 md:left-1/2 md:-translate-x-1/2 md:z-50 md:flex md:w-auto md:gap-6 md:px-6 md:py-3 md:rounded-full md:border md:border-white/10 md:backdrop-blur-xl md:bg-black/60 md:shadow-2xl md:shadow-black/20 md:items-center">
+      <nav
+        className={`hidden md:fixed md:top-6 md:left-1/2 md:-translate-x-1/2 md:z-50 md:flex md:w-auto md:gap-6 md:px-6 md:py-3 md:rounded-full md:border md:border-white/10 md:shadow-2xl md:shadow-black/20 md:items-center md:transition-all md:duration-500 md:ease-out ${
+          navVisible
+            ? 'md:opacity-100 md:backdrop-blur-xl md:bg-black/60'
+            : 'md:opacity-0 md:pointer-events-none'
+        }`}
+      >
         <div className="flex items-center justify-center gap-6">
           {navItems.map((item) => {
             const active = isActive(item.path);

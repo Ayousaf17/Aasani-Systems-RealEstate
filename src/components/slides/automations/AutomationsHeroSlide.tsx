@@ -15,7 +15,7 @@ export function AutomationsHeroSlide({ onNextSlide: onNavigate }: AutomationsHer
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/80 to-[#0A0A0A] z-0" />
 
       <div
-        className="flex flex-col md:p-12 z-10 h-full pt-12 px-5 pb-5 relative justify-between card-bg"
+        className="flex flex-col md:p-12 z-10 h-full pt-8 px-5 pb-5 relative justify-between card-bg"
         style={{ backgroundImage: `url(${automationsHeroBackground})` }}
       >
         <div className="absolute bottom-0 left-0 right-0 h-12 md:h-0 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none md:hidden" />

@@ -99,7 +99,7 @@ export function AutomationsCTASlide() {
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 z-[1] bg-black/70" />
 
-      <div className="flex flex-col md:p-12 z-10 h-full pt-12 px-5 relative card-bg">
+      <div className="flex flex-col md:p-12 z-10 h-full pt-8 px-5 relative card-bg">
         {/* Header - Fixed */}
         <div className="flex-shrink-0 mb-8 md:mb-10">
           <AnimatedElement delay={0.1} className="mb-3 md:mb-4">
