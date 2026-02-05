@@ -147,9 +147,6 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
             </button>
           </div>
 
-          <p className="text-xs text-neutral-400 italic text-center mt-3 font-display">
-            "You're not buying software. You're gaining a partner."
-          </p>
         </AnimatedElement>
       </div>
     </section>
