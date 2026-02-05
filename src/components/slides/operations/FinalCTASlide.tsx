@@ -105,7 +105,7 @@ export function FinalCTASlide({ index }: FinalCTASlideProps) {
               className="w-full max-w-lg max-h-[80vh] flex flex-col overflow-auto rounded-2xl border shadow-2xl [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] bg-black/40 backdrop-blur-2xl border-white/20 shadow-black/20"
             >
               {/* Header */}
-              <div className="relative py-6 px-6 bg-white/5 border-b border-white/10 flex items-center justify-between sticky top-0 z-10">
+              <div className="relative py-6 px-6 bg-white/5 backdrop-blur-xl border-b border-white/10 flex items-center justify-between sticky top-0 z-10">
                 <div>
                   <h3 className="text-lg font-bold text-white font-display">Common Questions</h3>
                   <p className="text-xs text-neutral-400 mt-1">Everything you need to know</p>
@@ -140,7 +140,7 @@ export function FinalCTASlide({ index }: FinalCTASlideProps) {
                     </button>
                     <div
                       className={`overflow-hidden transition-all duration-300 ${
-                        activeIndex === i ? 'max-h-40 pb-4' : 'max-h-0'
+                        activeIndex === i ? 'max-h-60 pb-4' : 'max-h-0'
                       }`}
                     >
                       <p className="text-sm text-neutral-400 leading-relaxed">

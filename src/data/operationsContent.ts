@@ -165,7 +165,7 @@ export const partnershipPhases = [
   {
     title: 'Phase 1: Foundation',
     duration: 'Weeks 1-4',
-    badgeColor: 'bg-teal-500/20 text-teal-300',
+    badgeColor: 'bg-teal-500/20 text-teal-300/90',
     whatHappens: [
       'Full audit of your current tools and workflows',
       'Design your connected system architecture',
@@ -181,7 +181,7 @@ export const partnershipPhases = [
   {
     title: 'Phase 2: Optimization',
     duration: 'Weeks 5-8',
-    badgeColor: 'bg-teal-500/20 text-teal-300',
+    badgeColor: 'bg-cyan-500/20 text-cyan-300',
     whatHappens: [
       'Build follow-up sequences and scheduling automation',
       'Set up transaction coordination workflows',
@@ -197,7 +197,7 @@ export const partnershipPhases = [
   {
     title: 'Phase 3: Partnership',
     duration: 'Month 3 and beyond',
-    badgeColor: 'bg-teal-500/20 text-teal-300',
+    badgeColor: 'bg-emerald-500/20 text-emerald-300',
     whatHappens: [
       'Monthly performance reviews',
       'System updates and improvements',
