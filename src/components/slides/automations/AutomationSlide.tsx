@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
 import type { AutomationSlideData } from '../../../types';
 
@@ -17,6 +17,7 @@ const sectionConfig = [
 export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const sections = data.description.split('|||').map(s => s.trim());
+  const touchStartRef = useRef<{ x: number; y: number; time: number } | null>(null);
 
   const goToPrevious = () => {
     setCurrentStep(prev => (prev > 0 ? prev - 1 : prev));
@@ -24,6 +25,29 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
 
   const goToNext = () => {
     setCurrentStep(prev => (prev < 3 ? prev + 1 : prev));
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    touchStartRef.current = { x: touch.clientX, y: touch.clientY, time: Date.now() };
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!touchStartRef.current) return;
+    const touch = e.changedTouches[0];
+    const deltaX = touch.clientX - touchStartRef.current.x;
+    const deltaY = touch.clientY - touchStartRef.current.y;
+    const elapsed = Date.now() - touchStartRef.current.time;
+    touchStartRef.current = null;
+
+    // Quick horizontal swipe: >50px, <300ms, more horizontal than vertical
+    if (elapsed < 300 && Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY) * 1.5) {
+      if (deltaX < 0) {
+        goToNext();
+      } else {
+        goToPrevious();
+      }
+    }
   };
 
   return (
@@ -35,11 +59,11 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/80 to-[#0A0A0A] z-0" />
 
       <div
-        className="flex flex-col md:p-12 z-10 h-full pt-12 px-5 relative card-bg"
+        className="flex flex-col md:p-12 z-10 h-full pt-8 md:pt-12 px-5 relative card-bg"
         style={{ backgroundImage: `url(${data.backgroundImage})` }}
       >
-        {/* Header Section - Flex Shrink */}
-        <div className="flex-shrink-0 mb-5 md:mb-6">
+        {/* Header Section */}
+        <div className="flex-shrink-0 mb-3 md:mb-6">
           <AnimatedElement delay={0.1} className="mb-1 md:mb-2">
             <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
               {data.slideNumber.replace('/', ' / ')} — {data.label.toUpperCase()}
@@ -61,8 +85,8 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           </AnimatedElement>
         </div>
 
-        {/* Stat Card - Ultra Compact - Flex Shrink */}
-        <AnimatedElement delay={0.3} className="flex-shrink-0 mb-5 md:mb-6">
+        {/* Stat Card */}
+        <AnimatedElement delay={0.3} className="flex-shrink-0 mb-3 md:mb-6">
           <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-lg p-3 md:p-4 shadow-2xl">
             <div className="flex items-start justify-between gap-3">
               <div className="flex flex-col flex-1 min-w-0">
@@ -90,8 +114,8 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           </div>
         </AnimatedElement>
 
-        {/* Step Navigation - Dots - Flex Shrink */}
-        <div className="flex-shrink-0 flex items-center justify-center gap-2 mb-5 md:mb-6">
+        {/* Step Navigation Dots */}
+        <div className="flex-shrink-0 flex items-center justify-center gap-2 mb-3 md:mb-6">
           {sectionConfig.map((_, idx) => (
             <button
               key={idx}
@@ -106,21 +130,25 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           ))}
         </div>
 
-        {/* Content Area - Flex Grow to take remaining space */}
+        {/* Content Area */}
         <div className="flex-1 relative min-h-[120px] flex flex-col pb-5 md:pb-6">
           {/* Step Content with Fade Transition */}
-          <div className="relative flex-1">
+          <div
+            className="relative flex-1 md:flex-1 step-card-touch"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
             {sectionConfig.map((config, idx) => (
               <div
                 key={idx}
-                className={`absolute inset-0 transition-all duration-500 ease-out ${
+                className={`transition-all duration-500 ease-out ${
                   idx === currentStep
-                    ? 'opacity-100 pointer-events-auto'
-                    : 'opacity-0 pointer-events-none'
+                    ? 'relative md:absolute md:inset-0 opacity-100 pointer-events-auto'
+                    : 'absolute inset-0 opacity-0 pointer-events-none'
                 }`}
               >
                 {/* Step Box with Gradient Background */}
-                <div className={`bg-gradient-to-br ${config.color} backdrop-blur-sm border rounded-lg p-4 md:p-5 h-full flex flex-col justify-between`}>
+                <div className={`bg-gradient-to-br ${config.color} backdrop-blur-sm border rounded-lg p-4 md:p-5 md:h-full md:flex md:flex-col md:justify-between`}>
                   {/* Step Label */}
                   <div className="flex items-center gap-2 mb-3">
                     <iconify-icon
@@ -138,20 +166,53 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                   </div>
 
                   {/* Step Content */}
-                  <p className="text-sm md:text-base leading-relaxed text-white/90 font-display flex-1">
+                  <p className="text-sm md:text-base leading-relaxed text-white/90 font-display md:flex-1">
                     {sections[idx]}
                   </p>
+
+                  {/* Mobile Nav - Inside Card */}
+                  <div className="flex items-center justify-between mt-4 pt-3 border-t border-white/10 md:hidden">
+                    <button
+                      onClick={goToPrevious}
+                      disabled={currentStep === 0}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
+                        currentStep === 0
+                          ? 'text-white/20 cursor-not-allowed'
+                          : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
+                      }`}
+                    >
+                      <iconify-icon icon="solar:arrow-left-linear" className="text-sm" />
+                      <span>Back</span>
+                    </button>
+
+                    <span className="text-xs text-neutral-400 font-mono">
+                      {currentStep + 1} of 4
+                    </span>
+
+                    <button
+                      onClick={goToNext}
+                      disabled={currentStep === 3}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
+                        currentStep === 3
+                          ? 'text-white/20 cursor-not-allowed'
+                          : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
+                      }`}
+                    >
+                      <span>Next</span>
+                      <iconify-icon icon="solar:arrow-right-linear" className="text-sm" />
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Navigation Buttons */}
-          <div className="flex-shrink-0 flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4 mt-4 pt-4 border-t border-white/5">
+          {/* Desktop Navigation Buttons */}
+          <div className="flex-shrink-0 hidden md:flex md:items-center md:justify-between gap-4 mt-4 pt-4 border-t border-white/5">
             <button
               onClick={goToPrevious}
               disabled={currentStep === 0}
-              className={`flex items-center justify-center md:justify-start gap-1.5 px-4 py-2 md:px-3 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
+              className={`flex items-center gap-1.5 px-3 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
                 currentStep === 0
                   ? 'text-white/20 cursor-not-allowed'
                   : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
@@ -161,15 +222,14 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
               <span>Back</span>
             </button>
 
-            {/* Progress Indicator */}
-            <span className="text-xs text-neutral-400 font-mono text-center md:text-left">
+            <span className="text-xs text-neutral-400 font-mono">
               {currentStep + 1} of 4
             </span>
 
             <button
               onClick={goToNext}
               disabled={currentStep === 3}
-              className={`flex items-center justify-center md:justify-end gap-1.5 px-4 py-2 md:px-3 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
+              className={`flex items-center gap-1.5 px-3 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
                 currentStep === 3
                   ? 'text-white/20 cursor-not-allowed'
                   : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
@@ -181,7 +241,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           </div>
         </div>
 
-        {/* Technologies Footer - LOCKED at bottom, Flex Shrink */}
+        {/* Technologies Footer - Desktop only */}
         <div className="flex-shrink-0 pb-5 md:pb-8 border-t border-white/10 pt-3 hidden md:block">
           <div className="flex flex-col gap-2">
             <span className="text-xs text-neutral-400 font-mono tracking-widest uppercase font-semibold">
