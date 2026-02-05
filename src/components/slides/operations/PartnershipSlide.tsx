@@ -1,0 +1,157 @@
+import { useState } from 'react';
+import { AnimatedElement } from '../../ui/AnimatedElement';
+import { partnershipPhases, backgroundImages } from '../../../data/operationsContent';
+
+interface PartnershipSlideProps {
+  index: number;
+}
+
+export function PartnershipSlide({ index }: PartnershipSlideProps) {
+  const [currentPhase, setCurrentPhase] = useState(0);
+
+  const goToPrevious = () => {
+    setCurrentPhase((prev) => (prev > 0 ? prev - 1 : prev));
+  };
+
+  const goToNext = () => {
+    setCurrentPhase((prev) => (prev < partnershipPhases.length - 1 ? prev + 1 : prev));
+  };
+
+  return (
+    <section
+      className="snap-start shrink-0 flex w-full slide-height relative items-center justify-center"
+      data-slide={index}
+      id={`section-${index + 1}`}
+    >
+      <div
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative justify-start card-bg z-[60]"
+        style={{ backgroundImage: `url(${backgroundImages.partnership})` }}
+      >
+        <div className="absolute bottom-0 left-0 right-0 h-12 md:h-0 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none md:hidden" />
+
+        <AnimatedElement delay={0.1} className="mb-4 md:mb-6">
+          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+            05 / 07 — HOW WE WORK TOGETHER
+          </span>
+        </AnimatedElement>
+
+        <AnimatedElement delay={0.2} className="mb-4 md:mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
+            A True Partnership
+          </h2>
+          <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-3">
+            Not just software
+          </p>
+        </AnimatedElement>
+
+        {/* Phase Dots */}
+        <div className="flex items-center justify-center gap-2 mb-4 md:mb-5">
+          {partnershipPhases.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentPhase(idx)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                idx === currentPhase
+                  ? 'w-8 bg-teal-400 shadow-lg shadow-teal-400/50'
+                  : 'bg-white/20 hover:bg-white/40'
+              }`}
+              aria-label={`Go to phase ${idx + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Phase Content */}
+        <AnimatedElement delay={0.3} className="flex-1 flex flex-col">
+          <div className="relative flex-1">
+            {partnershipPhases.map((phase, idx) => (
+              <div
+                key={idx}
+                className={`absolute inset-0 transition-all duration-500 ease-out ${
+                  idx === currentPhase
+                    ? 'opacity-100 pointer-events-auto'
+                    : 'opacity-0 pointer-events-none'
+                }`}
+              >
+                <div className="bg-black/50 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-white/10 h-full flex flex-col overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none]">
+                  <div className="flex items-center gap-3 mb-4">
+                    <h3 className="text-lg font-bold text-white font-display">
+                      {phase.title}
+                    </h3>
+                    <span className={`${phase.badgeColor} text-xs font-mono rounded-full px-3 py-1`}>
+                      {phase.duration}
+                    </span>
+                  </div>
+
+                  <div className="flex-1 space-y-4">
+                    <div>
+                      <p className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">
+                        What Happens
+                      </p>
+                      <div className="space-y-1.5">
+                        {phase.whatHappens.map((item, i) => (
+                          <p key={i} className="text-sm text-neutral-300 leading-relaxed flex gap-2">
+                            <span className="text-neutral-500 shrink-0">&rarr;</span>
+                            {item}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <p className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">
+                        What You Get
+                      </p>
+                      <div className="space-y-1.5">
+                        {phase.whatYouGet.map((item, i) => (
+                          <p key={i} className="text-sm text-teal-300 leading-relaxed flex gap-2">
+                            <span className="shrink-0">&#10003;</span>
+                            {item}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Navigation */}
+          <div className="flex items-center justify-between mt-4 pt-3 border-t border-white/5">
+            <button
+              onClick={goToPrevious}
+              disabled={currentPhase === 0}
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
+                currentPhase === 0
+                  ? 'text-white/20 cursor-not-allowed'
+                  : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
+              }`}
+            >
+              <iconify-icon icon="solar:arrow-left-linear" className="text-sm" />
+              <span>Back</span>
+            </button>
+            <span className="text-xs text-neutral-400 font-mono">
+              {currentPhase + 1} of {partnershipPhases.length}
+            </span>
+            <button
+              onClick={goToNext}
+              disabled={currentPhase === partnershipPhases.length - 1}
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
+                currentPhase === partnershipPhases.length - 1
+                  ? 'text-white/20 cursor-not-allowed'
+                  : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
+              }`}
+            >
+              <span>Next</span>
+              <iconify-icon icon="solar:arrow-right-linear" className="text-sm" />
+            </button>
+          </div>
+
+          <p className="text-xs text-neutral-400 italic text-center mt-3 font-display">
+            "You're not buying software. You're gaining a partner."
+          </p>
+        </AnimatedElement>
+      </div>
+    </section>
+  );
+}
