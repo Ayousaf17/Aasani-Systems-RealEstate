@@ -3,7 +3,7 @@ export const TOTAL_OPERATIONS_SLIDES = 7;
 export const CALENDLY_URL = 'https://cal.com/ayub-yousaf-c1ijnf/bookatime';
 
 export const heroContent = {
-  label: '01 / 07 — OPERATIONS-AS-A-SERVICE',
+  label: '01 / 07 — HOME',
   headline: 'Stop Managing Your Tech Stack.',
   subheading: 'GET AN OPERATIONS PARTNER',
   body: 'You have Follow Up Boss. Gmail. Google Calendar. Zillow leads. A spreadsheet for transactions. They all sit in separate tabs — and nothing talks to each other.',
