@@ -55,7 +55,7 @@ export const automationsData: AutomationSlideData[] = [
     iconColor: 'text-teal-400',
     title: 'APPOINTMENT SCHEDULING',
     tagline: 'No more phone tag.\nNo more no shows.',
-    statValue: '5-7 hrs',
+    statValue: '5 - 7 hrs',
     statLabel: 'HOURS SAVED PER WEEK',
     statDescription: 'on scheduling and follow-up coordination.',
     progressPercent: 60,

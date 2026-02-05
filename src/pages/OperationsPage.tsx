@@ -40,7 +40,7 @@ export function OperationsPage() {
         ref={scrollerRef}
         totalSlides={TOTAL_OPERATIONS_SLIDES}
         onIndexChange={setCurrentIndex}
-        className="pt-14 md:pt-0"
+        className="pt-10 md:pt-0"
       >
         <OperationsHeroSlide index={0} onNavigate={handleNavigate} />
         <ProblemSlide index={1} />

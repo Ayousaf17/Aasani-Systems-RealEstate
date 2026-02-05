@@ -106,22 +106,21 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           ))}
         </div>
 
-        {/* Content Area - Flex Grow to take remaining space */}
-        <div className="flex-1 relative min-h-[120px] flex flex-col pb-5 md:pb-6">
-          {/* Step Content with Fade Transition */}
-          <div className="relative flex-1">
+        {/* Content Area */}
+        <div className="flex-1 flex flex-col pb-5 md:pb-6">
+          {/* Step Content — grid overlay so container sizes to tallest content */}
+          <div className="grid">
             {sectionConfig.map((config, idx) => (
               <div
                 key={idx}
-                className={`absolute inset-0 transition-all duration-500 ease-out ${
+                style={{ gridArea: '1 / 1' }}
+                className={`transition-all duration-500 ease-out ${
                   idx === currentStep
                     ? 'opacity-100 pointer-events-auto'
                     : 'opacity-0 pointer-events-none'
                 }`}
               >
-                {/* Step Box with Gradient Background */}
-                <div className={`bg-gradient-to-br ${config.color} backdrop-blur-sm border rounded-lg p-4 md:p-5 h-full flex flex-col justify-between`}>
-                  {/* Step Label */}
+                <div className={`bg-gradient-to-br ${config.color} backdrop-blur-sm border rounded-lg p-4 md:p-5`}>
                   <div className="flex items-center gap-2 mb-3">
                     <iconify-icon
                       icon={config.icon}
@@ -136,9 +135,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                       {idx + 1} / 4 — {config.label}
                     </span>
                   </div>
-
-                  {/* Step Content */}
-                  <p className="text-sm md:text-base leading-relaxed text-white/90 font-display flex-1">
+                  <p className="text-sm md:text-base leading-relaxed text-white/90 font-display">
                     {sections[idx]}
                   </p>
                 </div>
@@ -147,11 +144,11 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex-shrink-0 flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4 mt-4 pt-4 border-t border-white/5">
+          <div className="flex-shrink-0 flex items-center justify-between mt-4 pt-3 border-t border-white/5">
             <button
               onClick={goToPrevious}
               disabled={currentStep === 0}
-              className={`flex items-center justify-center md:justify-start gap-1.5 px-4 py-2 md:px-3 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
                 currentStep === 0
                   ? 'text-white/20 cursor-not-allowed'
                   : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
@@ -162,14 +159,14 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
             </button>
 
             {/* Progress Indicator */}
-            <span className="text-xs text-neutral-400 font-mono text-center md:text-left">
+            <span className="text-xs text-neutral-400 font-mono">
               {currentStep + 1} of 4
             </span>
 
             <button
               onClick={goToNext}
               disabled={currentStep === 3}
-              className={`flex items-center justify-center md:justify-end gap-1.5 px-4 py-2 md:px-3 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
                 currentStep === 3
                   ? 'text-white/20 cursor-not-allowed'
                   : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
@@ -181,8 +178,8 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           </div>
         </div>
 
-        {/* Technologies Footer - LOCKED at bottom, Flex Shrink */}
-        <div className="flex-shrink-0 pb-5 md:pb-8 border-t border-white/10 pt-3 hidden md:block">
+        {/* Technologies Footer */}
+        <div className="flex-shrink-0 pb-5 md:pb-8 border-t border-white/10 pt-3 mt-auto">
           <div className="flex flex-col gap-2">
             <span className="text-xs text-neutral-400 font-mono tracking-widest uppercase font-semibold">
               Technologies

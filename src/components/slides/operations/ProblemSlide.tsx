@@ -125,9 +125,15 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
                     {current.description}
                   </p>
                   <div className="pt-3 border-t border-white/10">
-                    <p className="text-xs text-neutral-400 italic border-l-2 border-slate-400/50 pl-3">
+                    <a
+                      href={current.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-neutral-400 italic border-l-2 border-slate-400/50 pl-3 block hover:text-teal-300 transition-colors"
+                    >
                       {current.source}
-                    </p>
+                      <iconify-icon icon="solar:arrow-right-up-linear" className="text-[10px] ml-1 inline-block" />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -176,7 +182,7 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative justify-start card-bg z-[60]"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-16 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative justify-start card-bg z-[60]"
         style={{ backgroundImage: `url(${backgroundImages.problem})` }}
       >
         <div className="absolute bottom-0 left-0 right-0 h-12 md:h-0 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none md:hidden" />
