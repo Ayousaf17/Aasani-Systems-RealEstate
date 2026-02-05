@@ -125,9 +125,15 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
                     {current.description}
                   </p>
                   <div className="pt-3 border-t border-white/10">
-                    <p className="text-xs text-neutral-400 italic border-l-2 border-slate-400/50 pl-3">
+                    <a
+                      href={current.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-neutral-400 italic border-l-2 border-slate-400/50 pl-3 block hover:text-teal-300 transition-colors"
+                    >
                       {current.source}
-                    </p>
+                      <iconify-icon icon="solar:arrow-right-up-linear" className="text-[10px] ml-1 inline-block" />
+                    </a>
                   </div>
                 </div>
               </div>
