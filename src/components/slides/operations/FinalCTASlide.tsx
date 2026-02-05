@@ -287,12 +287,6 @@ export function FinalCTASlide({ index }: FinalCTASlideProps) {
           </div>
         </AnimatedElement>
 
-        {/* Footer Quote */}
-        <div className="relative z-10 text-center">
-          <p className="text-xs text-neutral-500 font-display italic">
-            {ctaContent.philosophyQuote}
-          </p>
-        </div>
       </div>
     </section>
   );
