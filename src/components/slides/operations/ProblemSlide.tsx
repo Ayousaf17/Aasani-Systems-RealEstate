@@ -120,18 +120,12 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
                   <X className="w-4 h-4" />
                 </button>
 
-                <div className="pr-10 mb-4">
-                  <h3 className="font-bold text-white text-xl font-display">
-                    {current.title}
-                  </h3>
-                </div>
-
                 <div className="text-neutral-300 text-sm leading-relaxed flex flex-col gap-3">
                   <p className="text-white/90 leading-relaxed">
                     {current.description}
                   </p>
-                  <div className="pt-2 border-t border-white/10">
-                    <p className="text-xs text-neutral-500">
+                  <div className="pt-3 border-t border-white/10">
+                    <p className="text-xs text-neutral-400 italic border-l-2 border-slate-400/50 pl-3">
                       {current.source}
                     </p>
                   </div>

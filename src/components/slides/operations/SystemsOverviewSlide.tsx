@@ -46,6 +46,9 @@ export function SystemsOverviewSlide({ index }: SystemsOverviewSlideProps) {
                     i < systemsOverview.length - 1 ? 'border-b border-white/5' : ''
                   }`}
                 >
+                  <span className="text-xs font-mono text-neutral-600 shrink-0 w-5 text-right">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
                   <iconify-icon
                     icon={system.icon}
                     className={`text-lg md:text-xl ${system.iconColor} shrink-0`}

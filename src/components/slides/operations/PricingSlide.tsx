@@ -238,7 +238,7 @@ export function PricingSlide({ index }: PricingSlideProps) {
                 data-cal-namespace="bookatime"
                 data-cal-link="ayub-yousaf-c1ijnf/bookatime"
                 data-cal-config='{"layout":"week_view"}'
-                className="w-full py-3.5 rounded-full bg-teal-500 hover:bg-teal-400 text-black font-medium text-sm md:text-base transition-colors font-display"
+                className="w-full py-3.5 rounded-full bg-teal-500 hover:bg-teal-400 text-black font-medium text-sm md:text-base transition-colors font-display cursor-pointer"
               >
                 Book Your Discovery Call
               </button>
