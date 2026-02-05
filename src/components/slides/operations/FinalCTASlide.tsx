@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { X } from 'lucide-react';
@@ -11,6 +12,7 @@ interface FinalCTASlideProps {
 }
 
 export function FinalCTASlide({ index }: FinalCTASlideProps) {
+  const navigate = useNavigate();
   const [faqOpen, setFaqOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
@@ -249,25 +251,23 @@ export function FinalCTASlide({ index }: FinalCTASlideProps) {
           </div>
 
           {/* Secondary Options */}
-          <div className="flex flex-col items-center gap-4 w-full max-w-xs">
-            {/* Contact Links */}
-            <div className="flex flex-col items-center gap-2">
-              <a
-                href={`mailto:${ctaContent.email}`}
-                className="group flex items-center gap-2 text-teal-300 hover:text-teal-200 transition-colors"
-              >
-                <iconify-icon icon="solar:letter-linear" className="text-lg" />
-                <span className="text-sm">{ctaContent.email}</span>
-              </a>
-              <a
-                href={`tel:${ctaContent.phone.replace(/[^+\d]/g, '')}`}
-                className="group flex items-center gap-2 text-teal-300 hover:text-teal-200 transition-colors"
-              >
-                <iconify-icon icon="solar:phone-linear" className="text-lg" />
-                <span className="text-sm">{ctaContent.phone}</span>
-              </a>
-            </div>
+          <div className="flex flex-col items-center gap-6 w-full max-w-xs">
+            {/* Check Your Systems Link */}
+            <button
+              onClick={() => navigate('/checklist')}
+              className="group flex items-center gap-2 text-neutral-300 hover:text-white transition-colors"
+            >
+              <iconify-icon icon="solar:document-linear" className="text-teal-300 text-lg drop-shadow-md" />
+              <span className="text-sm md:text-base font-medium">Check your systems first</span>
+              <iconify-icon
+                icon="solar:arrow-right-up-linear"
+                className="text-teal-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform drop-shadow-md"
+                width={16}
+                height={16}
+              />
+            </button>
 
+            {/* Visual separator */}
             <div className="w-12 h-px bg-white/20" />
 
             {/* FAQ Button */}
