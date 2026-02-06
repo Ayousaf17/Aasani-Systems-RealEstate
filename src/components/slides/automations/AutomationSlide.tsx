@@ -106,7 +106,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                     : 'opacity-0 pointer-events-none'
                 }`}
               >
-                <div className="bg-white/[0.08] backdrop-blur-2xl border border-white/15 rounded-lg p-4 md:p-5 flex flex-col shadow-lg">
+                <div className={`backdrop-blur-2xl border border-white/15 rounded-lg p-4 md:p-5 flex flex-col shadow-lg ${idx === currentStep ? 'animate-glaze-in' : 'bg-black/60'}`}>
                   {/* Step Dots — inside card */}
                   <div className="flex items-center justify-center gap-2 mb-4">
                     {sectionConfig.map((_, dotIdx) => (
