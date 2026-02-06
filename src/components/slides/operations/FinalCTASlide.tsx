@@ -126,12 +126,32 @@ export function FinalCTASlide({ index }: FinalCTASlideProps) {
                     </button>
                     <div
                       className={`overflow-hidden transition-all duration-300 ${
-                        activeIndex === i ? 'max-h-60 pb-4' : 'max-h-0'
+                        activeIndex === i ? 'max-h-[500px] pb-4' : 'max-h-0'
                       }`}
                     >
-                      <p className="text-sm text-neutral-400 leading-relaxed">
-                        {item.answer}
-                      </p>
+                      {item.sections ? (
+                        <div className="space-y-3">
+                          {item.sections.map((section, si) => (
+                            <div key={si}>
+                              <p className="text-xs font-mono uppercase text-teal-300/70 mb-1.5">
+                                {section.heading}
+                              </p>
+                              <div className="space-y-1">
+                                {section.items.map((sItem, sii) => (
+                                  <p key={sii} className="text-sm text-neutral-400 leading-relaxed flex gap-2">
+                                    <span className="text-neutral-500 shrink-0">&rarr;</span>
+                                    {sItem}
+                                  </p>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="text-sm text-neutral-400 leading-relaxed">
+                          {item.answer}
+                        </p>
+                      )}
                     </div>
                   </div>
                 ))}
