@@ -37,7 +37,7 @@ export function Header({ direction, onNavigate, showArrows = true }: HeaderProps
             aria-label={isVertical ? 'Previous Slide' : 'Previous'}
           >
             <iconify-icon
-              icon={isVertical ? 'solar:alt-arrow-up-linear' : 'solar:arrow-left-linear'}
+              icon={isVertical ? 'solar:arrow-up-linear' : 'solar:arrow-left-linear'}
               width={24}
             />
           </button>
@@ -48,7 +48,7 @@ export function Header({ direction, onNavigate, showArrows = true }: HeaderProps
             aria-label={isVertical ? 'Next Slide' : 'Next'}
           >
             <iconify-icon
-              icon={isVertical ? 'solar:alt-arrow-down-linear' : 'solar:arrow-right-linear'}
+              icon={isVertical ? 'solar:arrow-down-linear' : 'solar:arrow-right-linear'}
               width={24}
             />
           </button>

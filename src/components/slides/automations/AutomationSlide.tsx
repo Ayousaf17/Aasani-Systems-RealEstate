@@ -92,24 +92,8 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           </div>
         </AnimatedElement>
 
-        {/* Step Navigation - Dots - Flex Shrink */}
-        <div className="flex-shrink-0 flex items-center justify-center gap-2 mb-5 md:mb-6 relative z-10">
-          {sectionConfig.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentStep(idx)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                idx === currentStep
-                  ? 'w-8 bg-teal-400 shadow-lg shadow-teal-400/50'
-                  : 'bg-white/20 hover:bg-white/40'
-              }`}
-              aria-label={`Go to step ${idx + 1}`}
-            />
-          ))}
-        </div>
-
         {/* Content Area */}
-        <div className="flex-1 flex flex-col pb-5 md:pb-6 relative z-10">
+        <AnimatedElement delay={0.4} className="flex flex-col relative z-10">
           {/* Step Content — grid overlay so container sizes to tallest content */}
           <div className="grid">
             {sectionConfig.map((config, idx) => (
@@ -122,7 +106,24 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                     : 'opacity-0 pointer-events-none'
                 }`}
               >
-                <div className={`bg-gradient-to-br ${config.color} backdrop-blur-sm border rounded-lg p-4 md:p-5`}>
+                <div className={`bg-gradient-to-br ${config.color} backdrop-blur-sm border rounded-lg p-4 md:p-5 flex flex-col`}>
+                  {/* Step Dots — inside card */}
+                  <div className="flex items-center justify-center gap-2 mb-4">
+                    {sectionConfig.map((_, dotIdx) => (
+                      <button
+                        key={dotIdx}
+                        onClick={() => setCurrentStep(dotIdx)}
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                          dotIdx === currentStep
+                            ? 'w-8 bg-teal-400 shadow-lg shadow-teal-400/50'
+                            : 'bg-white/20 hover:bg-white/40'
+                        }`}
+                        aria-label={`Go to step ${dotIdx + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Content */}
                   <div className="flex items-center gap-2 mb-3">
                     <iconify-icon
                       icon={config.icon}
@@ -140,45 +141,42 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                   <p className="text-sm md:text-base leading-relaxed text-white/90 font-display">
                     {sections[idx]}
                   </p>
+
+                  {/* Navigation — inside card */}
+                  <div className="flex items-center justify-between mt-5 pt-4 border-t border-white/10">
+                    <button
+                      onClick={goToPrevious}
+                      disabled={currentStep === 0}
+                      className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
+                        currentStep === 0
+                          ? 'text-white/20 cursor-not-allowed'
+                          : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
+                      }`}
+                    >
+                      <iconify-icon icon="solar:arrow-left-linear" className="text-sm" />
+                      <span>Back</span>
+                    </button>
+                    <span className="text-xs text-neutral-400 font-mono">
+                      {currentStep + 1} of 4
+                    </span>
+                    <button
+                      onClick={goToNext}
+                      disabled={currentStep === 3}
+                      className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
+                        currentStep === 3
+                          ? 'text-white/20 cursor-not-allowed'
+                          : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
+                      }`}
+                    >
+                      <span>Next</span>
+                      <iconify-icon icon="solar:arrow-right-linear" className="text-sm" />
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-
-          {/* Navigation Buttons */}
-          <div className="flex-shrink-0 flex items-center justify-between mt-4 pt-3 border-t border-white/5">
-            <button
-              onClick={goToPrevious}
-              disabled={currentStep === 0}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
-                currentStep === 0
-                  ? 'text-white/20 cursor-not-allowed'
-                  : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
-              }`}
-            >
-              <iconify-icon icon="solar:arrow-left-linear" className="text-sm" />
-              <span>Back</span>
-            </button>
-
-            {/* Progress Indicator */}
-            <span className="text-xs text-neutral-400 font-mono">
-              {currentStep + 1} of 4
-            </span>
-
-            <button
-              onClick={goToNext}
-              disabled={currentStep === 3}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
-                currentStep === 3
-                  ? 'text-white/20 cursor-not-allowed'
-                  : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
-              }`}
-            >
-              <span>Next</span>
-              <iconify-icon icon="solar:arrow-right-linear" className="text-sm" />
-            </button>
-          </div>
-        </div>
+        </AnimatedElement>
 
         {/* Technologies Footer */}
         <div className="flex-shrink-0 pb-5 md:pb-8 border-t border-white/10 pt-3 mt-auto relative z-10">
