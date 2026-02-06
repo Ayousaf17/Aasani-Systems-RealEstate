@@ -194,7 +194,7 @@ Train the AI assistant on the company's policies and information.
         'Enabled one-click draft replies for representatives',
       ],
       'Workflow Automation': [
-        'Created n8n workflows connecting Slack, LLM, and Gorgias',
+        'Created automation workflows connecting Slack, LLM, and Gorgias',
         'Automated ticket processing and intelligent routing',
         'Seamless integration between support tools',
       ],

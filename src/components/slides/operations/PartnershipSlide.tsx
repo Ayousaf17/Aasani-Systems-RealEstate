@@ -113,6 +113,22 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
                         ))}
                       </div>
                     </div>
+
+                    {phase.infrastructure && (
+                      <div>
+                        <p className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">
+                          {idx === 0 ? 'Where It Lives' : 'Infrastructure'}
+                        </p>
+                        <div className="space-y-1.5">
+                          {phase.infrastructure.map((item, i) => (
+                            <p key={i} className="text-sm text-neutral-400 leading-relaxed flex gap-2">
+                              <span className="text-neutral-500 shrink-0">&rarr;</span>
+                              {item}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Navigation — pinned bottom via mt-auto */}

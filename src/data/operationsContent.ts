@@ -7,7 +7,7 @@ export const heroContent = {
   headline: 'Stop Managing Your Tech Stack.',
   subheading: 'GET AN OPERATIONS PARTNER',
   body: 'You have Follow Up Boss. Gmail. Google Calendar. Zillow leads. A spreadsheet for transactions. They all sit in separate tabs — and nothing talks to each other.',
-  subtext: 'Not a CRM. Not another tool. A partner who wires your systems and runs them.',
+  subtext: 'Not a CRM. Not another tool. A partner who wires your systems and runs them — so you focus on selling, not managing tech.',
   ctaPrimary: 'Book Discovery Call',
 };
 
@@ -98,27 +98,27 @@ export const solutionValueProps = [
 export const toolCategories = [
   {
     name: 'CRMs',
-    tools: ['Follow Up Boss', 'kvCORE', 'LionDesk', 'Wise Agent', 'Real Geeks', 'CINC', 'BoldTrail', 'Sierra Interactive'],
+    tools: ['Follow Up Boss', 'kvCORE', 'LionDesk', 'Wise Agent', 'Real Geeks', 'CINC', 'BoldTrail', 'Sierra Interactive', 'Chime', 'BoomTown', 'Realvolve'],
   },
   {
-    name: 'Email & Marketing',
-    tools: ['Gmail', 'Mailchimp', 'Constant Contact', 'Market Leader'],
+    name: 'Email & Calendar',
+    tools: ['Gmail', 'Outlook / Microsoft 365', 'Google Calendar', 'Office 365 Calendar', 'Mailchimp', 'Constant Contact', 'Market Leader'],
   },
   {
     name: 'SMS & Communication',
-    tools: ['Twilio', 'OpenPhone', 'Grasshopper', 'Google Voice'],
+    tools: ['Twilio', 'OpenPhone', 'Grasshopper', 'Google Voice', 'CallRail', 'Dialpad'],
   },
   {
     name: 'Lead Sources',
-    tools: ['Zillow', 'Realtor.com', 'Homes.com', 'Facebook Ads', 'Google PPC'],
+    tools: ['Zillow', 'Zillow Premier Agent', 'Realtor.com', 'Homes.com', 'Facebook Lead Ads', 'Google PPC', 'Open house sign-ins', 'Website forms'],
   },
   {
     name: 'Calendar & Scheduling',
-    tools: ['Google Calendar', 'Calendly', 'ShowingTime', 'Cal.com'],
+    tools: ['Calendly', 'ShowingTime', 'Cal.com'],
   },
   {
     name: 'Transaction Management',
-    tools: ['Skyslope', 'Dotloop', 'Transaction Desk', 'Brokermint'],
+    tools: ['Skyslope', 'Dotloop', 'Transaction Desk', 'Brokermint', 'DocuSign', 'Google Drive', 'Dropbox'],
   },
 ];
 
@@ -183,6 +183,11 @@ export const partnershipPhases = [
       'Instant responses to every inquiry',
       'One dashboard instead of five tabs',
     ],
+    infrastructure: [
+      'Workflows run in our secure automation infrastructure (we manage hosting)',
+      'Your data stays in YOUR tools (Follow Up Boss, Gmail, etc.)',
+      'You get documentation of everything we build',
+    ],
   },
   {
     title: 'Phase 2: Optimization',
@@ -215,6 +220,12 @@ export const partnershipPhases = [
       'A partner who knows your business',
       'Peace of mind — nothing falls through cracks',
     ],
+    infrastructure: [
+      'We host and manage all workflows',
+      'You own your data (always in your tools)',
+      'Monthly sessions = ongoing value',
+      'Cancel anytime after Month 3 (see FAQ for details)',
+    ],
   },
 ];
 
@@ -231,27 +242,172 @@ export const pricingContent = {
     'Monthly optimization reviews',
     'Priority support — same-day response',
   ],
+  cancellation: {
+    afterMinimum: 'After 3 months: Month-to-month cancellation',
+    ifCancel: 'If you cancel: Systems stop (they run in our infrastructure)',
+    yourData: 'Your data: Always stays in YOUR tools (FUB, Gmail, etc.)',
+    exitPackage: 'Want to self-manage? Partnership Exit Package available ($997 one-time)',
+  },
   guarantee: {
     icon: 'solar:shield-check-linear',
-    text: "Save 10+ hours in your first 90 days or we'll make it right. No questions asked.",
+    text: "Save 10+ hours in your first 90 days — or we optimize further, add workflows, or refund Month 3. Your call.",
   },
 };
 
 export const comparisonTable = [
-  { category: 'Setup', diy: 'You figure it out', aasani: 'Done for you' },
-  { category: 'Integrations', diy: 'Zapier + trial and error', aasani: 'Custom-built connections' },
-  { category: 'When it breaks', diy: "You're on your own", aasani: 'We fix it same-day' },
-  { category: 'Optimization', diy: 'Hope it works', aasani: 'Monthly data-driven reviews' },
-  { category: 'New tools', diy: 'Start from scratch', aasani: 'We integrate them' },
-  { category: 'Your time', diy: '15-20 hrs/week on admin', aasani: 'Focus on clients' },
-  { category: 'Cost', diy: 'VA: $1,500-3,000/mo', aasani: '$497/mo (beta)' },
-  { category: 'Expertise', diy: 'General admin help', aasani: 'Real estate ops specialist' },
+  { category: 'Approach', diy: 'Another tool to learn', aasani: 'Works with tools you have' },
+  { category: 'Setup', diy: 'DIY setup', aasani: 'Done-for-you setup' },
+  { category: 'Management', diy: 'You manage it', aasani: 'We manage it' },
+  { category: 'Model', diy: 'One-time setup fee', aasani: 'Ongoing partnership' },
+  { category: 'Relationship', diy: 'Software subscription', aasani: 'Operations partner' },
+  { category: 'When it breaks', diy: 'You fix it', aasani: 'We fix it' },
+  { category: 'Optimization', diy: 'Static workflows', aasani: 'Monthly optimization' },
+  { category: 'Cost', diy: '$69-500/mo per tool', aasani: '$497/mo all-inclusive' },
 ];
 
-export const faqItems = [
+export type FaqItem = {
+  question: string;
+  answer: string;
+  sections?: { heading: string; items: string[] }[];
+};
+
+export const faqItems: FaqItem[] = [
   {
-    question: 'What tools do you work with?',
-    answer: 'We work with the tools you already use — Follow Up Boss, kvCORE, Gmail, Google Calendar, Zillow, Realtor.com, and 30+ more. We connect them, not replace them.',
+    question: 'Can I cancel after the 3-month minimum?',
+    answer: 'Yes. After the initial 3 months, your partnership is month-to-month. You can cancel anytime.',
+    sections: [
+      {
+        heading: 'What You Keep',
+        items: [
+          'Your data (it lives in YOUR tools — FUB, Gmail, etc.)',
+          'Documentation of everything we built',
+          'Any templates or assets we created',
+        ],
+      },
+      {
+        heading: 'What Stops',
+        items: [
+          'Automated workflows (they run in our infrastructure)',
+          'Ongoing monitoring and maintenance',
+          'Monthly optimization sessions',
+        ],
+      },
+      {
+        heading: 'Want to Self-Manage?',
+        items: [
+          'Partnership Exit Package: $997 one-time',
+          'We rebuild workflows in YOUR own automation environment',
+          'Full training + handoff documentation',
+        ],
+      },
+      {
+        heading: 'Why Partners Stay',
+        items: [
+          'Most partners continue because the value exceeds the cost',
+          '$497/mo vs. hiring an ops manager ($3-5K/mo)',
+          'Systems improve monthly — not just maintained',
+        ],
+      },
+    ],
+  },
+  {
+    question: 'Do I need to switch CRMs or buy new tools?',
+    answer: 'No. We work with the tools you already use and connect them together.',
+    sections: [
+      {
+        heading: 'What You Keep',
+        items: [
+          'Your existing CRM (Follow Up Boss, kvCORE, etc.)',
+          'Your email (Gmail, Outlook)',
+          'Your calendar, lead sources, transaction tools',
+        ],
+      },
+      {
+        heading: "What's New",
+        items: [
+          'Connections between your tools (they finally talk to each other)',
+          'Automated workflows that handle the busywork',
+          'A partner who manages it all',
+        ],
+      },
+      {
+        heading: 'Infrastructure',
+        items: [
+          'Workflows run in our managed automation infrastructure',
+          'Your data stays in YOUR tools (we never move it)',
+          'If a tool isn\'t working, we\'ll recommend alternatives — but never force a switch',
+        ],
+      },
+    ],
+  },
+  {
+    question: 'What exactly am I paying for?',
+    answer: 'Month 1: Audit and build. Months 2-3: Optimize and expand. Month 4+: Ongoing partnership.',
+    sections: [
+      {
+        heading: 'Month 1: Foundation',
+        items: [
+          'Full audit of your tools and workflows',
+          'System architecture design',
+          'Build and launch core automations',
+        ],
+      },
+      {
+        heading: 'Month 2-3: Optimization',
+        items: [
+          'Expand automations across your business',
+          'Fine-tune based on real usage data',
+          'Add follow-up sequences, scheduling, transaction tracking',
+        ],
+      },
+      {
+        heading: 'Month 4+: Partnership',
+        items: [
+          'Monthly optimization reviews',
+          'New integration requests handled',
+          'Ongoing monitoring and maintenance',
+          'Priority support — same-day response',
+        ],
+      },
+      {
+        heading: 'Infrastructure We Provide',
+        items: [
+          'Automation platform hosting and management',
+          'System monitoring and error handling',
+          'API updates and maintenance',
+        ],
+      },
+    ],
+  },
+  {
+    question: 'What if my CRM or other tools update their API?',
+    answer: "That's our problem, not yours. We monitor for API changes and update your workflows proactively. You won't even notice when it happens — that's the point of having a partner.",
+  },
+  {
+    question: 'How is this different from Zapier or Make?',
+    answer: 'Zapier gives you building blocks. We give you a finished system with someone who manages it.',
+    sections: [
+      {
+        heading: 'Zapier / Make (You Do)',
+        items: [
+          'You learn the platform',
+          'You build the workflows',
+          'You troubleshoot when things break',
+          'You figure out what to connect',
+          'You pay per task ($69-500+/mo in tool costs alone)',
+        ],
+      },
+      {
+        heading: 'With Aasani (We Do)',
+        items: [
+          'We audit, design, and build everything',
+          'We host and manage the infrastructure',
+          'We fix issues proactively (usually before you notice)',
+          'We optimize monthly based on real data',
+          '$497/mo — all-inclusive, no per-task billing',
+        ],
+      },
+    ],
   },
   {
     question: "What if I don't have any systems yet?",
@@ -262,28 +418,12 @@ export const faqItems = [
     answer: "A VA does tasks manually. We build systems that run automatically. When a VA leaves, your processes leave with them. When we build systems, they're yours forever.",
   },
   {
-    question: "Why can't I just use Zapier myself?",
-    answer: "You can try. Most agents do and give up within a month. We've built 100+ real estate integrations. We know what breaks, what scales, and what actually saves you time.",
-  },
-  {
     question: 'How long until I see results?',
     answer: 'Most clients see their first automation live within 2 weeks. Full system implementation takes about 90 days, but you start saving time from week one.',
   },
   {
-    question: 'What does the 3-month commitment cover?',
-    answer: "Month 1: We audit and build your foundation. Month 2: We optimize and expand. Month 3: We fine-tune and hand off ongoing management. After that, it's month-to-month.",
-  },
-  {
     question: 'Do you replace my CRM?',
     answer: "No. We make your existing CRM work better by connecting it to everything else. If your CRM is truly not working, we'll recommend alternatives, but we never force a switch.",
-  },
-  {
-    question: 'What happens if something breaks?',
-    answer: "We monitor your systems and fix issues proactively. If something breaks, we fix it — usually same-day. You don't need to diagnose anything or learn any tools.",
-  },
-  {
-    question: 'Can I cancel after the 3-month minimum?',
-    answer: 'Yes. After the initial 3 months, your partnership is month-to-month. Your systems keep running either way — we built them to last, not to lock you in.',
   },
   {
     question: 'What does the discovery call look like?',

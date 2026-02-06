@@ -90,7 +90,7 @@ export function PricingSlide({ index }: PricingSlideProps) {
               {/* Header */}
               <div className="relative py-6 px-6 bg-white/5 border-b border-white/10 flex items-center justify-between">
                 <div>
-                  <h3 className="text-lg font-bold text-white font-display">DIY vs. Operations Partner</h3>
+                  <h3 className="text-lg font-bold text-white font-display">Not Software. Partnership.</h3>
                   <p className="text-xs text-neutral-400 mt-1">What changes when you have a partner</p>
                 </div>
                 <button
@@ -108,7 +108,7 @@ export function PricingSlide({ index }: PricingSlideProps) {
                   {/* Table Header */}
                   <div className="grid grid-cols-3 bg-white/5 border-b border-white/10">
                     <div className="p-3 text-xs font-mono uppercase tracking-wider text-neutral-400" />
-                    <div className="p-3 text-xs font-mono uppercase tracking-wider text-neutral-400 text-center">DIY</div>
+                    <div className="p-3 text-xs font-mono uppercase tracking-wider text-neutral-400 text-center">Software</div>
                     <div className="p-3 text-xs font-mono uppercase tracking-wider text-teal-300 text-center">Aasani</div>
                   </div>
                   {/* Table Rows */}
@@ -208,6 +208,16 @@ export function PricingSlide({ index }: PricingSlideProps) {
                 </p>
               ))}
             </div>
+
+            {/* Cancellation Details */}
+            {pricingContent.cancellation && (
+              <div className="border-l-2 border-teal-500/30 pl-3 mb-5 space-y-1">
+                <p className="text-xs text-neutral-500">{pricingContent.cancellation.afterMinimum}</p>
+                <p className="text-xs text-neutral-500">{pricingContent.cancellation.ifCancel}</p>
+                <p className="text-xs text-neutral-500">{pricingContent.cancellation.yourData}</p>
+                <p className="text-xs text-neutral-500">{pricingContent.cancellation.exitPackage}</p>
+              </div>
+            )}
 
             {/* Guarantee */}
             <div className="border-t border-white/10 pt-4 mb-5">
