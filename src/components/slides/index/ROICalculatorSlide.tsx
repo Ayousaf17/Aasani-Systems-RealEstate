@@ -47,8 +47,7 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
         className="h-full md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col w-full max-w-none md:max-w-xl rounded-none relative shadow-2xl card-bg md:p-12 px-6 md:px-12 pb-8 md:pb-12 pt-20 md:pt-12 z-[60]"
         style={{ backgroundImage: `url(${backgroundImages.caseStudies})` }}
       >
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/50 z-[1] pointer-events-none" />
+        <div className="slide-overlay-heavy" />
 
         {/* Flashlight effect overlay - desktop only */}
         <div
@@ -61,17 +60,17 @@ export function ROICalculatorSlide({ index, onNavigate }: ROICalculatorSlideProp
         <div className="relative z-10 flex flex-col h-full">
           {/* Header */}
           <AnimatedElement delay={0.1} className="mb-4 md:mb-6 shrink-0">
-            <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+            <span className="text-xs uppercase tracking-widest font-mono text-neutral-400 slide-label">
               04 / 05 — YOUR ROI
             </span>
           </AnimatedElement>
 
           {/* Title */}
           <AnimatedElement delay={0.2} className="shrink-0 mb-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight uppercase">
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight uppercase slide-heading">
               YOUR TIME BACK
             </h2>
-            <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-4">
+            <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-4 slide-label">
               Your tools handle the busywork. You handle the relationships
             </p>
           </AnimatedElement>

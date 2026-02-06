@@ -250,11 +250,11 @@ export const contactInfo = {
 
 export const backgroundImages = {
   hero: '/hero-bg.png',
-  problem: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/2596b357-ea11-4df7-819d-6d24ab446fec_1600w.webp',
-  solution: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/cc0d42d0-ed20-4040-89d3-5a6177162b6d_1600w.webp',
-  automations: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/aa2cf7be-2794-4596-80ce-cf0669fd8ec5_1600w.webp',
-  caseStudies: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7b8e6a1f-44f9-49ef-a26c-bf0d87724acf_1600w.webp',
-  howItWorks: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/ea017f83-49bf-41a3-bcaa-b91cf47b4ffe_1600w.webp',
-  philosophy: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/67df17f7-9681-4bd3-927b-ac569042a884_1600w.webp',
-  cta: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/47ccf769-0cb4-4a95-804e-cc919fd6d449_1600w.webp',
+  problem: '/backgrounds/idx-problem.webp',
+  solution: '/backgrounds/idx-solution.webp',
+  automations: '/backgrounds/idx-automations.webp',
+  caseStudies: '/backgrounds/idx-casestudies.webp',
+  howItWorks: '/backgrounds/idx-nightsky.webp',
+  philosophy: '/backgrounds/idx-philosophy.webp',
+  cta: '/backgrounds/ops-cta.webp',
 };

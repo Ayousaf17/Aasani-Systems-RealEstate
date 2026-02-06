@@ -16,10 +16,11 @@ export function CaseStudiesSlide({ index }: CaseStudiesSlideProps) {
         className="md:h-auto md:aspect-[3/4] glass-clear overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative shadow-2xl justify-start card-bg"
         style={{ backgroundImage: `url(${backgroundImages.caseStudies})` }}
       >
+        <div className="slide-overlay-heavy" />
 
         <div className="relative z-10 flex flex-col h-full">
           <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6 shrink-0">
-            <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
+            <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 slide-label">
               [05/10]
             </span>
             <div className="flex items-center gap-2">
@@ -31,7 +32,7 @@ export function CaseStudiesSlide({ index }: CaseStudiesSlideProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.2} className="shrink-0">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-2 drop-shadow-md font-display">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-2 slide-heading font-display">
               What The Research
               <br />
               <span className="text-neutral-200 font-normal">Shows</span>

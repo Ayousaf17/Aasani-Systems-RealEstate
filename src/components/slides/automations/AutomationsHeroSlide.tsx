@@ -18,21 +18,22 @@ export function AutomationsHeroSlide({ onNextSlide: onNavigate }: AutomationsHer
         className="flex flex-col md:p-12 z-10 h-full pt-8 px-5 pb-5 relative justify-between card-bg"
         style={{ backgroundImage: `url(${automationsHeroBackground})` }}
       >
+        <div className="slide-overlay" />
         <div className="absolute bottom-0 left-0 right-0 h-12 md:h-0 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none md:hidden" />
 
         <AnimatedElement delay={0} className="relative z-10 mb-4 md:mb-6">
-          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400 slide-label">
             01 / 09 — SYSTEMS
           </span>
         </AnimatedElement>
 
         <div className="relative z-10 mt-auto mb-6 md:mb-12">
           <AnimatedElement delay={0.2}>
-            <h1 className="text-6xl md:text-7xl font-bold text-white tracking-tight font-serif leading-none">
+            <h1 className="text-6xl md:text-7xl font-bold text-white tracking-tight font-serif leading-none slide-heading">
               The 7 Systems
               <span className="block">We Build For You</span>
             </h1>
-            <p className="text-2xl md:text-3xl font-normal text-neutral-400 tracking-tight font-display">
+            <p className="text-2xl md:text-3xl font-normal text-neutral-300 tracking-tight font-display slide-body">
               Built. Automated. Managed.
             </p>
           </AnimatedElement>

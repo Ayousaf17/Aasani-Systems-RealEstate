@@ -153,6 +153,49 @@ button:focus-visible {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+/* Slide overlay — ensures text readability over bright background images */
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.40) 30%,
+    rgba(0, 0, 0, 0.45) 60%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+}
+
+/* Stronger overlay for slides with lots of body text */
+.slide-overlay-heavy {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.60) 0%,
+    rgba(0, 0, 0, 0.50) 30%,
+    rgba(0, 0, 0, 0.55) 60%,
+    rgba(0, 0, 0, 0.70) 100%
+  );
+}
+
+/* Text shadow utilities for slide headings */
+.slide-heading {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.slide-label {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.slide-body {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
 /* Image loading placeholder */
 .bg-loading {
   background-color: rgb(23 23 23);

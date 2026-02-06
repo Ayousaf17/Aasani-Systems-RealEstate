@@ -16,7 +16,7 @@ export const automationsData: AutomationSlideData[] = [
     progressPercent: 100,
     description: "You have a CRM, SMS platform, and email. But they're not connected. When a lead texts at 9pm, your email system doesn't know about it. Nothing responds automatically.|||Your tools wire together into one system. Lead comes in, your CRM logs it, an automated message goes out, and you get notified so you can follow up when you're ready. All happening without you lifting a finger.|||Someone reaches out at 9pm while you're with family. Your systems respond instantly. You stay present where it matters most. They feel taken care of.|||If you need to adjust how fast you respond, change the message, or add a new step, we handle it. You don't need to learn the backend or maintain the machinery.",
     tools: 'Tools: Twilio, Follow Up Boss, kvCORE, LionDesk, CRM, Zapier, and more',
-    backgroundImage: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/5833cd3e-4d17-4ecb-bfa4-cb530767ba0f_1600w.webp',
+    backgroundImage: '/backgrounds/auto-lead.webp',
   },
   {
     slideNumber: '03/09',
@@ -31,7 +31,7 @@ export const automationsData: AutomationSlideData[] = [
     progressPercent: 67,
     description: "Your CRM is full of leads. Some are ready to buy next week. Some are still browsing. You're spending the same energy on both.|||Your tools track every interaction automatically. When someone opens multiple emails, clicks property links, and requests a showing, your CRM flags them as hot. The system knows who's ready before you do.|||You focus your energy on the leads who actually need you right now. The ones who aren't ready yet stay warm in the background. When they're ready, you're already top of mind.|||When your business changes and you need different scoring rules, we adjust it for you. No technical knowledge required on your end.",
     tools: 'Tools: Real Geeks, BoldTrail, Lofty, custom CRM scoring, and more',
-    backgroundImage: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/28c300b5-bd2f-449c-a915-f968ced09242_1600w.webp',
+    backgroundImage: '/backgrounds/auto-qualify.webp',
   },
   {
     slideNumber: '04/09',
@@ -46,7 +46,7 @@ export const automationsData: AutomationSlideData[] = [
     progressPercent: 80,
     description: "You know the statistic. Most sales need five or more follow-ups. Most agents give up after two. You're probably doing it manually, which means it's easy to forget.|||We set up sequences in your CRM that run automatically. Day one, welcome message. Day seven, a market update. Day twenty-one, a check-in. Each message feels personal, not robotic. It all happens while you're working with other clients.|||Some people aren't ready today, but they will be in three months. This keeps you connected to them without eating up your time. When they are ready, they think of you first.|||When your business shifts and you need a new sequence or different timing, we adjust it. You just tell us what you need, and we handle the mechanics.",
     tools: 'Tools: Wise Agent, Follow Up Boss, CINC, Market Leader, HubSpot, and more',
-    backgroundImage: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e5a1f416-a865-4aed-8dc3-01f47f1411d8_1600w.webp',
+    backgroundImage: '/backgrounds/auto-crm.webp',
   },
   {
     slideNumber: '05/09',
@@ -61,7 +61,7 @@ export const automationsData: AutomationSlideData[] = [
     progressPercent: 60,
     description: "Someone wants to see a property. So you text back. They text back with their availability. You check your calendar. The back and forth takes thirty minutes. By then, they've already called three other agents.|||Your booking page shows them your real-time availability. They pick a slot. The system sends them a confirmation with directions and your contact info. A reminder goes out forty-eight hours before, then two hours before. When they don't show up, you already know before you leave your house.|||No more texting chains. No more confusion about whether Thursday at two actually means two or two thirty. Clients book themselves. Most of them actually show up.|||When your schedule changes or you need buffer time between appointments, we adjust it. You don't need to learn the software or do it yourself.",
     tools: 'Tools: Calendly, Acuity Scheduling, ShowingTime, Zillow Showing Manager, and more',
-    backgroundImage: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e447375c-3ed0-4923-a1dd-34dc0c311246_1600w.webp',
+    backgroundImage: '/backgrounds/auto-schedule.webp',
   },
   {
     slideNumber: '06/09',
@@ -76,7 +76,7 @@ export const automationsData: AutomationSlideData[] = [
     progressPercent: 100,
     description: "Between offer and close, thirty different things have to happen in the right order. Earnest money deposit, title company notification, inspection scheduled, appraisal ordered, clear to close. You're tracking this in a spreadsheet, email, and your head.|||Your transaction system connects to your CRM and calendar. When a deadline approaches, you get notified. Seven days before close, you confirm wire instructions. Three days before, you remind everyone about the final walkthrough. The day of, you get a congratulations message and an automatic referral request goes to the new owner.|||Nothing slips. You don't chase documents at midnight. You don't call the lender asking if they're still on track. The system shows you the status of everything, and the people involved know what's expected.|||If you need different notification timing or want to add a custom task unique to your business, we adjust it without you having to touch the technical side.",
     tools: 'Tools: Skyslope, Dotloop, Transaction Desk, Brokermint, and more',
-    backgroundImage: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/57db1b72-80c1-4608-bb68-3a0d7b7dc2ad_1600w.webp',
+    backgroundImage: '/backgrounds/auto-txn.webp',
   },
   {
     slideNumber: '07/09',
@@ -91,7 +91,7 @@ export const automationsData: AutomationSlideData[] = [
     progressPercent: 100,
     description: "Your past clients are scattered across emails and spreadsheets. You mean to reach out, but life gets busy. When someone asks them for a referral, they can't quite remember your name. Referrals go to agents who stayed in touch.|||The system sends them a check-in message one month after closing. Three months later, a market update about their neighborhood. Six months later, on their home anniversary. Each message feels personal because you wrote the template. They're sent automatically while you work with new clients.|||You stay connected to hundreds of past clients without it eating up your mental space or your calendar. When someone asks them for a recommendation, your name is the one they remember.|||When you want a different message or need to adjust the timing between touches, we update it. You don't touch the backend or log into email software.",
     tools: 'Tools: Mailchimp, Constant Contact, Real Geeks marketing suite, Follow Up Boss, and more',
-    backgroundImage: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/5a6af9b6-b3cd-4249-882f-5f2827b577f9_1600w.jpg',
+    backgroundImage: '/backgrounds/auto-comm.webp',
   },
   {
     slideNumber: '08/09',
@@ -106,11 +106,11 @@ export const automationsData: AutomationSlideData[] = [
     progressPercent: 41,
     description: "Reviews and referrals don't happen by accident. They happen because you ask at the right time in the right way. Miss that window and it's gone. Most agents never ask at all.|||Two weeks after closing, when they're settling in, you ask how they like the house. A month later, when they've had time to live there and think about their experience, a review request goes out. The timing matters. So does asking in your voice, not some generic template.|||People give referrals and leave reviews when they feel genuinely grateful. That happens at specific moments. This system catches those moments automatically.|||If you want to adjust when you ask or how you ask, we change it for you. You don't spend evenings learning review software.",
     tools: 'Tools: BirdEye, Podium, GatherUp, built-in CRM review features, and more',
-    backgroundImage: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/fb2aee34-64cb-4040-867f-e6ea29394e32_1600w.webp',
+    backgroundImage: '/backgrounds/auto-referral.webp',
   },
 ];
 
-export const automationsHeroBackground = 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/54c3bd9a-9ae0-4e13-8284-629ee960cbc8_1600w.webp';
+export const automationsHeroBackground = '/backgrounds/auto-hero.webp';
 
 export const ctaChecklistItems = [
   'Free 60-minute strategy call',

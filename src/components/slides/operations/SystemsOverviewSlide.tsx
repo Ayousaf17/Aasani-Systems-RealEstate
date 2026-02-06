@@ -19,24 +19,25 @@ export function SystemsOverviewSlide({ index }: SystemsOverviewSlideProps) {
         className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-16 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative justify-start card-bg z-[60]"
         style={{ backgroundImage: `url(${backgroundImages.systems})` }}
       >
+        <div className="slide-overlay-heavy" />
         <div className="absolute bottom-0 left-0 right-0 h-12 md:h-0 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none md:hidden" />
 
-        <AnimatedElement delay={0.1} className="mb-4 md:mb-4">
-          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+        <AnimatedElement delay={0.1} className="mb-4 md:mb-4 relative z-10">
+          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400 slide-label">
             04 / 07 — HOW IT WORKS
           </span>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.2} className="mb-4 md:mb-5">
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
+        <AnimatedElement delay={0.2} className="mb-4 md:mb-5 relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight slide-heading">
             7 Systems Across Your Entire Stack
           </h2>
-          <p className="text-sm text-neutral-300 mt-2 leading-relaxed font-display">
+          <p className="text-sm text-neutral-200 mt-2 leading-relaxed font-display slide-body">
             We don't give you 7 new tools. We connect the ones you already have into 7 automated systems.
           </p>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.3} className="flex-1 flex flex-col min-h-0">
+        <AnimatedElement delay={0.3} className="flex-1 flex flex-col min-h-0 relative z-10">
           <div className="bg-black/50 backdrop-blur-sm rounded-xl border border-white/10 flex-1 flex flex-col overflow-hidden min-h-0">
             <div className="flex-1 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] min-h-0">
               {systemsOverview.map((system, i) => (
