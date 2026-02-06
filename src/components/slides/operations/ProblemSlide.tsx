@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X } from 'lucide-react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
 import {
   problemStats,
@@ -92,6 +92,13 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
             >
               {/* Header */}
               <div className="relative py-8 px-6 bg-white/5 border-b border-white/10 flex flex-col items-center">
+                <button
+                  aria-label="Close"
+                  className="absolute right-4 top-4 h-8 w-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-neutral-400 hover:text-white transition-colors duration-200 z-10"
+                  onClick={() => setViewerOpen(false)}
+                >
+                  <X className="w-4 h-4" />
+                </button>
                 <iconify-icon icon={current.icon} className="text-5xl md:text-6xl text-slate-300 mb-3" />
                 <p className="text-center text-xl md:text-2xl font-bold font-display text-slate-300">
                   {current.title}
@@ -111,15 +118,7 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
               </div>
 
               {/* Content */}
-              <div className="relative flex-1 p-5">
-                <button
-                  aria-label="Close"
-                  className="absolute right-4 top-4 h-8 w-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-neutral-400 hover:text-white transition-colors duration-200"
-                  onClick={() => setViewerOpen(false)}
-                >
-                  <X className="w-4 h-4" />
-                </button>
-
+              <div className="flex-1 p-5">
                 <div className="text-neutral-300 text-sm leading-relaxed flex flex-col gap-3">
                   <p className="text-white/90 leading-relaxed">
                     {current.description}
@@ -139,33 +138,33 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
               </div>
 
               {/* Navigation */}
-              <div className="flex items-center justify-between px-5 py-4 border-t border-white/10 bg-white/5">
+              <div className="flex items-center justify-between px-5 py-4 border-t border-white/10">
                 <button
                   onClick={() => setCurrentIndex((prev) => prev - 1)}
                   disabled={!hasPrev}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-all ${
+                  className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
                     hasPrev
-                      ? 'text-white hover:bg-white/10 active:scale-95'
+                      ? 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
                       : 'text-white/20 cursor-not-allowed'
                   }`}
                 >
-                  <ChevronLeft className="w-5 h-5" />
-                  <span className="text-sm">Previous</span>
+                  <iconify-icon icon="solar:arrow-left-linear" className="text-sm" />
+                  <span>Back</span>
                 </button>
-                <span className="text-xs text-neutral-500 font-mono">
-                  {currentIndex + 1} / {problemPainPoints.length}
+                <span className="text-xs text-neutral-400 font-mono">
+                  {currentIndex + 1} of {problemPainPoints.length}
                 </span>
                 <button
                   onClick={() => setCurrentIndex((prev) => prev + 1)}
                   disabled={!hasNext}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-all ${
+                  className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
                     hasNext
-                      ? 'text-white hover:bg-white/10 active:scale-95'
+                      ? 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
                       : 'text-white/20 cursor-not-allowed'
                   }`}
                 >
-                  <span className="text-sm">Next</span>
-                  <ChevronRight className="w-5 h-5" />
+                  <span>Next</span>
+                  <iconify-icon icon="solar:arrow-right-linear" className="text-sm" />
                 </button>
               </div>
             </motion.div>
