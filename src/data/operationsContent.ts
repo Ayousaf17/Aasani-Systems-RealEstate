@@ -184,7 +184,7 @@ export const partnershipPhases = [
       'One dashboard instead of five tabs',
     ],
     infrastructure: [
-      'Workflows run in our n8n infrastructure (we manage hosting)',
+      'Workflows run in our secure automation infrastructure (we manage hosting)',
       'Your data stays in YOUR tools (Follow Up Boss, Gmail, etc.)',
       'You get documentation of everything we build',
     ],
@@ -296,7 +296,7 @@ export const faqItems: FaqItem[] = [
         heading: 'Want to Self-Manage?',
         items: [
           'Partnership Exit Package: $997 one-time',
-          'We rebuild workflows in YOUR n8n instance',
+          'We rebuild workflows in YOUR own automation environment',
           'Full training + handoff documentation',
         ],
       },
@@ -333,7 +333,7 @@ export const faqItems: FaqItem[] = [
       {
         heading: 'Infrastructure',
         items: [
-          'Workflows run on our n8n infrastructure (we manage hosting)',
+          'Workflows run in our managed automation infrastructure',
           'Your data stays in YOUR tools (we never move it)',
           'If a tool isn\'t working, we\'ll recommend alternatives — but never force a switch',
         ],
@@ -372,7 +372,7 @@ export const faqItems: FaqItem[] = [
       {
         heading: 'Infrastructure We Provide',
         items: [
-          'n8n workflow hosting and management',
+          'Automation platform hosting and management',
           'System monitoring and error handling',
           'API updates and maintenance',
         ],
