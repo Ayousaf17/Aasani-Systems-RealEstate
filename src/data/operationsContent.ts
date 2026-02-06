@@ -170,13 +170,13 @@ export const systemsOverview = [
 export const partnershipPhases = [
   {
     title: 'Phase 1: Foundation',
-    duration: 'Weeks 1-2',
+    duration: 'Month 1',
     badgeColor: 'bg-teal-500/20 text-teal-300/90',
     whatHappens: [
       'Full audit of your current tools and workflows',
       'Design your connected system architecture',
-      'Build and test core integrations',
-      'Launch instant lead response + CRM sync',
+      'Build and launch lead response + CRM sync',
+      'Connect all lead sources into one dashboard',
     ],
     whatYouGet: [
       'Leads automatically in your CRM from all sources',
@@ -190,14 +190,14 @@ export const partnershipPhases = [
     ],
   },
   {
-    title: 'Phase 2: Optimization',
-    duration: 'Weeks 2-3',
+    title: 'Phase 2: Expansion',
+    duration: 'Month 2',
     badgeColor: 'bg-cyan-500/20 text-cyan-300',
     whatHappens: [
       'Build follow-up sequences and scheduling automation',
       'Set up transaction coordination workflows',
       'Create client communication templates',
-      'Test everything with real data',
+      'Test and refine with real data from Month 1',
     ],
     whatYouGet: [
       'Automated follow-ups that sound like you',
@@ -206,25 +206,25 @@ export const partnershipPhases = [
     ],
   },
   {
-    title: 'Phase 3: Partnership',
-    duration: 'Week 3+',
+    title: 'Phase 3: Optimization',
+    duration: 'Month 3',
     badgeColor: 'bg-emerald-500/20 text-emerald-300',
     whatHappens: [
-      'Monthly performance reviews',
-      'System updates and improvements',
-      'New integration requests handled',
-      'Ongoing monitoring and maintenance',
+      'First full performance review with real data',
+      'Tune every system based on actual results',
+      'Launch review and referral generation',
+      'Build any remaining integration requests',
     ],
     whatYouGet: [
-      'Systems that get better over time',
-      'A partner who knows your business',
+      'All 7 systems live and connected',
+      'Systems tuned to real results, not guesses',
       'Peace of mind — nothing falls through cracks',
     ],
     infrastructure: [
       'We host and manage all workflows',
       'You own your data (always in your tools)',
-      'Monthly sessions = ongoing value',
-      'Cancel anytime after Month 3 (see FAQ for details)',
+      'Monthly optimization sessions continue after Month 3',
+      'Month-to-month after this — cancel anytime',
     ],
   },
 ];
