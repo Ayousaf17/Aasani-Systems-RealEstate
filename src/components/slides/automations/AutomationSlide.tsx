@@ -8,10 +8,10 @@ interface AutomationSlideProps {
 }
 
 const sectionConfig = [
-  { label: 'The Reality', icon: 'solar:danger-linear', color: 'from-red-500/20 to-red-500/5 border-red-400/30' },
-  { label: 'What We Do', icon: 'solar:wrench-2-linear', color: 'from-teal-500/20 to-teal-500/5 border-teal-400/30' },
-  { label: 'The Outcome', icon: 'solar:check-circle-linear', color: 'from-emerald-500/20 to-emerald-500/5 border-emerald-400/30' },
-  { label: 'We Manage It', icon: 'solar:shield-check-linear', color: 'from-cyan-500/20 to-cyan-500/5 border-cyan-400/30' },
+  { label: 'The Reality', icon: 'solar:danger-linear', color: 'from-red-500/10 to-transparent border-white/15' },
+  { label: 'What We Do', icon: 'solar:wrench-2-linear', color: 'from-teal-500/10 to-transparent border-white/15' },
+  { label: 'The Outcome', icon: 'solar:check-circle-linear', color: 'from-emerald-500/10 to-transparent border-white/15' },
+  { label: 'We Manage It', icon: 'solar:shield-check-linear', color: 'from-cyan-500/10 to-transparent border-white/15' },
 ];
 
 export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
@@ -106,7 +106,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                     : 'opacity-0 pointer-events-none'
                 }`}
               >
-                <div className={`bg-gradient-to-br ${config.color} backdrop-blur-sm border rounded-lg p-4 md:p-5 flex flex-col`}>
+                <div className={`bg-gradient-to-br ${config.color} backdrop-blur-2xl rounded-lg p-4 md:p-5 flex flex-col border shadow-lg`}>
                   {/* Step Dots — inside card */}
                   <div className="flex items-center justify-center gap-2 mb-4">
                     {sectionConfig.map((_, dotIdx) => (
@@ -128,10 +128,10 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                     <iconify-icon
                       icon={config.icon}
                       className={`text-base md:text-lg flex-shrink-0 ${
-                        idx === 0 ? 'text-red-400' :
-                        idx === 1 ? 'text-teal-400' :
-                        idx === 2 ? 'text-emerald-400' :
-                        'text-cyan-400'
+                        idx === 0 ? 'text-red-400/80' :
+                        idx === 1 ? 'text-teal-400/80' :
+                        idx === 2 ? 'text-emerald-400/80' :
+                        'text-cyan-400/80'
                       }`}
                     />
                     <span className="text-xs font-mono uppercase tracking-wider text-white/70">
