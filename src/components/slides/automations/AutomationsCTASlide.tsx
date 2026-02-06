@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getCalApi } from '@calcom/embed-react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
@@ -13,16 +13,6 @@ const ctaPoints = [
 
 export function AutomationsCTASlide() {
   const navigate = useNavigate();
-  const [, setPrefersReducedMotion] = useState(false);
-
-  // Check for reduced motion preference
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
-    const handleChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
 
   // Initialize Cal.com embed
   useEffect(() => {
