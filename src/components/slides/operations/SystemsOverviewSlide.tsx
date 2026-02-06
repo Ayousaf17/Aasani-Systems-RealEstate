@@ -30,10 +30,10 @@ export function SystemsOverviewSlide({ index }: SystemsOverviewSlideProps) {
 
         <AnimatedElement delay={0.2} className="mb-4 md:mb-5 relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight slide-heading">
-            7 Systems Across Your Entire Stack
+            The 7 Core Systems
           </h2>
           <p className="text-sm text-neutral-200 mt-2 leading-relaxed font-display slide-body">
-            We don't give you 7 new tools. We connect the ones you already have into 7 automated systems.
+            We connect the tools you already have into 7 automated systems.
           </p>
         </AnimatedElement>
 
