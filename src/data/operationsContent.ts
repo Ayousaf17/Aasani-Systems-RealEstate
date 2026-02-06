@@ -246,7 +246,7 @@ export const pricingContent = {
     afterMinimum: 'After 3 months: Month-to-month cancellation',
     ifCancel: 'If you cancel: Systems stop (they run in our infrastructure)',
     yourData: 'Your data: Always stays in YOUR tools (FUB, Gmail, etc.)',
-    exitPackage: 'Want to self-manage? Partnership Exit Package available ($997 one-time)',
+    exitPackage: 'Want to self-manage? We offer a Partnership Exit Package — ask us about it on your call.',
   },
   guarantee: {
     icon: 'solar:shield-check-linear',
@@ -295,7 +295,7 @@ export const faqItems: FaqItem[] = [
       {
         heading: 'Want to Self-Manage?',
         items: [
-          'Partnership Exit Package: $997 one-time',
+          'We offer a Partnership Exit Package — ask about it on your call',
           'We rebuild workflows in YOUR own automation environment',
           'Full training + handoff documentation',
         ],
