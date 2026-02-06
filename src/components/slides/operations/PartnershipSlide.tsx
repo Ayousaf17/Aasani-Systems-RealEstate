@@ -45,35 +45,37 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
           </p>
         </AnimatedElement>
 
-        {/* Phase Dots */}
-        <div className="flex items-center justify-center gap-2 mb-4 md:mb-5 relative z-10">
-          {partnershipPhases.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentPhase(idx)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                idx === currentPhase
-                  ? 'w-8 bg-teal-400 shadow-lg shadow-teal-400/50'
-                  : 'bg-white/20 hover:bg-white/40'
-              }`}
-              aria-label={`Go to phase ${idx + 1}`}
-            />
-          ))}
-        </div>
-
-        {/* Phase Content */}
-        <AnimatedElement delay={0.3} className="flex-1 flex flex-col relative z-10">
-          <div className="relative flex-1">
+        {/* Phase Content — grid overlay sizes to tallest phase, keeping dots + nav static */}
+        <AnimatedElement delay={0.3} className="flex flex-col relative z-10">
+          <div className="grid">
             {partnershipPhases.map((phase, idx) => (
               <div
                 key={idx}
-                className={`absolute inset-0 transition-all duration-500 ease-out ${
+                style={{ gridArea: '1 / 1' }}
+                className={`transition-all duration-500 ease-out ${
                   idx === currentPhase
                     ? 'opacity-100 pointer-events-auto'
                     : 'opacity-0 pointer-events-none'
                 }`}
               >
-                <div className="bg-black/50 backdrop-blur-sm rounded-xl p-5 md:p-6 border border-white/10 h-full flex flex-col overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none]">
+                <div className={`backdrop-blur-2xl border border-white/15 rounded-xl p-5 md:p-6 flex flex-col shadow-lg ${idx === currentPhase ? 'animate-glaze-in' : 'bg-black/60'}`}>
+                  {/* Dots */}
+                  <div className="flex items-center justify-center gap-2 mb-4">
+                    {partnershipPhases.map((_, dotIdx) => (
+                      <button
+                        key={dotIdx}
+                        onClick={() => setCurrentPhase(dotIdx)}
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                          dotIdx === currentPhase
+                            ? 'w-8 bg-teal-400 shadow-lg shadow-teal-400/50'
+                            : 'bg-white/20 hover:bg-white/40'
+                        }`}
+                        aria-label={`Go to phase ${dotIdx + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Content */}
                   <div className="flex items-center gap-3 mb-4">
                     <h3 className="text-lg font-bold text-white font-display">
                       {phase.title}
@@ -83,7 +85,7 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
                     </span>
                   </div>
 
-                  <div className="flex-1 space-y-4">
+                  <div className="flex-1 space-y-4 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none]">
                     <div>
                       <p className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">
                         What Happens
@@ -112,42 +114,41 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
                       </div>
                     </div>
                   </div>
+
+                  {/* Navigation — pinned bottom via mt-auto */}
+                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/10">
+                    <button
+                      onClick={goToPrevious}
+                      disabled={currentPhase === 0}
+                      className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
+                        currentPhase === 0
+                          ? 'text-white/20 cursor-not-allowed'
+                          : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
+                      }`}
+                    >
+                      <iconify-icon icon="solar:arrow-left-linear" className="text-sm" />
+                      <span>Back</span>
+                    </button>
+                    <span className="text-xs text-neutral-400 font-mono">
+                      {currentPhase + 1} of {partnershipPhases.length}
+                    </span>
+                    <button
+                      onClick={goToNext}
+                      disabled={currentPhase === partnershipPhases.length - 1}
+                      className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
+                        currentPhase === partnershipPhases.length - 1
+                          ? 'text-white/20 cursor-not-allowed'
+                          : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
+                      }`}
+                    >
+                      <span>Next</span>
+                      <iconify-icon icon="solar:arrow-right-linear" className="text-sm" />
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-
-          {/* Navigation */}
-          <div className="flex items-center justify-between mt-4 pt-3 border-t border-white/5">
-            <button
-              onClick={goToPrevious}
-              disabled={currentPhase === 0}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
-                currentPhase === 0
-                  ? 'text-white/20 cursor-not-allowed'
-                  : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
-              }`}
-            >
-              <iconify-icon icon="solar:arrow-left-linear" className="text-sm" />
-              <span>Back</span>
-            </button>
-            <span className="text-xs text-neutral-400 font-mono">
-              {currentPhase + 1} of {partnershipPhases.length}
-            </span>
-            <button
-              onClick={goToNext}
-              disabled={currentPhase === partnershipPhases.length - 1}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
-                currentPhase === partnershipPhases.length - 1
-                  ? 'text-white/20 cursor-not-allowed'
-                  : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
-              }`}
-            >
-              <span>Next</span>
-              <iconify-icon icon="solar:arrow-right-linear" className="text-sm" />
-            </button>
-          </div>
-
         </AnimatedElement>
       </div>
     </section>
