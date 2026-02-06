@@ -8,10 +8,10 @@ interface AutomationSlideProps {
 }
 
 const sectionConfig = [
-  { label: 'The Reality', icon: 'solar:danger-linear', color: 'from-red-500/10 to-transparent border-white/15' },
-  { label: 'What We Do', icon: 'solar:wrench-2-linear', color: 'from-teal-500/10 to-transparent border-white/15' },
-  { label: 'The Outcome', icon: 'solar:check-circle-linear', color: 'from-emerald-500/10 to-transparent border-white/15' },
-  { label: 'We Manage It', icon: 'solar:shield-check-linear', color: 'from-cyan-500/10 to-transparent border-white/15' },
+  { label: 'The Reality', icon: 'solar:danger-linear' },
+  { label: 'What We Do', icon: 'solar:wrench-2-linear' },
+  { label: 'The Outcome', icon: 'solar:check-circle-linear' },
+  { label: 'We Manage It', icon: 'solar:shield-check-linear' },
 ];
 
 export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
@@ -106,7 +106,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                     : 'opacity-0 pointer-events-none'
                 }`}
               >
-                <div className={`bg-gradient-to-br ${config.color} backdrop-blur-2xl rounded-lg p-4 md:p-5 flex flex-col border shadow-lg`}>
+                <div className="bg-white/[0.08] backdrop-blur-2xl border border-white/15 rounded-lg p-4 md:p-5 flex flex-col shadow-lg">
                   {/* Step Dots — inside card */}
                   <div className="flex items-center justify-center gap-2 mb-4">
                     {sectionConfig.map((_, dotIdx) => (
@@ -127,12 +127,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                   <div className="flex items-center gap-2 mb-3">
                     <iconify-icon
                       icon={config.icon}
-                      className={`text-base md:text-lg flex-shrink-0 ${
-                        idx === 0 ? 'text-red-400/80' :
-                        idx === 1 ? 'text-teal-400/80' :
-                        idx === 2 ? 'text-emerald-400/80' :
-                        'text-cyan-400/80'
-                      }`}
+                      className="text-base md:text-lg flex-shrink-0 text-white/60"
                     />
                     <span className="text-xs font-mono uppercase tracking-wider text-white/70">
                       {idx + 1} / 4 — {config.label}
