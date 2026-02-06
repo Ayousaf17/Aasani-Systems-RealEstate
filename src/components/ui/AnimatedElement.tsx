@@ -17,9 +17,7 @@ export function AnimatedElement({
   const { ref, hasIntersected } = useIntersectionObserver({ root });
 
   const animationStyle: CSSProperties = {
-    animation: hasIntersected
-      ? `animationIn 0.8s ease-out ${delay}s both`
-      : 'none',
+    animation: `animationIn 0.8s ease-out ${delay}s both`,
     animationPlayState: hasIntersected ? 'running' : 'paused',
   };
 
