@@ -7,12 +7,7 @@ interface AutomationSlideProps {
   slideIndex: number;
 }
 
-const sectionConfig = [
-  { label: 'The Reality', icon: 'solar:danger-linear' },
-  { label: 'What We Do', icon: 'solar:wrench-2-linear' },
-  { label: 'The Outcome', icon: 'solar:check-circle-linear' },
-  { label: 'We Manage It', icon: 'solar:shield-check-linear' },
-];
+const sectionLabels = ['The Reality', 'What We Do', 'The Outcome', 'We Manage It'];
 
 export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
   const [currentStep, setCurrentStep] = useState(0);
@@ -95,7 +90,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
         {/* Content Area — grid overlay sizes to tallest step, keeping dots + nav static */}
         <AnimatedElement delay={0.4} className="flex flex-col relative z-10">
           <div className="grid">
-            {sectionConfig.map((config, idx) => (
+            {sectionLabels.map((label, idx) => (
               <div
                 key={idx}
                 style={{ gridArea: '1 / 1' }}
@@ -108,7 +103,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                 <div className={`backdrop-blur-2xl border border-white/15 rounded-lg p-4 md:p-5 flex flex-col shadow-lg ${idx === currentStep ? 'animate-glaze-in' : 'bg-black/60'}`}>
                   {/* Dots */}
                   <div className="flex items-center justify-center gap-2 mb-4">
-                    {sectionConfig.map((_, dotIdx) => (
+                    {sectionLabels.map((_, dotIdx) => (
                       <button
                         key={dotIdx}
                         onClick={() => setCurrentStep(dotIdx)}
@@ -122,16 +117,10 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                     ))}
                   </div>
 
-                  {/* Content */}
-                  <div className="flex items-center gap-2 mb-3">
-                    <iconify-icon
-                      icon={config.icon}
-                      className="text-base md:text-lg flex-shrink-0 text-white/60"
-                    />
-                    <span className="text-xs font-mono uppercase tracking-wider text-white/70">
-                      {idx + 1} / 4 — {config.label}
-                    </span>
-                  </div>
+                  {/* Section label */}
+                  <span className="text-xs font-mono uppercase tracking-wider text-teal-300/70 mb-2">
+                    {label}
+                  </span>
                   <p className="text-sm md:text-base leading-relaxed text-white/90 font-display flex-1">
                     {sections[idx]}
                   </p>
@@ -150,9 +139,6 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                       <iconify-icon icon="solar:arrow-left-linear" className="text-sm" />
                       <span>Back</span>
                     </button>
-                    <span className="text-xs text-neutral-400 font-mono">
-                      {currentStep + 1} of 4
-                    </span>
                     <button
                       onClick={goToNext}
                       disabled={currentStep === 3}

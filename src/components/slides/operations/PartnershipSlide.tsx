@@ -129,9 +129,6 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
                       <iconify-icon icon="solar:arrow-left-linear" className="text-sm" />
                       <span>Back</span>
                     </button>
-                    <span className="text-xs text-neutral-400 font-mono">
-                      {currentPhase + 1} of {partnershipPhases.length}
-                    </span>
                     <button
                       onClick={goToNext}
                       disabled={currentPhase === partnershipPhases.length - 1}
