@@ -32,8 +32,8 @@ export function SystemsOverviewSlide({ index }: SystemsOverviewSlideProps) {
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight slide-heading">
             The 7 Core Systems
           </h2>
-          <p className="text-sm text-neutral-200 mt-2 leading-relaxed font-display slide-body">
-            We connect the tools you already have into 7 automated systems.
+          <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-3 slide-label">
+            We connect the tools you already have
           </p>
         </AnimatedElement>
 
