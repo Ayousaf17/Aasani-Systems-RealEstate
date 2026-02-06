@@ -92,9 +92,8 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
           </div>
         </AnimatedElement>
 
-        {/* Content Area */}
+        {/* Content Area — grid overlay sizes to tallest step, keeping dots + nav static */}
         <AnimatedElement delay={0.4} className="flex flex-col relative z-10">
-          {/* Step Content — grid overlay so container sizes to tallest content */}
           <div className="grid">
             {sectionConfig.map((config, idx) => (
               <div
@@ -107,7 +106,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                 }`}
               >
                 <div className={`backdrop-blur-2xl border border-white/15 rounded-lg p-4 md:p-5 flex flex-col shadow-lg ${idx === currentStep ? 'animate-glaze-in' : 'bg-black/60'}`}>
-                  {/* Step Dots — inside card */}
+                  {/* Dots */}
                   <div className="flex items-center justify-center gap-2 mb-4">
                     {sectionConfig.map((_, dotIdx) => (
                       <button
@@ -133,12 +132,12 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                       {idx + 1} / 4 — {config.label}
                     </span>
                   </div>
-                  <p className="text-sm md:text-base leading-relaxed text-white/90 font-display">
+                  <p className="text-sm md:text-base leading-relaxed text-white/90 font-display flex-1">
                     {sections[idx]}
                   </p>
 
-                  {/* Navigation — inside card */}
-                  <div className="flex items-center justify-between mt-5 pt-4 border-t border-white/10">
+                  {/* Navigation — pinned bottom via mt-auto */}
+                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/10">
                     <button
                       onClick={goToPrevious}
                       disabled={currentStep === 0}
