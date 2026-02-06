@@ -211,10 +211,10 @@ export function ProblemSlide({ index }: ProblemSlideProps) {
                 <div key={i} className="flex gap-x-4 items-start">
                   <iconify-icon
                     icon={stat.icon}
-                    className="text-xl md:text-2xl text-slate-300 shrink-0 mt-0.5 drop-shadow-md"
+                    className="text-xl md:text-2xl text-teal-300 shrink-0 mt-0.5 drop-shadow-md"
                   />
                   <div>
-                    <p className="text-sm font-bold text-white font-display">
+                    <p className="text-base font-bold text-white font-display">
                       {stat.value} {stat.label}
                     </p>
                     <p className="text-sm text-neutral-400 leading-relaxed mt-0.5">
