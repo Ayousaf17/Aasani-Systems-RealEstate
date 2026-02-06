@@ -24,7 +24,7 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
       id={`section-${index + 1}`}
     >
       <div
-        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-16 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative justify-start card-bg z-[60]"
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-16 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative justify-start card-bg safe-area-bottom z-[60]"
         style={{ backgroundImage: `url(${backgroundImages.partnership})` }}
       >
         <div className="slide-overlay-heavy" />
@@ -85,7 +85,7 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
                     </span>
                   </div>
 
-                  <div className="flex-1 space-y-4 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none]">
+                  <div className="flex-1 min-h-0 space-y-4 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]">
                     <div>
                       <p className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">
                         What Happens

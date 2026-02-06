@@ -79,14 +79,14 @@ export function PricingSlide({ index }: PricingSlideProps) {
 
       <AnimatePresence mode="wait">
         {comparisonOpen && (
-          <div className="fixed inset-0 flex items-center justify-center z-[101] p-6 md:p-12">
+          <div role="dialog" aria-modal="true" className="fixed inset-0 flex items-center justify-center z-[101] p-6 md:p-12">
             <motion.div
               ref={cardRef}
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="w-full max-w-lg max-h-[80vh] flex flex-col overflow-auto rounded-2xl border shadow-2xl [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] bg-black/40 backdrop-blur-2xl border-white/20 shadow-black/20"
+              className="w-full max-w-[calc(100vw-2rem)] md:max-w-lg max-h-[80vh] flex flex-col overflow-auto rounded-2xl border shadow-2xl [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] bg-black/40 backdrop-blur-2xl border-white/20 shadow-black/20"
             >
               {/* Header */}
               <div className="relative py-6 px-6 bg-white/5 border-b border-white/10 flex items-center justify-between">
@@ -107,7 +107,7 @@ export function PricingSlide({ index }: PricingSlideProps) {
               <div className="p-5">
                 <div className="rounded-lg border border-white/10 overflow-hidden">
                   {/* Table Header */}
-                  <div className="grid grid-cols-3 bg-white/5 border-b border-white/10">
+                  <div className="grid grid-cols-[1.2fr_1fr_1fr] bg-white/5 border-b border-white/10">
                     <div className="p-3 text-xs font-mono uppercase tracking-wider text-neutral-400" />
                     <div className="p-3 text-xs font-mono uppercase tracking-wider text-neutral-400 text-center">Software</div>
                     <div className="p-3 text-xs font-mono uppercase tracking-wider text-teal-300 text-center">Aasani</div>
@@ -116,11 +116,11 @@ export function PricingSlide({ index }: PricingSlideProps) {
                   {comparisonTable.map((row, i) => (
                     <div
                       key={i}
-                      className={`grid grid-cols-3 ${
+                      className={`grid grid-cols-[1.2fr_1fr_1fr] ${
                         i < comparisonTable.length - 1 ? 'border-b border-white/5' : ''
                       }`}
                     >
-                      <div className="p-3 text-xs font-medium text-white">{row.category}</div>
+                      <div className="p-3 text-xs font-medium text-white break-words">{row.category}</div>
                       <div className="p-3 text-xs text-neutral-400 text-center">{row.diy}</div>
                       <div className="p-3 text-xs text-teal-300 text-center">{row.aasani}</div>
                     </div>

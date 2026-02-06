@@ -63,14 +63,14 @@ export function SolutionSlide({ index }: SolutionSlideProps) {
 
       <AnimatePresence mode="wait">
         {toolsOpen && (
-          <div className="fixed inset-0 flex items-center justify-center z-[101] p-6 md:p-12">
+          <div role="dialog" aria-modal="true" className="fixed inset-0 flex items-center justify-center z-[101] p-6 md:p-12">
             <motion.div
               ref={cardRef}
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="w-full max-w-lg max-h-[80vh] flex flex-col overflow-auto rounded-2xl border shadow-2xl [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] bg-black/40 backdrop-blur-2xl border-white/20 shadow-black/20"
+              className="w-full max-w-[calc(100vw-2rem)] md:max-w-lg max-h-[80vh] flex flex-col overflow-auto rounded-2xl border shadow-2xl [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] bg-black/40 backdrop-blur-2xl border-white/20 shadow-black/20"
             >
               {/* Header */}
               <div className="relative py-6 px-6 bg-white/5 border-b border-white/10 flex items-center justify-between">
