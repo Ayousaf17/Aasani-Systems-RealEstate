@@ -16,6 +16,7 @@ interface PricingSlideProps {
 
 export function PricingSlide({ index }: PricingSlideProps) {
   const [comparisonOpen, setComparisonOpen] = useState(false);
+  const [cancellationOpen, setCancellationOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -197,7 +198,33 @@ export function PricingSlide({ index }: PricingSlideProps) {
                 {pricingContent.regularPrice}{pricingContent.period}
               </span>
             </div>
-            <p className="text-xs text-neutral-400 mb-5">{pricingContent.commitment}</p>
+            <div className="flex items-center gap-1.5 mb-5">
+              <p className="text-xs text-neutral-400">{pricingContent.commitment}</p>
+              {pricingContent.cancellation && (
+                <button
+                  onClick={() => setCancellationOpen(!cancellationOpen)}
+                  className="text-neutral-500 hover:text-teal-300 transition-colors shrink-0"
+                  aria-label="Cancellation details"
+                >
+                  <iconify-icon
+                    icon={cancellationOpen ? 'solar:close-circle-linear' : 'solar:info-circle-linear'}
+                    className="text-sm"
+                  />
+                </button>
+              )}
+            </div>
+
+            {/* Cancellation Details (collapsible) */}
+            {pricingContent.cancellation && (
+              <div className={`overflow-hidden transition-all duration-300 ${cancellationOpen ? 'max-h-40 mb-4' : 'max-h-0'}`}>
+                <div className="border-l-2 border-teal-500/30 pl-3 space-y-1 pb-1">
+                  <p className="text-xs text-neutral-500">{pricingContent.cancellation.afterMinimum}</p>
+                  <p className="text-xs text-neutral-500">{pricingContent.cancellation.ifCancel}</p>
+                  <p className="text-xs text-neutral-500">{pricingContent.cancellation.yourData}</p>
+                  <p className="text-xs text-neutral-500">{pricingContent.cancellation.exitPackage}</p>
+                </div>
+              </div>
+            )}
 
             {/* Included Items */}
             <div className="space-y-2 mb-5 flex-1">
@@ -208,16 +235,6 @@ export function PricingSlide({ index }: PricingSlideProps) {
                 </p>
               ))}
             </div>
-
-            {/* Cancellation Details */}
-            {pricingContent.cancellation && (
-              <div className="border-l-2 border-teal-500/30 pl-3 mb-5 space-y-1">
-                <p className="text-xs text-neutral-500">{pricingContent.cancellation.afterMinimum}</p>
-                <p className="text-xs text-neutral-500">{pricingContent.cancellation.ifCancel}</p>
-                <p className="text-xs text-neutral-500">{pricingContent.cancellation.yourData}</p>
-                <p className="text-xs text-neutral-500">{pricingContent.cancellation.exitPackage}</p>
-              </div>
-            )}
 
             {/* Guarantee */}
             <div className="border-t border-white/10 pt-4 mb-5">
