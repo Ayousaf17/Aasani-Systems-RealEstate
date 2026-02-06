@@ -17,9 +17,10 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
         className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none px-6 md:px-12 pb-8 md:pb-12 pt-20 md:pt-12 relative card-bg"
         style={{ backgroundImage: `url(${backgroundImages.howItWorks})` }}
       >
+        <div className="slide-overlay-heavy" />
         {/* Header */}
-        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 md:mb-6">
-          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+        <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 md:mb-6 relative z-10">
+          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400 slide-label">
             04 / 05 — PROCESS
           </span>
           <iconify-icon icon="solar:routing-linear" className="text-teal-300 text-lg md:hidden drop-shadow-md" />
@@ -32,14 +33,14 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
         </AnimatedElement>
 
         {/* Title - More space below */}
-        <AnimatedElement delay={0.2} className="mb-6 md:mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display">
+        <AnimatedElement delay={0.2} className="mb-6 md:mb-8 relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display slide-heading">
             How It Works
           </h2>
         </AnimatedElement>
 
         {/* Process Steps - Cleaner, more spacious */}
-        <div className="flex flex-col gap-3 mb-6 md:mb-8">
+        <div className="flex flex-col gap-3 mb-6 md:mb-8 relative z-10">
           {processSteps.map((step, i) => (
             <AnimatedElement key={i} delay={0.3 + i * 0.1}>
               <div className="bg-black/60 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:bg-black/70 hover:border-teal-500/20 transition-all duration-300">
@@ -72,7 +73,7 @@ export function HowItWorksSlide({ index }: HowItWorksSlideProps) {
         </div>
 
         {/* Stats Section - Expandable Cards */}
-        <AnimatedElement delay={0.6} className="mt-auto">
+        <AnimatedElement delay={0.6} className="mt-auto relative z-10">
           <p className="text-xs text-neutral-500 font-mono uppercase tracking-wider text-center mb-3">
             <iconify-icon icon="solar:graph-up-linear" className="inline-block mr-1 text-teal-300/60" />
             Tap a stat to see the research

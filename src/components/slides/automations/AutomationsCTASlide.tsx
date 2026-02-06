@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getCalApi } from '@calcom/embed-react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
 import { LeadCaptureDialog } from '../../ui/LeadCaptureDialog';
+import { automationsHeroBackground } from '../../../data/automationsContent';
 
 const ctaPoints = [
   'Free 60-minute strategy call',
@@ -12,40 +13,6 @@ const ctaPoints = [
 
 export function AutomationsCTASlide() {
   const navigate = useNavigate();
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [videoOpacity, setVideoOpacity] = useState(1);
-
-  // Check for reduced motion preference
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
-    const handleChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
-  // Handle fade loop transition
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video || prefersReducedMotion) return;
-
-    const handleTimeUpdate = () => {
-      const timeLeft = video.duration - video.currentTime;
-      // Fade out during last 1 second
-      if (timeLeft < 1) {
-        setVideoOpacity(timeLeft);
-      } else if (video.currentTime < 1) {
-        // Fade in during first 1 second
-        setVideoOpacity(video.currentTime);
-      } else {
-        setVideoOpacity(1);
-      }
-    };
-
-    video.addEventListener('timeupdate', handleTimeUpdate);
-    return () => video.removeEventListener('timeupdate', handleTimeUpdate);
-  }, [prefersReducedMotion]);
 
   // Initialize Cal.com embed
   useEffect(() => {
@@ -67,59 +34,31 @@ export function AutomationsCTASlide() {
       className="slide-container flex-shrink-0 bg-[#0A0A0A] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center z-[60]"
       id="slide-8"
     >
-      <div className="absolute inset-0 bg-wave-pattern opacity-20 pointer-events-none z-0" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/80 to-[#0A0A0A] z-0" />
-
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        {!prefersReducedMotion ? (
-          <video
-            ref={videoRef}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
-            style={{ opacity: videoOpacity }}
-          >
-            <source src="/automations-cta-bg.mp4" type="video/mp4" />
-          </video>
-        ) : (
-          <video
-            className="absolute inset-0 w-full h-full object-cover"
-            muted
-            playsInline
-            preload="metadata"
-          >
-            <source src="/automations-cta-bg.mp4" type="video/mp4" />
-          </video>
-        )}
-      </div>
-
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 z-[1] bg-black/70" />
-
-      <div className="flex flex-col md:p-12 z-10 h-full pt-8 px-5 relative card-bg">
+      <div
+        className="flex flex-col md:p-12 z-10 h-full pt-8 px-5 relative card-bg"
+        style={{ backgroundImage: `url(${automationsHeroBackground})` }}
+      >
+        <div className="slide-overlay-heavy" />
         {/* Header - Fixed */}
-        <div className="flex-shrink-0 mb-8 md:mb-10">
+        <div className="flex-shrink-0 mb-8 md:mb-10 relative z-10">
           <AnimatedElement delay={0.1} className="mb-3 md:mb-4">
-            <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+            <span className="text-xs uppercase tracking-widest font-mono text-neutral-400 slide-label">
               09 / 09 — NEXT STEPS
             </span>
           </AnimatedElement>
 
           <AnimatedElement delay={0.2}>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight mb-1">
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight mb-1 slide-heading">
               We build it. You own it. We manage it.
             </h2>
-            <p className="text-sm md:text-base text-neutral-300 font-display">
+            <p className="text-sm md:text-base text-neutral-200 font-display slide-body">
               Everything you need in one call.
             </p>
           </AnimatedElement>
         </div>
 
         {/* Quick Benefits - Fixed */}
-        <AnimatedElement delay={0.3} className="flex-shrink-0 mb-10 md:mb-12">
+        <AnimatedElement delay={0.3} className="flex-shrink-0 mb-10 md:mb-12 relative z-10">
           <div className="flex flex-col gap-3">
             {ctaPoints.map((item, i) => (
               <div key={i} className="flex items-start gap-2.5">
@@ -136,7 +75,7 @@ export function AutomationsCTASlide() {
         </AnimatedElement>
 
         {/* CTA Area - Grows to fill space */}
-        <div className="flex-1 flex flex-col items-center justify-center gap-8 pb-8 md:pb-10">
+        <div className="flex-1 flex flex-col items-center justify-center gap-8 pb-8 md:pb-10 relative z-10">
           {/* Primary CTA */}
           <div className="group relative md:scale-110 cursor-pointer">
             <div className="-inset-2 group-hover:opacity-100 transition duration-500 bg-neutral-600/30 opacity-0 rounded-full absolute blur-xl" />

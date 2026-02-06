@@ -63,11 +63,12 @@ export function FAQSlide({ index }: FAQSlideProps) {
         className="h-full md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col w-full max-w-none md:max-w-xl rounded-none relative shadow-2xl card-bg md:pt-12 md:pr-12 md:pl-12 pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12"
         style={{ backgroundImage: `url(${backgroundImages.philosophy})` }}
       >
+        <div className="slide-overlay-heavy" />
 
         <div className="relative z-10 flex flex-col h-full">
           {/* Header */}
           <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6 shrink-0">
-            <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
+            <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 slide-label">
               [08/10]
             </span>
             <div className="flex items-center gap-2">
@@ -80,7 +81,7 @@ export function FAQSlide({ index }: FAQSlideProps) {
 
           {/* Title */}
           <AnimatedElement delay={0.2} className="shrink-0 mb-6">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-2 drop-shadow-md font-display">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-2 slide-heading font-display">
               {faqContent.title}
             </h2>
             <p className="text-neutral-300 text-sm md:text-base font-display drop-shadow-md">

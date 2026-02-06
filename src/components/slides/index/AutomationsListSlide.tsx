@@ -27,9 +27,10 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
         className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:p-12 bg-neutral-900/50 w-full h-full max-w-none rounded-none px-6 md:px-12 pb-8 md:pb-12 pt-20 md:pt-12 relative justify-between card-bg"
         style={{ backgroundImage: `url(${backgroundImages.automations})` }}
       >
-        <div>
+        <div className="slide-overlay-heavy" />
+        <div className="relative z-10">
           <AnimatedElement delay={0.1} className="flex justify-between items-center mb-4 md:mb-6">
-            <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+            <span className="text-xs uppercase tracking-widest font-mono text-neutral-400 slide-label">
               02 / 05 — THE AUTOMATIONS
             </span>
             <iconify-icon icon="solar:settings-linear" className="text-teal-300 text-lg md:hidden drop-shadow-md" />
@@ -42,13 +43,13 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.2}>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display">
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display slide-heading">
               What Gets Automated
             </h2>
           </AnimatedElement>
         </div>
 
-        <AnimatedElement delay={0.3} className="flex-1 flex items-center py-2 overflow-hidden">
+        <AnimatedElement delay={0.3} className="flex-1 flex items-center py-2 overflow-hidden relative z-10">
           <div className="flex flex-col gap-1.5 w-full">
             {automationsList.map((item, i) => {
               const details = getAutomationDetails(item.slideIndex);
@@ -104,7 +105,7 @@ export function AutomationsListSlide({ index }: AutomationsListSlideProps) {
           </div>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.5} className="shrink-0 space-y-3">
+        <AnimatedElement delay={0.5} className="shrink-0 space-y-3 relative z-10">
           {/* Hint text */}
           <p className="text-center text-xs text-neutral-500 font-mono">
             <iconify-icon icon="solar:cursor-linear" className="inline-block mr-1 text-teal-300/60" />

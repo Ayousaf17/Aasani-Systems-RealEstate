@@ -33,30 +33,30 @@ export function OperationsHeroSlide({ index, onNavigate }: OperationsHeroSlidePr
         className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col group md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none pt-16 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative shadow-2xl justify-between card-bg z-[60]"
         style={{ backgroundImage: `url(${backgroundImages.hero})` }}
       >
-        <div className="absolute inset-0 bg-black/50 z-5 pointer-events-none" />
+        <div className="slide-overlay" />
         <div className="absolute bottom-0 left-0 right-0 h-12 md:h-0 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none md:hidden" />
 
         <AnimatedElement delay={0.1} className="relative z-10 mb-4 md:mb-6">
-          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400 slide-label">
             {heroContent.label}
           </span>
         </AnimatedElement>
 
         <div className="relative z-10 flex-1 flex flex-col justify-center">
           <AnimatedElement delay={0.2}>
-            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight font-display leading-none">
+            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight font-display leading-none slide-heading">
               {heroContent.headline}
             </h1>
-            <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-6">
+            <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-6 slide-label">
               {heroContent.subheading}
             </p>
           </AnimatedElement>
 
           <AnimatedElement delay={0.4}>
-            <p className="text-sm md:text-base text-neutral-300 mt-6 leading-relaxed font-display max-w-md">
+            <p className="text-sm md:text-base text-neutral-200 mt-6 leading-relaxed font-display max-w-md slide-body">
               {heroContent.body}
             </p>
-            <p className="text-xs md:text-sm text-neutral-400 mt-3 font-display">
+            <p className="text-xs md:text-sm text-neutral-300 mt-3 font-display slide-body">
               {heroContent.subtext}
             </p>
           </AnimatedElement>

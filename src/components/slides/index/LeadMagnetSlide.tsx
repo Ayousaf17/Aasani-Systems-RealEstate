@@ -52,10 +52,11 @@ export function LeadMagnetSlide({ index }: LeadMagnetSlideProps) {
         className="h-full md:h-auto md:aspect-[3/4] glass-clear overflow-hidden flex flex-col w-full max-w-none md:max-w-xl rounded-none relative shadow-2xl card-bg"
         style={{ backgroundImage: `url(${backgroundImages.philosophy})` }}
       >
+        <div className="slide-overlay-heavy" />
 
         <div className="md:p-12 md:pt-12 z-20 pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative">
           <AnimatedElement delay={0.1} className="flex justify-between items-center mb-6">
-            <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 drop-shadow-md">
+            <span className="text-xs uppercase tracking-widest font-mono text-neutral-200 slide-label">
               [09/10]
             </span>
             <div className="flex items-center gap-2">
@@ -67,7 +68,7 @@ export function LeadMagnetSlide({ index }: LeadMagnetSlideProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.2}>
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-2 drop-shadow-lg font-display">
+            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-2 slide-heading font-display">
               {leadMagnetContent.title}
             </h2>
           </AnimatedElement>

@@ -27,25 +27,26 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
         className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:pt-12 md:pr-12 md:pl-12 w-full h-full max-w-none rounded-none pt-16 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative justify-start card-bg z-[60]"
         style={{ backgroundImage: `url(${backgroundImages.partnership})` }}
       >
+        <div className="slide-overlay-heavy" />
         <div className="absolute bottom-0 left-0 right-0 h-12 md:h-0 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none md:hidden" />
 
-        <AnimatedElement delay={0.1} className="mb-4 md:mb-6">
-          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+        <AnimatedElement delay={0.1} className="mb-4 md:mb-6 relative z-10">
+          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400 slide-label">
             05 / 07 — HOW WE WORK TOGETHER
           </span>
         </AnimatedElement>
 
-        <AnimatedElement delay={0.2} className="mb-4 md:mb-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
+        <AnimatedElement delay={0.2} className="mb-4 md:mb-6 relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight slide-heading">
             A True Partnership
           </h2>
-          <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-3">
+          <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-3 slide-label">
             Not just software
           </p>
         </AnimatedElement>
 
         {/* Phase Dots */}
-        <div className="flex items-center justify-center gap-2 mb-4 md:mb-5">
+        <div className="flex items-center justify-center gap-2 mb-4 md:mb-5 relative z-10">
           {partnershipPhases.map((_, idx) => (
             <button
               key={idx}
@@ -61,7 +62,7 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
         </div>
 
         {/* Phase Content */}
-        <AnimatedElement delay={0.3} className="flex-1 flex flex-col">
+        <AnimatedElement delay={0.3} className="flex-1 flex flex-col relative z-10">
           <div className="relative flex-1">
             {partnershipPhases.map((phase, idx) => (
               <div

@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { X } from 'lucide-react';
 import { getCalApi } from '@calcom/embed-react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
-import { ctaContent, faqItems } from '../../../data/operationsContent';
+import { ctaContent, faqItems, backgroundImages } from '../../../data/operationsContent';
 
 interface FinalCTASlideProps {
   index: number;
@@ -16,27 +16,11 @@ export function FinalCTASlide({ index }: FinalCTASlideProps) {
   const [faqOpen, setFaqOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
-    const handleChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
-  useEffect(() => {
-    if (videoRef.current && !prefersReducedMotion) {
-      videoRef.current.playbackRate = 0.5;
-    }
-  }, [prefersReducedMotion]);
 
   useEffect(() => {
     (async function () {
@@ -165,49 +149,26 @@ export function FinalCTASlide({ index }: FinalCTASlideProps) {
       data-slide={index}
       id={`section-${index + 1}`}
     >
-      <div className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none px-6 md:px-12 pb-8 md:pb-12 pt-16 md:pt-12 relative justify-between card-bg safe-area-bottom z-[60]">
+      <div
+        className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none px-6 md:px-12 pb-8 md:pb-12 pt-16 md:pt-12 relative justify-between card-bg safe-area-bottom z-[60]"
+        style={{ backgroundImage: `url(${backgroundImages.cta})` }}
+      >
+        <div className="slide-overlay-heavy" />
         <div className="absolute bottom-0 left-0 right-0 h-12 md:h-0 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none md:hidden" />
-
-        {/* Video Background */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          {!prefersReducedMotion ? (
-            <video
-              ref={videoRef}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src="/cta-bg.mp4" type="video/mp4" />
-            </video>
-          ) : (
-            <video
-              className="absolute inset-0 w-full h-full object-cover"
-              muted
-              playsInline
-              preload="metadata"
-            >
-              <source src="/cta-bg.mp4" type="video/mp4" />
-            </video>
-          )}
-        </div>
-
-        <div className="absolute inset-0 z-[1] bg-black/70" />
 
         {mounted && createPortal(modalContent, document.body)}
 
         <AnimatedElement delay={0.1} className="mb-4 md:mb-6 relative z-10">
-          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400 slide-label">
             {ctaContent.label}
           </span>
         </AnimatedElement>
 
         <AnimatedElement delay={0.2} className="mb-6 md:mb-8 relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight font-display leading-tight slide-heading">
             {ctaContent.headline}
           </h2>
-          <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-4">
+          <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-4 slide-label">
             {ctaContent.subheadline}
           </p>
         </AnimatedElement>

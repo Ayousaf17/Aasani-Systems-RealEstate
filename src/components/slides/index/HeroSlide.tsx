@@ -17,13 +17,12 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
         className="md:h-auto md:aspect-[3/4] glass-panel overflow-hidden flex flex-col group md:max-w-xl md:p-12 w-full h-full max-w-none rounded-none pt-20 md:pt-12 px-6 md:px-12 pb-8 md:pb-12 relative shadow-2xl justify-between card-bg z-[60]"
         style={{ backgroundImage: `url(${backgroundImages.hero})` }}
       >
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/50 z-5 pointer-events-none" />
+        <div className="slide-overlay" />
         {/* Bottom fade gradient - subtle mobile transition */}
         <div className="absolute bottom-0 left-0 right-0 h-12 md:h-0 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none md:hidden" />
         {/* Header */}
         <AnimatedElement delay={0.1} className="relative z-10 mb-4 md:mb-6">
-          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400">
+          <span className="text-xs uppercase tracking-widest font-mono text-neutral-400 slide-label">
             01 / 05 — HOME
           </span>
         </AnimatedElement>
@@ -31,11 +30,11 @@ export function HeroSlide({ index, onNavigate }: HeroSlideProps) {
         {/* Main Content - Left Aligned */}
         <div className="relative z-10 flex-1 flex flex-col justify-center">
           <AnimatedElement delay={0.2}>
-            <h1 className="text-6xl md:text-7xl font-bold text-white tracking-tight font-display leading-none">
+            <h1 className="text-6xl md:text-7xl font-bold text-white tracking-tight font-display leading-none slide-heading">
               Real Estate Systems
               <span className="block">Built For You</span>
             </h1>
-            <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-6">
+            <p className="text-xs md:text-sm uppercase tracking-widest font-mono text-teal-300 mt-6 slide-label">
               We automate your tools and run them — so you can be the agent your clients rave about
             </p>
           </AnimatedElement>
