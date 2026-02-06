@@ -77,7 +77,7 @@ export function AutomationsCTASlide() {
         {/* CTA Area - Grows to fill space */}
         <div className="flex-1 flex flex-col items-center justify-center gap-8 pb-8 md:pb-10 relative z-10">
           {/* Primary CTA */}
-          <div className="group relative md:scale-110 cursor-pointer">
+          <div className="group relative lg:scale-110 cursor-pointer">
             <div className="-inset-2 group-hover:opacity-100 transition duration-500 bg-neutral-600/30 opacity-0 rounded-full absolute blur-xl" />
             <div className="absolute -inset-[1px] rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] animate-[spin_2s_linear_infinite]" />

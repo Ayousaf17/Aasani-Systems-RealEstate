@@ -81,14 +81,14 @@ export function FinalCTASlide({ index }: FinalCTASlideProps) {
 
       <AnimatePresence mode="wait">
         {faqOpen && (
-          <div className="fixed inset-0 flex items-center justify-center z-[101] p-6 md:p-12">
+          <div role="dialog" aria-modal="true" className="fixed inset-0 flex items-center justify-center z-[101] p-6 md:p-12">
             <motion.div
               ref={cardRef}
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="w-full max-w-lg max-h-[80vh] flex flex-col overflow-auto rounded-2xl border shadow-2xl [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] bg-black/40 backdrop-blur-2xl border-white/20 shadow-black/20"
+              className="w-full max-w-[calc(100vw-2rem)] md:max-w-lg max-h-[80vh] flex flex-col overflow-auto rounded-2xl border shadow-2xl [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] bg-black/40 backdrop-blur-2xl border-white/20 shadow-black/20"
             >
               {/* Header */}
               <div className="relative py-6 px-6 bg-white/5 backdrop-blur-xl border-b border-white/10 flex items-center justify-between sticky top-0 z-10">
@@ -195,7 +195,7 @@ export function FinalCTASlide({ index }: FinalCTASlideProps) {
 
         <AnimatedElement delay={0.3} className="flex-1 flex flex-col items-center justify-center gap-6 w-full relative z-10">
           {/* Primary CTA */}
-          <div className="group relative md:scale-110 cursor-pointer">
+          <div className="group relative lg:scale-110 cursor-pointer">
             <div className="-inset-2 group-hover:opacity-100 transition duration-500 bg-neutral-600/30 opacity-0 rounded-full absolute blur-xl" />
             <div className="absolute -inset-[1px] rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] animate-[spin_2s_linear_infinite]" />
