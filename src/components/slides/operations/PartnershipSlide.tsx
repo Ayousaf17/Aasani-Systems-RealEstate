@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { AnimatedElement } from '../../ui/AnimatedElement';
 import { partnershipPhases, backgroundImages } from '../../../data/operationsContent';
 
@@ -6,60 +6,25 @@ interface PartnershipSlideProps {
   index: number;
 }
 
-interface Step {
-  label: string;
-  items: string[];
-  style: 'teal' | 'neutral' | 'muted';
-  phaseIdx: number;
-  phaseTitle: string;
-  phaseDuration: string;
-  phaseBadgeColor: string;
-}
-
 export function PartnershipSlide({ index }: PartnershipSlideProps) {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentPhase, setCurrentPhase] = useState(0);
+  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
 
-  const steps: Step[] = useMemo(() => {
-    return partnershipPhases.flatMap((phase, phaseIdx) => {
-      const sections: { label: string; items: string[]; style: 'teal' | 'neutral' | 'muted' }[] = [
-        { label: 'WHAT YOU GET', items: phase.whatYouGet, style: 'teal' },
-        { label: 'WHAT HAPPENS', items: phase.whatHappens, style: 'neutral' },
-      ];
-      if (phase.infrastructure) {
-        sections.push({ label: 'WHERE IT LIVES', items: phase.infrastructure, style: 'muted' });
-      }
-      return sections.map((s) => ({
-        ...s,
-        phaseIdx,
-        phaseTitle: phase.title,
-        phaseDuration: phase.duration,
-        phaseBadgeColor: phase.badgeColor,
-      }));
-    });
-  }, []);
+  const toggleSection = (key: string) => {
+    setExpandedSections((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
 
-  const current = steps[currentStep];
-  const activePhase = current.phaseIdx;
-
-  // Find first step index for each phase (for dot click navigation)
-  const phaseStartIndices = useMemo(() => {
-    const starts: number[] = [];
-    let seen = -1;
-    steps.forEach((step, i) => {
-      if (step.phaseIdx !== seen) {
-        starts.push(i);
-        seen = step.phaseIdx;
-      }
-    });
-    return starts;
-  }, [steps]);
+  const handlePhaseChange = (phase: number) => {
+    setCurrentPhase(phase);
+    setExpandedSections({});
+  };
 
   const goToPrevious = () => {
-    setCurrentStep((prev) => (prev > 0 ? prev - 1 : prev));
+    if (currentPhase > 0) handlePhaseChange(currentPhase - 1);
   };
 
   const goToNext = () => {
-    setCurrentStep((prev) => (prev < steps.length - 1 ? prev + 1 : prev));
+    if (currentPhase < partnershipPhases.length - 1) handlePhaseChange(currentPhase + 1);
   };
 
   return (
@@ -90,28 +55,28 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
           </p>
         </AnimatedElement>
 
-        {/* Phase Content — grid overlay sizes to tallest step, keeping dots + nav static */}
+        {/* Phase Content — grid overlay sizes to tallest phase, keeping dots + nav static */}
         <AnimatedElement delay={0.3} className="flex flex-col relative z-10">
           <div className="grid">
-            {steps.map((step, idx) => (
+            {partnershipPhases.map((phase, idx) => (
               <div
                 key={idx}
                 style={{ gridArea: '1 / 1' }}
                 className={`transition-all duration-500 ease-out ${
-                  idx === currentStep
+                  idx === currentPhase
                     ? 'opacity-100 pointer-events-auto'
                     : 'opacity-0 pointer-events-none'
                 }`}
               >
-                <div className={`backdrop-blur-2xl border border-white/15 rounded-lg p-5 md:p-6 flex flex-col shadow-lg ${idx === currentStep ? 'animate-glaze-in' : 'bg-black/60'}`}>
+                <div className={`backdrop-blur-2xl border border-white/15 rounded-lg p-5 md:p-6 flex flex-col shadow-lg ${idx === currentPhase ? 'animate-glaze-in' : 'bg-black/60'}`}>
                   {/* Phase Dots */}
                   <div className="flex items-center justify-center gap-2 mb-4">
                     {partnershipPhases.map((_, dotIdx) => (
                       <button
                         key={dotIdx}
-                        onClick={() => setCurrentStep(phaseStartIndices[dotIdx])}
+                        onClick={() => handlePhaseChange(dotIdx)}
                         className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                          dotIdx === activePhase
+                          dotIdx === currentPhase
                             ? 'w-8 bg-teal-400 shadow-lg shadow-teal-400/50'
                             : 'bg-white/20 hover:bg-white/40'
                         }`}
@@ -123,46 +88,105 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
                   {/* Phase Title + Duration Badge */}
                   <div className="flex items-center gap-3 mb-4">
                     <h3 className="text-lg font-bold text-white font-display">
-                      {step.phaseTitle}
+                      {phase.title}
                     </h3>
-                    <span className={`${step.phaseBadgeColor} text-xs font-mono rounded-full px-3 py-1`}>
-                      {step.phaseDuration}
+                    <span className={`${phase.badgeColor} text-xs font-mono rounded-full px-3 py-1`}>
+                      {phase.duration}
                     </span>
                   </div>
 
-                  {/* Section Label */}
-                  <span className="text-xs font-mono uppercase tracking-wider text-teal-300/70 mb-3">
-                    {step.label}
-                  </span>
+                  {/* What You Get — always visible */}
+                  <div className="mb-1">
+                    <span className="text-xs font-mono uppercase tracking-wider text-teal-300/70 mb-2 block">
+                      What You Get
+                    </span>
+                    <div className="space-y-1.5">
+                      {phase.whatYouGet.map((item, i) => (
+                        <p key={i} className="text-sm text-teal-300 leading-relaxed flex gap-2">
+                          <span className="shrink-0">&#10003;</span>
+                          {item}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
 
-                  {/* Content Items */}
-                  <div className="space-y-1.5 flex-1">
-                    {step.items.map((item, i) => (
-                      <p
-                        key={i}
-                        className={`text-sm leading-relaxed flex gap-2 ${
-                          step.style === 'teal'
-                            ? 'text-teal-300'
-                            : step.style === 'neutral'
-                              ? 'text-neutral-300'
-                              : 'text-neutral-400'
+                  {/* What Happens — collapsible */}
+                  <div className="border-t border-white/10 pt-2 mt-2">
+                    <button
+                      onClick={() => toggleSection(`${idx}-whatHappens`)}
+                      className="flex items-center justify-between w-full py-1.5 group"
+                    >
+                      <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 group-hover:text-neutral-300 transition-colors">
+                        What Happens
+                      </span>
+                      <iconify-icon
+                        icon="solar:alt-arrow-down-linear"
+                        className={`text-neutral-500 group-hover:text-neutral-300 text-sm transition-transform duration-300 ${
+                          expandedSections[`${idx}-whatHappens`] ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+                    <div
+                      className={`grid transition-all duration-300 ease-in-out ${
+                        expandedSections[`${idx}-whatHappens`] ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <div className="space-y-1.5 pt-1 pb-1">
+                          {phase.whatHappens.map((item, i) => (
+                            <p key={i} className="text-sm text-neutral-300 leading-relaxed flex gap-2">
+                              <span className="text-neutral-500 shrink-0">&rarr;</span>
+                              {item}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Where It Lives — collapsible (phases 1 & 3 only) */}
+                  {phase.infrastructure && (
+                    <div className="border-t border-white/10 pt-2">
+                      <button
+                        onClick={() => toggleSection(`${idx}-infrastructure`)}
+                        className="flex items-center justify-between w-full py-1.5 group"
+                      >
+                        <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 group-hover:text-neutral-300 transition-colors">
+                          Where It Lives
+                        </span>
+                        <iconify-icon
+                          icon="solar:alt-arrow-down-linear"
+                          className={`text-neutral-500 group-hover:text-neutral-300 text-sm transition-transform duration-300 ${
+                            expandedSections[`${idx}-infrastructure`] ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+                      <div
+                        className={`grid transition-all duration-300 ease-in-out ${
+                          expandedSections[`${idx}-infrastructure`] ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
                         }`}
                       >
-                        <span className="shrink-0">
-                          {step.style === 'teal' ? '\u2713' : '\u2192'}
-                        </span>
-                        {item}
-                      </p>
-                    ))}
-                  </div>
+                        <div className="overflow-hidden">
+                          <div className="space-y-1.5 pt-1 pb-1">
+                            {phase.infrastructure.map((item, i) => (
+                              <p key={i} className="text-sm text-neutral-400 leading-relaxed flex gap-2">
+                                <span className="text-neutral-500 shrink-0">&rarr;</span>
+                                {item}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Navigation */}
                   <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/10">
                     <button
                       onClick={goToPrevious}
-                      disabled={currentStep === 0}
+                      disabled={currentPhase === 0}
                       className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
-                        currentStep === 0
+                        currentPhase === 0
                           ? 'text-white/20 cursor-not-allowed'
                           : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
                       }`}
@@ -172,9 +196,9 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
                     </button>
                     <button
                       onClick={goToNext}
-                      disabled={currentStep === steps.length - 1}
+                      disabled={currentPhase === partnershipPhases.length - 1}
                       className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-mono text-xs uppercase tracking-wider transition-all ${
-                        currentStep === steps.length - 1
+                        currentPhase === partnershipPhases.length - 1
                           ? 'text-white/20 cursor-not-allowed'
                           : 'text-teal-300 hover:text-teal-200 hover:bg-white/5'
                       }`}
