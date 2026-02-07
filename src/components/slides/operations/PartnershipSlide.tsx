@@ -8,13 +8,23 @@ interface PartnershipSlideProps {
 
 export function PartnershipSlide({ index }: PartnershipSlideProps) {
   const [currentPhase, setCurrentPhase] = useState(0);
+  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
+
+  const toggleSection = (key: string) => {
+    setExpandedSections((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const handlePhaseChange = (phase: number) => {
+    setCurrentPhase(phase);
+    setExpandedSections({});
+  };
 
   const goToPrevious = () => {
-    setCurrentPhase((prev) => (prev > 0 ? prev - 1 : prev));
+    if (currentPhase > 0) handlePhaseChange(currentPhase - 1);
   };
 
   const goToNext = () => {
-    setCurrentPhase((prev) => (prev < partnershipPhases.length - 1 ? prev + 1 : prev));
+    if (currentPhase < partnershipPhases.length - 1) handlePhaseChange(currentPhase + 1);
   };
 
   return (
@@ -58,13 +68,13 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
                     : 'opacity-0 pointer-events-none'
                 }`}
               >
-                <div className={`backdrop-blur-2xl border border-white/15 rounded-xl p-5 md:p-6 flex flex-col shadow-lg ${idx === currentPhase ? 'animate-glaze-in' : 'bg-black/60'}`}>
-                  {/* Dots */}
+                <div className={`backdrop-blur-2xl border border-white/15 rounded-lg p-5 md:p-6 flex flex-col shadow-lg ${idx === currentPhase ? 'animate-glaze-in' : 'bg-black/60'}`}>
+                  {/* Phase Dots */}
                   <div className="flex items-center justify-center gap-2 mb-4">
                     {partnershipPhases.map((_, dotIdx) => (
                       <button
                         key={dotIdx}
-                        onClick={() => setCurrentPhase(dotIdx)}
+                        onClick={() => handlePhaseChange(dotIdx)}
                         className={`w-2 h-2 rounded-full transition-all duration-300 ${
                           dotIdx === currentPhase
                             ? 'w-8 bg-teal-400 shadow-lg shadow-teal-400/50'
@@ -75,7 +85,7 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
                     ))}
                   </div>
 
-                  {/* Content */}
+                  {/* Phase Title + Duration Badge */}
                   <div className="flex items-center gap-3 mb-4">
                     <h3 className="text-lg font-bold text-white font-display">
                       {phase.title}
@@ -85,54 +95,92 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
                     </span>
                   </div>
 
-                  <div className="flex-1 min-h-0 space-y-4 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]">
-                    <div>
-                      <p className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">
-                        What Happens
-                      </p>
-                      <div className="space-y-1.5">
-                        {phase.whatHappens.map((item, i) => (
-                          <p key={i} className="text-sm text-neutral-300 leading-relaxed flex gap-2">
-                            <span className="text-neutral-500 shrink-0">&rarr;</span>
-                            {item}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <p className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">
-                        What You Get
-                      </p>
-                      <div className="space-y-1.5">
-                        {phase.whatYouGet.map((item, i) => (
-                          <p key={i} className="text-sm text-teal-300 leading-relaxed flex gap-2">
-                            <span className="shrink-0">&#10003;</span>
-                            {item}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-
-                    {phase.infrastructure && (
-                      <div>
-                        <p className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">
-                          Where It Lives
+                  {/* What You Get — always visible */}
+                  <div className="mb-1">
+                    <span className="text-xs font-mono uppercase tracking-wider text-teal-300/70 mb-2 block">
+                      What You Get
+                    </span>
+                    <div className="space-y-1.5">
+                      {phase.whatYouGet.map((item, i) => (
+                        <p key={i} className="text-sm text-teal-300 leading-relaxed flex gap-2">
+                          <span className="shrink-0">&#10003;</span>
+                          {item}
                         </p>
-                        <div className="space-y-1.5">
-                          {phase.infrastructure.map((item, i) => (
-                            <p key={i} className="text-sm text-neutral-400 leading-relaxed flex gap-2">
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* What Happens — collapsible */}
+                  <div className="border-t border-white/10 pt-2 mt-2">
+                    <button
+                      onClick={() => toggleSection(`${idx}-whatHappens`)}
+                      className="flex items-center justify-between w-full py-1.5 group"
+                    >
+                      <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 group-hover:text-neutral-300 transition-colors">
+                        What Happens
+                      </span>
+                      <iconify-icon
+                        icon="solar:alt-arrow-down-linear"
+                        className={`text-neutral-500 group-hover:text-neutral-300 text-sm transition-transform duration-300 ${
+                          expandedSections[`${idx}-whatHappens`] ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+                    <div
+                      className={`grid transition-all duration-300 ease-in-out ${
+                        expandedSections[`${idx}-whatHappens`] ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <div className="space-y-1.5 pt-1 pb-1">
+                          {phase.whatHappens.map((item, i) => (
+                            <p key={i} className="text-sm text-neutral-300 leading-relaxed flex gap-2">
                               <span className="text-neutral-500 shrink-0">&rarr;</span>
                               {item}
                             </p>
                           ))}
                         </div>
                       </div>
-                    )}
-
+                    </div>
                   </div>
 
-                  {/* Navigation — pinned bottom via mt-auto */}
+                  {/* Where It Lives — collapsible (phases 1 & 3 only) */}
+                  {phase.infrastructure && (
+                    <div className="border-t border-white/10 pt-2">
+                      <button
+                        onClick={() => toggleSection(`${idx}-infrastructure`)}
+                        className="flex items-center justify-between w-full py-1.5 group"
+                      >
+                        <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 group-hover:text-neutral-300 transition-colors">
+                          Where It Lives
+                        </span>
+                        <iconify-icon
+                          icon="solar:alt-arrow-down-linear"
+                          className={`text-neutral-500 group-hover:text-neutral-300 text-sm transition-transform duration-300 ${
+                            expandedSections[`${idx}-infrastructure`] ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+                      <div
+                        className={`grid transition-all duration-300 ease-in-out ${
+                          expandedSections[`${idx}-infrastructure`] ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                        }`}
+                      >
+                        <div className="overflow-hidden">
+                          <div className="space-y-1.5 pt-1 pb-1">
+                            {phase.infrastructure.map((item, i) => (
+                              <p key={i} className="text-sm text-neutral-400 leading-relaxed flex gap-2">
+                                <span className="text-neutral-500 shrink-0">&rarr;</span>
+                                {item}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Navigation */}
                   <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/10">
                     <button
                       onClick={goToPrevious}
