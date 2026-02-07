@@ -4,8 +4,8 @@ export const CALENDLY_URL = 'https://cal.com/ayub-yousaf-c1ijnf/bookatime';
 
 export const heroContent = {
   label: '01 / 07 — HOME',
-  headline: 'Stop Managing Your Tech Stack.',
-  subheading: 'GET AN OPERATIONS PARTNER',
+  headline: 'You Sell Homes. We Run Your Systems.',
+  subheading: 'FOR AGENTS WHO\'D RATHER SELL THAN TROUBLESHOOT',
   body: 'Leads, follow-ups, deadlines. All scattered across tools that don\'t talk to each other. Nothing connects without you holding it all together.',
   subtext: 'We make it all talk to each other and keep it running. So you can be fully present for the people who matter.',
   ctaPrimary: 'Book Discovery Call',
