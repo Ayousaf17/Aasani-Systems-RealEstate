@@ -81,17 +81,17 @@ export const solutionValueProps = [
   {
     icon: 'solar:widget-5-linear',
     headline: 'Done-For-You Setup',
-    description: "We audit your tools, design the integrations, and build everything. You don't touch the backend.",
+    description: "We audit your tools, connect everything, and build the whole system. You don't touch a thing.",
   },
   {
     icon: 'solar:users-group-rounded-linear',
     headline: 'Ongoing Partnership',
-    description: "When something breaks, changes, or needs improving, we handle it. You're never stuck troubleshooting alone.",
+    description: 'When something breaks, changes, or needs improving, we handle it. You never troubleshoot alone.',
   },
   {
     icon: 'solar:chart-2-linear',
-    headline: 'Data-Driven Improvements',
-    description: 'Monthly reviews of what is working and what is not. We optimize your systems based on real results, not guesses.',
+    headline: 'Results-Based Optimization',
+    description: "Monthly reviews of what's working and what's not. We tune your systems based on real results, not guesses.",
   },
 ];
 
