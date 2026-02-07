@@ -224,7 +224,7 @@ export const partnershipPhases = [
       'We host and manage all workflows',
       'You own your data (always in your tools)',
       'Monthly optimization sessions continue after Month 3',
-      'Month-to-month after this — cancel anytime',
+      'Month-to-month after this. Cancel anytime.',
     ],
   },
 ];
@@ -279,7 +279,7 @@ export const faqItems: FaqItem[] = [
       {
         heading: 'What You Keep',
         items: [
-          'Your data (it lives in YOUR tools — FUB, Gmail, etc.)',
+          'Your data (it lives in YOUR tools: FUB, Gmail, etc.)',
           'Documentation of everything we built',
           'Any templates or assets we created',
         ],
@@ -295,7 +295,7 @@ export const faqItems: FaqItem[] = [
       {
         heading: 'Want to Self-Manage?',
         items: [
-          'We offer a Partnership Exit Package — ask about it on your call',
+          'We offer a Partnership Exit Package. Ask about it on your call.',
           'We rebuild workflows in YOUR own automation environment',
           'Full training + handoff documentation',
         ],
@@ -305,7 +305,7 @@ export const faqItems: FaqItem[] = [
         items: [
           'Most partners continue because the value exceeds the cost',
           '$497/mo vs. hiring an ops manager ($3-5K/mo)',
-          'Systems improve monthly — not just maintained',
+          'Systems improve monthly, not just maintained',
         ],
       },
     ],
@@ -335,7 +335,7 @@ export const faqItems: FaqItem[] = [
         items: [
           'Workflows run in our managed automation infrastructure',
           'Your data stays in YOUR tools (we never move it)',
-          'If a tool isn\'t working, we\'ll recommend alternatives — but never force a switch',
+          'If a tool isn\'t working, we\'ll recommend alternatives, but never force a switch',
         ],
       },
     ],
@@ -381,7 +381,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: 'What if my CRM or other tools update their API?',
-    answer: "That's our problem, not yours. We monitor for API changes and update your workflows proactively. You won't even notice when it happens — that's the point of having a partner.",
+    answer: "That's our problem, not yours. We monitor for API changes and update your workflows proactively. You won't even notice when it happens. That's the point of having a partner.",
   },
   {
     question: 'How is this different from Zapier or Make?',
@@ -404,7 +404,7 @@ export const faqItems: FaqItem[] = [
           'We host and manage the infrastructure',
           'We fix issues proactively (usually before you notice)',
           'We optimize monthly based on real data',
-          '$497/mo — all-inclusive, no per-task billing',
+          '$497/mo, all-inclusive. No per-task billing.',
         ],
       },
     ],
@@ -427,7 +427,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: 'What does the discovery call look like?',
-    answer: "60 minutes. We learn about your business, walk through your current tools, and identify where you're losing time. You leave with a clear picture of what's possible — whether you work with us or not.",
+    answer: "60 minutes. We learn about your business, walk through your current tools, and identify where you're losing time. You leave with a clear picture of what's possible, whether you work with us or not.",
   },
 ];
 
