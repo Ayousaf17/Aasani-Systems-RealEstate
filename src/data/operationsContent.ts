@@ -6,8 +6,8 @@ export const heroContent = {
   label: '01 / 07 — HOME',
   headline: 'Stop Managing Your Tech Stack.',
   subheading: 'GET AN OPERATIONS PARTNER',
-  body: 'You have Follow Up Boss. Gmail. Google Calendar. Zillow leads. A spreadsheet for transactions. They all sit in separate tabs — and nothing talks to each other.',
-  subtext: 'Not a CRM. Not another tool. A partner who wires your systems and runs them — so you focus on selling, not managing tech.',
+  body: 'Leads, follow-ups, deadlines. All scattered across tools that don\'t talk to each other. Nothing connects without you holding it all together.',
+  subtext: 'We make it all talk to each other and keep it running. So you can be fully present for the people who matter.',
   ctaPrimary: 'Book Discovery Call',
 };
 
