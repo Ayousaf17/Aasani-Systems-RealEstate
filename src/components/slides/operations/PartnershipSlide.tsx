@@ -11,7 +11,7 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
 
   const toggleSection = (key: string) => {
-    setExpandedSections((prev) => ({ ...prev, [key]: !prev[key] }));
+    setExpandedSections((prev) => (prev[key] ? {} : { [key]: true }));
   };
 
   const handlePhaseChange = (phase: number) => {
