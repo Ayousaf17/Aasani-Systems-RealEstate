@@ -16,8 +16,10 @@ interface PricingSlideProps {
 
 export function PricingSlide({ index }: PricingSlideProps) {
   const [comparisonOpen, setComparisonOpen] = useState(false);
+  const [tooltipOpen, setTooltipOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+  const tooltipRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -61,6 +63,21 @@ export function PricingSlide({ index }: PricingSlideProps) {
       document.removeEventListener('touchstart', handleClickOutside);
     };
   }, [comparisonOpen]);
+
+  useEffect(() => {
+    if (!tooltipOpen) return;
+    const dismiss = (e: MouseEvent | TouchEvent) => {
+      if (tooltipRef.current && !tooltipRef.current.contains(e.target as Node)) {
+        setTooltipOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', dismiss);
+    document.addEventListener('touchstart', dismiss);
+    return () => {
+      document.removeEventListener('mousedown', dismiss);
+      document.removeEventListener('touchstart', dismiss);
+    };
+  }, [tooltipOpen]);
 
   const modalContent = (
     <>
@@ -200,8 +217,9 @@ export function PricingSlide({ index }: PricingSlideProps) {
             <div className="flex items-center gap-1.5 mb-5">
               <p className="text-xs text-neutral-400">{pricingContent.commitment}</p>
               {pricingContent.cancellation && (
-                <div className="relative group/tip shrink-0">
+                <div ref={tooltipRef} className="relative shrink-0">
                   <button
+                    onClick={() => setTooltipOpen(!tooltipOpen)}
                     className="text-neutral-500 hover:text-teal-300 transition-colors"
                     aria-label="Cancellation details"
                   >
@@ -210,7 +228,7 @@ export function PricingSlide({ index }: PricingSlideProps) {
                       className="text-sm"
                     />
                   </button>
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 opacity-0 invisible group-hover/tip:opacity-100 group-hover/tip:visible group-focus-within/tip:opacity-100 group-focus-within/tip:visible transition-all duration-200 pointer-events-none group-hover/tip:pointer-events-auto z-50">
+                  <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 transition-all duration-200 z-50 ${tooltipOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
                     <div className="bg-black/90 backdrop-blur-xl border border-white/15 rounded-lg p-3 shadow-xl shadow-black/40 relative">
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 w-2 h-2 bg-black/90 border-l border-t border-white/15 rotate-45 mb-[-5px]" />
                       <div className="space-y-1.5">
