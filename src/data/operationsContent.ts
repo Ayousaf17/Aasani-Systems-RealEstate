@@ -218,7 +218,7 @@ export const partnershipPhases = [
     whatYouGet: [
       'All 7 systems live and connected',
       'Systems tuned to real results, not guesses',
-      'Peace of mind — nothing falls through cracks',
+      'Peace of mind. Nothing falls through cracks.',
     ],
     infrastructure: [
       'We host and manage all workflows',
@@ -240,17 +240,17 @@ export const pricingContent = {
     'All 7 systems built and connected',
     'Ongoing management and maintenance',
     'Monthly optimization reviews',
-    'Priority support — same-day response',
+    'Priority support with same-day response',
   ],
   cancellation: {
     afterMinimum: 'After 3 months: Month-to-month cancellation',
     ifCancel: 'If you cancel: Systems stop (they run in our infrastructure)',
     yourData: 'Your data: Always stays in YOUR tools (FUB, Gmail, etc.)',
-    exitPackage: 'Want to self-manage? We offer a Partnership Exit Package — ask us about it on your call.',
+    exitPackage: 'Want to self-manage? We offer a Partnership Exit Package. Ask us about it on your call.',
   },
   guarantee: {
     icon: 'solar:shield-check-linear',
-    text: "Save 10+ hours in your first 90 days — or we optimize further, add workflows, or refund Month 3. Your call.",
+    text: "Save 10+ hours in your first 90 days. If not, we optimize further, add workflows, or refund Month 3. Your call.",
   },
 };
 
@@ -366,7 +366,7 @@ export const faqItems: FaqItem[] = [
           'Monthly optimization reviews',
           'New integration requests handled',
           'Ongoing monitoring and maintenance',
-          'Priority support — same-day response',
+          'Priority support with same-day response',
         ],
       },
       {
@@ -415,7 +415,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: 'How is this different from hiring a VA?',
-    answer: "A VA does tasks manually. We build systems that run automatically. When a VA leaves, your processes leave with them. When we build systems, they're yours forever.",
+    answer: "A VA does tasks manually. We build systems that run automatically. When a VA leaves, your processes leave with them. Our systems are documented, and your data always stays in your tools.",
   },
   {
     question: 'How long until I see results?',
