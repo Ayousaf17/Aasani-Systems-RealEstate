@@ -16,7 +16,6 @@ interface PricingSlideProps {
 
 export function PricingSlide({ index }: PricingSlideProps) {
   const [comparisonOpen, setComparisonOpen] = useState(false);
-  const [cancellationOpen, setCancellationOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -201,30 +200,30 @@ export function PricingSlide({ index }: PricingSlideProps) {
             <div className="flex items-center gap-1.5 mb-5">
               <p className="text-xs text-neutral-400">{pricingContent.commitment}</p>
               {pricingContent.cancellation && (
-                <button
-                  onClick={() => setCancellationOpen(!cancellationOpen)}
-                  className="text-neutral-500 hover:text-teal-300 transition-colors shrink-0"
-                  aria-label="Cancellation details"
-                >
-                  <iconify-icon
-                    icon={cancellationOpen ? 'solar:close-circle-linear' : 'solar:info-circle-linear'}
-                    className="text-sm"
-                  />
-                </button>
+                <div className="relative group/tip shrink-0">
+                  <button
+                    className="text-neutral-500 hover:text-teal-300 transition-colors"
+                    aria-label="Cancellation details"
+                  >
+                    <iconify-icon
+                      icon="solar:info-circle-linear"
+                      className="text-sm"
+                    />
+                  </button>
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 opacity-0 invisible group-hover/tip:opacity-100 group-hover/tip:visible group-focus-within/tip:opacity-100 group-focus-within/tip:visible transition-all duration-200 pointer-events-none group-hover/tip:pointer-events-auto z-50">
+                    <div className="bg-black/90 backdrop-blur-xl border border-white/15 rounded-lg p-3 shadow-xl shadow-black/40 relative">
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 w-2 h-2 bg-black/90 border-l border-t border-white/15 rotate-45 mb-[-5px]" />
+                      <div className="space-y-1.5">
+                        <p className="text-[11px] text-neutral-300 leading-relaxed">{pricingContent.cancellation.afterMinimum}</p>
+                        <p className="text-[11px] text-neutral-300 leading-relaxed">{pricingContent.cancellation.ifCancel}</p>
+                        <p className="text-[11px] text-neutral-300 leading-relaxed">{pricingContent.cancellation.yourData}</p>
+                        <p className="text-[11px] text-neutral-300 leading-relaxed">{pricingContent.cancellation.exitPackage}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               )}
             </div>
-
-            {/* Cancellation Details (collapsible) */}
-            {pricingContent.cancellation && (
-              <div className={`overflow-hidden transition-all duration-300 ${cancellationOpen ? 'max-h-40 mb-4' : 'max-h-0'}`}>
-                <div className="border-l-2 border-teal-500/30 pl-3 space-y-1 pb-1">
-                  <p className="text-xs text-neutral-500">{pricingContent.cancellation.afterMinimum}</p>
-                  <p className="text-xs text-neutral-500">{pricingContent.cancellation.ifCancel}</p>
-                  <p className="text-xs text-neutral-500">{pricingContent.cancellation.yourData}</p>
-                  <p className="text-xs text-neutral-500">{pricingContent.cancellation.exitPackage}</p>
-                </div>
-              </div>
-            )}
 
             {/* Included Items */}
             <div className="space-y-2 mb-5 flex-1">
