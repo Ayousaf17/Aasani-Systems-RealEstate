@@ -244,7 +244,7 @@ export function PricingSlide({ index }: PricingSlideProps) {
             </div>
 
             {/* Included Items */}
-            <div className="space-y-2 mb-5 flex-1">
+            <div className="space-y-2 mb-5">
               {pricingContent.included.map((item, i) => (
                 <p key={i} className="text-sm text-neutral-300 flex gap-2">
                   <span className="text-teal-300 shrink-0">&#10003;</span>
