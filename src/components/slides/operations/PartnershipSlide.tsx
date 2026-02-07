@@ -8,13 +8,23 @@ interface PartnershipSlideProps {
 
 export function PartnershipSlide({ index }: PartnershipSlideProps) {
   const [currentPhase, setCurrentPhase] = useState(0);
+  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
+
+  const toggleSection = (key: string) => {
+    setExpandedSections((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const handlePhaseChange = (phase: number) => {
+    setCurrentPhase(phase);
+    setExpandedSections({});
+  };
 
   const goToPrevious = () => {
-    setCurrentPhase((prev) => (prev > 0 ? prev - 1 : prev));
+    if (currentPhase > 0) handlePhaseChange(currentPhase - 1);
   };
 
   const goToNext = () => {
-    setCurrentPhase((prev) => (prev < partnershipPhases.length - 1 ? prev + 1 : prev));
+    if (currentPhase < partnershipPhases.length - 1) handlePhaseChange(currentPhase + 1);
   };
 
   return (
@@ -64,7 +74,7 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
                     {partnershipPhases.map((_, dotIdx) => (
                       <button
                         key={dotIdx}
-                        onClick={() => setCurrentPhase(dotIdx)}
+                        onClick={() => handlePhaseChange(dotIdx)}
                         className={`w-2 h-2 rounded-full transition-all duration-300 ${
                           dotIdx === currentPhase
                             ? 'w-8 bg-teal-400 shadow-lg shadow-teal-400/50'
@@ -85,21 +95,8 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
                     </span>
                   </div>
 
-                  <div className="flex-1 min-h-0 space-y-4 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]">
-                    <div>
-                      <p className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">
-                        What Happens
-                      </p>
-                      <div className="space-y-1.5">
-                        {phase.whatHappens.map((item, i) => (
-                          <p key={i} className="text-sm text-neutral-300 leading-relaxed flex gap-2">
-                            <span className="text-neutral-500 shrink-0">&rarr;</span>
-                            {item}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-
+                  <div className="flex-1 min-h-0 space-y-3 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]">
+                    {/* What You Get — always visible */}
                     <div>
                       <p className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">
                         What You Get
@@ -114,22 +111,75 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
                       </div>
                     </div>
 
-                    {phase.infrastructure && (
-                      <div>
-                        <p className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">
-                          Where It Lives
+                    {/* What Happens — collapsible */}
+                    <div className="border-t border-white/10 pt-2">
+                      <button
+                        onClick={() => toggleSection(`${idx}-whatHappens`)}
+                        className="flex items-center justify-between w-full py-1 group"
+                      >
+                        <p className="text-xs font-mono uppercase tracking-wider text-neutral-400 group-hover:text-neutral-300 transition-colors">
+                          What Happens
                         </p>
-                        <div className="space-y-1.5">
-                          {phase.infrastructure.map((item, i) => (
-                            <p key={i} className="text-sm text-neutral-400 leading-relaxed flex gap-2">
-                              <span className="text-neutral-500 shrink-0">&rarr;</span>
-                              {item}
-                            </p>
-                          ))}
+                        <iconify-icon
+                          icon="solar:alt-arrow-down-linear"
+                          className={`text-neutral-500 group-hover:text-neutral-300 text-sm transition-transform duration-300 ${
+                            expandedSections[`${idx}-whatHappens`] ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+                      <div
+                        className={`grid transition-all duration-300 ease-in-out ${
+                          expandedSections[`${idx}-whatHappens`] ? 'grid-rows-[1fr] opacity-100 mt-2' : 'grid-rows-[0fr] opacity-0'
+                        }`}
+                      >
+                        <div className="overflow-hidden">
+                          <div className="space-y-1.5">
+                            {phase.whatHappens.map((item, i) => (
+                              <p key={i} className="text-sm text-neutral-300 leading-relaxed flex gap-2">
+                                <span className="text-neutral-500 shrink-0">&rarr;</span>
+                                {item}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Where It Lives — collapsible (phases 1 & 3 only) */}
+                    {phase.infrastructure && (
+                      <div className="border-t border-white/10 pt-2">
+                        <button
+                          onClick={() => toggleSection(`${idx}-infrastructure`)}
+                          className="flex items-center justify-between w-full py-1 group"
+                        >
+                          <p className="text-xs font-mono uppercase tracking-wider text-neutral-400 group-hover:text-neutral-300 transition-colors">
+                            Where It Lives
+                          </p>
+                          <iconify-icon
+                            icon="solar:alt-arrow-down-linear"
+                            className={`text-neutral-500 group-hover:text-neutral-300 text-sm transition-transform duration-300 ${
+                              expandedSections[`${idx}-infrastructure`] ? 'rotate-180' : ''
+                            }`}
+                          />
+                        </button>
+                        <div
+                          className={`grid transition-all duration-300 ease-in-out ${
+                            expandedSections[`${idx}-infrastructure`] ? 'grid-rows-[1fr] opacity-100 mt-2' : 'grid-rows-[0fr] opacity-0'
+                          }`}
+                        >
+                          <div className="overflow-hidden">
+                            <div className="space-y-1.5">
+                              {phase.infrastructure.map((item, i) => (
+                                <p key={i} className="text-sm text-neutral-400 leading-relaxed flex gap-2">
+                                  <span className="text-neutral-500 shrink-0">&rarr;</span>
+                                  {item}
+                                </p>
+                              ))}
+                            </div>
+                          </div>
                         </div>
                       </div>
                     )}
-
                   </div>
 
                   {/* Navigation — pinned bottom via mt-auto */}
