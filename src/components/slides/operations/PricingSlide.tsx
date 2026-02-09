@@ -231,13 +231,7 @@ export function PricingSlide({ index }: PricingSlideProps) {
                   <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 transition-all duration-200 z-50 ${tooltipOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
                     <div className="bg-black/90 backdrop-blur-xl border border-white/15 rounded-lg p-3 shadow-xl shadow-black/40 relative">
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 w-2 h-2 bg-black/90 border-l border-t border-white/15 rotate-45 mb-[-5px]" />
-                      <div className="space-y-1.5">
-                        <p className="text-[11px] text-neutral-200 leading-relaxed font-medium">{pricingContent.commitment.why}</p>
-                        <p className="text-[11px] text-neutral-300 leading-relaxed">{pricingContent.commitment.month1}</p>
-                        <p className="text-[11px] text-neutral-300 leading-relaxed">{pricingContent.commitment.month2}</p>
-                        <p className="text-[11px] text-neutral-300 leading-relaxed">{pricingContent.commitment.month3}</p>
-                        <p className="text-[11px] text-neutral-300 leading-relaxed">{pricingContent.commitment.after}</p>
-                      </div>
+                      <p className="text-[11px] text-neutral-200 leading-relaxed">{pricingContent.commitment.text}</p>
                     </div>
                   </div>
                 </div>

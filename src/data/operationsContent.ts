@@ -243,11 +243,7 @@ export const pricingContent = {
     'Priority support with same-day response',
   ],
   commitment: {
-    why: "Why 3 months? That's how long it takes to build, connect, and tune all 7 systems with your real data.",
-    month1: 'Month 1: Audit your tools, design the system, launch lead response',
-    month2: 'Month 2: Expand automations, add follow-ups and scheduling',
-    month3: 'Month 3: Optimize with real data. Everything connected and tuned.',
-    after: 'After that, month-to-month. Most partners stay because the value keeps compounding.',
+    text: "3 months to build, connect, and tune all 7 systems. After that, month-to-month.",
   },
   guarantee: {
     icon: 'solar:shield-check-linear',
