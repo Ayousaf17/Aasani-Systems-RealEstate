@@ -215,13 +215,13 @@ export function PricingSlide({ index }: PricingSlideProps) {
               </span>
             </div>
             <div className="flex items-center gap-1.5 mb-5">
-              <p className="text-xs text-neutral-400">{pricingContent.commitment}</p>
-              {pricingContent.cancellation && (
+              <p className="text-xs text-neutral-400">{pricingContent.commitmentLabel}</p>
+              {pricingContent.commitment && (
                 <div ref={tooltipRef} className="relative shrink-0">
                   <button
                     onClick={() => setTooltipOpen(!tooltipOpen)}
                     className="text-neutral-500 hover:text-teal-300 transition-colors"
-                    aria-label="Cancellation details"
+                    aria-label="Commitment details"
                   >
                     <iconify-icon
                       icon="solar:info-circle-linear"
@@ -232,10 +232,11 @@ export function PricingSlide({ index }: PricingSlideProps) {
                     <div className="bg-black/90 backdrop-blur-xl border border-white/15 rounded-lg p-3 shadow-xl shadow-black/40 relative">
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 w-2 h-2 bg-black/90 border-l border-t border-white/15 rotate-45 mb-[-5px]" />
                       <div className="space-y-1.5">
-                        <p className="text-[11px] text-neutral-300 leading-relaxed">{pricingContent.cancellation.afterMinimum}</p>
-                        <p className="text-[11px] text-neutral-300 leading-relaxed">{pricingContent.cancellation.ifCancel}</p>
-                        <p className="text-[11px] text-neutral-300 leading-relaxed">{pricingContent.cancellation.yourData}</p>
-                        <p className="text-[11px] text-neutral-300 leading-relaxed">{pricingContent.cancellation.exitPackage}</p>
+                        <p className="text-[11px] text-neutral-200 leading-relaxed font-medium">{pricingContent.commitment.why}</p>
+                        <p className="text-[11px] text-neutral-300 leading-relaxed">{pricingContent.commitment.month1}</p>
+                        <p className="text-[11px] text-neutral-300 leading-relaxed">{pricingContent.commitment.month2}</p>
+                        <p className="text-[11px] text-neutral-300 leading-relaxed">{pricingContent.commitment.month3}</p>
+                        <p className="text-[11px] text-neutral-300 leading-relaxed">{pricingContent.commitment.after}</p>
                       </div>
                     </div>
                   </div>

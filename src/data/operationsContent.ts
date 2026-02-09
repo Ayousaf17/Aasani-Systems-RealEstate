@@ -224,7 +224,7 @@ export const partnershipPhases = [
       'We host and manage all workflows',
       'You own your data (always in your tools)',
       'Monthly optimization sessions continue after Month 3',
-      'Month-to-month after this. Cancel anytime.',
+      'Your systems keep improving as your business grows.',
     ],
   },
 ];
@@ -234,7 +234,7 @@ export const pricingContent = {
   price: '$497',
   regularPrice: '$997',
   period: '/month',
-  commitment: '3-month minimum',
+  commitmentLabel: '3-month minimum',
   included: [
     'Full system audit and architecture design',
     'All 7 systems built and connected',
@@ -242,15 +242,16 @@ export const pricingContent = {
     'Monthly optimization reviews',
     'Priority support with same-day response',
   ],
-  cancellation: {
-    afterMinimum: 'After 3 months: Month-to-month cancellation',
-    ifCancel: 'If you cancel: Systems stop (they run in our infrastructure)',
-    yourData: 'Your data: Always stays in YOUR tools (FUB, Gmail, etc.)',
-    exitPackage: 'Want to self-manage? We offer a Partnership Exit Package. Ask us about it on your call.',
+  commitment: {
+    why: "Why 3 months? That's how long it takes to build, connect, and tune all 7 systems with your real data.",
+    month1: 'Month 1: Audit your tools, design the system, launch lead response',
+    month2: 'Month 2: Expand automations, add follow-ups and scheduling',
+    month3: 'Month 3: Optimize with real data. Everything connected and tuned.',
+    after: 'After that, month-to-month. Most partners stay because the value keeps compounding.',
   },
   guarantee: {
     icon: 'solar:shield-check-linear',
-    text: "Save 10+ hours in your first 90 days. If not, we optimize further, add workflows, or refund Month 3. Your call.",
+    text: "If it's not working, we don't walk away. We adjust, rebuild, or add workflows until it is. That's what a partnership means.",
   },
 };
 
@@ -272,44 +273,6 @@ export type FaqItem = {
 };
 
 export const faqItems: FaqItem[] = [
-  {
-    question: 'Can I cancel after the 3-month minimum?',
-    answer: 'Yes. After the initial 3 months, your partnership is month-to-month. You can cancel anytime.',
-    sections: [
-      {
-        heading: 'What You Keep',
-        items: [
-          'Your data (it lives in YOUR tools: FUB, Gmail, etc.)',
-          'Documentation of everything we built',
-          'Any templates or assets we created',
-        ],
-      },
-      {
-        heading: 'What Stops',
-        items: [
-          'Automated workflows (they run in our infrastructure)',
-          'Ongoing monitoring and maintenance',
-          'Monthly optimization sessions',
-        ],
-      },
-      {
-        heading: 'Want to Self-Manage?',
-        items: [
-          'We offer a Partnership Exit Package. Ask about it on your call.',
-          'We rebuild workflows in YOUR own automation environment',
-          'Full training + handoff documentation',
-        ],
-      },
-      {
-        heading: 'Why Partners Stay',
-        items: [
-          'Most partners continue because the value exceeds the cost',
-          '$497/mo vs. hiring an ops manager ($3-5K/mo)',
-          'Systems improve monthly, not just maintained',
-        ],
-      },
-    ],
-  },
   {
     question: 'Do I need to switch CRMs or buy new tools?',
     answer: 'No. We work with the tools you already use and connect them together.',
@@ -419,7 +382,32 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: 'How long until I see results?',
-    answer: 'Most clients see their first automation live within 2 weeks. Full system implementation takes about 90 days, but you start saving time from week one.',
+    answer: 'The first 3 months are the build. Results compound after that.',
+    sections: [
+      {
+        heading: 'Month 1: Foundation',
+        items: [
+          'Your lead sources get connected. Inquiries start routing to your CRM automatically.',
+          'You will see things moving, but the system is still being built.',
+        ],
+      },
+      {
+        heading: 'Month 2-3: Expansion and Tuning',
+        items: [
+          'Follow-ups, scheduling, and transaction tracking go live.',
+          'We tune everything based on real data from your business.',
+          'By end of Month 3, all 7 systems are connected and optimized.',
+        ],
+      },
+      {
+        heading: 'Month 4+: Compounding Results',
+        items: [
+          'This is where you feel the full difference.',
+          'Every system works together. Time savings add up. Nothing falls through.',
+          'Most partners say Month 4 is when it "clicks."',
+        ],
+      },
+    ],
   },
   {
     question: 'Do you replace my CRM?',
