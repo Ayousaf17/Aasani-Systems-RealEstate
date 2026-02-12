@@ -211,6 +211,10 @@ export function PartnershipSlide({ index }: PartnershipSlideProps) {
               </div>
             ))}
           </div>
+
+          <p className="text-[10px] md:text-xs text-neutral-500 text-center mt-3 leading-relaxed">
+            Phases may vary based on your tools and environment. Exact timelines are determined in Phase 1.
+          </p>
         </AnimatedElement>
       </div>
     </section>
