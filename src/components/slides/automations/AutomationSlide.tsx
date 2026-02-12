@@ -25,6 +25,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
     <section
       className="slide-container flex-shrink-0 bg-[#0A0A0A] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center z-[60]"
       id={`slide-${slideIndex}`}
+      style={{ contain: 'paint layout', willChange: 'transform' }}
     >
       <div className="absolute inset-0 bg-wave-pattern opacity-20 pointer-events-none z-0" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/80 to-[#0A0A0A] z-0" />
@@ -60,7 +61,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
 
         {/* Stat Card - Ultra Compact - Flex Shrink */}
         <AnimatedElement delay={0.3} className="flex-shrink-0 mb-5 md:mb-6 relative z-10">
-          <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-lg p-3 md:p-4 shadow-2xl">
+          <div className="bg-black/70 border border-white/10 rounded-lg p-3 md:p-4 shadow-2xl">
             <div className="flex items-start justify-between gap-3">
               <div className="flex flex-col flex-1 min-w-0">
                 <span className="text-xl md:text-2xl font-bold text-white tracking-tighter font-display">
@@ -100,7 +101,7 @@ export function AutomationSlide({ data, slideIndex }: AutomationSlideProps) {
                     : 'opacity-0 pointer-events-none'
                 }`}
               >
-                <div className={`backdrop-blur-2xl border border-white/15 rounded-lg p-4 md:p-5 flex flex-col shadow-lg ${idx === currentStep ? 'animate-glaze-in' : 'bg-black/60'}`}>
+                <div className={`bg-black/60 border border-white/15 rounded-lg p-4 md:p-5 flex flex-col shadow-lg ${idx === currentStep ? 'animate-glaze-in' : ''}`}>
                   {/* Dots */}
                   <div className="flex items-center justify-center gap-2 mb-4">
                     {sectionLabels.map((_, dotIdx) => (
