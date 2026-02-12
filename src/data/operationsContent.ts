@@ -170,7 +170,7 @@ export const systemsOverview = [
 export const partnershipPhases = [
   {
     title: 'Phase 1: Foundation',
-    duration: 'Month 1',
+    duration: 'Week 1',
     badgeColor: 'bg-teal-500/20 text-teal-300/90',
     whatHappens: [
       'Full audit of your current tools and workflows',
@@ -191,13 +191,13 @@ export const partnershipPhases = [
   },
   {
     title: 'Phase 2: Expansion',
-    duration: 'Month 2',
+    duration: 'Weeks 2-3',
     badgeColor: 'bg-cyan-500/20 text-cyan-300',
     whatHappens: [
       'Build follow-up sequences and scheduling automation',
       'Set up transaction coordination workflows',
       'Create client communication templates',
-      'Test and refine with real data from Month 1',
+      'Test and refine with real data from Week 1',
     ],
     whatYouGet: [
       'Automated follow-ups that sound like you',
@@ -207,7 +207,7 @@ export const partnershipPhases = [
   },
   {
     title: 'Phase 3: Optimization',
-    duration: 'Month 3',
+    duration: 'Weeks 3-4',
     badgeColor: 'bg-emerald-500/20 text-emerald-300',
     whatHappens: [
       'First full performance review with real data',
@@ -223,7 +223,7 @@ export const partnershipPhases = [
     infrastructure: [
       'We host and manage all workflows',
       'You own your data (always in your tools)',
-      'Monthly optimization sessions continue after Month 3',
+      'Monthly optimization sessions continue after Week 4',
       'Your systems keep improving as your business grows.',
     ],
   },
@@ -234,7 +234,7 @@ export const pricingContent = {
   price: '$497',
   regularPrice: '$997',
   period: '/month',
-  commitmentLabel: '3-month minimum',
+  commitmentLabel: '1-month minimum',
   included: [
     'Full system audit and architecture design',
     'All 7 systems built and connected',
@@ -243,7 +243,7 @@ export const pricingContent = {
     'Priority support with same-day response',
   ],
   commitment: {
-    text: "3 months to build, connect, and tune all 7 systems. After that, month-to-month.",
+    text: "1 month to build, connect, and tune all 7 systems. After that, month-to-month.",
   },
   guarantee: {
     icon: 'solar:shield-check-linear',
@@ -301,10 +301,10 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: 'What exactly am I paying for?',
-    answer: 'Month 1: Audit and build. Months 2-3: Optimize and expand. Month 4+: Ongoing partnership.',
+    answer: 'Week 1: Audit and build. Weeks 2-4: Optimize and expand. Month 2+: Ongoing partnership.',
     sections: [
       {
-        heading: 'Month 1: Foundation',
+        heading: 'Week 1: Foundation',
         items: [
           'Full audit of your tools and workflows',
           'System architecture design',
@@ -312,7 +312,7 @@ export const faqItems: FaqItem[] = [
         ],
       },
       {
-        heading: 'Month 2-3: Optimization',
+        heading: 'Weeks 2-4: Optimization',
         items: [
           'Expand automations across your business',
           'Fine-tune based on real usage data',
@@ -320,7 +320,7 @@ export const faqItems: FaqItem[] = [
         ],
       },
       {
-        heading: 'Month 4+: Partnership',
+        heading: 'Month 2+: Partnership',
         items: [
           'Monthly optimization reviews',
           'New integration requests handled',
@@ -378,29 +378,29 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: 'How long until I see results?',
-    answer: 'The first 3 months are the build. Results compound after that.',
+    answer: 'The first month is the build. Results compound after that.',
     sections: [
       {
-        heading: 'Month 1: Foundation',
+        heading: 'Week 1: Foundation',
         items: [
           'Your lead sources get connected. Inquiries start routing to your CRM automatically.',
           'You will see things moving, but the system is still being built.',
         ],
       },
       {
-        heading: 'Month 2-3: Expansion and Tuning',
+        heading: 'Weeks 2-4: Expansion and Tuning',
         items: [
           'Follow-ups, scheduling, and transaction tracking go live.',
           'We tune everything based on real data from your business.',
-          'By end of Month 3, all 7 systems are connected and optimized.',
+          'By end of Week 4, all 7 systems are connected and optimized.',
         ],
       },
       {
-        heading: 'Month 4+: Compounding Results',
+        heading: 'Month 2+: Compounding Results',
         items: [
           'This is where you feel the full difference.',
           'Every system works together. Time savings add up. Nothing falls through.',
-          'Most partners say Month 4 is when it "clicks."',
+          'Most partners say Month 2 is when it "clicks."',
         ],
       },
     ],
