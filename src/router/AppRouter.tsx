@@ -3,6 +3,7 @@ import { HomePage } from '../pages/HomePage';
 import { AutomationsPage } from '../pages/AutomationsPage';
 import { ChecklistPage } from '../pages/ChecklistPage';
 import { OperationsPage } from '../pages/OperationsPage';
+import { DemoPage } from '../pages/DemoPage';
 
 export function AppRouter() {
   return (
@@ -12,6 +13,7 @@ export function AppRouter() {
         <Route path="/" element={<OperationsPage />} />
         <Route path="/automations" element={<AutomationsPage />} />
         <Route path="/checklist" element={<ChecklistPage />} />
+        <Route path="/demo" element={<DemoPage />} />
 
         {/*
           ⚠️ WIP - NOT PRODUCTION READY ⚠️
