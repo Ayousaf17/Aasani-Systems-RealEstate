@@ -157,7 +157,7 @@ export function PricingSlide({ index }: PricingSlideProps) {
                     </div>
                     <div className="flex justify-between text-sm border-t border-white/10 pt-2">
                       <span className="text-teal-300 font-medium">Aasani Partnership</span>
-                      <span className="text-teal-300 font-bold">$497</span>
+                      <span className="text-teal-300 font-bold">$499</span>
                     </div>
                   </div>
                 </div>

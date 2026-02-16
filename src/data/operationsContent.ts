@@ -231,8 +231,8 @@ export const partnershipPhases = [
 
 export const pricingContent = {
   badge: 'BETA PARTNERSHIP',
-  price: '$497',
-  regularPrice: '$997',
+  price: '$499',
+  regularPrice: '$999',
   period: '/month',
   commitmentLabel: '1-month minimum',
   included: [
@@ -259,7 +259,7 @@ export const comparisonTable = [
   { category: 'Relationship', diy: 'Software subscription', aasani: 'Operations partner' },
   { category: 'When it breaks', diy: 'You fix it', aasani: 'We fix it' },
   { category: 'Optimization', diy: 'Static workflows', aasani: 'Monthly optimization' },
-  { category: 'Cost', diy: '$69-500/mo per tool', aasani: '$497/mo all-inclusive' },
+  { category: 'Cost', diy: '$69-500/mo per tool', aasani: '$499/mo all-inclusive' },
 ];
 
 export type FaqItem = {
@@ -363,7 +363,7 @@ export const faqItems: FaqItem[] = [
           'We host and manage the infrastructure',
           'We fix issues proactively (usually before you notice)',
           'We optimize monthly based on real data',
-          '$497/mo, all-inclusive. No per-task billing.',
+          '$499/mo, all-inclusive. No per-task billing.',
         ],
       },
     ],
